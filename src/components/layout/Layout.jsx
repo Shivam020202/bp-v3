@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import MegaMenuHeader from "../MegaMenuHeader";
+import MegaMenuHeader from "./Header/MegaMenuHeader";
 import Footer from "./Footer";
 
 const Layout = ({ children }) => {
