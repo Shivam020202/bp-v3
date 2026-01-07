@@ -409,11 +409,10 @@ const MegaMenuHeader = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 container mx-auto px-6 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 container mx-auto px-6 ${isScrolled
           ? "bg-black/30 shadow-md backdrop-blur-sm rounded-full mt-2"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
@@ -421,7 +420,7 @@ const MegaMenuHeader = () => {
           <div className="flex items-center gap-8">
             <a href="/" className="flex items-center gap-2">
               <img
-                src="bp-logo.png"
+                src="/bp-logo.png"
                 alt="Branding Pioneers Logo"
                 className="h-10"
               />
@@ -432,11 +431,10 @@ const MegaMenuHeader = () => {
           <nav className="hidden lg:flex items-center gap-1">
             <a
               href="#"
-              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                isScrolled
+              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${isScrolled
                   ? "text-warm-100 hover:text-warm-900 hover:bg-cream-100"
                   : "text-white hover:text-white/80 hover:bg-white/10"
-              }`}
+                }`}
             >
               Platform
             </a>
@@ -448,17 +446,15 @@ const MegaMenuHeader = () => {
               onMouseLeave={handleMenuLeave}
             >
               <button
-                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                  isScrolled
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${isScrolled
                     ? "text-warm-100 hover:text-warm-900 hover:bg-cream-100"
                     : "text-white hover:text-white/80 hover:bg-white/10"
-                }`}
+                  }`}
               >
                 Services
                 <FaChevronDown
-                  className={`text-xs transition-transform duration-200 ${
-                    activeMenu === "services" ? "rotate-180" : ""
-                  }`}
+                  className={`text-xs transition-transform duration-200 ${activeMenu === "services" ? "rotate-180" : ""
+                    }`}
                 />
               </button>
 
@@ -485,29 +481,26 @@ const MegaMenuHeader = () => {
                                 onMouseEnter={() =>
                                   setActiveServicesCategory(index)
                                 }
-                                className={`w-full text-left px-3 py-3 rounded-lg transition-all ${
-                                  activeServicesCategory === index
+                                className={`w-full text-left px-3 py-3 rounded-lg transition-all ${activeServicesCategory === index
                                     ? "bg-white shadow-sm"
                                     : "hover:bg-white/50"
-                                }`}
+                                  }`}
                               >
                                 <div className="flex items-start gap-3">
                                   <div
-                                    className={`text-lg mt-0.5 ${
-                                      activeServicesCategory === index
+                                    className={`text-lg mt-0.5 ${activeServicesCategory === index
                                         ? "text-purple-600"
                                         : "text-purple-400"
-                                    }`}
+                                      }`}
                                   >
                                     {category.icon}
                                   </div>
                                   <div className="flex-1 min-w-0">
                                     <div
-                                      className={`text-sm font-semibold mb-0.5 ${
-                                        activeServicesCategory === index
+                                      className={`text-sm font-semibold mb-0.5 ${activeServicesCategory === index
                                           ? "text-purple-900"
                                           : "text-purple-700"
-                                      }`}
+                                        }`}
                                     >
                                       {category.title}
                                     </div>
@@ -608,17 +601,15 @@ const MegaMenuHeader = () => {
               onMouseLeave={handleMenuLeave}
             >
               <button
-                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                  isScrolled
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${isScrolled
                     ? "text-warm-100 hover:text-warm-900 hover:bg-cream-100"
                     : "text-white hover:text-white/80 hover:bg-white/10"
-                }`}
+                  }`}
               >
                 Resources
                 <FaChevronDown
-                  className={`text-xs transition-transform duration-200 ${
-                    activeMenu === "resources" ? "rotate-180" : ""
-                  }`}
+                  className={`text-xs transition-transform duration-200 ${activeMenu === "resources" ? "rotate-180" : ""
+                    }`}
                 />
               </button>
 
@@ -644,29 +635,26 @@ const MegaMenuHeader = () => {
                               <button
                                 key={category.id}
                                 onMouseEnter={() => setActiveCategory(index)}
-                                className={`w-full text-left px-3 py-3 rounded-lg transition-all ${
-                                  activeCategory === index
+                                className={`w-full text-left px-3 py-3 rounded-lg transition-all ${activeCategory === index
                                     ? "bg-white shadow-sm"
                                     : "hover:bg-white/50"
-                                }`}
+                                  }`}
                               >
                                 <div className="flex items-start gap-3">
                                   <div
-                                    className={`text-lg mt-0.5 ${
-                                      activeCategory === index
+                                    className={`text-lg mt-0.5 ${activeCategory === index
                                         ? "text-warm-600"
                                         : "text-gray-400"
-                                    }`}
+                                      }`}
                                   >
                                     {category.icon}
                                   </div>
                                   <div className="flex-1 min-w-0">
                                     <div
-                                      className={`text-sm font-semibold mb-0.5 ${
-                                        activeCategory === index
+                                      className={`text-sm font-semibold mb-0.5 ${activeCategory === index
                                           ? "text-warm-900"
                                           : "text-gray-700"
-                                      }`}
+                                        }`}
                                     >
                                       {category.title}
                                     </div>
@@ -764,11 +752,10 @@ const MegaMenuHeader = () => {
 
             <a
               href="#"
-              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                isScrolled
+              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${isScrolled
                   ? "text-warm-100 hover:text-warm-900 hover:bg-cream-100"
                   : "text-white hover:text-white/80 hover:bg-white/10"
-              }`}
+                }`}
             >
               Pricing
             </a>
@@ -777,11 +764,10 @@ const MegaMenuHeader = () => {
           {/* Right Side Actions */}
           <div className="flex items-center gap-3">
             <button
-              className={`hidden lg:block px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                isScrolled
+              className={`hidden lg:block px-4 py-2 rounded-full text-sm font-medium transition-colors ${isScrolled
                   ? "bg-warm-700 text-white hover:bg-warm-800"
                   : "bg-white text-warm-700 hover:bg-white/90"
-              }`}
+                }`}
             >
               Request a demo
             </button>
@@ -789,9 +775,8 @@ const MegaMenuHeader = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`lg:hidden p-2 transition-colors ${
-                isScrolled ? "text-warm-700" : "text-white"
-              }`}
+              className={`lg:hidden p-2 transition-colors ${isScrolled ? "text-warm-700" : "text-white"
+                }`}
             >
               {isMobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
             </button>
