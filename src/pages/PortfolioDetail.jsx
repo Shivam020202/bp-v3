@@ -12,7 +12,7 @@ import {
   FaPlus,
   FaMinus,
 } from "react-icons/fa";
-import StackScroll from "../components/StackScroll";
+import StackScroll2 from "../components/StackScroll2";
 
 const PortfolioDetail = () => {
   const { id } = useParams();
@@ -56,7 +56,7 @@ const PortfolioDetail = () => {
   return (
     <div className="min-h-screen bg-cream-200">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative h-screen overflow-hidden">
+      <section ref={heroRef} className="relative h-[70vh] md:h-[80vh] overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
@@ -152,7 +152,7 @@ const PortfolioDetail = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <motion.div
+        {/* <motion.div
           className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
@@ -164,7 +164,7 @@ const PortfolioDetail = () => {
               transition={{ duration: 2, repeat: Infinity }}
             />
           </div>
-        </motion.div>
+        </motion.div> */}
       </section>
 
       {/* Project Overview - Case Study Style */}
@@ -295,10 +295,39 @@ const PortfolioDetail = () => {
 
 
    
-      {/* Image Gallery - GSAP Stack Scroll Effect */}
+      {/* Image Gallery - Stack Scroll Effect with Parallax */}
       <section ref={galleryRef} className="py-20 bg-cream-50 relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          {/* Section Header */}
+        {/* Parallax Background Layer 1 */}
+        <motion.div
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: `radial-gradient(circle at 20% 50%, rgba(139, 111, 71, 0.3) 0%, transparent 50%),
+                             radial-gradient(circle at 80% 80%, rgba(139, 111, 71, 0.2) 0%, transparent 50%)`
+          }}
+          initial={{ y: 0 }}
+          whileInView={{ y: -50 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        />
+
+        {/* Parallax Background Layer 2 */}
+        <motion.div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, #8b6f47 1px, transparent 1px),
+              linear-gradient(to bottom, #8b6f47 1px, transparent 1px)
+            `,
+            backgroundSize: "60px 60px"
+          }}
+          initial={{ y: 0 }}
+          whileInView={{ y: -100 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 2, ease: "easeOut" }}
+        />
+
+        <div className="container mx-auto px-4 relative z-10">
+          {/* Section Header with Parallax */}
           <motion.div
             className="text-center max-w-3xl mx-auto mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -307,9 +336,9 @@ const PortfolioDetail = () => {
           >
             <motion.div
               className="inline-block mb-4"
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
+              initial={{ scale: 0, y: 20 }}
+              whileInView={{ scale: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
               transition={{ type: "spring", delay: 0.2 }}
             >
               <span className="inline-flex items-center gap-2 bg-warm-100 text-warm-700 px-5 py-2 rounded-full text-sm font-bold uppercase tracking-wide">
@@ -317,23 +346,39 @@ const PortfolioDetail = () => {
                 <span>Project Showcase</span>
               </span>
             </motion.div>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-warm-900 mb-4">
+            <motion.h2
+              className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-warm-900 mb-4"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.5 }}
+              transition={{ duration: 0.8 }}
+            >
               Visual Journey
-            </h2>
-            <p className="text-warm-600 text-lg">
+            </motion.h2>
+            <motion.p
+              className="text-warm-600 text-lg"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               Scroll through the project gallery
-            </p>
+            </motion.p>
           </motion.div>
 
-          {/* GSAP Stacking Images */}
-          <StackScroll images={project.images} projectTitle={project.title} />
+          {/* Stacking Images */}
+          <StackScroll2
+            images={project.images}
+            mobileImages={project.mobileImages}
+            projectTitle={project.title}
+          />
         </div>
       </section>
 
 
 
       {/* Related Work Section */}
-      <section className="py-20 bg-cream-100 relative overflow-hidden">
+      <section className="py-20 bg-cream-100 relative overflow-hidden z-50">
         {/* Background Pattern */}
         <div
           className="absolute inset-0 opacity-[0.03]"
@@ -437,7 +482,7 @@ const PortfolioDetail = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-cream-50 relative overflow-hidden">
+      <section className="py-20 bg-cream-50 relative overflow-hidden z-50">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Left Side - Title & Description */}

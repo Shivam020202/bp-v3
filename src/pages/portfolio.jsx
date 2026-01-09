@@ -273,7 +273,7 @@ const PortfolioPage = () => {
       </section>
 
       {/* Stats Section */}
-      <section ref={statsRef} className="py-16 bg-white relative overflow-hidden">
+      {/* <section ref={statsRef} className="py-16 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-cream-100 via-white to-cream-100 opacity-50" />
 
         <div className="container mx-auto px-4 relative z-10">
@@ -301,7 +301,7 @@ const PortfolioPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
    
 

@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import WebDevelopmentPage from "./pages/WebDevelopmentPage";
 import PortfolioPage from "./pages/portfolio";
 import PortfolioDetail from "./pages/PortfolioDetail";
+import StackScrollTest from "./pages/StackScrollTest";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/services/web-development" element={<WebDevelopmentPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/portfolio/:id" element={<PortfolioDetail />} />
+          <Route path="/stack-scroll-test" element={<StackScrollTest />} />
         </Routes>
       </Layout>
     </Router>
