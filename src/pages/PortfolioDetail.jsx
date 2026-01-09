@@ -1,6 +1,7 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect, Fragment } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { projects } from "../constants/projects";
 import {
   FaArrowLeft,
   FaArrowRight,
@@ -30,59 +31,27 @@ const PortfolioDetail = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState(1); // Default to second FAQ open
   const [isCarouselPaused, setIsCarouselPaused] = useState(false);
 
-  // Sample project data (in real app, fetch based on id)
-  const project = {
-    id: 1,
-    title: "Bloom Beauty Co.",
-    subtitle: "Complete Brand Identity & Packaging Design",
-    category: "Branding",
-    year: "2024",
-    client: "Bloom Beauty",
-    duration: "3 months",
-    heroImage: "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=1200&h=800&fit=crop",
-    description: "A comprehensive branding project for a modern beauty brand targeting Gen-Z consumers. We created a fresh, vibrant identity that speaks to sustainability and self-expression.",
-    challenge: "Bloom Beauty needed to stand out in a saturated market while maintaining a premium feel. The brand required a complete visual identity from scratch, including logo design, color palette, typography, and packaging design that would resonate with eco-conscious millennials and Gen-Z consumers.",
-    solution: "We developed a bold, nature-inspired brand identity featuring organic shapes, a vibrant color palette, and sustainable packaging solutions. The design system is flexible enough to grow with the brand while maintaining a strong, recognizable presence.",
-    tags: ["Brand Strategy", "Visual Identity", "Packaging", "Art Direction"],
-    color: "from-pink-300 via-rose-300 to-pink-400",
-    images: [
-      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1587556930699-5da0a2c0b7e4?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=800&h=600&fit=crop",
-    ],
-    keyFeatures: [
-      {
-        title: "Brand Identity System",
-        description: "Complete logo suite with primary, secondary, and icon variations for versatile application across all touchpoints."
-      },
-      {
-        title: "Sustainable Packaging",
-        description: "Eco-friendly packaging design using recyclable materials with innovative structural design for product protection."
-      },
-      {
-        title: "Visual Language",
-        description: "Cohesive color palette, typography system, and graphic elements creating a distinctive brand presence."
-      },
-      {
-        title: "Digital Templates",
-        description: "Social media templates, email designs, and web assets maintaining brand consistency across platforms."
-      }
-    ],
-    results: [
-      { metric: "200%", label: "Increase in Brand Recognition" },
-      { metric: "150%", label: "Social Media Growth" },
-      { metric: "85%", label: "Customer Satisfaction" },
-      { metric: "3x", label: "Sales Performance" },
-    ],
-    testimonial: {
-      quote: "The team transformed our vision into a stunning reality. The brand identity they created perfectly captures our values and resonates with our audience. Sales have tripled since the rebrand!",
-      author: "Sarah Mitchell",
-      position: "Founder & CEO, Bloom Beauty"
-    }
-  };
+  // Get project data from constants based on id
+  const project = projects.find(p => p.id === parseInt(id));
+
+  useEffect(() => {
+    // Scroll to top on mount or id change
+    window.scrollTo(0, 0);
+  }, [id]);
+
+  if (!project) {
+    return (
+      <div className="min-h-screen bg-cream-200 flex flex-col items-center justify-center p-4">
+        <h1 className="font-display text-4xl font-bold text-warm-900 mb-4">Project Not Found</h1>
+        <button
+          onClick={() => navigate('/portfolio')}
+          className="bg-warm-700 text-white px-8 py-4 rounded-full font-bold hover:bg-warm-800 transition-all shadow-lg"
+        >
+          Back to Portfolio
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-cream-200">
@@ -275,30 +244,21 @@ const PortfolioDetail = () => {
                   WHY WE'RE PROUD TO PARTNER
                 </h3>
                 <ul className="space-y-4">
-                  <motion.li
-                    className="text-cream-100 leading-relaxed"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={isContentInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: 0.5 }}
-                  >
-                    Innovative brand approach for {project.client} with {project.duration} of dedication
-                  </motion.li>
-                  <motion.li
-                    className="text-cream-100 leading-relaxed"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={isContentInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: 0.6 }}
-                  >
-                    Adapts to evolving market needs with modern design principles
-                  </motion.li>
-                  <motion.li
-                    className="text-cream-100 leading-relaxed"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={isContentInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: 0.7 }}
-                  >
-                    Strategic solutions that deliver measurable results and lasting impact
-                  </motion.li>
+                  {(project.partnershipReasons || [
+                    `Innovative brand approach for ${project.client} with ${project.duration} of dedication`,
+                    "Adapts to evolving market needs with modern design principles",
+                    "Strategic solutions that deliver measurable results and lasting impact"
+                  ]).map((reason, index) => (
+                    <motion.li
+                      key={index}
+                      className="text-cream-100 leading-relaxed"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={isContentInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: 0.5 + index * 0.1 }}
+                    >
+                      {reason}
+                    </motion.li>
+                  ))}
                 </ul>
               </div>
             </motion.div>
@@ -366,7 +326,7 @@ const PortfolioDetail = () => {
           </motion.div>
 
           {/* GSAP Stacking Images */}
-          <StackScrollGallery images={project.images.slice(0, 5)} projectTitle={project.title} />
+          <StackScroll images={project.images} projectTitle={project.title} />
         </div>
       </section>
 
@@ -420,164 +380,56 @@ const PortfolioDetail = () => {
                 width: "max-content",
               }}
             >
-              {/* First set of projects */}
-              {[
-                {
-                  title: "Labonel",
-                  subtitle: "Digital Marketing",
-                  image: "https://images.unsplash.com/photo-1542744094-24638eff58bb?w=600&h=800&fit=crop",
-                  color: "from-blue-600 to-indigo-700"
-                },
-                {
-                  title: "Haldiram's",
-                  subtitle: "Digital Marketing",
-                  image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=800&fit=crop",
-                  color: "from-red-600 to-orange-600"
-                },
-                {
-                  title: "Imagine",
-                  subtitle: "Store Launch",
-                  image: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=600&h=800&fit=crop",
-                  color: "from-slate-700 to-slate-900"
-                },
-                {
-                  title: "Ministry of AYUSH",
-                  subtitle: "Digital Marketing",
-                  image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&h=800&fit=crop",
-                  color: "from-orange-500 to-amber-600"
-                },
-                {
-                  title: "Urban Style",
-                  subtitle: "Fashion Branding",
-                  image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=800&fit=crop",
-                  color: "from-pink-600 to-rose-600"
-                },
-                {
-                  title: "Tech Startup",
-                  subtitle: "Web Design",
-                  image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=800&fit=crop",
-                  color: "from-indigo-600 to-purple-700"
-                },
-              ].map((relatedProject, index) => (
-                <motion.div
-                  key={`first-${index}`}
-                  className="group relative w-[320px] aspect-[3/4] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex-shrink-0"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  onClick={() => navigate(`/portfolio/${index + 2}`)}
-                >
-                  {/* Image */}
-                  <img
-                    src={relatedProject.image}
-                    alt={relatedProject.title}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-
-                  {/* Gradient Overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-t ${relatedProject.color} opacity-60 group-hover:opacity-80 transition-opacity duration-500`} />
-
-                  {/* Content */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-                    <p className="text-sm font-bold uppercase tracking-wide mb-2 opacity-90">
-                      {relatedProject.subtitle}
-                    </p>
-                    <h3 className="font-display text-2xl md:text-3xl font-bold mb-4">
-                      {relatedProject.title}
-                    </h3>
-
-                    {/* Arrow Icon */}
+              {/* Dynamically get related projects (other projects in same category or just others) */}
+              {[...Array(2)].map((_, loopIndex) => (
+                <Fragment key={loopIndex}>
+                  {projects
+                    .filter(p => p.id !== project.id)
+                    .slice(0, 6)
+                    .map((relatedProject, index) => (
                     <motion.div
-                      className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-warm-700 transition-all duration-300"
-                      whileHover={{ scale: 1.1, x: 5 }}
+                      key={`${loopIndex}-${index}`}
+                      className="group relative w-[320px] aspect-[3/4] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex-shrink-0"
+                      initial={loopIndex === 0 ? { opacity: 0, y: 30 } : {}}
+                      whileInView={loopIndex === 0 ? { opacity: 1, y: 0 } : {}}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      whileHover={{ y: -10, scale: 1.02 }}
+                      onClick={() => navigate(`/portfolio/${relatedProject.id}`)}
                     >
-                      <FaArrowRight />
+                      {/* Image */}
+                      <img
+                        src={relatedProject.image}
+                        alt={relatedProject.title}
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+
+                      {/* Gradient Overlay */}
+                      <div className={`absolute inset-0 bg-gradient-to-t ${relatedProject.color} opacity-60 group-hover:opacity-80 transition-opacity duration-500`} />
+
+                      {/* Content */}
+                      <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
+                        <p className="text-sm font-bold uppercase tracking-wide mb-2 opacity-90">
+                          {relatedProject.subtitle}
+                        </p>
+                        <h3 className="font-display text-2xl md:text-3xl font-bold mb-4">
+                          {relatedProject.title}
+                        </h3>
+
+                        {/* Arrow Icon */}
+                        <motion.div
+                          className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-warm-700 transition-all duration-300"
+                          whileHover={{ scale: 1.1, x: 5 }}
+                        >
+                          <FaArrowRight />
+                        </motion.div>
+                      </div>
+
+                      {/* Hover Border */}
+                      <div className="absolute inset-0 border-2 border-transparent group-hover:border-white/30 rounded-2xl transition-all duration-300" />
                     </motion.div>
-                  </div>
-
-                  {/* Hover Border */}
-                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-white/30 rounded-2xl transition-all duration-300" />
-                </motion.div>
-              ))}
-
-              {/* Duplicate set for seamless loop */}
-              {[
-                {
-                  title: "Labonel",
-                  subtitle: "Digital Marketing",
-                  image: "https://images.unsplash.com/photo-1542744094-24638eff58bb?w=600&h=800&fit=crop",
-                  color: "from-blue-600 to-indigo-700"
-                },
-                {
-                  title: "Haldiram's",
-                  subtitle: "Digital Marketing",
-                  image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=800&fit=crop",
-                  color: "from-red-600 to-orange-600"
-                },
-                {
-                  title: "Imagine",
-                  subtitle: "Store Launch",
-                  image: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=600&h=800&fit=crop",
-                  color: "from-slate-700 to-slate-900"
-                },
-                {
-                  title: "Ministry of AYUSH",
-                  subtitle: "Digital Marketing",
-                  image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&h=800&fit=crop",
-                  color: "from-orange-500 to-amber-600"
-                },
-                {
-                  title: "Urban Style",
-                  subtitle: "Fashion Branding",
-                  image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=800&fit=crop",
-                  color: "from-pink-600 to-rose-600"
-                },
-                {
-                  title: "Tech Startup",
-                  subtitle: "Web Design",
-                  image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=800&fit=crop",
-                  color: "from-indigo-600 to-purple-700"
-                },
-              ].map((relatedProject, index) => (
-                <motion.div
-                  key={`second-${index}`}
-                  className="group relative w-[320px] aspect-[3/4] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex-shrink-0"
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  onClick={() => navigate(`/portfolio/${index + 2}`)}
-                >
-                  {/* Image */}
-                  <img
-                    src={relatedProject.image}
-                    alt={relatedProject.title}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-
-                  {/* Gradient Overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-t ${relatedProject.color} opacity-60 group-hover:opacity-80 transition-opacity duration-500`} />
-
-                  {/* Content */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-                    <p className="text-sm font-bold uppercase tracking-wide mb-2 opacity-90">
-                      {relatedProject.subtitle}
-                    </p>
-                    <h3 className="font-display text-2xl md:text-3xl font-bold mb-4">
-                      {relatedProject.title}
-                    </h3>
-
-                    {/* Arrow Icon */}
-                    <motion.div
-                      className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-warm-700 transition-all duration-300"
-                      whileHover={{ scale: 1.1, x: 5 }}
-                    >
-                      <FaArrowRight />
-                    </motion.div>
-                  </div>
-
-                  {/* Hover Border */}
-                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-white/30 rounded-2xl transition-all duration-300" />
-                </motion.div>
+                  ))}
+                </Fragment>
               ))}
             </motion.div>
           </div>
@@ -621,7 +473,7 @@ const PortfolioDetail = () => {
 
             {/* Right Side - FAQ Accordion */}
             <div className="space-y-4">
-              {[
+              {(project.faqs || [
                 {
                   number: "001",
                   question: "What features does this software offer?",
@@ -647,7 +499,7 @@ const PortfolioDetail = () => {
                   question: "Can the software integrate with our existing systems?",
                   answer: "Yes, our software seamlessly integrates with popular platforms and tools through our robust API and pre-built connectors. We support integrations with CRM systems, marketing tools, payment gateways, and custom applications to ensure smooth workflow continuity."
                 }
-              ].map((faq, index) => (
+              ]).map((faq, index) => (
                 <motion.div
                   key={index}
                   className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${

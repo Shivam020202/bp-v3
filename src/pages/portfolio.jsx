@@ -1,5 +1,7 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { projects } from "../constants/projects";
 import {
   FaArrowRight,
   FaExternalLinkAlt,
@@ -10,8 +12,8 @@ import {
   FaPlus,
   FaMinus,
 } from "react-icons/fa";
-
 const PortfolioPage = () => {
+  const navigate = useNavigate();
   const heroRef = useRef(null);
   const statsRef = useRef(null);
   const projectsRef = useRef(null);
@@ -38,135 +40,6 @@ const PortfolioPage = () => {
     { number: "98%", label: "Client Satisfaction", icon: FaHeart },
     { number: "50+", label: "Industry Awards", icon: FaStar },
     { number: "4.9", label: "Average Rating", icon: FaStar },
-  ];
-
-  const projects = [
-    {
-      id: 1,
-      title: "Bloom Beauty Co.",
-      subtitle: "Complete Brand Identity",
-      category: "branding",
-      year: "2024",
-      image:
-        "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&h=600&fit=crop",
-      tags: ["Brand Strategy", "Visual Identity", "Packaging"],
-      description: "A fresh, modern beauty brand targeting Gen-Z consumers",
-      result: "200% increase in brand recognition",
-      color: "from-pink-300 via-rose-300 to-pink-400",
-      stats: { reach: "2.5M", engagement: "+180%", sales: "+200%" },
-    },
-    {
-      id: 2,
-      title: "TechVenture Platform",
-      subtitle: "SaaS Product Design",
-      category: "web",
-      year: "2024",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-      tags: ["UI/UX Design", "Web App", "Design System"],
-      description: "Enterprise platform for startup accelerators",
-      result: "3x user engagement & 95% satisfaction",
-      color: "from-blue-300 via-indigo-300 to-purple-400",
-      stats: { users: "50K+", satisfaction: "95%", retention: "+65%" },
-    },
-    {
-      id: 3,
-      title: "Green Eats Kitchen",
-      subtitle: "Social Media Campaign",
-      category: "social",
-      year: "2024",
-      image:
-        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=600&fit=crop",
-      tags: ["Content Strategy", "Instagram", "TikTok"],
-      description: "Plant-based meal delivery service marketing",
-      result: "50K new followers in 3 months",
-      color: "from-green-300 via-emerald-300 to-teal-400",
-      stats: { followers: "+50K", reach: "3.2M", engagement: "+240%" },
-    },
-    {
-      id: 4,
-      title: "Artisan Coffee Roasters",
-      subtitle: "Premium Packaging Design",
-      category: "packaging",
-      year: "2023",
-      image:
-        "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&h=600&fit=crop",
-      tags: ["Package Design", "Print", "Illustration"],
-      description: "Luxury coffee packaging for boutique roasters",
-      result: "Featured in 5 design publications",
-      color: "from-amber-300 via-orange-300 to-amber-400",
-      stats: { awards: "3", sales: "+150%", retailers: "100+" },
-    },
-    {
-      id: 5,
-      title: "FitLife Wellness App",
-      subtitle: "Mobile App Redesign",
-      category: "branding",
-      year: "2024",
-      image:
-        "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=800&h=600&fit=crop",
-      tags: ["App Design", "Branding", "Motion"],
-      description: "Complete redesign of fitness tracking platform",
-      result: "1M downloads in first month",
-      color: "from-purple-300 via-violet-300 to-purple-400",
-      stats: { downloads: "1M+", rating: "4.8", retention: "+75%" },
-    },
-    {
-      id: 6,
-      title: "Urban Style Collective",
-      subtitle: "Fashion Brand Launch",
-      category: "social",
-      year: "2023",
-      image:
-        "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop",
-      tags: ["Campaign", "Influencer", "Content"],
-      description: "Launch campaign for sustainable streetwear",
-      result: "Viral campaign: 10M views",
-      color: "from-red-300 via-pink-300 to-rose-400",
-      stats: { views: "10M+", engagement: "+320%", coverage: "50+" },
-    },
-    {
-      id: 7,
-      title: "Ocean Breeze Resorts",
-      subtitle: "Luxury Hotel Branding",
-      category: "branding",
-      year: "2023",
-      image:
-        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop",
-      tags: ["Brand Identity", "Collateral", "Print"],
-      description: "Sophisticated branding for boutique resort chain",
-      result: "40% increase in bookings",
-      color: "from-cyan-300 via-blue-300 to-indigo-400",
-      stats: { bookings: "+40%", revenue: "+60%", reviews: "4.9" },
-    },
-    {
-      id: 8,
-      title: "Startup Hub Website",
-      subtitle: "Community Platform",
-      category: "web",
-      year: "2024",
-      image:
-        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop",
-      tags: ["Web Design", "Development", "CMS"],
-      description: "Interactive community platform for entrepreneurs",
-      result: "25K active community members",
-      color: "from-orange-300 via-amber-300 to-yellow-400",
-      stats: { members: "25K+", engagement: "Daily", events: "200+" },
-    },
-    {
-      id: 9,
-      title: "Sweet Treats Bakery",
-      subtitle: "Product Photography & Packaging",
-      category: "packaging",
-      year: "2023",
-      image:
-        "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=800&h=600&fit=crop",
-      tags: ["Photography", "Packaging", "Brand"],
-      description: "Complete visual identity for artisan bakery",
-      result: "Featured on Food Network",
-      color: "from-pink-300 via-rose-300 to-red-400",
-      stats: { locations: "15", growth: "+90%", features: "20+" },
-    },
   ];
 
   const filteredProjects =
@@ -396,24 +269,11 @@ const PortfolioPage = () => {
           </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
-        {/* <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
-            <motion.div
-              className="w-1.5 h-1.5 bg-white rounded-full"
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-          </div>
-        </motion.div> */}
+        {/* Scroll Indicator - Removed if redundant */}
       </section>
 
       {/* Stats Section */}
-      {/* <section ref={statsRef} className="py-16 bg-white relative overflow-hidden">
+      <section ref={statsRef} className="py-16 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-cream-100 via-white to-cream-100 opacity-50" />
 
         <div className="container mx-auto px-4 relative z-10">
@@ -441,7 +301,7 @@ const PortfolioPage = () => {
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
    
 
@@ -559,6 +419,7 @@ const PortfolioPage = () => {
                   whileHover={{ y: -10, scale: 1.02 }}
                   onHoverStart={() => setHoveredProject(project.id)}
                   onHoverEnd={() => setHoveredProject(null)}
+                  onClick={() => navigate(`/portfolio/${project.id}`)}
                   layout
                 >
                   {/* Full Scale Image with Overlay */}

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -18,7 +19,8 @@ const StackScroll = ({ images, projectTitle }) => {
       const reverseIndex = numCards - index;
 
       gsap.to(cardContent, {
-        scale: 1.1 - (0.1 * reverseIndex),
+        scale: 1 - (0.05 * reverseIndex / numCards),
+        filter: `brightness(${1 - (0.2 * reverseIndex / numCards)})`,
         ease: "none",
         scrollTrigger: {
           trigger: card,
@@ -39,38 +41,31 @@ const StackScroll = ({ images, projectTitle }) => {
     <div className="w-full">
       <ul
         ref={cardsContainerRef}
-        className="list-none grid grid-cols-1 gap-[4vw] pb-[calc(var(--numcards)*1em)] mb-[4vw]"
+        className="list-none relative"
         style={{
           '--numcards': images.length,
-          gridTemplateRows: `repeat(${images.length}, 40vw)`
         }}
       >
         {images.map((image, index) => (
           <li
             key={index}
-            className="card sticky top-0"
+            className="card sticky top-20"
             style={{
-              '--index': index + 1,
-              paddingTop: `calc(${index + 1} * 1em)`
+              paddingTop: `calc(${index + 1} * 2em)`,
+              zIndex: index + 1,
+              marginBottom: '40vh'
             }}
           >
-            <div className="card-content shadow-2xl bg-cream-50 rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-2 items-stretch p-6" style={{ transformOrigin: '50% 0%' }}>
-              <div className="w-full max-w-[800px] place-self-center text-left grid gap-4">
-                <h2 className="font-display text-4xl font-bold text-warm-900 m-0">
-                  {projectTitle}
-                </h2>
-                <p className="text-warm-700 leading-relaxed text-lg">
-                  Image {index + 1} of {images.length}
-                </p>
-              </div>
-              <figure className="overflow-hidden">
-                <img
-                  src={image}
-                  alt={`${projectTitle} - ${index + 1}`}
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </figure>
-            </div>
+            <motion.div 
+              className="card-content shadow-2xl bg-white rounded-3xl overflow-hidden aspect-video flex items-center justify-center border border-warm-200/50"
+              style={{ transformOrigin: '50% 0%' }}
+            >
+              <img
+                src={image}
+                alt={`${projectTitle} - ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
           </li>
         ))}
       </ul>
