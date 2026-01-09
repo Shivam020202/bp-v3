@@ -85,16 +85,60 @@ const AboutPage = () => {
 
     return (
         <div ref={containerRef} className="relative min-h-screen bg-white overflow-hidden">
-            {/* Light Animated Background */}
-            <div className="fixed inset-0 z-0 pointer-events-none">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#f8fafc] via-white to-blue-50/30" />
+            {/* Enhanced Animated Background */}
+            <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+                {/* Base Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white to-purple-50/50" />
+
+                {/* Animated Floating Orbs */}
                 <motion.div
-                    className="absolute top-20 right-[5%] w-[40%] h-[40%] bg-blue-100/40 rounded-full blur-[100px]"
-                    style={{ y: bgY }}
+                    className="absolute top-[10%] right-[10%] w-[500px] h-[500px] bg-gradient-to-br from-blue-200/50 to-cyan-200/30 rounded-full blur-[80px]"
+                    animate={{
+                        x: [0, 50, 0],
+                        y: [0, 30, 0],
+                        scale: [1, 1.1, 1]
+                    }}
+                    transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
                 />
                 <motion.div
-                    className="absolute bottom-40 left-[5%] w-[35%] h-[35%] bg-purple-100/30 rounded-full blur-[100px]"
-                    style={{ y: useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]) }}
+                    className="absolute bottom-[20%] left-[5%] w-[400px] h-[400px] bg-gradient-to-br from-purple-200/40 to-pink-200/30 rounded-full blur-[80px]"
+                    animate={{
+                        x: [0, -40, 0],
+                        y: [0, -50, 0],
+                        scale: [1, 1.15, 1]
+                    }}
+                    transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <motion.div
+                    className="absolute top-[50%] left-[40%] w-[300px] h-[300px] bg-gradient-to-br from-cyan-200/30 to-blue-200/20 rounded-full blur-[60px]"
+                    animate={{
+                        x: [0, 60, 0],
+                        y: [0, -40, 0]
+                    }}
+                    transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+                />
+
+                {/* Subtle Grid Pattern */}
+                <div className="absolute inset-0 opacity-[0.02]" style={{
+                    backgroundImage: 'linear-gradient(#3b82f6 1px, transparent 1px), linear-gradient(90deg, #3b82f6 1px, transparent 1px)',
+                    backgroundSize: '50px 50px'
+                }} />
+
+                {/* Floating Dots Animation */}
+                <motion.div
+                    className="absolute top-[30%] right-[20%] w-3 h-3 bg-blue-400/30 rounded-full"
+                    animate={{ y: [0, -20, 0], opacity: [0.3, 0.6, 0.3] }}
+                    transition={{ duration: 4, repeat: Infinity }}
+                />
+                <motion.div
+                    className="absolute top-[60%] left-[15%] w-2 h-2 bg-purple-400/30 rounded-full"
+                    animate={{ y: [0, -15, 0], opacity: [0.3, 0.5, 0.3] }}
+                    transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+                />
+                <motion.div
+                    className="absolute top-[40%] right-[40%] w-4 h-4 bg-cyan-400/20 rounded-full"
+                    animate={{ y: [0, -25, 0], opacity: [0.2, 0.5, 0.2] }}
+                    transition={{ duration: 5, repeat: Infinity, delay: 0.5 }}
                 />
             </div>
 
