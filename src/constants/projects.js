@@ -5,7 +5,12 @@ import p4 from "../assets/portfolio-demo/p-4-bp.png";
 import p5 from "../assets/portfolio-demo/p-5-bp.png";
 import p6 from "../assets/portfolio-demo/p-6-bp.png";
 import p7 from "../assets/portfolio-demo/p-6bp.png";
-
+import pcard1 from "../assets/portfolio-demo/pcard/pcrd-1.avif";
+import pcard2 from "../assets/portfolio-demo/pcard/pcard-2.avif";
+import pcard3 from "../assets/portfolio-demo/pcard/pcard-3.jpg";
+import pcard4 from "../assets/portfolio-demo/pcard/pcard-4.avif";
+import pcard5 from "../assets/portfolio-demo/pcard/pcard-5.avif";
+import pcard6 from "../assets/portfolio-demo/pcard/pcard6.avif";
 export const projects = [
     {
         id: 1,
@@ -15,7 +20,7 @@ export const projects = [
         year: "2024",
         client: "Bloom Beauty",
         duration: "3 months",
-        image: "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&h=600&fit=crop",
+        image: pcard5,
         heroImage: p1,
         tags: ["Brand Strategy", "Visual Identity", "Packaging"],
         description: "A fresh, modern beauty brand targeting Gen-Z consumers",
@@ -68,7 +73,7 @@ export const projects = [
         year: "2024",
         client: "TechVenture",
         duration: "6 months",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+        image: pcard1,
         heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop",
         tags: ["UI/UX Design", "Web App", "Design System"],
         description: "Enterprise platform for startup accelerators",
@@ -124,7 +129,7 @@ export const projects = [
         year: "2024",
         client: "Green Eats",
         duration: "2 months",
-        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=600&fit=crop",
+        image: pcard2,
         heroImage: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=1200&h=800&fit=crop",
         tags: ["Content Strategy", "Instagram", "TikTok"],
         description: "Plant-based meal delivery service marketing",
@@ -178,7 +183,7 @@ export const projects = [
         year: "2023",
         client: "Artisan Coffee",
         duration: "4 months",
-        image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&h=600&fit=crop",
+        image: pcard3,
         heroImage: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200&h=800&fit=crop",
         tags: ["Package Design", "Print", "Illustration"],
         description: "Luxury coffee packaging for boutique roasters",
@@ -232,7 +237,7 @@ export const projects = [
         year: "2024",
         client: "FitLife",
         duration: "5 months",
-        image: "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=800&h=600&fit=crop",
+        image: pcard4,
         heroImage: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&h=800&fit=crop",
         tags: ["App Design", "Branding", "Motion"],
         description: "Complete redesign of fitness tracking platform",
@@ -286,7 +291,7 @@ export const projects = [
         year: "2023",
         client: "Urban Style",
         duration: "3 months",
-        image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop",
+        image: pcard6,
         heroImage: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1200&h=800&fit=crop",
         tags: ["Campaign", "Influencer", "Content"],
         description: "Launch campaign for sustainable streetwear",

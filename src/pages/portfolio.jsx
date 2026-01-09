@@ -303,7 +303,7 @@ const PortfolioPage = () => {
         </div>
       </section> */}
 
-   
+
 
       {/* Filter Section */}
       <section className="py-12 bg-cream-100 sticky top-0 z-40 shadow-sm relative overflow-hidden">
@@ -334,11 +334,10 @@ const PortfolioPage = () => {
               <motion.button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`px-6 py-3 rounded-full font-bold transition-all duration-300 flex items-center gap-2 ${
-                  activeFilter === filter.id
+                className={`px-6 py-3 rounded-full font-bold transition-all duration-300 flex items-center gap-2 ${activeFilter === filter.id
                     ? "bg-warm-700 text-white shadow-lg shadow-warm-700/30 scale-105"
                     : "bg-white text-warm-700 hover:bg-cream-200 hover:shadow-md"
-                }`}
+                  }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 layout
@@ -435,8 +434,8 @@ const PortfolioPage = () => {
                       transition={{ duration: 0.6, ease: "easeOut" }}
                     />
 
-                    {/* Dark Gradient Overlay - Always visible but intensifies on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 group-hover:via-black/50 transition-all duration-500" />
+                    {/* Dark Gradient Overlay - Only on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
 
                     {/* Colored Gradient Overlay - Only on hover */}
                     <motion.div
@@ -452,8 +451,11 @@ const PortfolioPage = () => {
                     <motion.div
                       className="absolute top-6 right-6 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full text-warm-700 font-bold text-sm shadow-lg"
                       initial={{ x: 20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ delay: index * 0.1 + 0.2 }}
+                      animate={{
+                        x: 0,
+                        opacity: hoveredProject === project.id ? 1 : 0
+                      }}
+                      transition={{ duration: 0.3 }}
                     >
                       {project.year}
                     </motion.div>
@@ -462,8 +464,11 @@ const PortfolioPage = () => {
                     <motion.div
                       className="absolute top-6 left-6 bg-warm-700 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide shadow-lg"
                       initial={{ x: -20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ delay: index * 0.1 + 0.3 }}
+                      animate={{
+                        x: 0,
+                        opacity: hoveredProject === project.id ? 1 : 0
+                      }}
+                      transition={{ duration: 0.3 }}
                     >
                       {filters.find((f) => f.id === project.category)?.label}
                     </motion.div>
@@ -490,22 +495,24 @@ const PortfolioPage = () => {
                         ))}
                       </motion.div>
 
-                      {/* Title - Always visible */}
+                      {/* Title - Visible on hover */}
                       <motion.h3
                         className="font-display text-3xl md:text-4xl font-bold mb-2 leading-tight"
                         animate={{
-                          y: hoveredProject === project.id ? 0 : 10,
+                          y: hoveredProject === project.id ? 0 : 20,
+                          opacity: hoveredProject === project.id ? 1 : 0
                         }}
                         transition={{ duration: 0.3 }}
                       >
                         {project.title}
                       </motion.h3>
 
-                      {/* Subtitle - Always visible */}
+                      {/* Subtitle - Visible on hover */}
                       <motion.p
                         className="text-cream-100 font-medium text-base mb-4"
                         animate={{
-                          y: hoveredProject === project.id ? 0 : 10,
+                          y: hoveredProject === project.id ? 0 : 20,
+                          opacity: hoveredProject === project.id ? 1 : 0
                         }}
                         transition={{ duration: 0.3, delay: 0.05 }}
                       >
@@ -557,11 +564,12 @@ const PortfolioPage = () => {
                         ))}
                       </motion.div>
 
-                      {/* Result Badge - Always visible */}
+                      {/* Result Badge - Visible on hover */}
                       <motion.div
                         className="flex items-center justify-between"
                         animate={{
-                          y: hoveredProject === project.id ? 0 : 10,
+                          y: hoveredProject === project.id ? 0 : 20,
+                          opacity: hoveredProject === project.id ? 1 : 0
                         }}
                         transition={{ duration: 0.3, delay: 0.1 }}
                       >
@@ -592,19 +600,19 @@ const PortfolioPage = () => {
                           >
                             <FaExternalLinkAlt className="text-sm" />
                           </motion.button>
-                          <motion.button
+                          {/* <motion.button
                             className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-warm-700 shadow-lg hover:bg-white transition-colors"
                             whileHover={{ scale: 1.1, rotate: -5 }}
                             whileTap={{ scale: 0.9 }}
                           >
                             <FaHeart className="text-sm" />
-                          </motion.button>
+                          </motion.button> */}
                         </motion.div>
                       </motion.div>
                     </div>
 
                     {/* Hover Arrow Indicator - Center */}
-                    <motion.div
+                    {/* <motion.div
                       className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center"
                       initial={{ scale: 0, opacity: 0 }}
                       animate={{
@@ -614,7 +622,7 @@ const PortfolioPage = () => {
                       transition={{ duration: 0.3 }}
                     >
                       <FaArrowRight className="text-white text-xl" />
-                    </motion.div>
+                    </motion.div> */}
                   </div>
                 </motion.div>
               ))}
@@ -641,7 +649,7 @@ const PortfolioPage = () => {
       </section>
 
 
-         {/* Clients Section */}
+      {/* Clients Section */}
       <section className="py-20 bg-white relative overflow-hidden">
         {/* Modern Grid Pattern Background */}
         <div
@@ -815,11 +823,10 @@ const PortfolioPage = () => {
               ].map((faq, index) => (
                 <motion.div
                   key={index}
-                  className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${
-                    openFaqIndex === index
+                  className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${openFaqIndex === index
                       ? "bg-white border-warm-300 shadow-lg"
                       : "bg-cream-100 border-transparent hover:border-warm-200"
-                  }`}
+                    }`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -840,11 +847,10 @@ const PortfolioPage = () => {
                       </div>
                     </div>
                     <motion.div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
-                        openFaqIndex === index
+                      className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${openFaqIndex === index
                           ? "bg-warm-700 text-white"
                           : "bg-warm-200 text-warm-700"
-                      }`}
+                        }`}
                       animate={{ rotate: openFaqIndex === index ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
                     >
