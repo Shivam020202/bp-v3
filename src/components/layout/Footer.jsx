@@ -1,274 +1,384 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
-  FaInstagram,
-  FaTwitter,
-  FaLinkedinIn,
-  FaBehance,
-  FaDribbble,
-  FaHeart,
-  FaEnvelope,
-  FaPhone,
-  FaMapMarkerAlt,
-  FaArrowUp,
-} from "react-icons/fa";
+  Instagram,
+  Twitter,
+  Linkedin,
+  Dribbble,
+  ArrowUpRight,
+  MapPin,
+  Mail,
+  Phone,
+  Star,
+  ArrowUp,
+  Clock,
+  Globe,
+} from "lucide-react";
 
 const Footer = () => {
+  const footerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: footerRef,
+    offset: ["start end", "end end"],
+  });
+
+  const spotlightOpacity = useTransform(scrollYProgress, [0.4, 1], [0, 0.8]);
+  const spotlightY = useTransform(scrollYProgress, [0.4, 1], [200, 0]);
+  const spotlightScale = useTransform(scrollYProgress, [0.4, 1], [0.8, 1.2]);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-  const socialLinks = [
-    {
-      icon: <FaInstagram />,
-      href: "#",
-      label: "Instagram",
-      color: "hover:bg-gradient-to-br from-purple-500 to-pink-500",
-    },
-    {
-      icon: <FaTwitter />,
-      href: "#",
-      label: "Twitter",
-      color: "hover:bg-blue-400",
-    },
-    {
-      icon: <FaLinkedinIn />,
-      href: "#",
-      label: "LinkedIn",
-      color: "hover:bg-blue-600",
-    },
-    {
-      icon: <FaBehance />,
-      href: "#",
-      label: "Behance",
-      color: "hover:bg-blue-500",
-    },
-    {
-      icon: <FaDribbble />,
-      href: "#",
-      label: "Dribbble",
-      color: "hover:bg-pink-500",
-    },
-  ];
-
-  const quickLinks = [
-    { name: "Home", href: "#" },
-    { name: "About Us", href: "#about" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Services", href: "#services" },
-    { name: "Contact", href: "#contact" },
-  ];
-
   const services = [
-    { name: "Brand Strategy", href: "#" },
-    { name: "Visual Identity", href: "#" },
-    { name: "Digital Marketing", href: "#" },
-    { name: "Social Media", href: "#" },
-    { name: "Content Creation", href: "#" },
+    "Brand Strategy",
+    "Visual Identity",
+    "Web Development",
+    "SEO Optimization",
+    "Content Marketing",
+    "Social Media Growth",
+    "Motion Graphics",
+    "Packaging Design",
+  ];
+
+  const indianCities = [
+    "Gurgaon",
+    "Delhi",
+    "Mumbai",
+    "Bangalore",
+    "Hyderabad",
+    "Chennai",
+    "Pune",
+    "Kolkata",
+    "Ahmedabad",
+    "Jaipur",
+    "Noida",
+    "Chandigarh",
+    "Lucknow",
+    "Indore",
+    "Kochi",
+    "Surat",
+    "Nagpur",
+    "Patna",
+    "Bhopal",
+    "Visakhapatnam",
+  ];
+
+  const globalCities = [
+    "New York",
+    "London",
+    "Dubai",
+    "Singapore",
+    "Toronto",
+    "Sydney",
+    "Berlin",
+    "Paris",
+    "Tokyo",
+    "Hong Kong",
+    "Los Angeles",
+    "Chicago",
+    "Melbourne",
+    "Amsterdam",
+    "Barcelona",
   ];
 
   return (
-    <footer className="relative bg-warm-900 text-cream-100 overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-warm-800/30 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-cream-300/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+    <footer
+      ref={footerRef}
+      className="bg-[#050505] text-stone-400 relative overflow-hidden border-t border-white/5 font-sans"
+    >
+      {/* Dynamic Rising Spotlight */}
+      <motion.div
+        style={{
+          opacity: spotlightOpacity,
+          y: spotlightY,
+          scale: spotlightScale,
+          x: "-50%",
+        }}
+        className="absolute bottom-[-10%] left-1/2 w-[120%] h-[600px] pointer-events-none z-0 mix-blend-screen"
+      >
+        <div className="w-full h-full bg-gradient-to-t from-purple-800/30 via-blue-800/20 to-transparent blur-[120px]" />
+        {/* Animated Core */}
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.5, 0.8, 0.5],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-1/2 bg-gradient-to-t from-indigo-600/20 to-transparent blur-[80px]"
+        />
+      </motion.div>
 
-      {/* Wave decoration */}
-      <div className="absolute top-0 left-0 right-0 overflow-hidden">
-        <svg
-          className="relative w-full h-16 text-cream-200"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-            fill="currentColor"
-          />
-        </svg>
+      {/* Massive CTA Section */}
+      <div className="container relative z-10 mx-auto px-6 py-6 border-b border-white/5">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+          <div className="text-center lg:text-left">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white leading-[0.9]"
+            >
+              LET&apos;S{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-100 to-amber-200">
+                TALK.
+              </span>
+            </motion.h2>
+            <p className="mt-6 text-lg text-stone-500 max-w-2xl mx-auto lg:mx-0 font-medium">
+              Ready to scale? We have the team, the tools, and the talent.
+            </p>
+          </div>
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="group relative flex items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-full bg-orange-50 text-black hover:bg-white transition-colors duration-300 shrink-0"
+          >
+            <ArrowUpRight className="w-10 h-10 md:w-14 md:h-14 group-hover:rotate-45 transition-transform duration-300 stroke-[1.5]" />
+          </motion.button>
+        </div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 pt-24 pb-8">
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {/* Brand Column */}
-          <motion.div variants={itemVariants} className="lg:col-span-1">
-            <div className="mb-6">
-              <h3 className="font-display text-3xl font-bold text-cream-300 mb-2">
-                Branding Pioneers
-              </h3>
-              <p className="text-cream-100/70 font-funky">
-                Where creativity meets connection ✨
+      {/* Main Grid Content */}
+      <div className="container relative z-10 mx-auto px-6 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
+          {/* Column 1: Brand & Reviews */}
+          <div className="lg:col-span-3 flex flex-col gap-8">
+            <div>
+              <img
+                src="/bp-logo.png"
+                alt="Branding Pioneers"
+                className="h-12 w-auto mb-6 object-contain"
+              />
+              <p className="text-stone-500 text-sm leading-relaxed max-w-xs">
+                Redefining digital excellence with data-driven strategies and
+                creative innovation.
               </p>
             </div>
-            <p className="text-cream-100/60 mb-6 leading-relaxed">
-              We&apos;re not your typical agency. We&apos;re a bunch of creative
-              folks who genuinely care about making your brand shine. Let&apos;s
-              create something amazing together!
-            </p>
 
-            {/* Social Links */}
-            <div className="flex gap-3">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-10 h-10 rounded-xl bg-warm-800 flex items-center justify-center text-cream-300 hover:text-white transition-all duration-300 hover:scale-110 hover:-translate-y-1"
-                  whileHover={{ rotate: 5 }}
-                  whileTap={{ scale: 0.95 }}
+            {/* Ratings Grid */}
+            <div className="grid grid-cols-2 gap-3 max-w-xs">
+              {/* Google */}
+              <div className="col-span-2 bg-stone-900/50 p-3 rounded-lg border border-white/5 flex items-center justify-between">
+                <div className="flex flex-col">
+                  <span className="text-white font-bold text-sm">Google</span>
+                  <span className="text-[10px] text-stone-500">Reviews</span>
+                </div>
+                <div className="text-right">
+                  <div className="flex text-yellow-500/90 mb-0.5">
+                    <Star className="w-3 h-3 fill-current" />
+                    <Star className="w-3 h-3 fill-current" />
+                    <Star className="w-3 h-3 fill-current" />
+                    <Star className="w-3 h-3 fill-current" />
+                    <Star className="w-3 h-3 fill-current" />
+                  </div>
+                  <span className="text-white font-bold text-xs">5.0/5</span>
+                </div>
+              </div>
+              {/* Justdial */}
+              <div className="bg-stone-900/50 p-3 rounded-lg border border-white/5">
+                <span className="text-orange-200 font-bold text-xs block mb-1">
+                  Justdial
+                </span>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-white font-bold text-sm">4.1</span>
+                  <span className="text-[10px] text-stone-500">
+                    (150 votes)
+                  </span>
+                </div>
+              </div>
+              {/* AmbitionBox */}
+              <div className="bg-stone-900/50 p-3 rounded-lg border border-white/5">
+                <span className="text-emerald-200 font-bold text-xs block mb-1">
+                  AmbitionBox
+                </span>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-white font-bold text-sm">4.4</span>
+                  <span className="text-[10px] text-stone-500">(76 votes)</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex gap-3 pt-2">
+              {[Instagram, Twitter, Linkedin, Dribbble].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="w-9 h-9 rounded-full bg-stone-900 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 text-stone-400"
                 >
-                  {social.icon}
-                </motion.a>
+                  <Icon className="w-4 h-4" />
+                </a>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          {/* Quick Links */}
-          <motion.div variants={itemVariants}>
-            <h4 className="font-funky font-bold text-lg text-cream-300 mb-6 flex items-center gap-2">
-              <span className="w-8 h-1 bg-cream-300 rounded-full" />
-              Quick Links
-            </h4>
-            <ul className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-cream-100/70 hover:text-cream-300 transition-colors duration-300 flex items-center gap-2 group"
-                  >
-                    <span className="w-0 group-hover:w-4 h-0.5 bg-cream-300 transition-all duration-300 rounded-full" />
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+          {/* Column 2: Services & Address */}
+          <div className="lg:col-span-3 flex flex-col gap-10">
+            <div>
+              <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest border-l-2 border-orange-200 pl-3">
+                Expertise
+              </h4>
+              <ul className="space-y-2.5">
+                {services.map((s) => (
+                  <li key={s}>
+                    <a
+                      href="#"
+                      className="text-sm hover:text-orange-100 transition-colors duration-300 flex items-center gap-2 group"
+                    >
+                      <span className="w-1 h-1 rounded-full bg-stone-700 group-hover:bg-orange-200 transition-colors" />
+                      {s}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Services */}
-          <motion.div variants={itemVariants}>
-            <h4 className="font-funky font-bold text-lg text-cream-300 mb-6 flex items-center gap-2">
-              <span className="w-8 h-1 bg-cream-300 rounded-full" />
-              What We Do
-            </h4>
-            <ul className="space-y-3">
-              {services.map((service, index) => (
-                <li key={index}>
-                  <a
-                    href={service.href}
-                    className="text-cream-100/70 hover:text-cream-300 transition-colors duration-300 flex items-center gap-2 group"
-                  >
-                    <span className="w-0 group-hover:w-4 h-0.5 bg-cream-300 transition-all duration-300 rounded-full" />
-                    {service.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Contact Info */}
-          <motion.div variants={itemVariants}>
-            <h4 className="font-funky font-bold text-lg text-cream-300 mb-6 flex items-center gap-2">
-              <span className="w-8 h-1 bg-cream-300 rounded-full" />
-              Say Hello! 👋
-            </h4>
-            <ul className="space-y-4">
-              <li>
-                <a
-                  href="mailto:hello@brandingpioneers.com"
-                  className="flex items-center gap-3 text-cream-100/70 hover:text-cream-300 transition-colors duration-300 group"
-                >
-                  <span className="w-10 h-10 rounded-xl bg-warm-800 flex items-center justify-center text-cream-300 group-hover:scale-110 transition-transform duration-300">
-                    <FaEnvelope />
-                  </span>
-                  <span>hello@brandingpioneers.com</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="tel:+1234567890"
-                  className="flex items-center gap-3 text-cream-100/70 hover:text-cream-300 transition-colors duration-300 group"
-                >
-                  <span className="w-10 h-10 rounded-xl bg-warm-800 flex items-center justify-center text-cream-300 group-hover:scale-110 transition-transform duration-300">
-                    <FaPhone />
-                  </span>
-                  <span>+1 (234) 567-890</span>
-                </a>
-              </li>
-              <li>
-                <div className="flex items-center gap-3 text-cream-100/70">
-                  <span className="w-10 h-10 rounded-xl bg-warm-800 flex items-center justify-center text-cream-300">
-                    <FaMapMarkerAlt />
-                  </span>
-                  <span>Creative Lane, Design City</span>
+            <div>
+              <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest border-l-2 border-orange-200 pl-3">
+                Contact
+              </h4>
+              <div className="space-y-4 text-sm">
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-4 h-4 text-orange-200 mt-1 shrink-0" />
+                  <p className="leading-relaxed">
+                    <span className="text-white block font-medium mb-1">
+                      Headquarters
+                    </span>
+                    Ground Floor, SupremeWork, Plot No. 84, Institutional Area,
+                    Sector 32, Gurugram, Haryana 122001
+                  </p>
                 </div>
-              </li>
-            </ul>
-          </motion.div>
-        </motion.div>
+                <div className="flex items-center gap-3">
+                  <Phone className="w-4 h-4 text-orange-200 shrink-0" />
+                  <a
+                    href="tel:09811780937"
+                    className="hover:text-white transition-colors"
+                  >
+                    098117 80937
+                  </a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Mail className="w-4 h-4 text-orange-200 shrink-0" />
+                  <a
+                    href="mailto:hello@brandingpioneers.com"
+                    className="hover:text-white transition-colors"
+                  >
+                    hello@brandingpioneers.com
+                  </a>
+                </div>
+                {/* <div className="flex items-start gap-3 pt-2 border-t border-white/5">
+                  <Clock className="w-4 h-4 text-stone-600 mt-0.5 shrink-0" />
+                  <div className="text-xs text-stone-500">
+                    <p>
+                      <span className="text-stone-400">Mon-Thu:</span> 10am -
+                      7pm
+                    </p>
+                    <p>
+                      <span className="text-stone-400">Fri-Sat:</span> 10am -
+                      7pm
+                    </p>
+                    <p>
+                      <span className="text-stone-400">Sun:</span> Closed
+                    </p>
+                  </div>
+                </div> */}
+              </div>
+            </div>
+          </div>
 
-        {/* Bottom Bar */}
-        <motion.div
-          className="border-t border-warm-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-cream-100/60 text-sm flex items-center gap-2">
-            © 2024 Branding Pioneers. Made with
-            <motion.span
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 1, repeat: Infinity }}
-            >
-              <FaHeart className="text-coral-400" />
-            </motion.span>
-            and lots of coffee ☕
-          </p>
+          {/* Column 3: The Locations Box */}
+          <div className="lg:col-span-6 bg-[#0a0a0a] rounded-xl border border-white/5 p-6 md:p-8 flex flex-col h-full">
+            <style jsx>{`
+              .no-scrollbar::-webkit-scrollbar {
+                display: none;
+              }
+              .no-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+              }
+            `}</style>
 
-          <div className="flex items-center gap-6 text-sm text-cream-100/60">
-            <a
-              href="#"
-              className="hover:text-cream-300 transition-colors duration-300"
-            >
+            <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest flex items-center justify-between">
+              <span>Presence</span>
+              <Globe className="w-4 h-4 text-stone-600" />
+            </h4>
+
+            <div className="flex-1 overflow-hidden flex flex-col gap-6">
+              {/* India Section */}
+              <div>
+                <span className="text-xs font-bold text-orange-200/80 uppercase tracking-wider mb-3 block">
+                  Top Cities in India
+                </span>
+                <div className="h-32 overflow-y-auto no-scrollbar pr-2">
+                  <div className="flex flex-wrap gap-x-1 gap-y-2">
+                    {indianCities.map((city, i) => (
+                      <a
+                        key={i}
+                        href="#"
+                        className="text-[11px] text-stone-500 hover:text-white transition-colors duration-200 px-2 py-1 rounded bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 whitespace-nowrap"
+                      >
+                        Best digital marketing agency in {city}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Separator */}
+              <div className="h-px bg-white/5 w-full" />
+
+              {/* Global Section */}
+              <div>
+                <span className="text-xs font-bold text-blue-200/80 uppercase tracking-wider mb-3 block">
+                  Global Network
+                </span>
+                <div className="h-28 overflow-y-auto no-scrollbar pr-2">
+                  <div className="flex flex-wrap gap-x-1 gap-y-2">
+                    {globalCities.map((city, i) => (
+                      <a
+                        key={i}
+                        href="#"
+                        className="text-[11px] text-stone-500 hover:text-white transition-colors duration-200 px-2 py-1 rounded bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 whitespace-nowrap"
+                      >
+                        Best digital marketing agency in {city}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer Bottom */}
+      <div className="bg-black border-t border-white/5 relative z-10">
+        <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-stone-600 font-medium">
+          <div className="flex items-center gap-6">
+            <span>© 2026 Branding Pioneers</span>
+            <a href="#" className="hover:text-stone-300 transition-colors">
               Privacy Policy
             </a>
-            <a
-              href="#"
-              className="hover:text-cream-300 transition-colors duration-300"
-            >
+            <a href="#" className="hover:text-stone-300 transition-colors">
               Terms of Service
+            </a>
+            <a href="#" className="hover:text-stone-300 transition-colors">
+              Sitemap
             </a>
           </div>
 
-          {/* Scroll to top button */}
-          <motion.button
+          <button
             onClick={scrollToTop}
-            className="w-12 h-12 rounded-full bg-cream-300 text-warm-900 flex items-center justify-center hover:bg-cream-400 transition-colors duration-300 shadow-lg"
-            whileHover={{ y: -5 }}
-            whileTap={{ scale: 0.9 }}
+            className="flex items-center gap-2 hover:text-white transition-colors group"
           >
-            <FaArrowUp />
-          </motion.button>
-        </motion.div>
+            Top
+            <ArrowUp className="w-3 h-3 group-hover:-translate-y-0.5 transition-transform" />
+          </button>
+        </div>
       </div>
     </footer>
   );

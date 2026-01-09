@@ -1,288 +1,244 @@
-import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useState, useRef } from "react";
 import {
-  FaArrowLeft,
-  FaArrowRight,
-  FaChevronLeft,
-  FaChevronRight,
-} from "react-icons/fa";
+  motion,
+  useMotionValue,
+  useTransform,
+  useSpring,
+  AnimatePresence,
+} from "framer-motion";
+import { ArrowLeft, ArrowRight, Sparkles, ScanEye } from "lucide-react";
+
+const cases = [
+  {
+    id: 1,
+    client: "GreenLeaf Cafe",
+    category: "Rebranding",
+    beforeImage:
+      "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&h=800&fit=crop&sat=-100",
+    afterImage:
+      "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&h=800&fit=crop",
+    stats: [
+      { label: "Foot Traffic", value: "+120%" },
+      { label: "Revenue", value: "+85%" },
+      { label: "Social", value: "+340%" },
+    ],
+  },
+  {
+    id: 2,
+    client: "TechStart",
+    category: "UI/UX Design",
+    beforeImage:
+      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=1200&h=800&fit=crop&sat=-100",
+    afterImage:
+      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=1200&h=800&fit=crop",
+    stats: [
+      { label: "Retention", value: "+200%" },
+      { label: "App Rating", value: "4.8" },
+      { label: "Downloads", value: "500K" },
+    ],
+  },
+  {
+    id: 3,
+    client: "Velvet & Co",
+    category: "Packaging",
+    beforeImage:
+      "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=1200&h=800&fit=crop&sat=-100",
+    afterImage:
+      "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=1200&h=800&fit=crop",
+    stats: [
+      { label: "Shelf Appeal", value: "Max" },
+      { label: "Sales", value: "+250%" },
+      { label: "Restocks", value: "3x" },
+    ],
+  },
+];
 
 const BeforeAfter = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [activeCase, setActiveCase] = useState(0);
+  const containerRef = useRef(null);
 
-  const transformations = [
-    {
-      id: 1,
-      client: "GreenLeaf Cafe",
-      description:
-        "From bland to bold – a complete brand makeover that doubled their foot traffic!",
-      before: {
-        image:
-          "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&h=350&fit=crop&sat=-100",
-        caption: "Before: Generic & Forgettable",
-      },
-      after: {
-        image:
-          "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&h=350&fit=crop",
-        caption: "After: Fresh & Inviting",
-      },
-      metrics: [
-        { label: "Foot Traffic", value: "+120%" },
-        { label: "Social Growth", value: "+340%" },
-        { label: "Revenue", value: "+85%" },
-      ],
-    },
-    {
-      id: 2,
-      client: "TechStart App",
-      description:
-        "Transforming a confusing interface into a user-friendly experience people actually love.",
-      before: {
-        image:
-          "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=350&fit=crop&sat=-100",
-        caption: "Before: Cluttered & Confusing",
-      },
-      after: {
-        image:
-          "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=350&fit=crop",
-        caption: "After: Clean & Intuitive",
-      },
-      metrics: [
-        { label: "User Retention", value: "+200%" },
-        { label: "App Rating", value: "4.8★" },
-        { label: "Downloads", value: "+500K" },
-      ],
-    },
-    {
-      id: 3,
-      client: "Artisan Bakery",
-      description:
-        "A packaging revolution that made their products fly off the shelves!",
-      before: {
-        image:
-          "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&h=350&fit=crop&sat=-100",
-        caption: "Before: Plain & Uninspired",
-      },
-      after: {
-        image:
-          "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&h=350&fit=crop",
-        caption: "After: Premium & Delightful",
-      },
-      metrics: [
-        { label: "Shelf Appeal", value: "+180%" },
-        { label: "Sales", value: "+250%" },
-        { label: "Reorders", value: "+90%" },
-      ],
-    },
-  ];
+  // Mouse position for the lens effect
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % transformations.length);
+  // Smooth springs for the mask position
+  const maskX = useSpring(mouseX, { stiffness: 100, damping: 20 });
+  const maskY = useSpring(mouseY, { stiffness: 100, damping: 20 });
+
+  // 3D Tilt values derived from mouse position
+  const rotateX = useTransform(mouseY, [0, 600], [5, -5]);
+  const rotateY = useTransform(mouseX, [0, 800], [-5, 5]);
+
+  const current = cases[activeCase];
+
+  const handleMouseMove = (e) => {
+    if (!containerRef.current) return;
+    const { left, top } = containerRef.current.getBoundingClientRect();
+    mouseX.set(e.clientX - left);
+    mouseY.set(e.clientY - top);
   };
 
-  const prevSlide = () => {
-    setCurrentSlide(
-      (prev) => (prev - 1 + transformations.length) % transformations.length
-    );
-  };
-
-  const current = transformations[currentSlide];
+  const nextCase = () => setActiveCase((prev) => (prev + 1) % cases.length);
+  const prevCase = () =>
+    setActiveCase((prev) => (prev - 1 + cases.length) % cases.length);
 
   return (
-    <section className="py-24 bg-cream-200 relative overflow-hidden" ref={ref}>
-      {/* Background Decorations */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          className="absolute top-10 left-10 w-64 h-64 bg-coral-100/40 rounded-full blur-3xl"
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 10, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-10 right-10 w-80 h-80 bg-cream-300/50 rounded-full blur-3xl"
-          animate={{ scale: [1.2, 1, 1.2] }}
-          transition={{ duration: 12, repeat: Infinity }}
-        />
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="py-20 bg-white text-black overflow-hidden border-t border-black/5">
+      <div className="container mx-auto px-6">
         {/* Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-        >
-          <motion.span
-            className="inline-block bg-white/80 text-warm-700 px-4 py-2 rounded-full text-sm font-funky font-bold mb-4"
-            initial={{ scale: 0 }}
-            animate={isInView ? { scale: 1 } : { scale: 0 }}
-            transition={{ delay: 0.2, type: "spring" }}
-          >
-            The Magic Happens Here 🪄
-          </motion.span>
-
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-warm-900 mb-6">
-            Before &
-            <span className="relative mx-3">
-              <span className="relative z-10 text-warm-600">After</span>
-              <motion.span
-                className="absolute -inset-2 bg-cream-300/70 rounded-xl -z-0 rotate-1"
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : { scale: 0 }}
-                transition={{ delay: 0.4, type: "spring" }}
-              />
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+          <div>
+            <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em] mb-4 block">
+              Proven Outcomes
             </span>
-          </h2>
+            <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9]">
+              REAL <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 italic font-serif pr-2">
+                RESULTS.
+              </span>
+            </h2>
+          </div>
 
-          <p className="text-warm-600 text-lg max-w-xl mx-auto font-funky">
-            See the incredible transformations we&apos;ve created. Because every
-            brand deserves its glow-up moment! ✨
-          </p>
-        </motion.div>
+          <div className="flex gap-4">
+            <button
+              onClick={prevCase}
+              className="p-4 border border-black/10 rounded-full hover:bg-black hover:text-white transition-all hover:scale-110"
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={nextCase}
+              className="p-4 border border-black/10 rounded-full hover:bg-black hover:text-white transition-all hover:scale-110"
+            >
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
 
-        {/* Main Content */}
-        <motion.div
-          className="max-w-5xl mx-auto"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          {/* Client Info */}
-          <motion.div
-            key={current.id}
-            className="text-center mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-          >
-            <h3 className="font-display text-2xl md:text-3xl font-bold text-warm-900 mb-2">
-              {current.client}
-            </h3>
-            <p className="text-warm-600 font-funky">{current.description}</p>
-          </motion.div>
-
-          {/* Before/After Comparison */}
-          <div className="relative">
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              {/* Before */}
-              <motion.div
-                className="relative group"
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
-              >
-                <div className="absolute -top-4 left-4 bg-warm-600 text-white px-4 py-2 rounded-full font-funky font-bold text-sm z-10 flex items-center gap-2">
-                  <FaArrowLeft />
-                  Before
-                </div>
-                <div className="rounded-3xl overflow-hidden shadow-xl border-4 border-warm-200 bg-warm-100">
+        {/* The Magic Viewer */}
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
+          {/* The Lens Container (Takes up major space) */}
+          <div className="lg:col-span-8 perspective-1000 relative z-20">
+            <motion.div
+              ref={containerRef}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={() => {
+                mouseX.set(400); // Reset to center-ish
+                mouseY.set(300);
+              }}
+              style={{
+                rotateX,
+                rotateY,
+                transformStyle: "preserve-3d",
+              }}
+              className="relative w-full aspect-[4/3] md:aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl bg-gray-900 cursor-none group"
+            >
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={current.id}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0 w-full h-full"
+                >
+                  {/* Base: Before Layer (Desaturated) */}
                   <img
-                    src={current.before.image}
+                    src={current.beforeImage}
                     alt="Before"
-                    className="w-full h-64 md:h-80 object-cover filter grayscale opacity-80"
+                    className="absolute inset-0 w-full h-full object-cover opacity-80 filter grayscale brightness-75 transition-all duration-500"
                   />
-                </div>
-                <p className="text-center text-warm-500 mt-4 font-funky italic">
-                  {current.before.caption}
-                </p>
-              </motion.div>
 
-              {/* After */}
+                  {/* Overlay: After Layer (Vibrant) - Revealed by Mask */}
+                  <motion.div
+                    className="absolute inset-0 w-full h-full"
+                    style={{
+                      WebkitMaskImage: useTransform(
+                        [maskX, maskY],
+                        ([x, y]) =>
+                          `radial-gradient(circle 200px at ${x}px ${y}px, black 0%, transparent 100%)`
+                      ),
+                      maskImage: useTransform(
+                        [maskX, maskY],
+                        ([x, y]) =>
+                          `radial-gradient(circle 200px at ${x}px ${y}px, black 0%, transparent 100%)`
+                      ),
+                    }}
+                  >
+                    <img
+                      src={current.afterImage}
+                      alt="After"
+                      className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-125"
+                    />
+                  </motion.div>
+
+                  {/* The "Lens" Ring UI tracking mouse */}
+                  <motion.div
+                    className="absolute w-[250px] h-[250px] rounded-full border-2 border-white/50 pointer-events-none z-30 opacity-0 group-hover:opacity-100 transition-opacity"
+                    style={{
+                      x: useTransform(maskX, (x) => x - 125),
+                      y: useTransform(maskY, (y) => y - 125),
+                    }}
+                  >
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-white rounded-full shadow-[0_0_10px_white]" />
+                    <span className="absolute top-full left-1/2 -translate-x-1/2 mt-4 text-[10px] font-mono tracking-widest text-white uppercase bg-black/50 px-2 py-1 rounded backdrop-blur">
+                      Revealing Results
+                    </span>
+                  </motion.div>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Default Center Hint */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:opacity-0 transition-opacity duration-300">
+                <div className="bg-black/60 backdrop-blur-md text-white px-6 py-3 rounded-full flex items-center gap-3">
+                  <ScanEye className="w-5 h-5 text-blue-400" />
+                  <span className="text-sm font-bold tracking-widest uppercase">
+                    Hover to Unveil
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right: Metrics & Details */}
+          <div className="lg:col-span-4 flex flex-col justify-center">
+            <AnimatePresence mode="wait">
               <motion.div
-                className="relative group"
-                initial={{ opacity: 0, x: 50 }}
+                key={current.id}
+                initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
               >
-                <div className="absolute -top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full font-funky font-bold text-sm z-10 flex items-center gap-2">
-                  After
-                  <FaArrowRight />
+                <div className="mb-8">
+                  <span className="text-xs font-mono text-gray-400 uppercase tracking-widest mb-1 block">
+                    {current.category}
+                  </span>
+                  <h3 className="text-4xl font-bold">{current.client}</h3>
                 </div>
-                <div className="rounded-3xl overflow-hidden shadow-xl border-4 border-cream-300 bg-white">
-                  <img
-                    src={current.after.image}
-                    alt="After"
-                    className="w-full h-64 md:h-80 object-cover"
-                  />
+
+                <div className="space-y-4">
+                  {current.stats.map((stat, i) => (
+                    <div
+                      key={i}
+                      className="group bg-gray-50 hover:bg-black hover:text-white transition-all duration-300 p-6 rounded-xl border border-black/5 cursor-default"
+                    >
+                      <div className="flex items-end justify-between mb-2">
+                        <p className="text-4xl font-black tracking-tighter group-hover:text-blue-400 transition-colors">
+                          {stat.value}
+                        </p>
+                        <Sparkles className="w-4 h-4 opacity-0 group-hover:opacity-100 text-yellow-400 transition-opacity" />
+                      </div>
+                      <p className="text-xs font-mono uppercase tracking-widest text-gray-500 group-hover:text-gray-400">
+                        {stat.label}
+                      </p>
+                    </div>
+                  ))}
                 </div>
-                <p className="text-center text-warm-700 mt-4 font-funky font-bold">
-                  {current.after.caption}
-                </p>
               </motion.div>
-            </div>
-
-            {/* Arrow Connector */}
-            <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-              <motion.div
-                className="w-16 h-16 bg-warm-700 rounded-full flex items-center justify-center text-white text-xl shadow-xl"
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                →
-              </motion.div>
-            </div>
+            </AnimatePresence>
           </div>
-
-          {/* Metrics */}
-          <motion.div
-            className="flex flex-wrap justify-center gap-6 mt-12 mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-          >
-            {current.metrics.map((metric, index) => (
-              <motion.div
-                key={index}
-                className="bg-white rounded-2xl px-6 py-4 shadow-lg text-center min-w-[120px]"
-                whileHover={{ y: -5, scale: 1.05 }}
-              >
-                <p className="text-2xl font-bold text-warm-700 font-display">
-                  {metric.value}
-                </p>
-                <p className="text-warm-500 text-sm font-funky">
-                  {metric.label}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Navigation */}
-          <div className="flex justify-center items-center gap-6 mt-8">
-            <motion.button
-              onClick={prevSlide}
-              className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-warm-700 shadow-lg hover:bg-cream-300 transition-colors"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <FaChevronLeft />
-            </motion.button>
-
-            {/* Dots */}
-            <div className="flex gap-2">
-              {transformations.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentSlide
-                      ? "bg-warm-700 w-8"
-                      : "bg-cream-400 hover:bg-cream-500"
-                  }`}
-                />
-              ))}
-            </div>
-
-            <motion.button
-              onClick={nextSlide}
-              className="w-12 h-12 bg-warm-700 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-warm-800 transition-colors"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <FaChevronRight />
-            </motion.button>
-          </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
