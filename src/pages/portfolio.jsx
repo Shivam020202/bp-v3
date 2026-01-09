@@ -731,51 +731,10 @@ const PortfolioPage = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
                     {/* Client Name Overlay */}
-                    {/* <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <motion.h3
-                        className="font-display text-white text-lg md:text-xl font-bold drop-shadow-lg"
-                        initial={{ y: 10, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.05 + 0.2 }}
-                      >
-                        {client.name}
-                      </motion.h3>
-                    </div> */}
 
                     {/* Hover Indicator */}
-                    {/* <motion.div
-                      className="absolute top-4 right-4 w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                      whileHover={{ scale: 1.1, rotate: 90 }}
-                    >
-                      <svg
-                        className="w-4 h-4 text-warm-700"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                        />
-                      </svg>
-                    </motion.div> */}
 
                     {/* Image Counter Dots */}
-                    {/* <div className="absolute bottom-4 right-4 flex gap-1">
-                      {client.images.map((_, imgIndex) => (
-                        <div
-                          key={imgIndex}
-                          className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                            imgIndex === (clientImageIndices[index] || 0)
-                              ? "bg-white w-4"
-                              : "bg-white/50"
-                          }`}
-                        />
-                      ))}
-                    </div> */}
 
                     {/* Border Accent */}
                     <div className="absolute inset-0 border-2 border-transparent group-hover:border-warm-400/50 rounded-2xl transition-all duration-300" />

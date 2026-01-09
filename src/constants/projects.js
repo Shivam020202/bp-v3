@@ -1,3 +1,11 @@
+import p1 from "../assets/portfolio-demo/p-1.avif";
+import p2 from "../assets/portfolio-demo/p-2-bp.png";
+import p3 from "../assets/portfolio-demo/p-3-bp.png";
+import p4 from "../assets/portfolio-demo/p-4-bp.png";
+import p5 from "../assets/portfolio-demo/p-5-bp.png";
+import p6 from "../assets/portfolio-demo/p-6-bp.png";
+import p7 from "../assets/portfolio-demo/p-6bp.png";
+
 export const projects = [
     {
         id: 1,
@@ -8,7 +16,7 @@ export const projects = [
         client: "Bloom Beauty",
         duration: "3 months",
         image: "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&h=600&fit=crop",
-        heroImage: "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=1200&h=800&fit=crop",
+        heroImage: p1,
         tags: ["Brand Strategy", "Visual Identity", "Packaging"],
         description: "A fresh, modern beauty brand targeting Gen-Z consumers",
         challenge: "Bloom Beauty needed to stand out in a saturated market while maintaining a premium feel. The brand required a complete visual identity from scratch, including logo design, color palette, typography, and packaging design that would resonate with eco-conscious millennials and Gen-Z consumers.",
@@ -16,13 +24,7 @@ export const projects = [
         result: "200% increase in brand recognition",
         color: "from-pink-300 via-rose-300 to-pink-400",
         stats: { reach: "2.5M", engagement: "+180%", sales: "+200%" },
-        images: [
-            "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&h=600&fit=crop",
-            "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&h=600&fit=crop",
-            "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&h=600&fit=crop",
-            "https://images.unsplash.com/photo-1587556930699-5da0a2c0b7e4?w=800&h=600&fit=crop",
-            "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&h=600&fit=crop",
-        ],
+        images: [p1, p2, p3, p4, p5, p6, p7],
         keyFeatures: [
             { title: "Brand Identity System", description: "Complete logo suite with primary, secondary, and icon variations." },
             { title: "Sustainable Packaging", description: "Eco-friendly packaging design using recyclable materials." },
@@ -149,7 +151,24 @@ export const projects = [
             quote: "Our brand voice has never been clearer. The engagement numbers speak for themselves.",
             author: "Elena Rodriguez",
             position: "Marketing Director, Green Eats"
-        }
+        },
+        faqs: [
+            {
+                number: "001",
+                question: "How do you select influencers for the campaign?",
+                answer: "We use a data-driven approach, looking for creators whose audience demographics align with our target persona and who have high engagement rates and authentic brand affinity."
+            },
+            {
+                number: "002",
+                question: "What was the most successful content type?",
+                answer: "Short-form recipe videos and 'day-in-the-life' reels featuring our meal prep containers performed best, driving both high engagement and direct website traffic."
+            }
+        ],
+        partnershipReasons: [
+            "Data-driven influencer strategy for Green Eats with 2 months of dedication",
+            "High-energy content production that resonated with health-conscious professionals",
+            "Significant growth in social following and community engagement"
+        ]
     },
     {
         id: 4,
@@ -186,7 +205,24 @@ export const projects = [
             quote: "The packaging is as exquisite as our coffee. It's been a game-changer for our retail presence.",
             author: "Marcus Thorne",
             position: "Founder, Artisan Roasters"
-        }
+        },
+        faqs: [
+            {
+                number: "001",
+                question: "How did you translate the bean's origin into the design?",
+                answer: "We worked with local illustrators to create patterns inspired by the topography and flora of each region, using tactile papers that evoke the natural feel of coffee sacks."
+            },
+            {
+                number: "002",
+                question: "Are the materials used truly sustainable?",
+                answer: "Yes, we utilized certified compostable films and recycled paper stocks, ensuring the entire packaging cycle reflects the client's commitment to the environment."
+            }
+        ],
+        partnershipReasons: [
+            "Innovative packaging design for Artisan Coffee with 4 months of dedication",
+            "Successful brand storytelling through custom illustrations and premium materials",
+            "Recognition in top-tier design publications for aesthetic and functional excellence"
+        ]
     },
     {
         id: 5,
@@ -223,7 +259,24 @@ export const projects = [
             quote: "The redesign has completely turned our metrics around. Our users love the new experience.",
             author: "David Miller",
             position: "CEO, FitLife Wellness"
-        }
+        },
+        faqs: [
+            {
+                number: "001",
+                question: "How did you address the high churn rate?",
+                answer: "We simplified the core user journey to reduce friction and introduced a gamified progression system that rewards consistency, keeping users motivated and engaged."
+            },
+            {
+                number: "002",
+                question: "What role did motion design play in the app?",
+                answer: "Motion was used to provide delightful feedback for completed workouts and to make the transition between different app states feel fluid and instinctive."
+            }
+        ],
+        partnershipReasons: [
+            "Strategic UI/UX redesign for FitLife Wellness with 5 months of dedication",
+            "Implementation of gamification strategies that significantly increased user retention",
+            "Creation of a scalable design system that accommodates future feature expansions"
+        ]
     },
     {
         id: 6,
@@ -260,7 +313,24 @@ export const projects = [
             quote: "We didn't just launch a brand; we built a community. The results exceeded all our expectations.",
             author: "Sophie vance",
             position: "Creative Director, Urban Style"
-        }
+        },
+        faqs: [
+            {
+                number: "001",
+                question: "How did you maintain brand authenticity?",
+                answer: "By creating a transparent brand story that shared the actual production process and highlighted the artisans behind the clothes, fostering deep trust with the audience."
+            },
+            {
+                number: "002",
+                question: "What was the key to the campaign's virality?",
+                answer: "A combination of timely trend participation on TikTok and a compelling 'mission-first' narrative that gave people a reason to share and participate in the brand's launch."
+            }
+        ],
+        partnershipReasons: [
+            "Community-first launch strategy for Urban Style with 3 months of dedication",
+            "Viral content production that reached millions of potential customers organically",
+            "Successful positioning of a sustainable brand in a highly competitive market"
+        ]
     },
     {
         id: 7,
@@ -351,7 +421,24 @@ export const projects = [
             quote: "This platform has become the heartbeat of our startup ecosystem. It's truly transformative.",
             author: "Liam Walker",
             position: "Founder, Startup Hub"
-        }
+        },
+        faqs: [
+            {
+                number: "001",
+                question: "How does the mentor matching algorithm work?",
+                answer: "It uses a multi-faceted approach, matching founders based on their specific challenges (e.g., fundraising, hiring) with mentors who have proven expertise and success in those exact areas."
+            },
+            {
+                number: "002",
+                question: "How do you ensure high community engagement?",
+                answer: "We implemented interactive features like real-time Q&A sessions, exclusive founder circles, and a reward system for active contributors, making the platform indispensable for daily growth."
+            }
+        ],
+        partnershipReasons: [
+            "Comprehensive platform development for Startup Hub with 4 months of dedication",
+            "Successful integration of advanced features that fostered genuine community growth",
+            "User-centric design that made complex networking and resource management intuitive"
+        ]
     },
     {
         id: 9,
@@ -388,6 +475,23 @@ export const projects = [
             quote: "The branding captures the joy we bake into every cookie. It's been essential to our expansion.",
             author: "Anna Baker",
             position: "Owner, Sweet Treats"
-        }
+        },
+        faqs: [
+            {
+                number: "001",
+                question: "How did you capture the 'whimsical spirit' visually?",
+                answer: "We chose a palette of soft pastels and used organic, hand-drawn illustrations across all packaging, creating a brand that feels both nostalgic and refreshingly modern."
+            },
+            {
+                number: "002",
+                question: "What was the goal for the product photography?",
+                answer: "To make the products look as delicious as possible while emphasizing their artisanal, 'made-with-love' quality through warm lighting and detailed close-ups."
+            }
+        ],
+        partnershipReasons: [
+            "End-to-end visual identity for Sweet Treats with 3 months of dedication",
+            "Creation of a cohesive brand experience from digital presence to physical packaging",
+            "Successful positioning that led to significant national media attention and growth"
+        ]
     }
 ];
