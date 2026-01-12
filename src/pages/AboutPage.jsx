@@ -1,8 +1,10 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useRef } from "react";
+import SpiralTimeline from "../components/sections/SpiralTimeline";
 
 const AboutPage = () => {
     const [flippedCard, setFlippedCard] = useState(null);
+    const [activeService, setActiveService] = useState(0);
     const containerRef = useRef(null);
     const { scrollYProgress } = useScroll();
 
@@ -35,34 +37,24 @@ const AboutPage = () => {
 
     const visionPoints = [
         {
-            title: "Innovation",
-            desc: "Creative solutions ahead of the curve.",
-            image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop",
-            icon: (
-                <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-            )
+            title: "INNOVATION",
+            desc: "Pioneering creative solutions that push boundaries and set new industry standards in digital marketing.",
+            image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=500&fit=crop"
         },
         {
-            title: "Client Success",
-            desc: "Achieving exceptional ROI for partners.",
-            image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop",
-            icon: (
-                <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-            )
+            title: "EXCELLENCE",
+            desc: "Committed to delivering exceptional results through meticulous attention to detail and unwavering quality.",
+            image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=500&fit=crop"
         },
         {
-            title: "Data Driven",
-            desc: "Advanced analytics for impact.",
-            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
-            icon: (
-                <svg className="w-5 h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-            )
+            title: "INTEGRITY",
+            desc: "Building lasting relationships through transparency, trust, and honest communication with our clients.",
+            image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=500&fit=crop"
+        },
+        {
+            title: "GROWTH",
+            desc: "Empowering brands to reach their full potential through data-driven strategies and continuous improvement.",
+            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=500&fit=crop"
         }
     ];
 
@@ -222,185 +214,416 @@ const AboutPage = () => {
             {/* Content Container */}
             <div className="relative z-10">
 
-                {/* Leadership Section - White BG */}
-                <section className="py-16 bg-white">
+                {/* Who We Are Section */}
+                <section className="py-20 bg-white">
                     <div className="container mx-auto px-6">
-                        <motion.div className="text-center mb-10" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-                            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Meet Our Leadership</h2>
-                            <div className="w-12 h-1 bg-blue-600 mx-auto rounded-full" />
-                        </motion.div>
-
-                        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                            {leaders.map((leader, i) => (
-                                <motion.div
-                                    key={i}
-                                    className="relative h-[500px] cursor-pointer group"
-                                    style={{ perspective: '2000px' }}
-                                    onClick={() => setFlippedCard(flippedCard === i ? null : i)}
-                                    onMouseEnter={() => setFlippedCard(i)}
-                                    onMouseLeave={() => setFlippedCard(null)}
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: i * 0.15 }}
-                                >
-                                    <div
-                                        className="w-full h-full transition-all duration-700"
-                                        style={{ transformStyle: 'preserve-3d', transform: flippedCard === i ? 'rotateY(180deg)' : 'rotateY(0deg)' }}
+                        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
+                            {/* Left - Team Image */}
+                            <motion.div
+                                className="relative"
+                                initial={{ opacity: 0, x: -40 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.7 }}
+                            >
+                                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                                    <img
+                                        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200"
+                                        alt="Our Team"
+                                        className="w-full h-[400px] lg:h-[500px] object-cover"
+                                    />
+                                    {/* Decorative Badge */}
+                                    <motion.div
+                                        className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-sm px-5 py-3 rounded-xl shadow-lg"
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: 0.5 }}
                                     >
-                                        {/* Front */}
-                                        <div className="absolute inset-0 rounded-2xl bg-white shadow-xl overflow-hidden border border-gray-100" style={{ backfaceVisibility: 'hidden' }}>
-                                            <img src={leader.image} alt={leader.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
-                                            <div className="absolute bottom-6 left-6">
-                                                <h3 className="text-2xl font-bold text-white mb-1">{leader.name}</h3>
-                                                <p className="text-blue-400 font-semibold text-sm uppercase tracking-widest">{leader.role}</p>
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#C4A484' }}>
+                                                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <p className="text-xs text-gray-500 uppercase tracking-wide">Inspiring</p>
+                                                <p className="text-sm font-bold text-gray-900">Creative Minds</p>
                                             </div>
                                         </div>
-                                        {/* Back */}
-                                        <div
-                                            className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 p-8 flex flex-col justify-center shadow-2xl"
-                                            style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
-                                        >
-                                            <div className="text-white/50 mb-6">{leader.icon}</div>
-                                            <h3 className="text-2xl font-bold text-white mb-1">{leader.name}</h3>
-                                            <p className="text-blue-300 font-semibold mb-4 uppercase tracking-wider text-xs">{leader.role}</p>
-                                            <p className="text-white/80 leading-relaxed">{leader.bio}</p>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                {/* Vision Section - Clean Light Design */}
-                <section className="py-16 bg-white">
-                    <div className="container mx-auto px-6">
-                        <motion.div className="text-center mb-12" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-                            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Our Vision</h2>
-                            <p className="text-gray-500">Guiding principles that drive our success</p>
-                        </motion.div>
-
-                        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                            {visionPoints.map((point, i) => (
-                                <motion.div
-                                    key={i}
-                                    className="text-center p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:border-blue-200 hover:shadow-xl transition-all group"
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: i * 0.1 }}
-                                    whileHover={{ y: -5 }}
+                                    </motion.div>
+                                </div>
+                                {/* Arrow Button */}
+                                <motion.button
+                                    className="absolute top-4 right-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.95 }}
                                 >
-                                    {/* Icon Circle */}
-                                    <div className="w-16 h-16 mx-auto mb-6 bg-white rounded-2xl shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                                        <div className="text-blue-600">{point.icon}</div>
+                                    <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </motion.button>
+                            </motion.div>
+
+                            {/* Right - Content */}
+                            <motion.div
+                                initial={{ opacity: 0, x: 40 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.7 }}
+                            >
+                                <span className="font-semibold text-sm uppercase tracking-widest mb-4 block" style={{ color: '#C4A484' }}>Who We Are</span>
+                                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                                    <span style={{ color: '#C4A484' }}>Building Brands</span> That Stand Out in a Crowded World.
+                                </h2>
+                                <p className="text-gray-600 mb-8 leading-relaxed">
+                                    We combine creativity with strategic thinking to help brands discover their unique voice.
+                                    Our team of experts crafts compelling narratives that resonate with your audience and
+                                    drive meaningful engagement across all touchpoints.
+                                </p>
+
+                                {/* Services Grid */}
+                                <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+                                    <div className="flex items-center gap-3">
+                                        <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C4A484' }}></span>
+                                        <span className="text-gray-700 font-medium">Brand Strategy</span>
                                     </div>
-                                    {/* Number */}
-                                    <span className="text-blue-600 text-xs font-bold uppercase tracking-widest">0{i + 1}</span>
-                                    {/* Title */}
-                                    <h3 className="text-xl font-bold text-gray-900 mt-2 mb-3">{point.title}</h3>
-                                    {/* Description */}
-                                    <p className="text-gray-500 text-sm leading-relaxed">{point.desc}</p>
-                                </motion.div>
-                            ))}
+                                    <div className="flex items-center gap-3">
+                                        <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C4A484' }}></span>
+                                        <span className="text-gray-700 font-medium">Brand Consulting</span>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C4A484' }}></span>
+                                        <span className="text-gray-700 font-medium">Logo Design & Identity</span>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C4A484' }}></span>
+                                        <span className="text-gray-700 font-medium">Creative Design Services</span>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C4A484' }}></span>
+                                        <span className="text-gray-700 font-medium">Digital Marketing</span>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C4A484' }}></span>
+                                        <span className="text-gray-700 font-medium">Content Creation</span>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C4A484' }}></span>
+                                        <span className="text-gray-700 font-medium">Brand Activation</span>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C4A484' }}></span>
+                                        <span className="text-gray-700 font-medium">Brand Monitoring</span>
+                                    </div>
+                                </div>
+                            </motion.div>
                         </div>
                     </div>
                 </section>
 
-                {/* Stats Section - Gray BG */}
-                <section className="py-14 bg-gray-50">
+                {/* Partners/Clients Section */}
+                <section className="py-20 overflow-hidden" style={{ backgroundColor: '#FDF8F3' }}>
                     <div className="container mx-auto px-6">
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-                            {stats.map((stat, i) => (
-                                <motion.div
-                                    key={i}
-                                    className="text-center p-6 bg-white rounded-2xl shadow-sm"
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: i * 0.1, type: "spring" }}
-                                    whileHover={{ scale: 1.05 }}
-                                >
-                                    <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-1">{stat.number}</div>
-                                    <div className="text-xs text-gray-500 font-semibold uppercase tracking-wider">{stat.label}</div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                {/* Horizontal Journey Section - Light Theme */}
-                <section className="relative bg-white overflow-hidden">
-                    <div className="container mx-auto px-6 pt-16 pb-8">
+                        {/* Header */}
                         <motion.div
-                            className="text-center"
+                            className="text-center mb-14"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                         >
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Our Journey</h2>
-                            <p className="text-gray-500">From startup to industry leader</p>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+                                Join over <span style={{ color: '#C4A484' }}>2,500+</span> businesses to
+                                <br className="hidden md:block" /> create unique brand designs.
+                            </h2>
                         </motion.div>
                     </div>
 
-                    <div
-                        ref={timelineRef}
-                        onWheel={handleWheel}
-                        className="relative h-[520px] flex items-center overflow-x-auto overflow-y-hidden px-[10vw] gap-16 cursor-grab active:cursor-grabbing pb-8"
-                        style={{ scrollBehavior: 'smooth', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-                    >
-                        {/* Hide scrollbar for webkit */}
-                        <style>{`div::-webkit-scrollbar { display: none; }`}</style>
-
-                        {/* Central Line - Subtle blue-gray, behind cards */}
-                        <div
-                            className="absolute top-1/2 left-0 h-[2px] -translate-y-1/2 bg-blue-200"
-                            style={{ width: `${journeyData.length * 380 + 200}px`, zIndex: 1 }}
-                        />
-
-                        {journeyData.map((item, i) => (
-                            <motion.article
-                                key={i}
-                                className="relative min-w-[300px] max-w-[300px] flex flex-col"
-                                style={{ transform: i % 2 === 0 ? 'translateY(-45px)' : 'translateY(45px)', zIndex: 10 }}
-                                initial={{ opacity: 0, x: 50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ delay: i * 0.1 }}
-                            >
-                                {/* Dot */}
-                                <motion.div
-                                    className="absolute w-4 h-4 bg-blue-500 rounded-full left-1/2 -translate-x-1/2 shadow-md"
-                                    style={{ top: i % 2 === 0 ? 'calc(100% + 43px)' : '-43px', zIndex: 15 }}
-                                    whileHover={{ scale: 1.3 }}
-                                />
-
-                                {/* Year Label */}
-                                <div
-                                    className="absolute left-1/2 -translate-x-1/2 text-blue-600 font-bold text-sm whitespace-nowrap"
-                                    style={{ top: i % 2 === 0 ? 'calc(100% + 60px)' : '-60px', zIndex: 15 }}
-                                >
-                                    {item.year}
+                    {/* Logo Marquee - Row 1 */}
+                    <div className="relative mb-10 overflow-hidden">
+                        <motion.div
+                            className="flex items-center"
+                            animate={{ x: ["0%", "-50%"] }}
+                            transition={{ repeat: Infinity, ease: "linear", duration: 35 }}
+                            style={{ width: "200%" }}
+                        >
+                            {[...Array(2)].map((_, setIndex) => (
+                                <div key={setIndex} className="flex items-center justify-around flex-shrink-0 gap-8 md:gap-12 px-6" style={{ width: "50%" }}>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" alt="Stripe" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" alt="Airbnb" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike" className="h-6 md:h-7 w-auto object-contain flex-shrink-0" />
                                 </div>
+                            ))}
+                        </motion.div>
+                    </div>
 
-                                {/* Card */}
-                                <motion.div
-                                    className="bg-white border border-gray-200 rounded-2xl p-5 shadow-md cursor-pointer overflow-hidden group hover:shadow-xl hover:border-blue-300 transition-all"
-                                    whileHover={{ y: -5, scale: 1.02 }}
-                                >
-                                    <div className="w-full h-36 rounded-xl overflow-hidden mb-4">
-                                        <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                                    </div>
-                                    <h3 className="text-lg font-bold text-gray-900 mb-1">{item.title}</h3>
-                                    <p className="text-blue-600 text-xs font-semibold mb-2">{item.subtitle}</p>
-                                    <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
-                                </motion.div>
-                            </motion.article>
-                        ))}
+                    {/* Logo Marquee - Row 2 (Reverse) */}
+                    <div className="relative overflow-hidden">
+                        <motion.div
+                            className="flex items-center"
+                            animate={{ x: ["-50%", "0%"] }}
+                            transition={{ repeat: Infinity, ease: "linear", duration: 35 }}
+                            style={{ width: "200%" }}
+                        >
+                            {[...Array(2)].map((_, setIndex) => (
+                                <div key={setIndex} className="flex items-center justify-around flex-shrink-0 gap-8 md:gap-12 px-6" style={{ width: "50%" }}>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" className="h-6 md:h-8 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" className="h-6 md:h-8 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" className="h-6 md:h-8 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Adobe_Corporate_Logo.png" alt="Adobe" className="h-6 md:h-8 w-auto object-contain flex-shrink-0" />
+                                </div>
+                            ))}
+                        </motion.div>
                     </div>
                 </section>
+
+                {/* Leadership Section - Meet The Principals */}
+                <section className="py-16 bg-white overflow-visible">
+                    <div className="container mx-auto px-6">
+                        <div className="relative max-w-6xl mx-auto">
+                            {/* Main Layout - Founders on sides, content in center */}
+                            <div className="relative flex items-end justify-center min-h-[400px]">
+
+                                {/* Left Founder - Extending outside */}
+                                <motion.div
+                                    className="hidden lg:block absolute left-0 bottom-0 z-10"
+                                    style={{ transform: 'translateX(-15%)' }}
+                                    initial={{ opacity: 0, x: -30 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.7 }}
+                                >
+                                    <div className="w-[240px] h-[320px] xl:w-[280px] xl:h-[360px]">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=1000&fit=crop"
+                                            alt="Arush Thapar"
+                                            className="w-full h-full object-cover object-top rounded-t-full"
+                                        />
+                                    </div>
+                                </motion.div>
+
+                                {/* Center Beige Card with White Text Box */}
+                                <div
+                                    className="relative rounded-3xl px-8 md:px-24 lg:px-40 py-16 md:py-20 mx-auto w-full lg:w-[75%]"
+                                    style={{ backgroundColor: '#E8E0D8' }}
+                                >
+                                    {/* White Text Box - Extending more below the beige card */}
+                                    <motion.div
+                                        className="relative z-20 bg-white rounded-t-2xl p-6 md:p-8 mx-auto max-w-sm"
+                                        style={{ marginBottom: '-100px', transform: 'translateY(60px)' }}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.6 }}
+                                    >
+                                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4 text-center" style={{ fontFamily: 'serif' }}>
+                                            MEET OUR<br />FOUNDERS
+                                        </h2>
+                                        <p className="text-gray-500 text-sm leading-relaxed text-center">
+                                            Visionaries who transformed Branding Pioneers from an ambitious idea into a leading digital agency, driving innovation and excellence in every project we undertake.
+                                        </p>
+                                    </motion.div>
+                                </div>
+
+                                {/* Right Founder - Extending outside */}
+                                <motion.div
+                                    className="hidden lg:block absolute right-0 bottom-0 z-10"
+                                    style={{ transform: 'translateX(15%)' }}
+                                    initial={{ opacity: 0, x: 30 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.7 }}
+                                >
+                                    <div className="w-[240px] h-[320px] xl:w-[280px] xl:h-[360px]">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&h=1000&fit=crop"
+                                            alt="Nishu Sharma"
+                                            className="w-full h-full object-cover object-top rounded-t-full"
+                                        />
+                                    </div>
+                                </motion.div>
+                            </div>
+
+                            {/* Founder Names - Below the section, outside the card */}
+                            <div className="hidden lg:flex justify-between mt-6 px-0">
+                                <motion.div
+                                    className="text-left"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: 0.3 }}
+                                >
+                                    <h3 className="text-2xl font-bold text-gray-900">Arush Thapar</h3>
+                                    <p className="text-gray-500 uppercase tracking-widest text-xs mt-0.5">FOUNDER AND PRINCIPAL</p>
+                                </motion.div>
+                                <motion.div
+                                    className="text-right"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: 0.3 }}
+                                >
+                                    <h3 className="text-2xl font-bold text-gray-900">Nishu Sharma</h3>
+                                    <p className="text-gray-500 uppercase tracking-widest text-xs mt-0.5">FOUNDER AND PRINCIPAL</p>
+                                </motion.div>
+                            </div>
+
+                            {/* Mobile Founders View */}
+                            <div className="lg:hidden grid grid-cols-2 gap-4 mt-8">
+                                <motion.div
+                                    className="text-center"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                >
+                                    <div className="w-full h-[180px] overflow-hidden rounded-xl mb-3">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=1000&fit=crop"
+                                            alt="Arush Thapar"
+                                            className="w-full h-full object-cover object-top"
+                                        />
+                                    </div>
+                                    <h3 className="text-base font-bold text-gray-900">Arush Thapar</h3>
+                                    <p className="text-gray-500 uppercase tracking-wider text-[10px] mt-0.5">FOUNDER</p>
+                                </motion.div>
+                                <motion.div
+                                    className="text-center"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.1 }}
+                                >
+                                    <div className="w-full h-[180px] overflow-hidden rounded-xl mb-3">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&h=1000&fit=crop"
+                                            alt="Nishu Sharma"
+                                            className="w-full h-full object-cover object-top"
+                                        />
+                                    </div>
+                                    <h3 className="text-base font-bold text-gray-900">Nishu Sharma</h3>
+                                    <p className="text-gray-500 uppercase tracking-wider text-[10px] mt-0.5">FOUNDER</p>
+                                </motion.div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Vision Section - Reference Matched Layout */}
+                <section className="py-12 bg-white">
+                    <div className="container mx-auto px-6">
+                        <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
+                            {/* Left Side - Title, Description, and Image */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6 }}
+                            >
+                                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6" style={{ fontFamily: 'serif' }}>
+                                    Our Vision
+                                </h2>
+                                <p className="text-gray-900 text-sm leading-relaxed mb-10 max-w-md">
+                                    At Branding Pioneers, we offer a comprehensive range of services to bring your digital vision to life. Each service is tailored to meet the unique needs of our clients, ensuring a seamless and satisfying experience.
+                                </p>
+
+                                {/* Image with Cutout Effect */}
+                                <div className="relative h-[300px] md:h-[340px]">
+                                    {/* Main Image Container with Rounded Corners */}
+                                    <div className="relative w-[85%] h-full rounded-2xl overflow-hidden">
+                                        {visionPoints.map((point, i) => (
+                                            <motion.img
+                                                key={i}
+                                                src={point.image}
+                                                alt={point.title}
+                                                className="absolute inset-0 w-full h-full object-cover"
+                                                initial={false}
+                                                animate={{
+                                                    opacity: activeService === i ? 1 : 0,
+                                                    scale: activeService === i ? 1 : 1.05
+                                                }}
+                                                transition={{ duration: 0.5 }}
+                                            />
+                                        ))}
+                                    </div>
+                                    {/* Cutout Elements - Small floating images */}
+                                    <div className="absolute -right-4 bottom-8 w-24 h-32 rounded-xl overflow-hidden shadow-lg border-4 border-white">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=200&h=300&fit=crop"
+                                            alt=""
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                    <div className="absolute right-8 -bottom-4 w-20 h-20 rounded-full overflow-hidden shadow-lg border-4 border-white">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=100&h=100&fit=crop"
+                                            alt=""
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                </div>
+                            </motion.div>
+
+                            {/* Right Side - Vision Items (Exact Reference Style) */}
+                            <motion.div
+                                className="flex flex-col justify-center"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.2 }}
+                            >
+                                {visionPoints.map((point, i) => (
+                                    <div
+                                        key={i}
+                                        className={`py-5 border-b border-gray-100 cursor-pointer transition-all duration-300 ${activeService === i ? 'opacity-100' : 'opacity-60 hover:opacity-100'
+                                            }`}
+                                        onMouseEnter={() => setActiveService(i)}
+                                        onClick={() => setActiveService(i)}
+                                    >
+                                        <h3
+                                            className="text-lg md:text-xl font-bold mb-2 tracking-wide uppercase transition-colors duration-300"
+                                            style={{
+                                                fontFamily: 'serif',
+                                                color: activeService === i ? '#C4A484' : '#1f2937'
+                                            }}
+                                        >
+                                            {point.title}
+                                        </h3>
+                                        <p className="text-gray-700 text-sm leading-relaxed">
+                                            {point.desc}
+                                        </p>
+                                    </div>
+                                ))}
+                            </motion.div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Stats Section - Beige Theme */}
+                <section className="py-16" style={{ backgroundColor: '#FDF8F3' }}>
+                    <div className="container mx-auto px-6">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                            {stats.map((stat, i) => (
+                                <motion.div
+                                    key={i}
+                                    className="text-center py-8 px-4"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1 }}
+                                >
+                                    <div className="text-4xl md:text-5xl font-bold mb-2" style={{ color: '#C4A484' }}>{stat.number}</div>
+                                    <div className="text-sm text-gray-600 font-medium uppercase tracking-wider">{stat.label}</div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* 3D Spiral Timeline Section */}
+                <SpiralTimeline journeyData={journeyData} />
 
                 {/* Curved CTA Card */}
                 <section className="py-16 bg-gray-50">
@@ -428,41 +651,7 @@ const AboutPage = () => {
                     </div>
                 </section>
 
-                {/* About Section */}
-                <section className="py-16 bg-white">
-                    <div className="container mx-auto px-6">
-                        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-                            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Branding Pioneers</h2>
-                                <p className="text-blue-600 font-semibold text-lg mb-6">Shaping Tomorrow's Technology, Today</p>
-                                <div className="space-y-4 text-gray-600 leading-relaxed">
-                                    <p>Branding Pioneers started with a bold idea: to bridge the gap between technology and creativity, empowering businesses to thrive in a digital-first world.</p>
-                                    <p>At our core, we believe in the power of human-centered design and sustainable technology. Every product we create is tailored to solve real-world challenges.</p>
-                                    <p className="text-gray-900 font-medium">Join us in transforming ideas into realities, and together, let's create a future where innovation knows no bounds.</p>
-                                </div>
-                            </motion.div>
-                            <motion.div className="relative rounded-2xl overflow-hidden shadow-2xl h-[350px] md:h-[400px]" initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                                <video autoPlay muted loop playsInline className="w-full h-full object-cover">
-                                    <source src="https://res.cloudinary.com/damfndmrm/video/upload/v1767787523/49949B00-9B30-46C4-Bcac-B91c47930d82_kiwg7n.mp4" type="video/mp4" />
-                                </video>
-                                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
-                            </motion.div>
-                        </div>
-                    </div>
-                </section>
 
-                {/* Final CTA */}
-                <section className="py-16 bg-gray-50">
-                    <div className="container mx-auto px-6">
-                        <motion.div className="text-center max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Let's build the future together.</h2>
-                            <p className="text-gray-600 mb-8">Transforming ideas into digital milestones with Branding Pioneers.</p>
-                            <motion.button className="px-10 py-4 bg-gray-900 text-white rounded-full font-bold shadow-xl hover:bg-gray-800 hover:shadow-2xl transition-all" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                Get Started Today
-                            </motion.button>
-                        </motion.div>
-                    </div>
-                </section>
             </div>
         </div>
     );

@@ -28,21 +28,27 @@ const FAQ = () => {
     ];
 
     return (
-        <section className="py-12 bg-white">
-            <div className="container mx-auto px-6">
-                <div className="grid lg:grid-cols-2 gap-10 items-start max-w-6xl mx-auto">
+        <section className="py-12 md:py-16 bg-white">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid lg:grid-cols-2 gap-10 items-start">
                     {/* Left - FAQ Content */}
                     <div>
                         <motion.div
-                            className="mb-6"
+                            className="mb-8"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                         >
-                            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                            <div className="flex items-center gap-4 mb-4">
+                                <div className="w-12 h-[3px]" style={{ backgroundColor: '#C4A484' }} />
+                                <span className="text-sm font-bold uppercase tracking-widest" style={{ color: '#C4A484' }}>
+                                    FAQ
+                                </span>
+                            </div>
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'serif' }}>
                                 Frequently Asked Questions
                             </h2>
-                            <p className="text-gray-500 text-sm">
+                            <p className="text-gray-600 text-base md:text-lg">
                                 Everything you need to know about our services
                             </p>
                         </motion.div>
@@ -58,8 +64,8 @@ const FAQ = () => {
                                 >
                                     <div
                                         className={`border rounded-xl transition-all cursor-pointer ${openIndex === i
-                                                ? "border-blue-500 bg-blue-50/50"
-                                                : "border-gray-200 bg-white hover:border-gray-300"
+                                            ? "border-[#C4A484] bg-[#C4A484]/5"
+                                            : "border-gray-200 bg-white hover:border-gray-300"
                                             }`}
                                         onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
                                     >
