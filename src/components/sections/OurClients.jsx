@@ -89,7 +89,7 @@ const OurClients = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full pt-16 overflow-hidden bg-gradient-to-b from-white via-gray-50 to-white"
+      className="relative w-full pt-12 overflow-hidden bg-gradient-to-b from-white via-gray-50 to-white"
     >
       {/* Decorative Grid */}
       <div
@@ -110,12 +110,12 @@ const OurClients = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="flex flex-col items-center justify-center text-center mb-10 lg:mb-16">
-          <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.3em] mb-4 animate-pulse">
+          <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em] mb-4 block">
             Global Ecosystem
           </span>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-black to-gray-600 tracking-tighter mb-6 leading-[0.9]">
+          <h2 className="text-5xl md:text-6xl font-black tracking-tighter leading-[0.9] text-black mb-6">
             TRUSTED BY <br />
-            <span className="text-black drop-shadow-[0_10px_15px_rgba(0,0,0,0.1)]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 italic font-serif pr-2">
               THE GIANTS
             </span>
           </h2>

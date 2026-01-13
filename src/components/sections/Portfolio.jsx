@@ -134,18 +134,15 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-white text-black overflow-hidden font-sans">
+    <section className="py-12 bg-white text-black overflow-hidden font-sans">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div className="max-w-xl">
-            <div className="flex items-center gap-3 mb-4 text-blue-600">
-              <Layers size={20} />
-              <span className="font-mono text-sm tracking-[0.2em] uppercase font-bold">
-                Selected Works
-              </span>
-            </div>
-            <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9]">
+            <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em] mb-4 block">
+              Selected Works
+            </span>
+            <h2 className="text-5xl md:text-6xl font-black tracking-tighter leading-[0.9]">
               DIGITAL <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 italic font-serif pr-4">
                 LANDMARKS.

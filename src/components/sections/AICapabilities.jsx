@@ -67,21 +67,18 @@ const AICapabilities = () => {
   const [activeId, setActiveId] = useState("landing");
 
   return (
-    <section className="py-20 bg-white text-black overflow-hidden relative border-t border-gray-100 font-sans">
+    <section className="py-12 bg-white text-black overflow-hidden relative border-t border-gray-100 font-sans">
       <div className="container mx-auto px-6">
         {/* Header - Matching AboutCompany Style */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="max-w-3xl">
-            <div className="mb-4 flex items-center gap-4">
-              <span className="w-12 h-[1px] bg-blue-600"></span>
-              <span className="text-blue-600 font-mono text-sm tracking-widest uppercase">
-                AI Solutions
-              </span>
-            </div>
-            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-black leading-none">
+            <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em] mb-4 block">
+              AI Solutions
+            </span>
+            <h2 className="text-5xl md:text-6xl font-black tracking-tighter leading-[0.9]">
               POWERED BY <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 font-serif italic pr-2">
-                INTELLIGENCE
+                INTELLIGENCE.
               </span>
             </h2>
           </div>

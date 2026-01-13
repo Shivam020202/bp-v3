@@ -68,7 +68,7 @@ const AboutCompany = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-16 overflow-hidden bg-white text-black"
+      className="relative w-full py-12 overflow-hidden bg-white text-black"
     >
       {/* Background Kinetic Typography */}
       <div className="absolute top-1/4 left-0 w-full overflow-hidden pointer-events-none select-none">
@@ -135,21 +135,17 @@ const AboutCompany = () => {
             ref={contentRef}
             className="w-full lg:w-1/2 flex flex-col justify-center"
           >
-            <div className="mb-6 flex items-center gap-4">
-              <span className="w-12 h-[1px] bg-blue-600"></span>
-              <span className="text-blue-600 font-mono text-sm tracking-widest uppercase">
+            <div className="mb-6">
+              <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em] mb-4 block">
                 The Philosophy
               </span>
+              <h2 className="text-5xl md:text-6xl font-black tracking-tighter leading-[0.9]">
+                WE MOLD <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 italic font-serif pr-2">
+                  CHAOS.
+                </span>
+              </h2>
             </div>
-
-            <h2 className="text-5xl md:text-7xl font-bold leading-[0.9] mb-8 tracking-tighter text-black">
-              WE MOLD <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 italic font-serif pr-2">
-                CHAOS
-              </span>
-              INTO <br />
-              CLARITY.
-            </h2>
 
             <p className="text-lg text-gray-600 leading-relaxed mb-10 max-w-lg border-l border-black/10 pl-6">
               Redefining the digital landscape through bold strategy and

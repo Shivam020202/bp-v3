@@ -27,9 +27,41 @@ const ScrollVideoHero = () => {
         // Use client width/height to match the display size exactly
         canvas.width = containerRef.current.clientWidth;
         canvas.height = containerRef.current.clientHeight;
-        // Re-draw immediately on resize
+
         if (video.readyState >= 1) {
-          ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+          // Object-Fit: Cover Logic
+          const vw = canvas.width;
+          const vh = canvas.height;
+          const videoRatio = video.videoWidth / video.videoHeight;
+          const canvasRatio = vw / vh;
+
+          let drawW, drawH, drawX, drawY;
+
+          if (canvasRatio > videoRatio) {
+            // Canvas is wider -> Fit Width, Crop Height
+            drawW = vw;
+            drawH = vw / videoRatio;
+            drawX = 0;
+            drawY = (vh - drawH) / 2;
+          } else {
+            // Canvas is taller -> Fit Height, Crop Width (Mobile)
+            drawH = vh;
+            drawW = vh * videoRatio;
+            drawX = (vw - drawW) / 2;
+            drawY = 0;
+          }
+
+          ctx.drawImage(
+            video,
+            0,
+            0,
+            video.videoWidth,
+            video.videoHeight,
+            drawX,
+            drawY,
+            drawW,
+            drawH
+          );
         }
       }
     };
@@ -139,7 +171,37 @@ const ScrollVideoHero = () => {
       const renderTick = () => {
         if (video.readyState >= 1) {
           ctx.clearRect(0, 0, canvas.width, canvas.height);
-          ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+          const vw = canvas.width;
+          const vh = canvas.height;
+          const videoRatio = video.videoWidth / video.videoHeight;
+          const canvasRatio = vw / vh;
+
+          let drawW, drawH, drawX, drawY;
+
+          if (canvasRatio > videoRatio) {
+            drawW = vw;
+            drawH = vw / videoRatio;
+            drawX = 0;
+            drawY = (vh - drawH) / 2;
+          } else {
+            drawH = vh;
+            drawW = vh * videoRatio;
+            drawX = (vw - drawW) / 2;
+            drawY = 0;
+          }
+
+          ctx.drawImage(
+            video,
+            0,
+            0,
+            video.videoWidth,
+            video.videoHeight,
+            drawX,
+            drawY,
+            drawW,
+            drawH
+          );
         }
         animationFrameId = requestAnimationFrame(renderTick);
       };

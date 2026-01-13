@@ -128,18 +128,19 @@ const ServiceCard = ({ service, idx }) => {
 
 const ServicesSection = () => {
   return (
-    <section className="bg-white text-black py-20 font-sans border-t border-gray-100">
+    <section className="bg-white text-black py-12 font-sans border-t border-gray-100">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <div className="flex items-center gap-3 mb-2 text-blue-600">
-              <span className="font-mono text-xs tracking-widest uppercase font-bold">
-                Our Capabilities
+            <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em] mb-4 block">
+              Our Capabilities
+            </span>
+            <h2 className="text-5xl md:text-6xl font-black tracking-tighter leading-[0.9]">
+              DIGITAL <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 italic font-serif pr-2">
+                MARKETING.
               </span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-black">
-              DIGITAL <span className="text-blue-600">MARKETING.</span>
             </h2>
           </div>
           <button className="hidden md:flex items-center gap-2 text-sm font-bold uppercase tracking-widest border-b border-black pb-1 hover:text-blue-600 hover:border-blue-600 transition-colors">
