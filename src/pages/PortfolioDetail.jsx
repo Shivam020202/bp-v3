@@ -41,11 +41,11 @@ const PortfolioDetail = () => {
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-cream-200 flex flex-col items-center justify-center p-4">
-        <h1 className="font-display text-4xl font-bold text-warm-900 mb-4">Project Not Found</h1>
+      <div className="min-h-screen bg-white flex flex-col items-center justify-center p-4">
+        <h1 className="text-4xl font-black text-black mb-4">Project Not Found</h1>
         <button
           onClick={() => navigate('/portfolio')}
-          className="bg-warm-700 text-white px-8 py-4 rounded-full font-bold hover:bg-warm-800 transition-all shadow-lg"
+          className="bg-black text-white px-8 py-4 rounded-full font-medium text-sm tracking-[0.1em] uppercase hover:bg-gray-900 transition-all shadow-lg"
         >
           Back to Portfolio
         </button>
@@ -54,7 +54,7 @@ const PortfolioDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-cream-200">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[70vh] md:h-[80vh] overflow-hidden">
         {/* Background Image */}
@@ -98,7 +98,7 @@ const PortfolioDetail = () => {
             <div className="max-w-4xl mx-auto text-center text-white">
               {/* Category Badge */}
               <motion.div
-                className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-bold mb-6"
+                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 px-4 py-2 rounded-full text-xs font-medium mb-6 tracking-[0.2em] uppercase"
                 initial={{ scale: 0 }}
                 animate={isHeroInView ? { scale: 1 } : {}}
                 transition={{ delay: 0.2, type: "spring" }}
@@ -109,7 +109,7 @@ const PortfolioDetail = () => {
 
               {/* Title */}
               <motion.h1
-                className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight"
+                className="text-5xl md:text-7xl lg:text-8xl font-black mb-4 leading-tight tracking-tighter"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.3 }}
@@ -119,7 +119,7 @@ const PortfolioDetail = () => {
 
               {/* Subtitle */}
               <motion.p
-                className="text-xl md:text-2xl text-cream-100 mb-8 font-medium"
+                className="text-xl md:text-2xl text-gray-200 mb-8 font-light"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.4 }}
@@ -135,16 +135,16 @@ const PortfolioDetail = () => {
                 transition={{ delay: 0.5 }}
               >
                 <div className="flex items-center gap-2">
-                  <FaCalendar className="text-cream-300" />
+                  <FaCalendar className="text-gray-300" />
                   <span>{project.year}</span>
                 </div>
                 <div className="w-1 h-1 bg-white/50 rounded-full" />
                 <div>
-                  <span className="text-cream-300">Client:</span> {project.client}
+                  <span className="text-gray-300">Client:</span> {project.client}
                 </div>
                 <div className="w-1 h-1 bg-white/50 rounded-full" />
                 <div>
-                  <span className="text-cream-300">Duration:</span> {project.duration}
+                  <span className="text-gray-300">Duration:</span> {project.duration}
                 </div>
               </motion.div>
             </div>
@@ -168,9 +168,9 @@ const PortfolioDetail = () => {
       </section>
 
       {/* Project Overview - Case Study Style */}
-      <section ref={contentRef} className="py-20 bg-gradient-to-br from-warm-900 via-warm-800 to-warm-900 relative overflow-hidden">
+      <section ref={contentRef} className="py-20 bg-black relative overflow-hidden">
         {/* Decorative Elements */}
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-coral-400 via-warm-500 to-coral-400" />
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-[1fr,auto,1fr] gap-12 max-w-7xl mx-auto">
@@ -183,24 +183,24 @@ const PortfolioDetail = () => {
             >
               {/* Business Challenge */}
               <div>
-                <h3 className="text-warm-300 text-xs font-bold uppercase tracking-widest mb-4">
+                <h3 className="text-blue-600 font-mono text-xs font-bold uppercase tracking-[0.2em] mb-4">
                   BUSINESS CHALLENGE
                 </h3>
-                <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+                <h2 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight tracking-tighter">
                   {project.title}
                 </h2>
               </div>
 
               {/* The Details */}
               <div>
-                <h3 className="text-warm-300 text-xs font-bold uppercase tracking-widest mb-6">
+                <h3 className="text-blue-600 font-mono text-xs font-bold uppercase tracking-[0.2em] mb-6">
                   THE DETAILS
                 </h3>
                 <div className="space-y-6">
-                  <p className="text-cream-100 leading-relaxed">
+                  <p className="text-gray-200 leading-relaxed">
                     {project.challenge}
                   </p>
-                  <p className="text-cream-100 leading-relaxed">
+                  <p className="text-gray-200 leading-relaxed">
                     {project.solution}
                   </p>
                 </div>
@@ -208,7 +208,7 @@ const PortfolioDetail = () => {
             </motion.div>
 
             {/* Vertical Divider */}
-            <div className="hidden lg:block w-px bg-gradient-to-b from-transparent via-warm-600 to-transparent" />
+            <div className="hidden lg:block w-px bg-gradient-to-b from-transparent via-gray-700 to-transparent" />
 
             {/* Right Column - Services & Why Partner */}
             <motion.div
@@ -219,7 +219,7 @@ const PortfolioDetail = () => {
             >
               {/* Services */}
               <div>
-                <h3 className="text-warm-300 text-xs font-bold uppercase tracking-widest mb-6">
+                <h3 className="text-blue-600 font-mono text-xs font-bold uppercase tracking-[0.2em] mb-6">
                   SERVICES
                 </h3>
                 <ul className="space-y-3">
@@ -231,7 +231,7 @@ const PortfolioDetail = () => {
                       animate={isContentInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ delay: 0.3 + index * 0.1 }}
                     >
-                      <span className="w-2 h-2 bg-coral-400 rounded-full" />
+                      <span className="w-2 h-2 bg-blue-600 rounded-full" />
                       {tag}
                     </motion.li>
                   ))}
@@ -240,7 +240,7 @@ const PortfolioDetail = () => {
 
               {/* Why We're Proud to Partner */}
               <div>
-                <h3 className="text-warm-300 text-xs font-bold uppercase tracking-widest mb-6">
+                <h3 className="text-blue-600 font-mono text-xs font-bold uppercase tracking-[0.2em] mb-6">
                   WHY WE'RE PROUD TO PARTNER
                 </h3>
                 <ul className="space-y-4">
@@ -251,7 +251,7 @@ const PortfolioDetail = () => {
                   ]).map((reason, index) => (
                     <motion.li
                       key={index}
-                      className="text-cream-100 leading-relaxed"
+                      className="text-gray-200 leading-relaxed"
                       initial={{ opacity: 0, x: 20 }}
                       animate={isContentInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ delay: 0.5 + index * 0.1 }}
@@ -266,7 +266,7 @@ const PortfolioDetail = () => {
 
           {/* Results Metrics Bar */}
           <motion.div
-            className="mt-16 bg-gradient-to-r from-warm-800/50 to-warm-700/50 backdrop-blur-sm rounded-2xl p-8 border border-warm-600/30"
+            className="mt-16 bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/30"
             initial={{ opacity: 0, y: 30 }}
             animate={isContentInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.8 }}
@@ -280,10 +280,10 @@ const PortfolioDetail = () => {
                   animate={isContentInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ delay: 0.9 + index * 0.1 }}
                 >
-                  <div className="font-display text-4xl md:text-5xl font-bold text-white mb-2">
+                  <div className="text-4xl md:text-5xl font-black text-white mb-2">
                     {result.metric}
                   </div>
-                  <div className="text-warm-300 text-sm font-medium uppercase tracking-wide">
+                  <div className="text-blue-600 text-sm font-mono font-bold uppercase tracking-[0.2em]">
                     {result.label}
                   </div>
                 </motion.div>
@@ -296,35 +296,7 @@ const PortfolioDetail = () => {
 
    
       {/* Image Gallery - Stack Scroll Effect with Parallax */}
-      <section ref={galleryRef} className="py-20 bg-cream-50 relative overflow-hidden">
-        {/* Parallax Background Layer 1 */}
-        <motion.div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: `radial-gradient(circle at 20% 50%, rgba(139, 111, 71, 0.3) 0%, transparent 50%),
-                             radial-gradient(circle at 80% 80%, rgba(139, 111, 71, 0.2) 0%, transparent 50%)`
-          }}
-          initial={{ y: 0 }}
-          whileInView={{ y: -50 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-        />
-
-        {/* Parallax Background Layer 2 */}
-        <motion.div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, #8b6f47 1px, transparent 1px),
-              linear-gradient(to bottom, #8b6f47 1px, transparent 1px)
-            `,
-            backgroundSize: "60px 60px"
-          }}
-          initial={{ y: 0 }}
-          whileInView={{ y: -100 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 2, ease: "easeOut" }}
-        />
+      <section ref={galleryRef} className="py-20 bg-white relative overflow-hidden">
 
         <div className="container mx-auto px-4 relative z-10">
           {/* Section Header with Parallax */}
@@ -341,13 +313,12 @@ const PortfolioDetail = () => {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ type: "spring", delay: 0.2 }}
             >
-              <span className="inline-flex items-center gap-2 bg-warm-100 text-warm-700 px-5 py-2 rounded-full text-sm font-bold uppercase tracking-wide">
-                <span>📸</span>
+              <span className="inline-flex items-center gap-2 bg-gray-100 text-black px-5 py-2 rounded-full text-xs font-medium uppercase tracking-[0.2em]">
                 <span>Project Showcase</span>
               </span>
             </motion.div>
             <motion.h2
-              className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-warm-900 mb-4"
+              className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-4 tracking-tighter"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.5 }}
@@ -356,7 +327,7 @@ const PortfolioDetail = () => {
               Visual Journey
             </motion.h2>
             <motion.p
-              className="text-warm-600 text-lg"
+              className="text-gray-600 text-base"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.5 }}
@@ -378,23 +349,12 @@ const PortfolioDetail = () => {
 
 
       {/* Related Work Section */}
-      <section className="py-20 bg-cream-100 relative overflow-hidden z-50">
-        {/* Background Pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, #8b6f47 1px, transparent 1px),
-              linear-gradient(to bottom, #8b6f47 1px, transparent 1px)
-            `,
-            backgroundSize: "50px 50px"
-          }}
-        />
+      <section className="py-20 bg-gray-50 relative overflow-hidden z-50 border-t border-black/5">
 
         <div className="container mx-auto px-4 relative z-10">
           {/* Section Title */}
           <motion.h2
-            className="font-display text-4xl md:text-5xl font-bold text-warm-900 mb-12 uppercase tracking-wide"
+            className="text-4xl md:text-5xl font-black text-black mb-12 uppercase tracking-tighter"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -450,20 +410,20 @@ const PortfolioDetail = () => {
                       />
 
                       {/* Gradient Overlay */}
-                      <div className={`absolute inset-0 bg-gradient-to-t ${relatedProject.color} opacity-60 group-hover:opacity-80 transition-opacity duration-500`} />
+                      {/* <div className={`absolute inset-0 bg-gradient-to-t ${relatedProject.color} opacity-60 group-hover:opacity-80 transition-opacity duration-500`} /> */}
 
                       {/* Content */}
                       <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-                        <p className="text-sm font-bold uppercase tracking-wide mb-2 opacity-90">
+                        {/* <p className="text-sm font-bold uppercase tracking-wide mb-2 opacity-90">
                           {relatedProject.subtitle}
                         </p>
                         <h3 className="font-display text-2xl md:text-3xl font-bold mb-4">
                           {relatedProject.title}
-                        </h3>
+                        </h3> */}
 
                         {/* Arrow Icon */}
                         <motion.div
-                          className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-warm-700 transition-all duration-300"
+                          className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300"
                           whileHover={{ scale: 1.1, x: 5 }}
                         >
                           <FaArrowRight />
@@ -482,7 +442,7 @@ const PortfolioDetail = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-cream-50 relative overflow-hidden z-50">
+      <section className="py-20 bg-white relative overflow-hidden z-50 border-t border-black/5">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Left Side - Title & Description */}
@@ -494,18 +454,18 @@ const PortfolioDetail = () => {
               className="lg:sticky lg:top-32"
             >
               <div className="mb-6">
-                <span className="text-warm-600 font-bold text-sm uppercase tracking-wider">
+                <span className="text-blue-600 font-mono text-xs font-bold uppercase tracking-[0.2em]">
                   FAQs
                 </span>
               </div>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-warm-900 mb-6 leading-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-tight tracking-tighter">
                 Frequently ask questions
               </h2>
-              <p className="text-warm-600 text-lg mb-8 leading-relaxed">
+              <p className="text-gray-500 text-base mb-8 leading-relaxed">
                 Experience intelligent, efficient, and sustainable software designed to drive progress.
               </p>
               <motion.button
-                className="group inline-flex items-center gap-3 bg-warm-700 text-white px-8 py-4 rounded-full font-bold text-base hover:bg-warm-800 transition-all duration-300 shadow-lg"
+                className="group inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full font-medium text-sm tracking-[0.1em] uppercase hover:bg-gray-900 transition-all duration-300 shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -549,8 +509,8 @@ const PortfolioDetail = () => {
                   key={index}
                   className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${
                     openFaqIndex === index
-                      ? "bg-white border-warm-300 shadow-lg"
-                      : "bg-cream-100 border-transparent hover:border-warm-200"
+                      ? "bg-gray-50 border-gray-200 shadow-lg"
+                      : "bg-white border-transparent hover:border-gray-200"
                   }`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -563,10 +523,10 @@ const PortfolioDetail = () => {
                   >
                     <div className="flex-1">
                       <div className="flex items-baseline gap-4 mb-2">
-                        <span className="text-warm-400 font-bold text-sm">
+                        <span className="text-blue-600 font-mono text-xs font-bold">
                           {faq.number}
                         </span>
-                        <h3 className="font-bold text-warm-900 text-lg md:text-xl group-hover:text-warm-700 transition-colors">
+                        <h3 className="font-bold text-black text-lg md:text-xl group-hover:text-blue-600 transition-colors">
                           {faq.question}
                         </h3>
                       </div>
@@ -574,8 +534,8 @@ const PortfolioDetail = () => {
                     <motion.div
                       className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
                         openFaqIndex === index
-                          ? "bg-warm-700 text-white"
-                          : "bg-warm-200 text-warm-700"
+                          ? "bg-black text-white"
+                          : "bg-gray-100 text-black"
                       }`}
                       animate={{ rotate: openFaqIndex === index ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
@@ -599,7 +559,7 @@ const PortfolioDetail = () => {
                       >
                         <div className="px-6 pb-6 pt-0">
                           <div className="pl-12">
-                            <p className="text-warm-600 leading-relaxed">
+                            <p className="text-gray-600 leading-relaxed">
                               {faq.answer}
                             </p>
                           </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaChevronDown,
@@ -30,6 +30,8 @@ import {
 } from "react-icons/fa";
 
 const MegaMenuHeader = () => {
+  const location = useLocation();
+  const isContactPage = location.pathname === "/contact";
   const [activeMenu, setActiveMenu] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -410,8 +412,7 @@ const MegaMenuHeader = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 container mx-auto px-6 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 container mx-auto px-6 ${(isScrolled || isContactPage)
           ? "bg-black/30 shadow-md backdrop-blur-sm rounded-full mt-2"
           : "bg-transparent"
       }`}
@@ -431,10 +432,9 @@ const MegaMenuHeader = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
-            <Link
-              to="/"
-              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                isScrolled
+            <a
+              href="#"
+              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${(isScrolled || isContactPage)
                   ? "text-warm-100 hover:text-warm-900 hover:bg-cream-100"
                   : "text-white hover:text-white/80 hover:bg-white/10"
               }`}
@@ -449,8 +449,7 @@ const MegaMenuHeader = () => {
               onMouseLeave={handleMenuLeave}
             >
               <button
-                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                  isScrolled
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${(isScrolled || isContactPage)
                     ? "text-warm-100 hover:text-warm-900 hover:bg-cream-100"
                     : "text-white hover:text-white/80 hover:bg-white/10"
                 }`}
@@ -609,8 +608,7 @@ const MegaMenuHeader = () => {
               onMouseLeave={handleMenuLeave}
             >
               <button
-                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                  isScrolled
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${(isScrolled || isContactPage)
                     ? "text-warm-100 hover:text-warm-900 hover:bg-cream-100"
                     : "text-white hover:text-white/80 hover:bg-white/10"
                 }`}
@@ -762,10 +760,9 @@ const MegaMenuHeader = () => {
               </AnimatePresence>
             </div>
 
-            <Link
-              to="#"
-              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                isScrolled
+            <a
+              href="#"
+              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${(isScrolled || isContactPage)
                   ? "text-warm-100 hover:text-warm-900 hover:bg-cream-100"
                   : "text-white hover:text-white/80 hover:bg-white/10"
               }`}
@@ -776,10 +773,8 @@ const MegaMenuHeader = () => {
 
           {/* Right Side Actions */}
           <div className="flex items-center gap-3">
-            <Link
-              to="/contact"
-              className={`hidden lg:block px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                isScrolled
+            <button
+              className={`hidden lg:block px-4 py-2 rounded-full text-sm font-medium transition-colors ${(isScrolled || isContactPage)
                   ? "bg-warm-700 text-white hover:bg-warm-800"
                   : "bg-white text-warm-700 hover:bg-white/90"
               }`}
@@ -790,9 +785,8 @@ const MegaMenuHeader = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`lg:hidden p-2 transition-colors ${
-                isScrolled ? "text-warm-900" : "text-white"
-              }`}
+              className={`lg:hidden p-2 transition-colors ${(isScrolled || isContactPage) ? "text-warm-700" : "text-white"
+                }`}
             >
               {isMobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
             </button>

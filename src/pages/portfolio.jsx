@@ -5,13 +5,13 @@ import { projects } from "../constants/projects";
 import {
   FaArrowRight,
   FaExternalLinkAlt,
-  FaFilter,
   FaHeart,
   FaStar,
   FaTrophy,
   FaPlus,
   FaMinus,
 } from "react-icons/fa";
+import portfolioVideo from "../assets/portfolio-demo/portfolio-video.mp4";
 const PortfolioPage = () => {
   const navigate = useNavigate();
   const heroRef = useRef(null);
@@ -47,78 +47,78 @@ const PortfolioPage = () => {
       ? projects
       : projects.filter((p) => p.category === activeFilter);
 
-  // Client logos data with multiple images (9 clients)
+  // Client logos data from homepage - each logo repeated 3 times for cycling effect
   const clientsData = [
     {
-      name: "BAGMANE",
+      name: "Google",
       images: [
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop",
-        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&h=300&fit=crop",
-        "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=400&h=300&fit=crop",
+        "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
       ],
     },
     {
-      name: "BOSCH",
+      name: "Spotify",
       images: [
-        "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop",
-        "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop",
-        "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=300&fit=crop",
+        "https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg",
       ],
     },
     {
-      name: "Cult",
+      name: "Stripe",
       images: [
-        "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop",
-        "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=300&fit=crop",
-        "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=300&fit=crop",
+        "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg",
       ],
     },
     {
-      name: "Celerity",
+      name: "Airbnb",
       images: [
-        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop",
-        "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=300&fit=crop",
-        "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop",
+        "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg",
       ],
     },
     {
-      name: "Puravankara",
+      name: "Uber",
       images: [
-        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=300&fit=crop",
-        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop",
-        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=300&fit=crop",
+        "https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png",
+        "https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png",
+        "https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png",
       ],
     },
     {
-      name: "Pidilite",
+      name: "Nike",
       images: [
-        "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=300&fit=crop",
-        "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=400&h=300&fit=crop",
-        "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400&h=300&fit=crop",
+        "https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg",
       ],
     },
     {
-      name: "Prestige Group",
+      name: "Microsoft",
       images: [
-        "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop",
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=300&fit=crop",
-        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=300&fit=crop",
+        "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
       ],
     },
     {
-      name: "Thoughtworks",
+      name: "Netflix",
       images: [
-        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop",
-        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&h=300&fit=crop",
-        "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop",
+        "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
       ],
     },
     {
-      name: "Red Hat",
+      name: "Tesla",
       images: [
-        "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=300&fit=crop",
-        "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop",
-        "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",
+        "https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png",
+        "https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png",
+        "https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png",
       ],
     },
   ];
@@ -153,44 +153,26 @@ const PortfolioPage = () => {
   }, [clientsData.length]);
 
   return (
-    <div className="min-h-screen bg-cream-200">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-warm-700 via-warm-600 to-coral-400"
+        className="relative pt-32 pb-20 overflow-hidden"
       >
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
-            className="absolute top-20 left-10 w-64 h-64 bg-cream-300/20 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.2, 1],
-              x: [0, 50, 0],
-              y: [0, 30, 0],
-            }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="absolute bottom-20 right-10 w-96 h-96 bg-coral-300/20 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.3, 1],
-              x: [0, -30, 0],
-              y: [0, -50, 0],
-            }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          />
+        {/* Video Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={portfolioVideo} type="video/mp4" />
+          </video>
 
-          {/* Floating Shapes */}
-          <motion.div
-            className="absolute top-1/4 right-1/4 w-20 h-20 border-2 border-white/30 rounded-xl"
-            animate={{ rotate: 360, y: [0, -20, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-          />
-          <motion.div
-            className="absolute bottom-1/3 left-1/4 w-16 h-16 bg-white/20 funky-border"
-            animate={{ rotate: -360, x: [0, 20, 0] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-          />
+          {/* Dark Overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -202,39 +184,29 @@ const PortfolioPage = () => {
           >
             {/* Badge */}
             <motion.div
-              className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-5 py-2.5 rounded-full text-sm font-semibold mb-8"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 text-white px-6 py-2 rounded-full text-xs font-medium mb-8 tracking-[0.2em] uppercase"
               initial={{ scale: 0 }}
               animate={isHeroInView ? { scale: 1 } : {}}
               transition={{ delay: 0.2, type: "spring" }}
             >
-              <span className="text-lg">✨</span>
-              <span>Award-Winning Design Portfolio</span>
-              <span className="text-lg">🏆</span>
+              <span>Selected Works</span>
             </motion.div>
 
             {/* Main Heading */}
             <motion.h1
-              className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+              className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight tracking-tighter"
               initial={{ opacity: 0, y: 20 }}
               animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 }}
             >
-              Creating{" "}
-              <span className="relative inline-block">
-                <span className="relative z-10">Memorable</span>
-                <motion.span
-                  className="absolute -bottom-2 left-0 right-0 h-4 bg-cream-300/60 -z-0 wavy-border"
-                  initial={{ scaleX: 0 }}
-                  animate={isHeroInView ? { scaleX: 1 } : {}}
-                  transition={{ delay: 0.6, duration: 0.6 }}
-                />
+              DIGITAL <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
+                IMPACT
               </span>
-              <br />
-              Brand Experiences
             </motion.h1>
 
             <motion.p
-              className="text-cream-50 text-xl md:text-2xl mb-10 font-light"
+              className="text-gray-200 text-lg md:text-2xl mb-10 font-light max-w-2xl mx-auto leading-relaxed"
               initial={{ opacity: 0 }}
               animate={isHeroInView ? { opacity: 1 } : {}}
               transition={{ delay: 0.5 }}
@@ -251,19 +223,19 @@ const PortfolioPage = () => {
               transition={{ delay: 0.7 }}
             >
               <motion.button
-                className="group bg-white text-warm-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-cream-100 transition-all duration-300 shadow-xl flex items-center gap-3"
-                whileHover={{ scale: 1.05, y: -2 }}
+                className="group relative overflow-hidden flex items-center gap-3 px-10 py-3 bg-white text-black rounded-full font-medium text-sm tracking-[0.2em] uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] hover:-translate-y-1"
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                View All Projects
-                <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+                <span>Explore Work</span>
+                <FaArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </motion.button>
               <motion.button
-                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all duration-300"
-                whileHover={{ scale: 1.05, y: -2 }}
+                className="group relative overflow-hidden flex items-center gap-3 px-10 py-3 bg-white/10 backdrop-blur-sm border border-white/50 text-white rounded-full font-medium text-sm tracking-[0.2em] uppercase transition-all duration-300 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Get in Touch
+                <span>Get in Touch</span>
               </motion.button>
             </motion.div>
           </motion.div>
@@ -306,25 +278,10 @@ const PortfolioPage = () => {
 
 
       {/* Filter Section */}
-      <section className="py-12 bg-cream-100 sticky top-0 z-40 shadow-sm relative overflow-hidden">
-        {/* Subtle Wave Pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage: `repeating-linear-gradient(
-              45deg,
-              transparent,
-              transparent 20px,
-              #8b6f47 20px,
-              #8b6f47 21px
-            )`
-          }}
-        />
-
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="py-12 bg-white sticky top-0 z-40 border-b border-black/5">
+        <div className="container mx-auto px-4">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <FaFilter className="text-warm-600" />
-            <span className="text-warm-700 font-semibold text-sm uppercase tracking-wide">
+            <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em]">
               Filter by Category
             </span>
           </div>
@@ -334,19 +291,19 @@ const PortfolioPage = () => {
               <motion.button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`px-6 py-3 rounded-full font-bold transition-all duration-300 flex items-center gap-2 ${activeFilter === filter.id
-                    ? "bg-warm-700 text-white shadow-lg shadow-warm-700/30 scale-105"
-                    : "bg-white text-warm-700 hover:bg-cream-200 hover:shadow-md"
+                className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 ${activeFilter === filter.id
+                    ? "bg-black text-white shadow-lg scale-105"
+                    : "bg-gray-100 text-black hover:bg-gray-200 hover:shadow-md"
                   }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 layout
               >
-                <span className="text-lg">{filter.icon}</span>
+                <span className="text-base">{filter.icon}</span>
                 {filter.label}
                 {activeFilter === filter.id && (
                   <motion.span
-                    className="bg-white text-warm-700 px-2 py-0.5 rounded-full text-xs font-bold"
+                    className="bg-white text-black px-2 py-0.5 rounded-full text-xs font-bold"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                   >
@@ -360,43 +317,7 @@ const PortfolioPage = () => {
       </section>
 
       {/* Projects Grid */}
-      <section ref={projectsRef} className="py-20 bg-cream-200 relative overflow-hidden">
-        {/* Organic Blob Pattern */}
-        <div className="absolute inset-0 opacity-[0.03]">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="organic-pattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
-                <path
-                  d="M 50 100 Q 75 75, 100 100 T 150 100"
-                  stroke="#8b6f47"
-                  strokeWidth="1.5"
-                  fill="none"
-                />
-                <circle cx="50" cy="100" r="3" fill="#c69563" />
-                <circle cx="150" cy="100" r="3" fill="#c69563" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#organic-pattern)" />
-          </svg>
-        </div>
-
-        {/* Gradient Mesh Background */}
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `
-              radial-gradient(circle at 20% 30%, #ff7a42 0%, transparent 50%),
-              radial-gradient(circle at 80% 70%, #c69563 0%, transparent 50%),
-              radial-gradient(circle at 50% 50%, #8b6f47 0%, transparent 50%)
-            `
-          }}
-        />
-
-        {/* Background Decoration */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
-          <div className="absolute top-40 right-20 w-96 h-96 bg-coral-200/40 rounded-full blur-3xl" />
-          <div className="absolute bottom-40 left-20 w-96 h-96 bg-warm-200/40 rounded-full blur-3xl" />
-        </div>
+      <section ref={projectsRef} className="py-20 bg-gray-50 relative overflow-hidden">
 
         <div className="container mx-auto px-4 relative z-10">
           <AnimatePresence mode="wait">
@@ -449,7 +370,7 @@ const PortfolioPage = () => {
 
                     {/* Year Badge - Top Right */}
                     <motion.div
-                      className="absolute top-6 right-6 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full text-warm-700 font-bold text-sm shadow-lg"
+                      className="absolute top-6 right-6 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full text-black font-bold text-sm shadow-lg"
                       initial={{ x: 20, opacity: 0 }}
                       animate={{
                         x: 0,
@@ -462,7 +383,7 @@ const PortfolioPage = () => {
 
                     {/* Category Badge - Top Left */}
                     <motion.div
-                      className="absolute top-6 left-6 bg-warm-700 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide shadow-lg"
+                      className="absolute top-6 left-6 bg-black text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide shadow-lg"
                       initial={{ x: -20, opacity: 0 }}
                       animate={{
                         x: 0,
@@ -488,7 +409,7 @@ const PortfolioPage = () => {
                         {project.tags.map((tag, i) => (
                           <span
                             key={i}
-                            className="text-xs font-bold bg-white/90 text-warm-700 px-3 py-1.5 rounded-full backdrop-blur-sm"
+                            className="text-xs font-bold bg-white/90 text-black px-3 py-1.5 rounded-full backdrop-blur-sm"
                           >
                             {tag}
                           </span>
@@ -594,7 +515,7 @@ const PortfolioPage = () => {
                           transition={{ duration: 0.3 }}
                         >
                           <motion.button
-                            className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-warm-700 shadow-lg hover:bg-white transition-colors"
+                            className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-black shadow-lg hover:bg-white transition-colors"
                             whileHover={{ scale: 1.1, rotate: 5 }}
                             whileTap={{ scale: 0.9 }}
                           >
@@ -637,10 +558,10 @@ const PortfolioPage = () => {
               animate={{ opacity: 1, scale: 1 }}
             >
               <div className="text-6xl mb-4">🔍</div>
-              <h3 className="font-display text-2xl font-bold text-warm-800 mb-2">
+              <h3 className="text-2xl font-black text-black mb-2">
                 No projects found
               </h3>
-              <p className="text-warm-600">
+              <p className="text-gray-500">
                 Try selecting a different category
               </p>
             </motion.div>
@@ -650,31 +571,7 @@ const PortfolioPage = () => {
 
 
       {/* Clients Section */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        {/* Modern Grid Pattern Background */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, #8b6f47 1px, transparent 1px),
-              linear-gradient(to bottom, #8b6f47 1px, transparent 1px)
-            `,
-            backgroundSize: "60px 60px"
-          }}
-        />
-
-        {/* Decorative Dots Pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage: `radial-gradient(circle, #c69563 1.5px, transparent 1.5px)`,
-            backgroundSize: "40px 40px"
-          }}
-        />
-
-        {/* Decorative Lines */}
-        <div className="absolute top-0 left-0 w-1 h-64 bg-gradient-to-b from-transparent via-coral-400 to-transparent opacity-60" />
-        <div className="absolute top-32 left-0 w-32 h-1 bg-gradient-to-r from-coral-400 to-transparent opacity-60" />
+      <section className="py-20 bg-white relative overflow-hidden border-t border-black/5">
 
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-[400px,1fr] gap-12 items-center">
@@ -685,20 +582,25 @@ const PortfolioPage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-warm-900 mb-6 leading-tight">
-                Our
+              <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em] mb-4 block">
+                Trusted By
+              </span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-tight tracking-tighter">
+                OUR
                 <br />
-                Clientele
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                  CLIENTS
+                </span>
               </h2>
-              <p className="text-warm-600 text-lg mb-8 leading-relaxed">
+              <p className="text-gray-500 text-base mb-8 leading-relaxed">
                 A global mix of disruptors and leaders.
               </p>
               <motion.button
-                className="group inline-flex items-center gap-3 text-warm-700 font-bold text-lg hover:text-warm-900 transition-colors"
+                className="group inline-flex items-center gap-3 text-black font-bold text-base hover:text-blue-600 transition-colors"
                 whileHover={{ x: 5 }}
               >
-                View Clients
-                <div className="w-10 h-10 rounded-full border-2 border-warm-700 group-hover:border-warm-900 flex items-center justify-center transition-colors">
+                View All
+                <div className="w-10 h-10 rounded-full border-2 border-black group-hover:border-blue-600 flex items-center justify-center transition-colors">
                   <FaArrowRight className="text-sm" />
                 </div>
               </motion.button>
@@ -718,13 +620,13 @@ const PortfolioPage = () => {
                   onClick={() => cycleClientImage(index)}
                 >
                   {/* Image Container with AnimatePresence for smooth transitions */}
-                  <div className="relative w-full h-full overflow-hidden">
+                  <div className="relative w-full h-full overflow-hidden bg-white">
                     <AnimatePresence mode="wait">
                       <motion.img
                         key={clientImageIndices[index]}
                         src={client.images[clientImageIndices[index] || 0]}
                         alt={client.name}
-                        className="absolute inset-0 w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-contain p-8"
                         initial={{ y: "100%", opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: "-100%", opacity: 0 }}
@@ -736,7 +638,7 @@ const PortfolioPage = () => {
                     </AnimatePresence>
 
                     {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-50/30 via-transparent to-transparent pointer-events-none" />
 
                     {/* Client Name Overlay */}
 
@@ -745,7 +647,7 @@ const PortfolioPage = () => {
                     {/* Image Counter Dots */}
 
                     {/* Border Accent */}
-                    <div className="absolute inset-0 border-2 border-transparent group-hover:border-warm-400/50 rounded-2xl transition-all duration-300" />
+                    <div className="absolute inset-0 border-2 border-transparent group-hover:border-blue-600/50 rounded-2xl transition-all duration-300" />
                   </div>
                 </motion.div>
               ))}
@@ -758,7 +660,7 @@ const PortfolioPage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-cream-50 relative overflow-hidden">
+      <section className="py-20 bg-gray-50 relative overflow-hidden border-t border-black/5">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Left Side - Title & Description */}
@@ -770,18 +672,18 @@ const PortfolioPage = () => {
               className="lg:sticky lg:top-32"
             >
               <div className="mb-6">
-                <span className="text-warm-600 font-bold text-sm uppercase tracking-wider">
+                <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em]">
                   FAQs
                 </span>
               </div>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-warm-900 mb-6 leading-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-tight tracking-tighter">
                 Frequently ask questions
               </h2>
-              <p className="text-warm-600 text-lg mb-8 leading-relaxed">
+              <p className="text-gray-500 text-base mb-8 leading-relaxed">
                 Experience intelligent, efficient, and sustainable software designed to drive progress.
               </p>
               <motion.button
-                className="group inline-flex items-center gap-3 bg-warm-700 text-white px-8 py-4 rounded-full font-bold text-base hover:bg-warm-800 transition-all duration-300 shadow-lg"
+                className="group inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full font-medium text-sm tracking-[0.1em] uppercase hover:bg-gray-900 transition-all duration-300 shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -824,8 +726,8 @@ const PortfolioPage = () => {
                 <motion.div
                   key={index}
                   className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${openFaqIndex === index
-                      ? "bg-white border-warm-300 shadow-lg"
-                      : "bg-cream-100 border-transparent hover:border-warm-200"
+                      ? "bg-white border-gray-200 shadow-lg"
+                      : "bg-white border-transparent hover:border-gray-200"
                     }`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -838,18 +740,18 @@ const PortfolioPage = () => {
                   >
                     <div className="flex-1">
                       <div className="flex items-baseline gap-4 mb-2">
-                        <span className="text-warm-400 font-bold text-sm">
+                        <span className="text-blue-600 font-mono text-xs font-bold">
                           {faq.number}
                         </span>
-                        <h3 className="font-bold text-warm-900 text-lg md:text-xl group-hover:text-warm-700 transition-colors">
+                        <h3 className="font-bold text-black text-lg md:text-xl group-hover:text-blue-600 transition-colors">
                           {faq.question}
                         </h3>
                       </div>
                     </div>
                     <motion.div
                       className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${openFaqIndex === index
-                          ? "bg-warm-700 text-white"
-                          : "bg-warm-200 text-warm-700"
+                          ? "bg-black text-white"
+                          : "bg-gray-100 text-black"
                         }`}
                       animate={{ rotate: openFaqIndex === index ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
@@ -873,7 +775,7 @@ const PortfolioPage = () => {
                       >
                         <div className="px-6 pb-6 pt-0">
                           <div className="pl-12">
-                            <p className="text-warm-600 leading-relaxed">
+                            <p className="text-gray-600 leading-relaxed">
                               {faq.answer}
                             </p>
                           </div>
@@ -889,45 +791,7 @@ const PortfolioPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-warm-800 via-warm-700 to-coral-500 relative overflow-hidden">
-        {/* Modern Hexagon Pattern */}
-        <div className="absolute inset-0 opacity-[0.08]">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="hexagon-pattern" x="0" y="0" width="100" height="87" patternUnits="userSpaceOnUse">
-                <path
-                  d="M25 0 L75 0 L100 43.5 L75 87 L25 87 L0 43.5 Z"
-                  stroke="white"
-                  strokeWidth="1"
-                  fill="none"
-                />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#hexagon-pattern)" />
-          </svg>
-        </div>
-
-        {/* Diagonal Stripes Overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage: `repeating-linear-gradient(
-              -45deg,
-              transparent,
-              transparent 40px,
-              white 40px,
-              white 42px
-            )`
-          }}
-        />
-
-        {/* Radial Gradient Overlay */}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            background: `radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)`
-          }}
-        />
+      <section className="py-20 bg-black relative overflow-hidden">
 
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -937,34 +801,35 @@ const PortfolioPage = () => {
             viewport={{ once: true }}
           >
             <motion.div
-              className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-5 py-2 rounded-full text-sm font-bold mb-6"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 text-white px-6 py-2 rounded-full text-xs font-medium mb-8 tracking-[0.2em] uppercase"
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, type: "spring" }}
             >
-              <span>🚀</span>
-              <span>Ready to Start Your Project?</span>
+              <span>Ready to Start?</span>
             </motion.div>
 
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Let&apos;s Create Something
+            <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight tracking-tighter">
+              LET&apos;S CREATE
               <br />
-              <span className="text-cream-200">Amazing Together</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 italic font-serif">
+                Together
+              </span>
             </h2>
 
-            <p className="text-cream-100 text-xl mb-10 leading-relaxed">
+            <p className="text-gray-200 text-lg md:text-xl mb-10 font-light max-w-2xl mx-auto leading-relaxed">
               Whether you need branding, web design, or a full marketing
               campaign, we&apos;re here to bring your vision to life.
             </p>
 
             <motion.button
-              className="bg-white text-warm-700 px-10 py-5 rounded-full font-bold text-lg hover:bg-cream-100 transition-all duration-300 shadow-2xl flex items-center gap-3 mx-auto"
-              whileHover={{ scale: 1.05, y: -3 }}
+              className="group relative overflow-hidden flex items-center gap-3 px-10 py-4 bg-white text-black rounded-full font-medium text-sm tracking-[0.2em] uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] hover:-translate-y-1 mx-auto"
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Start Your Project
-              <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+              <span>Start Your Project</span>
+              <FaArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </motion.button>
           </motion.div>
         </div>
