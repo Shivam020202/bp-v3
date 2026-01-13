@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaChevronDown,
@@ -412,7 +412,8 @@ const MegaMenuHeader = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 container mx-auto px-6 ${(isScrolled || isContactPage)
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 container mx-auto px-6 ${
+        isScrolled || isContactPage
           ? "bg-black/30 shadow-md backdrop-blur-sm rounded-full mt-2"
           : "bg-transparent"
       }`}
@@ -434,13 +435,14 @@ const MegaMenuHeader = () => {
           <nav className="hidden lg:flex items-center gap-1">
             <a
               href="#"
-              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${(isScrolled || isContactPage)
+              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                isScrolled || isContactPage
                   ? "text-warm-100 hover:text-warm-900 hover:bg-cream-100"
                   : "text-white hover:text-white/80 hover:bg-white/10"
               }`}
             >
               Home
-            </Link>
+            </a>
 
             {/* Services Mega Menu */}
             <div
@@ -449,7 +451,8 @@ const MegaMenuHeader = () => {
               onMouseLeave={handleMenuLeave}
             >
               <button
-                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${(isScrolled || isContactPage)
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                  isScrolled || isContactPage
                     ? "text-warm-100 hover:text-warm-900 hover:bg-cream-100"
                     : "text-white hover:text-white/80 hover:bg-white/10"
                 }`}
@@ -608,7 +611,8 @@ const MegaMenuHeader = () => {
               onMouseLeave={handleMenuLeave}
             >
               <button
-                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${(isScrolled || isContactPage)
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                  isScrolled || isContactPage
                     ? "text-warm-100 hover:text-warm-900 hover:bg-cream-100"
                     : "text-white hover:text-white/80 hover:bg-white/10"
                 }`}
@@ -762,19 +766,21 @@ const MegaMenuHeader = () => {
 
             <a
               href="#"
-              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${(isScrolled || isContactPage)
+              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                isScrolled || isContactPage
                   ? "text-warm-100 hover:text-warm-900 hover:bg-cream-100"
                   : "text-white hover:text-white/80 hover:bg-white/10"
               }`}
             >
               Pricing
-            </Link>
+            </a>
           </nav>
 
           {/* Right Side Actions */}
           <div className="flex items-center gap-3">
             <button
-              className={`hidden lg:block px-4 py-2 rounded-full text-sm font-medium transition-colors ${(isScrolled || isContactPage)
+              className={`hidden lg:block px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                isScrolled || isContactPage
                   ? "bg-warm-700 text-white hover:bg-warm-800"
                   : "bg-white text-warm-700 hover:bg-white/90"
               }`}
@@ -785,8 +791,9 @@ const MegaMenuHeader = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`lg:hidden p-2 transition-colors ${(isScrolled || isContactPage) ? "text-warm-700" : "text-white"
-                }`}
+              className={`lg:hidden p-2 transition-colors ${
+                isScrolled || isContactPage ? "text-warm-700" : "text-white"
+              }`}
             >
               {isMobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
             </button>
