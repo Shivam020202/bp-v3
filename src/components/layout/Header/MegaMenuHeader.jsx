@@ -412,11 +412,10 @@ const MegaMenuHeader = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 container mx-auto px-6 ${
-        isScrolled || isContactPage
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 container mx-auto px-6 ${isScrolled || isContactPage
           ? "bg-black/30 shadow-md backdrop-blur-sm rounded-full mt-2"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
@@ -435,11 +434,10 @@ const MegaMenuHeader = () => {
           <nav className="hidden lg:flex items-center gap-1">
             <a
               href="#"
-              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                isScrolled || isContactPage
+              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${isScrolled || isContactPage
                   ? "text-warm-100 hover:text-warm-900 hover:bg-cream-100"
                   : "text-white hover:text-white/80 hover:bg-white/10"
-              }`}
+                }`}
             >
               Home
             </a>
@@ -451,17 +449,15 @@ const MegaMenuHeader = () => {
               onMouseLeave={handleMenuLeave}
             >
               <button
-                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                  isScrolled || isContactPage
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${isScrolled || isContactPage
                     ? "text-warm-100 hover:text-warm-900 hover:bg-cream-100"
                     : "text-white hover:text-white/80 hover:bg-white/10"
-                }`}
+                  }`}
               >
                 Services
                 <FaChevronDown
-                  className={`text-xs transition-transform duration-200 ${
-                    activeMenu === "services" ? "rotate-180" : ""
-                  }`}
+                  className={`text-xs transition-transform duration-200 ${activeMenu === "services" ? "rotate-180" : ""
+                    }`}
                 />
               </button>
 
@@ -488,29 +484,26 @@ const MegaMenuHeader = () => {
                                 onMouseEnter={() =>
                                   setActiveServicesCategory(index)
                                 }
-                                className={`w-full text-left px-3 py-3 rounded-lg transition-all ${
-                                  activeServicesCategory === index
+                                className={`w-full text-left px-3 py-3 rounded-lg transition-all ${activeServicesCategory === index
                                     ? "bg-white shadow-sm"
                                     : "hover:bg-white/50"
-                                }`}
+                                  }`}
                               >
                                 <div className="flex items-start gap-3">
                                   <div
-                                    className={`text-lg mt-0.5 ${
-                                      activeServicesCategory === index
+                                    className={`text-lg mt-0.5 ${activeServicesCategory === index
                                         ? "text-warm-600"
                                         : "text-warm-400"
-                                    }`}
+                                      }`}
                                   >
                                     {category.icon}
                                   </div>
                                   <div className="flex-1 min-w-0">
                                     <div
-                                      className={`text-sm font-semibold mb-0.5 ${
-                                        activeServicesCategory === index
+                                      className={`text-sm font-semibold mb-0.5 ${activeServicesCategory === index
                                           ? "text-warm-900"
                                           : "text-warm-700"
-                                      }`}
+                                        }`}
                                     >
                                       {category.title}
                                     </div>
@@ -611,17 +604,15 @@ const MegaMenuHeader = () => {
               onMouseLeave={handleMenuLeave}
             >
               <button
-                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                  isScrolled || isContactPage
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${isScrolled || isContactPage
                     ? "text-warm-100 hover:text-warm-900 hover:bg-cream-100"
                     : "text-white hover:text-white/80 hover:bg-white/10"
-                }`}
+                  }`}
               >
                 Resources
                 <FaChevronDown
-                  className={`text-xs transition-transform duration-200 ${
-                    activeMenu === "resources" ? "rotate-180" : ""
-                  }`}
+                  className={`text-xs transition-transform duration-200 ${activeMenu === "resources" ? "rotate-180" : ""
+                    }`}
                 />
               </button>
 
@@ -646,29 +637,26 @@ const MegaMenuHeader = () => {
                               <button
                                 key={category.id}
                                 onMouseEnter={() => setActiveCategory(index)}
-                                className={`w-full text-left px-3 py-3 rounded-lg transition-all ${
-                                  activeCategory === index
+                                className={`w-full text-left px-3 py-3 rounded-lg transition-all ${activeCategory === index
                                     ? "bg-white shadow-sm"
                                     : "hover:bg-white/50"
-                                }`}
+                                  }`}
                               >
                                 <div className="flex items-start gap-3">
                                   <div
-                                    className={`text-lg mt-0.5 ${
-                                      activeCategory === index
+                                    className={`text-lg mt-0.5 ${activeCategory === index
                                         ? "text-gray-900"
                                         : "text-gray-400"
-                                    }`}
+                                      }`}
                                   >
                                     {category.icon}
                                   </div>
                                   <div className="flex-1 min-w-0">
                                     <div
-                                      className={`text-sm font-semibold mb-0.5 ${
-                                        activeCategory === index
+                                      className={`text-sm font-semibold mb-0.5 ${activeCategory === index
                                           ? "text-gray-900"
                                           : "text-gray-600"
-                                      }`}
+                                        }`}
                                     >
                                       {category.title}
                                     </div>
@@ -766,11 +754,10 @@ const MegaMenuHeader = () => {
 
             <a
               href="#"
-              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                isScrolled || isContactPage
+              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${isScrolled || isContactPage
                   ? "text-warm-100 hover:text-warm-900 hover:bg-cream-100"
                   : "text-white hover:text-white/80 hover:bg-white/10"
-              }`}
+                }`}
             >
               Pricing
             </a>
@@ -779,11 +766,10 @@ const MegaMenuHeader = () => {
           {/* Right Side Actions */}
           <div className="flex items-center gap-3">
             <button
-              className={`hidden lg:block px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                isScrolled || isContactPage
+              className={`hidden lg:block px-4 py-2 rounded-full text-sm font-medium transition-colors ${isScrolled || isContactPage
                   ? "bg-warm-700 text-white hover:bg-warm-800"
                   : "bg-white text-warm-700 hover:bg-white/90"
-              }`}
+                }`}
             >
               Request a demo
             </button>
@@ -791,9 +777,8 @@ const MegaMenuHeader = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`lg:hidden p-2 transition-colors ${
-                isScrolled || isContactPage ? "text-warm-700" : "text-white"
-              }`}
+              className={`lg:hidden p-2 transition-colors ${isScrolled || isContactPage ? "text-warm-700" : "text-white"
+                }`}
             >
               {isMobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
             </button>
@@ -801,60 +786,215 @@ const MegaMenuHeader = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden border-t border-gray-100 bg-white"
-          >
-            <div className="container mx-auto px-4 py-4">
-              <nav className="space-y-1">
+      {/* Full-Screen Mobile Menu - Animated & Eye-Catching */}
+      <div
+        className={`lg:hidden fixed inset-0 z-[99999] transition-all duration-500 ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
+      >
+        {/* Animated Backdrop */}
+        <div
+          className={`absolute inset-0 transition-all duration-500 ${isMobileMenuOpen ? 'bg-black/80 backdrop-blur-md' : 'bg-transparent'
+            }`}
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+
+        {/* Sliding Menu Panel */}
+        <div
+          className={`absolute top-0 right-0 h-full w-full max-w-[420px] transition-transform duration-500 ease-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+            }`}
+          style={{
+            background: "linear-gradient(135deg, #0f0f0f 0%, #1a1510 50%, #0f0f0f 100%)",
+          }}
+        >
+          {/* Decorative Gradient Orbs */}
+          <div className="absolute top-20 -left-20 w-40 h-40 bg-gradient-to-r from-[#C69563]/30 to-transparent rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-40 right-0 w-32 h-32 bg-gradient-to-l from-[#FBD9BF]/20 to-transparent rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
+
+          {/* Header with Close */}
+          <div className="relative z-10 flex items-center justify-between p-6 border-b border-white/10">
+            {/* Logo */}
+            <div className="flex items-center gap-3">
+              <div
+                className="p-2 rounded-lg"
+                style={{
+                  background: "linear-gradient(135deg, #D4A574 0%, #C69563 100%)",
+                }}
+              >
+                <FaRocket className="text-lg text-white" />
+              </div>
+              <span className="text-white font-bold">Menu</span>
+            </div>
+
+            {/* Animated Close Button */}
+            <button
+              className="relative w-11 h-11 rounded-full flex items-center justify-center overflow-hidden group"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-[#C69563] to-[#FBD9BF] opacity-20 group-hover:opacity-40 transition-opacity" />
+              <div className="absolute inset-0.5 bg-[#1a1a1a] rounded-full" />
+              <FaTimes className="relative z-10 text-[#FBD9BF] group-hover:rotate-90 transition-transform duration-300" />
+            </button>
+          </div>
+
+          {/* Scrollable Content */}
+          <div className="relative z-10 h-[calc(100%-80px)] overflow-y-auto pb-20">
+            {/* Main Navigation */}
+            <div className="p-6 space-y-1">
+              {[
+                { name: 'Home', path: '/' },
+                { name: 'About', path: '/about' },
+                { name: 'Contact', path: '/contact' }
+              ].map((item, index) => (
                 <Link
-                  to="/"
-                  className="block px-3 py-2 text-sm font-medium text-warm-700 hover:bg-cream-100 rounded-lg"
+                  key={item.name}
+                  to={item.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`group flex items-center justify-between py-4 border-b border-white/5 cursor-pointer transition-all duration-300 ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+                    }`}
+                  style={{ transitionDelay: `${index * 80}ms` }}
                 >
-                  Home
+                  <span className="text-2xl font-bold text-white group-hover:text-[#FBD9BF] transition-colors">
+                    {item.name}
+                  </span>
+                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#C69563]/30 transition-colors">
+                    <FaArrowRight className="text-xs text-white/50 group-hover:text-[#FBD9BF]" />
+                  </div>
                 </Link>
-                <Link
-                  to="#"
-                  className="block px-3 py-2 text-sm font-medium text-warm-700 hover:bg-cream-100 rounded-lg"
-                >
-                  Platform
-                </Link>
-                <Link
-                  to="/services/web-development"
-                  className="block px-3 py-2 text-sm font-medium text-warm-700 hover:bg-cream-100 rounded-lg"
-                >
+              ))}
+            </div>
+
+            {/* Services Section with Tabs */}
+            <div className="px-6 mb-6">
+              <div
+                className={`transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                  }`}
+                style={{ transitionDelay: '350ms' }}
+              >
+                <h3 className="text-xs uppercase tracking-widest text-[#C69563] font-bold mb-4 flex items-center gap-2">
+                  <span className="w-6 h-[1px] bg-[#C69563]" />
                   Services
-                </Link>
-                <Link
-                  to="#"
-                  className="block px-3 py-2 text-sm font-medium text-warm-700 hover:bg-cream-100 rounded-lg"
-                >
+                </h3>
+
+                {/* Horizontal Scrollable Tabs */}
+                <div className="flex gap-2 mb-4 overflow-x-auto pb-2 -mx-6 px-6" style={{ scrollbarWidth: 'none' }}>
+                  {servicesMenu.categories.map((category, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveServicesCategory(index)}
+                      className={`flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeServicesCategory === index
+                          ? 'bg-gradient-to-r from-[#C69563] to-[#B88552] text-white shadow-lg shadow-[#C69563]/30'
+                          : 'bg-white/5 text-white/70 hover:bg-white/10'
+                        }`}
+                    >
+                      <span className="text-base">{category.icon}</span>
+                      <span className="whitespace-nowrap">{category.title.split(' ')[0]}</span>
+                    </button>
+                  ))}
+                </div>
+
+                {/* Service Items Grid */}
+                <div className="grid grid-cols-2 gap-2">
+                  {servicesMenu.content[servicesMenu.categories[activeServicesCategory]?.id]?.sections?.flatMap(s => s.items).slice(0, 6).map((service, idx) => (
+                    <Link
+                      key={idx}
+                      to={service.link || '#'}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="group p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-[#C69563]/30 transition-all duration-300"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C69563]/20 to-transparent flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                        <span className="text-[#FBD9BF] text-sm">{service.icon}</span>
+                      </div>
+                      <h4 className="text-white text-xs font-semibold mb-0.5">{service.title}</h4>
+                      <p className="text-white/40 text-[10px] line-clamp-1">{service.description}</p>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Resources Section */}
+            <div className="px-6 mb-6">
+              <div
+                className={`transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                  }`}
+                style={{ transitionDelay: '450ms' }}
+              >
+                <h3 className="text-xs uppercase tracking-widest text-[#C69563] font-bold mb-4 flex items-center gap-2">
+                  <span className="w-6 h-[1px] bg-[#C69563]" />
                   Resources
-                </Link>
-                <Link
-                  to="#"
-                  className="block px-3 py-2 text-sm font-medium text-warm-700 hover:bg-cream-100 rounded-lg"
-                >
-                  Pricing
-                </Link>
-                <div className="pt-4 space-y-2">
+                </h3>
+
+                {/* Resource Cards */}
+                <div className="space-y-2">
+                  {resourcesMenu.categories.map((category, idx) => (
+                    <div
+                      key={idx}
+                      className="group flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-[#C69563]/30 transition-all duration-300 cursor-pointer"
+                    >
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#C69563]/30 to-transparent flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <span className="text-[#FBD9BF]">{category.icon}</span>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-white text-sm font-semibold">{category.title}</h4>
+                        <p className="text-white/40 text-xs truncate">{category.subtitle}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Section */}
+            <div
+              className={`px-6 transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                }`}
+              style={{ transitionDelay: '550ms' }}
+            >
+              <div className="relative p-5 rounded-2xl overflow-hidden">
+                {/* Background Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#C69563] to-[#8B6F47] opacity-90" />
+                <div className="absolute inset-0 opacity-50" style={{
+                  backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1' fill='rgba(255,255,255,0.1)'/%3E%3C/svg%3E\")"
+                }} />
+
+                <div className="relative z-10">
+                  <h4 className="text-white font-bold text-lg mb-1">Ready to Transform?</h4>
+                  <p className="text-white/80 text-sm mb-4">Let's create something extraordinary together.</p>
                   <Link
                     to="/contact"
-                    className="block w-full text-center bg-warm-700 rounded-full text-white px-4 py-2 text-sm font-medium"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="w-full py-3 bg-white text-[#8B6F47] rounded-full font-bold text-sm flex items-center justify-center gap-2 hover:bg-white/90 transition-colors shadow-lg"
                   >
-                    Request a demo
+                    <FaRocket />
+                    Get Started Today
                   </Link>
                 </div>
-              </nav>
+              </div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
+            {/* Bottom Social Links */}
+            <div
+              className={`px-6 pt-8 pb-6 transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                }`}
+              style={{ transitionDelay: '650ms' }}
+            >
+              <div className="flex items-center justify-center gap-4">
+                {['Instagram', 'LinkedIn', 'Twitter'].map((social) => (
+                  <div
+                    key={social}
+                    className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#C69563]/30 transition-colors cursor-pointer group"
+                  >
+                    <span className="text-[10px] text-white/40 group-hover:text-[#FBD9BF] transition-colors">
+                      {social.charAt(0)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <p className="text-center text-white/20 text-xs mt-4">© 2024 Branding Pioneers</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
   );
 };
