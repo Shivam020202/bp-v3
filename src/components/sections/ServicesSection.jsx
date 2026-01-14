@@ -19,7 +19,7 @@ const services = [
       "Rank higher and drive targeted traffic with data-driven keyword strategies.",
     icon: <Search />,
     image:
-      "https://images.unsplash.com/photo-1572021335469-31706a17aaef?auto=format&fit=crop&w=800&q=80",
+      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768398678/Gemini_Generated_Image_l175udl175udl175_lx6wby.png",
   },
   {
     id: "02",
@@ -28,7 +28,7 @@ const services = [
       "Maximize ROI with precision-targeted PPC and social ad campaigns.",
     icon: <Megaphone />,
     image:
-      "https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&w=800&q=80",
+      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768398673/Gemini_Generated_Image_zbladlzbladlzbla_x0xy90.png",
   },
   {
     id: "03",
@@ -36,7 +36,7 @@ const services = [
     description: "Build community and engagement across all major platforms.",
     icon: <Share2 />,
     image:
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
+      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768398676/Gemini_Generated_Image_8usoog8usoog8uso_pgbdrt.png",
   },
   {
     id: "04",
@@ -44,7 +44,7 @@ const services = [
     description: "Compelling storytelling that builds authority and trust.",
     icon: <PenTool />,
     image:
-      "https://images.unsplash.com/photo-1499750310159-5418f31b1936?auto=format&fit=crop&w=800&q=80",
+      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768398673/content_eb3vp7.png",
   },
   {
     id: "05",
@@ -53,33 +53,31 @@ const services = [
       "Personalized automation flows that nurture and convert leads.",
     icon: <Mail />,
     image:
-      "https://images.unsplash.com/photo-1557200130-472295220db0?auto=format&fit=crop&w=800&q=80",
+      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768398670/email_saa1nd.png",
   },
   {
     id: "06",
-    title: "Analytics & Data",
-    description: "Deep insights to optimize performance and track growth.",
+    title: "AI & Automation",
+    description: "Automate repetitive tasks with AI-powered tools.",
     icon: <BarChart />,
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768398675/ai_1_pxdzpo.png",
   },
   {
     id: "07",
-    title: "CRO",
-    description:
-      "Turn traffic into revenue with scientific conversion optimization.",
+    title: "Youtube Marketing",
+    description: "Increase visibility and engagement with video content.",
     icon: <TrendingUp />,
     image:
-      "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80",
+      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768398670/Gemini_Generated_Image_b0q74db0q74db0q7_voqx5q.png",
   },
   {
     id: "08",
-    title: "Automation",
-    description:
-      "Streamline workflows and scale operations with custom AI bots.",
+    title: "Web Development",
+    description: "Develop responsive and user-friendly websites.",
     icon: <Zap />,
     image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768398678/Gemini_Generated_Image_s8kj55s8kj55s8kj_y7zgqe.png",
   },
 ];
 
