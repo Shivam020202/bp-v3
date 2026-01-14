@@ -4,7 +4,7 @@ import * as THREE from 'three';
 const SpiralTimeline = ({ journeyData = [] }) => {
     const containerRef = useRef(null);
     const canvasRef = useRef(null);
-    
+
     // Core state
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isTimelineMode, setIsTimelineMode] = useState(false);
@@ -33,7 +33,7 @@ const SpiralTimeline = ({ journeyData = [] }) => {
         if (!isScrollLocked.current) {
             isScrollLocked.current = true;
             savedScrollY.current = window.pageYOffset || document.documentElement.scrollTop;
-            
+
             // Prevent scrolling by hiding overflow instead of position fixed
             document.documentElement.style.overflow = 'hidden';
             document.body.style.overflow = 'hidden';
@@ -43,11 +43,11 @@ const SpiralTimeline = ({ journeyData = [] }) => {
     const unlockScroll = useCallback(() => {
         if (isScrollLocked.current) {
             isScrollLocked.current = false;
-            
+
             // Restore scrolling
             document.documentElement.style.overflow = '';
             document.body.style.overflow = '';
-            
+
             // Don't restore scroll position immediately - let natural scroll continue
         }
     }, []);
@@ -63,7 +63,7 @@ const SpiralTimeline = ({ journeyData = [] }) => {
         // Default background
         ctx.fillStyle = '#ffffff';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
+
         // Loading state
         ctx.fillStyle = '#cccccc';
         ctx.font = '30px Arial';
@@ -80,26 +80,26 @@ const SpiralTimeline = ({ journeyData = [] }) => {
                 // Clear canvas
                 ctx.fillStyle = '#ffffff';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
-                
+
                 // Draw image
                 ctx.drawImage(img, 30, 30, 452, 452);
-                
+
                 // Add year text
                 ctx.fillStyle = '#C4A484';
                 ctx.font = 'bold 70px Arial';
                 ctx.textAlign = 'left';
                 ctx.fillText(data.year || '', 40, 560);
-                
+
                 // Add subtitle
                 ctx.fillStyle = '#333333';
                 ctx.font = '28px Arial';
                 ctx.fillText(data.subtitle || `Item ${index + 1}`, 40, 620);
-                
+
                 // Border
                 ctx.strokeStyle = '#e0e0e0';
                 ctx.lineWidth = 3;
                 ctx.strokeRect(0, 0, canvas.width, canvas.height);
-                
+
                 texture.needsUpdate = true;
             };
             img.src = data.image;
@@ -123,10 +123,10 @@ const SpiralTimeline = ({ journeyData = [] }) => {
         cameraRef.current = camera;
 
         // Renderer setup
-        const renderer = new THREE.WebGLRenderer({ 
-            canvas: canvasRef.current, 
+        const renderer = new THREE.WebGLRenderer({
+            canvas: canvasRef.current,
             antialias: true,
-            alpha: true 
+            alpha: true
         });
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -155,15 +155,15 @@ const SpiralTimeline = ({ journeyData = [] }) => {
                 transparent: true
             });
             const card = new THREE.Mesh(geometry, material);
-            
+
             // Position on spiral
             const t = i / (TOTAL_ITEMS - 1);
             const position = spiralCurve.getPointAt(t);
             card.position.copy(position);
-            
+
             // Rotation to face camera
             card.lookAt(camera.position);
-            
+
             scene.add(card);
             cards.push({ mesh: card, index: i, spiralPosition: t });
         });
@@ -175,7 +175,7 @@ const SpiralTimeline = ({ journeyData = [] }) => {
             cards.forEach((card, i) => {
                 const distance = Math.abs(i - currentIndex);
                 const isCurrent = i === currentIndex;
-                
+
                 if (isCurrent) {
                     // Featured card position
                     card.mesh.position.set(3, 0, 8);
@@ -222,7 +222,7 @@ const SpiralTimeline = ({ journeyData = [] }) => {
         const handleWheel = (e) => {
             const rect = container.getBoundingClientRect();
             const viewportHeight = window.innerHeight;
-            
+
             // Determine if section is in the "trigger zone" (top 20% to bottom 20%)
             const sectionTop = rect.top;
             const sectionBottom = rect.bottom;
@@ -246,7 +246,7 @@ const SpiralTimeline = ({ journeyData = [] }) => {
                 // Activate timeline when:
                 // - Scrolling down and section just entered trigger zone from top
                 // - Scrolling up and section just entered trigger zone from bottom
-                const shouldActivate = 
+                const shouldActivate =
                     (scrollingDown && sectionTop <= viewportHeight * 0.2 && sectionTop >= 0) ||
                     (scrollingUp && sectionBottom >= viewportHeight * 0.8 && sectionBottom <= viewportHeight);
 
@@ -254,19 +254,19 @@ const SpiralTimeline = ({ journeyData = [] }) => {
                     e.preventDefault();
                     setIsTimelineMode(true);
                     setTimelineCompleted(false); // Reset completion state
-                    
+
                     // Set initial index based on scroll direction
                     if (scrollingDown) {
                         setCurrentIndex(0); // Start from beginning
                     } else {
                         setCurrentIndex(TOTAL_ITEMS - 1); // Start from end
                     }
-                    
+
                     lockScroll();
                     scrollAccumulator.current = 0;
                     return;
                 }
-                
+
                 return; // Continue page scroll until proper activation point
             }
 
@@ -280,7 +280,7 @@ const SpiralTimeline = ({ journeyData = [] }) => {
                 if (Math.abs(scrollAccumulator.current) >= SCROLL_SENSITIVITY) {
                     const direction = scrollAccumulator.current > 0 ? 1 : -1;
                     scrollAccumulator.current = 0;
-                    
+
                     const newIndex = currentIndex + direction;
 
                     // Check if we can navigate within timeline
@@ -294,15 +294,15 @@ const SpiralTimeline = ({ journeyData = [] }) => {
                         setIsTimelineMode(false);
                         unlockScroll();
                         setIsTransitioning(false);
-                        
+
                         // Brief pause to show completion, then continue page scroll
                         setTimeout(() => {
                             setTimelineCompleted(false); // Reset for next time
                             // Create a natural scroll continuation
                             const scrollDistance = direction > 0 ? 250 : -250;
-                            window.scrollBy({ 
-                                top: scrollDistance, 
-                                behavior: 'smooth' 
+                            window.scrollBy({
+                                top: scrollDistance,
+                                behavior: 'smooth'
                             });
                         }, 300); // Longer pause to show completion
                     }
@@ -340,114 +340,220 @@ const SpiralTimeline = ({ journeyData = [] }) => {
     return (
         <section
             ref={containerRef}
-            className="relative h-screen bg-white overflow-hidden"
+            className="relative md:h-screen bg-white overflow-hidden"
         >
-            {/* Three.js Canvas */}
+            {/* Three.js Canvas - Hidden on mobile */}
             <canvas
                 ref={canvasRef}
-                className="absolute inset-0 w-full h-full"
+                className="absolute inset-0 w-full h-full hidden md:block"
             />
 
             {/* Content Overlay */}
-            <div className="absolute inset-0">
+            <div className="absolute inset-0 hidden md:block">
                 <div className="container mx-auto px-6 h-full">
                     <div className="flex h-full">
                         {/* Left Content Panel */}
                         <div className="w-full md:w-1/2 lg:w-[45%] h-full flex flex-col justify-center bg-gradient-to-r from-white via-white/95 to-transparent relative z-10">
-                    {/* Header */}
-                    <div className="mb-8">
-                        <div className="flex items-center gap-4 mb-3">
-                            <div className="w-10 h-[3px]" style={{ backgroundColor: '#C4A484' }} />
-                            <span className="text-sm font-bold uppercase tracking-widest" style={{ color: '#C4A484' }}>
-                                Our Story
-                            </span>
-                        </div>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900" style={{ fontFamily: 'serif' }}>
-                            Our Journey
-                        </h2>
-                    </div>
-
-                    {/* Dynamic Content */}
-                    <div className={`transition-all duration-500 ${isTransitioning ? 'opacity-50 translate-y-2' : 'opacity-100 translate-y-0'}`}>
-                        <div className="flex items-center mb-5">
-                            <div className="w-10 h-[3px] mr-4" style={{ backgroundColor: '#C4A484' }} />
-                            <span
-                                className="text-2xl md:text-3xl font-bold"
-                                style={{ color: '#C4A484', fontVariantNumeric: 'tabular-nums' }}
-                            >
-                                {currentData.year}
-                            </span>
-                        </div>
-
-                        <h3
-                            className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-900 mb-4 leading-tight"
-                            style={{ fontFamily: 'serif' }}
-                        >
-                            {currentData.title}
-                        </h3>
-
-                        <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-md mb-3">
-                            {currentData.desc}
-                        </p>
-
-                        {currentData.subtitle && (
-                            <p className="text-base font-semibold" style={{ color: '#C4A484' }}>
-                                {currentData.subtitle}
-                            </p>
-                        )}
-                    </div>
-
-                    {/* Progress Indicator */}
-                    <div className="mt-10 flex items-center gap-2">
-                        {journeyData.map((_, i) => (
-                            <div
-                                key={i}
-                                className={`h-2 rounded-full transition-all duration-300 ${i === currentIndex ? 'w-10' : 'w-2'
-                                    }`}
-                                style={{
-                                    backgroundColor: i <= currentIndex ? '#C4A484' : '#e5e5e5'
-                                }}
-                            />
-                        ))}
-                        <span className="ml-4 text-sm text-gray-500 font-medium">
-                            {currentIndex + 1} / {journeyData.length}
-                        </span>
-                    </div>
-
-                    {/* Status Indicator */}
-                    <div className="mt-6">
-                        <div className={`text-xs uppercase tracking-widest transition-all duration-300 ${
-                            timelineCompleted
-                                ? "text-green-600 font-bold"
-                                : isTimelineMode 
-                                    ? "font-semibold" 
-                                    : "text-gray-400"
-                        }`}
-                        style={isTimelineMode && !timelineCompleted ? { color: '#C4A484' } : {}}>
-                            {timelineCompleted
-                                ? "✅ Timeline Completed - Continuing page scroll"
-                                : isTimelineMode 
-                                    ? "🎯 Timeline Active - Scroll to navigate" 
-                                    : "📜 Scroll"
-                            }
-                        </div>
-                        {isTimelineMode && !timelineCompleted && (
-                            <div className="mt-3 text-xs text-gray-500 leading-relaxed">
-                                {currentIndex === 0 
-                                    ? `Continue scrolling through ${TOTAL_ITEMS - 1} more items`
-                                    : currentIndex === TOTAL_ITEMS - 1
-                                        ? `Continue scrolling through ${TOTAL_ITEMS - 1} more items`
-                                        : `${TOTAL_ITEMS - currentIndex - 1} more items to complete`
-                                }
+                            {/* Header */}
+                            <div className="mb-6 md:mb-8">
+                                <div className="flex items-center gap-3 md:gap-4 mb-2 md:mb-3">
+                                    <div className="w-8 md:w-10 h-[2px] md:h-[3px]" style={{ backgroundColor: '#C4A484' }} />
+                                    <span className="text-xs md:text-sm font-bold uppercase tracking-widest" style={{ color: '#C4A484' }}>
+                                        Our Story
+                                    </span>
+                                </div>
+                                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900" style={{ fontFamily: 'serif' }}>
+                                    Our Journey
+                                </h2>
                             </div>
-                        )}
-                    </div>
+
+                            {/* Dynamic Content */}
+                            <div className={`transition-all duration-500 ${isTransitioning ? 'opacity-50 translate-y-2' : 'opacity-100 translate-y-0'}`}>
+                                <div className="flex items-center mb-4 md:mb-5">
+                                    <div className="w-8 md:w-10 h-[2px] md:h-[3px] mr-3 md:mr-4" style={{ backgroundColor: '#C4A484' }} />
+                                    <span
+                                        className="text-xl md:text-2xl lg:text-3xl font-bold"
+                                        style={{ color: '#C4A484', fontVariantNumeric: 'tabular-nums' }}
+                                    >
+                                        {currentData.year}
+                                    </span>
+                                </div>
+
+                                <h3
+                                    className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold text-gray-900 mb-3 md:mb-4 leading-tight"
+                                    style={{ fontFamily: 'serif' }}
+                                >
+                                    {currentData.title}
+                                </h3>
+
+                                <p className="text-gray-600 text-sm md:text-base lg:text-lg leading-relaxed max-w-md mb-2 md:mb-3">
+                                    {currentData.desc}
+                                </p>
+
+                                {currentData.subtitle && (
+                                    <p className="text-sm md:text-base font-semibold" style={{ color: '#C4A484' }}>
+                                        {currentData.subtitle}
+                                    </p>
+                                )}
+                            </div>
+
+                            {/* Progress Indicator */}
+                            <div className="mt-8 md:mt-10 flex items-center gap-1.5 md:gap-2">
+                                {journeyData.map((_, i) => (
+                                    <div
+                                        key={i}
+                                        className={`h-1.5 md:h-2 rounded-full transition-all duration-300 ${i === currentIndex ? 'w-8 md:w-10' : 'w-1.5 md:w-2'
+                                            }`}
+                                        style={{
+                                            backgroundColor: i <= currentIndex ? '#C4A484' : '#e5e5e5'
+                                        }}
+                                    />
+                                ))}
+                                <span className="ml-3 md:ml-4 text-xs md:text-sm text-gray-500 font-medium">
+                                    {currentIndex + 1} / {journeyData.length}
+                                </span>
+                            </div>
+
+                            {/* Status Indicator */}
+                            <div className="mt-4 md:mt-6">
+                                <div className={`text-[10px] md:text-xs uppercase tracking-widest transition-all duration-300 ${timelineCompleted
+                                    ? "text-green-600 font-bold"
+                                    : isTimelineMode
+                                        ? "font-semibold"
+                                        : "text-gray-400"
+                                    }`}
+                                    style={isTimelineMode && !timelineCompleted ? { color: '#C4A484' } : {}}>
+                                    {timelineCompleted
+                                        ? "✅ Timeline Completed - Continuing page scroll"
+                                        : isTimelineMode
+                                            ? "🎯 Timeline Active - Scroll to navigate"
+                                            : "📜 Scroll"
+                                    }
+                                </div>
+                                {isTimelineMode && !timelineCompleted && (
+                                    <div className="mt-2 md:mt-3 text-[10px] md:text-xs text-gray-500 leading-relaxed">
+                                        {currentIndex === 0
+                                            ? `Continue scrolling through ${TOTAL_ITEMS - 1} more items`
+                                            : currentIndex === TOTAL_ITEMS - 1
+                                                ? `Continue scrolling through ${TOTAL_ITEMS - 1} more items`
+                                                : `${TOTAL_ITEMS - currentIndex - 1} more items to complete`
+                                        }
+                                    </div>
+                                )}
+                            </div>
                         </div>
 
                         {/* Right Panel - Reserved for 3D content */}
                         <div className="hidden md:block w-1/2 lg:w-[55%] h-full relative">
                             {/* 3D Content Space */}
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Mobile View - Card-based Journey */}
+            <div className="md:hidden px-4 py-12">
+                {/* Mobile Header */}
+                <div className="mb-8">
+                    <div className="flex items-center gap-3 mb-2">
+                        <div className="w-8 h-[2px]" style={{ backgroundColor: '#C4A484' }} />
+                        <span className="text-xs font-bold uppercase tracking-widest" style={{ color: '#C4A484' }}>
+                            Our Story
+                        </span>
+                    </div>
+                    <h2 className="text-3xl font-bold text-gray-900" style={{ fontFamily: 'serif' }}>
+                        Our Journey
+                    </h2>
+                </div>
+
+                {/* Mobile Journey Card */}
+                <div className="relative">
+                    {/* Current Card */}
+                    <div className={`transition-all duration-500 ${isTransitioning ? 'opacity-50' : 'opacity-100'}`}>
+                        {/* Image */}
+                        <div className="relative h-52 rounded-xl overflow-hidden mb-5 shadow-lg">
+                            <img
+                                src={currentData.image}
+                                alt={currentData.title}
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                            <div
+                                className="absolute bottom-4 left-4 text-3xl font-bold text-white"
+                                style={{ fontFamily: 'serif' }}
+                            >
+                                {currentData.year}
+                            </div>
+                        </div>
+
+                        {/* Content */}
+                        <div>
+                            <h3
+                                className="text-xl font-bold text-gray-900 mb-2"
+                                style={{ fontFamily: 'serif' }}
+                            >
+                                {currentData.title}
+                            </h3>
+                            {currentData.subtitle && (
+                                <p className="text-sm font-semibold mb-2" style={{ color: '#C4A484' }}>
+                                    {currentData.subtitle}
+                                </p>
+                            )}
+                            <p className="text-gray-600 text-sm leading-relaxed">
+                                {currentData.desc}
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Mobile Navigation */}
+                    <div className="flex items-center justify-between mt-8">
+                        {/* Prev Button */}
+                        <button
+                            onClick={() => currentIndex > 0 && setCurrentIndex(currentIndex - 1)}
+                            disabled={currentIndex === 0}
+                            className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${currentIndex === 0
+                                ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
+                                : 'bg-gray-900 text-white'
+                                }`}
+                        >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+
+                        {/* Progress Dots */}
+                        <div className="flex items-center gap-1.5">
+                            {journeyData.map((_, i) => (
+                                <button
+                                    key={i}
+                                    onClick={() => setCurrentIndex(i)}
+                                    className={`rounded-full transition-all duration-300 ${i === currentIndex ? 'w-6 h-2' : 'w-2 h-2'
+                                        }`}
+                                    style={{
+                                        backgroundColor: i <= currentIndex ? '#C4A484' : '#e5e5e5'
+                                    }}
+                                />
+                            ))}
+                        </div>
+
+                        {/* Next Button */}
+                        <button
+                            onClick={() => currentIndex < TOTAL_ITEMS - 1 && setCurrentIndex(currentIndex + 1)}
+                            disabled={currentIndex === TOTAL_ITEMS - 1}
+                            className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${currentIndex === TOTAL_ITEMS - 1
+                                ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
+                                : 'bg-gray-900 text-white'
+                                }`}
+                        >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    {/* Counter */}
+                    <div className="text-center mt-4 text-sm text-gray-500">
+                        {currentIndex + 1} of {journeyData.length}
                     </div>
                 </div>
             </div>

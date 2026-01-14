@@ -391,23 +391,20 @@ const Header = () => {
     <>
       <header
         ref={headerRef}
-        className={`w-full z-[9999] transition-all duration-700 ease-out ${
-          isScrolled ? "fixed top-0 left-0 " : "absolute top-8 "
-        }`}
+        className={`w-full z-[9999] transition-all duration-700 ease-out ${isScrolled ? "fixed top-0 left-0 " : "absolute top-8 "
+          }`}
       >
         <div
-          className={`${
-            isScrolled
-              ? "container mx-auto px-4 py-2"
-              : "w-[90%] max-w-6xl mx-auto"
-          }`}
+          className={`${isScrolled
+            ? "container mx-auto px-4 py-2"
+            : "w-[90%] max-w-6xl mx-auto"
+            }`}
         >
           <div
-            className={`relative rounded-2xl border shadow-lg backdrop-blur-md overflow-visible transition-all duration-700 ${
-              isScrolled
-                ? "border-[#FBD9BF]/60 shadow-[#D4A574]/20"
-                : "border-[#FBD9BF]/40 shadow-[#D4A574]/30"
-            }`}
+            className={`relative rounded-2xl border shadow-lg backdrop-blur-md overflow-visible transition-all duration-700 ${isScrolled
+              ? "border-[#FBD9BF]/60 shadow-[#D4A574]/20"
+              : "border-[#FBD9BF]/40 shadow-[#D4A574]/30"
+              }`}
             style={{
               backgroundColor: isScrolled
                 ? "rgba(251, 217, 191, 0.95)"
@@ -427,9 +424,8 @@ const Header = () => {
                     }}
                   >
                     <FaCrown
-                      className={`text-lg sm:text-xl ${
-                        isScrolled ? "text-[#FBD9BF]" : "text-white"
-                      } drop-shadow-lg`}
+                      className={`text-lg sm:text-xl ${isScrolled ? "text-[#FBD9BF]" : "text-white"
+                        } drop-shadow-lg`}
                     />
                   </div>
 
@@ -498,9 +494,8 @@ const Header = () => {
                         Services
                       </span>
                       <FaChevronDown
-                        className={`relative z-10 text-xs transition-transform duration-300 group-hover:text-white ${
-                          activeMenu === "services" ? "rotate-180" : ""
-                        }`}
+                        className={`relative z-10 text-xs transition-transform duration-300 group-hover:text-white ${activeMenu === "services" ? "rotate-180" : ""
+                          }`}
                       />
                     </button>
 
@@ -553,11 +548,10 @@ const Header = () => {
                                   <span className="text-xs relative">
                                     {category.title}
                                     <span
-                                      className={`absolute bottom-0 left-0 w-full h-0.5 transition-transform duration-300 origin-left ${
-                                        activeServiceTab === index
-                                          ? "scale-x-100"
-                                          : "scale-x-0 group-hover/tab:scale-x-100"
-                                      }`}
+                                      className={`absolute bottom-0 left-0 w-full h-0.5 transition-transform duration-300 origin-left ${activeServiceTab === index
+                                        ? "scale-x-100"
+                                        : "scale-x-0 group-hover/tab:scale-x-100"
+                                        }`}
                                       style={{ backgroundColor: "#C69563" }}
                                     ></span>
                                   </span>
@@ -694,9 +688,8 @@ const Header = () => {
                         Case Studies
                       </span>
                       <FaChevronDown
-                        className={`relative z-10 text-xs transition-transform duration-300 group-hover:text-white ${
-                          activeMenu === "cases" ? "rotate-180" : ""
-                        }`}
+                        className={`relative z-10 text-xs transition-transform duration-300 group-hover:text-white ${activeMenu === "cases" ? "rotate-180" : ""
+                          }`}
                       />
                     </button>
 
@@ -749,11 +742,10 @@ const Header = () => {
                                   <span className="text-xs relative">
                                     {category.title}
                                     <span
-                                      className={`absolute bottom-0 left-0 w-full h-0.5 transition-transform duration-300 origin-left ${
-                                        activeCaseTab === index
-                                          ? "scale-x-100"
-                                          : "scale-x-0 group-hover/tab:scale-x-100"
-                                      }`}
+                                      className={`absolute bottom-0 left-0 w-full h-0.5 transition-transform duration-300 origin-left ${activeCaseTab === index
+                                        ? "scale-x-100"
+                                        : "scale-x-0 group-hover/tab:scale-x-100"
+                                        }`}
                                       style={{ backgroundColor: "#C69563" }}
                                     ></span>
                                   </span>
@@ -979,162 +971,224 @@ const Header = () => {
               </div>
             </div>
 
-            {/* Mobile Menu */}
-            {isMobileMenuOpen && (
+            {/* Full-Screen Mobile Menu - Animated & Eye-Catching */}
+            <div
+              className={`lg:hidden fixed inset-0 z-[99999] transition-all duration-500 ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+                }`}
+            >
+              {/* Animated Backdrop */}
               <div
-                className="lg:hidden border-t px-4 sm:px-6 py-6 rounded-b-3xl animate-slideDown max-h-[80vh] overflow-y-auto"
+                className={`absolute inset-0 transition-all duration-500 ${isMobileMenuOpen ? 'bg-black/80 backdrop-blur-md' : 'bg-transparent'
+                  }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              />
+
+              {/* Sliding Menu Panel */}
+              <div
+                className={`absolute top-0 right-0 h-full w-full max-w-[420px] transition-transform duration-500 ease-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+                  }`}
                 style={{
-                  background:
-                    "linear-gradient(135deg, #FBD9BF 0%, #F5D4B8 100%)",
-                  borderColor: "#F0CBA8",
+                  background: "linear-gradient(135deg, #0f0f0f 0%, #1a1510 50%, #0f0f0f 100%)",
                 }}
               >
-                <nav className="flex flex-col gap-4">
-                  <a
-                    href="#"
-                    className="font-semibold py-2 px-4 rounded-lg transition"
-                    style={{ color: "#6B5744" }}
-                  >
-                    Home
-                  </a>
+                {/* Decorative Gradient Orbs */}
+                <div className="absolute top-20 -left-20 w-40 h-40 bg-gradient-to-r from-[#C69563]/30 to-transparent rounded-full blur-3xl animate-pulse" />
+                <div className="absolute bottom-40 right-0 w-32 h-32 bg-gradient-to-l from-[#FBD9BF]/20 to-transparent rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
 
-                  {/* Mobile Services */}
-                  <div>
-                    <h4
-                      className="font-bold mb-3 text-sm px-4"
-                      style={{ color: "#6B5744" }}
+                {/* Header with Close */}
+                <div className="relative z-10 flex items-center justify-between p-6 border-b border-white/10">
+                  {/* Logo */}
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="p-2 rounded-lg"
+                      style={{
+                        background: "linear-gradient(135deg, #D4A574 0%, #C69563 100%)",
+                      }}
                     >
-                      Services
-                    </h4>
-                    <div className="space-y-2">
-                      {serviceCategories.map((category, index) => (
-                        <div
-                          key={index}
-                          className="bg-white rounded-lg border p-3 transition-colors duration-300"
-                          style={{ borderColor: "#FBD9BF" }}
-                        >
-                          <h5
-                            className="font-semibold text-sm mb-2 flex items-center gap-2"
-                            style={{ color: "#6B5744" }}
-                          >
-                            <span className="text-lg">{category.icon}</span>
-                            {category.title}
-                          </h5>
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pl-7">
-                            {category.services.map((service, idx) => (
-                              <a
-                                key={idx}
-                                href="#"
-                                className="block text-xs py-1.5 px-2 rounded transition-all duration-300"
-                                style={{ color: "#8B6F47" }}
-                              >
-                                <div className="flex items-center gap-2">
-                                  <span className="text-sm">
-                                    {service.icon}
-                                  </span>
-                                  <span>{service.name}</span>
-                                </div>
-                              </a>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
+                      <FaCrown className="text-lg text-white" />
                     </div>
+                    <span className="text-white font-bold">Menu</span>
                   </div>
 
-                  {/* Mobile Case Studies */}
-                  <div>
-                    <h4
-                      className="font-bold mb-3 text-sm px-4"
-                      style={{ color: "#6B5744" }}
-                    >
-                      Case Studies
-                    </h4>
-                    <div className="space-y-2">
-                      {caseStudyCategories.map((category, index) => (
-                        <div
-                          key={index}
-                          className="bg-white rounded-lg border p-3 transition-colors duration-300"
-                          style={{ borderColor: "#FBD9BF" }}
-                        >
-                          <h5
-                            className="font-semibold text-sm mb-2 flex items-center gap-2"
-                            style={{ color: "#6B5744" }}
-                          >
-                            <span className="text-lg">{category.icon}</span>
-                            {category.title}
-                          </h5>
-                          <div className="grid grid-cols-1 gap-2 pl-7">
-                            {category.cases
-                              .slice(0, 3)
-                              .map((caseStudy, idx) => (
-                                <a
-                                  key={idx}
-                                  href="#"
-                                  className="block text-xs py-2 px-2 rounded transition-all duration-300"
-                                  style={{ color: "#8B6F47" }}
-                                >
-                                  <div className="flex items-start gap-2">
-                                    <FaBriefcase className="text-xs mt-0.5 flex-shrink-0" />
-                                    <div>
-                                      <div className="font-semibold">
-                                        {caseStudy.title}
-                                      </div>
-                                      <div
-                                        className="text-[10px] mt-0.5"
-                                        style={{ color: "#A08060" }}
-                                      >
-                                        {caseStudy.result}
-                                      </div>
-                                    </div>
-                                  </div>
-                                </a>
-                              ))}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div
-                    className="border-t pt-4 space-y-2"
-                    style={{ borderColor: "#F0CBA8" }}
-                  >
-                    <a
-                      href="#"
-                      className="block font-semibold py-2 px-4 rounded-lg"
-                      style={{ color: "#6B5744" }}
-                    >
-                      About
-                    </a>
-                    <a
-                      href="#"
-                      className="block font-semibold py-2 px-4 rounded-lg"
-                      style={{ color: "#6B5744" }}
-                    >
-                      Blog
-                    </a>
-                    <a
-                      href="#"
-                      className="block font-semibold py-2 px-4 rounded-lg"
-                      style={{ color: "#6B5744" }}
-                    >
-                      Contact
-                    </a>
-                  </div>
-
+                  {/* Animated Close Button */}
                   <button
-                    className="px-6 py-3 rounded-full font-bold transition mt-4 w-full text-white"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, #C69563 0%, #B88552 100%)",
-                    }}
+                    className="relative w-11 h-11 rounded-full flex items-center justify-center overflow-hidden group"
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Get Started
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#C69563] to-[#FBD9BF] opacity-20 group-hover:opacity-40 transition-opacity" />
+                    <div className="absolute inset-0.5 bg-[#1a1a1a] rounded-full" />
+                    <FaTimes className="relative z-10 text-[#FBD9BF] group-hover:rotate-90 transition-transform duration-300" />
                   </button>
-                </nav>
+                </div>
+
+                {/* Scrollable Content */}
+                <div className="relative z-10 h-[calc(100%-80px)] overflow-y-auto pb-20 scrollbar-hide">
+                  {/* Main Navigation */}
+                  <div className="p-6 space-y-1">
+                    {['Home', 'About', 'Blog', 'Contact'].map((item, index) => (
+                      <div
+                        key={item}
+                        className={`group flex items-center justify-between py-4 border-b border-white/5 cursor-pointer transition-all duration-300 ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+                          }`}
+                        style={{ transitionDelay: `${index * 80}ms` }}
+                      >
+                        <span className="text-2xl font-bold text-white group-hover:text-[#FBD9BF] transition-colors">
+                          {item}
+                        </span>
+                        <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#C69563]/30 transition-colors">
+                          <FaChevronDown className="text-xs text-white/50 -rotate-90 group-hover:text-[#FBD9BF]" />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Services Section with Tabs */}
+                  <div className="px-6 mb-6">
+                    <div
+                      className={`transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                        }`}
+                      style={{ transitionDelay: '350ms' }}
+                    >
+                      <h3 className="text-xs uppercase tracking-widest text-[#C69563] font-bold mb-4 flex items-center gap-2">
+                        <span className="w-6 h-[1px] bg-[#C69563]" />
+                        Services
+                      </h3>
+
+                      {/* Horizontal Scrollable Tabs */}
+                      <div className="flex gap-2 mb-4 overflow-x-auto pb-2 scrollbar-hide -mx-6 px-6">
+                        {serviceCategories.map((category, index) => (
+                          <button
+                            key={index}
+                            onClick={() => setActiveServiceTab(index)}
+                            className={`flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeServiceTab === index
+                              ? 'bg-gradient-to-r from-[#C69563] to-[#B88552] text-white shadow-lg shadow-[#C69563]/30'
+                              : 'bg-white/5 text-white/70 hover:bg-white/10'
+                              }`}
+                          >
+                            <span className="text-base">{category.icon}</span>
+                            <span className="whitespace-nowrap">{category.title.split(' ')[0]}</span>
+                          </button>
+                        ))}
+                      </div>
+
+                      {/* Service Items Grid */}
+                      <div className="grid grid-cols-2 gap-2">
+                        {serviceCategories[activeServiceTab].services.map((service, idx) => (
+                          <div
+                            key={idx}
+                            className="group p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-[#C69563]/30 transition-all duration-300 cursor-pointer"
+                          >
+                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C69563]/20 to-transparent flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                              <span className="text-[#FBD9BF] text-sm">{service.icon}</span>
+                            </div>
+                            <h4 className="text-white text-xs font-semibold mb-0.5">{service.name}</h4>
+                            <p className="text-white/40 text-[10px] line-clamp-1">{service.description}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Case Studies Section */}
+                  <div className="px-6 mb-6">
+                    <div
+                      className={`transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                        }`}
+                      style={{ transitionDelay: '450ms' }}
+                    >
+                      <h3 className="text-xs uppercase tracking-widest text-[#C69563] font-bold mb-4 flex items-center gap-2">
+                        <span className="w-6 h-[1px] bg-[#C69563]" />
+                        Case Studies
+                      </h3>
+
+                      {/* Horizontal Scrollable Industry Tabs */}
+                      <div className="flex gap-2 mb-4 overflow-x-auto pb-2 scrollbar-hide -mx-6 px-6">
+                        {caseStudyCategories.map((category, index) => (
+                          <button
+                            key={index}
+                            onClick={() => setActiveCaseTab(index)}
+                            className={`flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeCaseTab === index
+                              ? 'bg-gradient-to-r from-[#C69563] to-[#B88552] text-white shadow-lg shadow-[#C69563]/30'
+                              : 'bg-white/5 text-white/70 hover:bg-white/10'
+                              }`}
+                          >
+                            <span className="text-base">{category.icon}</span>
+                            <span className="whitespace-nowrap">{category.title}</span>
+                          </button>
+                        ))}
+                      </div>
+
+                      {/* Case Study Cards - Vertical Stack */}
+                      <div className="space-y-2">
+                        {caseStudyCategories[activeCaseTab].cases.slice(0, 4).map((caseStudy, idx) => (
+                          <div
+                            key={idx}
+                            className="group flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-[#C69563]/30 transition-all duration-300 cursor-pointer"
+                          >
+                            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#C69563]/30 to-transparent flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                              <FaBriefcase className="text-[#FBD9BF]" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <h4 className="text-white text-sm font-semibold truncate">{caseStudy.title}</h4>
+                              <div className="flex items-center gap-2 mt-0.5">
+                                <span className="text-white/40 text-xs">{caseStudy.client}</span>
+                                <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#C69563]/20 text-[#FBD9BF]">
+                                  {caseStudy.result}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* CTA Section */}
+                  <div
+                    className={`px-6 transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                      }`}
+                    style={{ transitionDelay: '550ms' }}
+                  >
+                    <div className="relative p-5 rounded-2xl overflow-hidden">
+                      {/* Background Gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#C69563] to-[#8B6F47] opacity-90" />
+                      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIi8+PC9zdmc+')] opacity-50" />
+
+                      <div className="relative z-10">
+                        <h4 className="text-white font-bold text-lg mb-1">Ready to Transform?</h4>
+                        <p className="text-white/80 text-sm mb-4">Let's create something extraordinary together.</p>
+                        <button className="w-full py-3 bg-white text-[#8B6F47] rounded-full font-bold text-sm flex items-center justify-center gap-2 hover:bg-white/90 transition-colors shadow-lg">
+                          <FaRocket />
+                          Get Started Today
+                          <FaMagic className="text-xs" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bottom Social Links */}
+                  <div
+                    className={`px-6 pt-8 pb-6 transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                      }`}
+                    style={{ transitionDelay: '650ms' }}
+                  >
+                    <div className="flex items-center justify-center gap-4">
+                      {['Instagram', 'LinkedIn', 'Twitter'].map((social) => (
+                        <div
+                          key={social}
+                          className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#C69563]/30 transition-colors cursor-pointer group"
+                        >
+                          <span className="text-[10px] text-white/40 group-hover:text-[#FBD9BF] transition-colors">
+                            {social.charAt(0)}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                    <p className="text-center text-white/20 text-xs mt-4">© 2024 Branding Pioneers</p>
+                  </div>
+                </div>
               </div>
-            )}
+            </div>
           </div>
         </div>
       </header>
