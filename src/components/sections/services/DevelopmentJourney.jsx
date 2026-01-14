@@ -195,7 +195,7 @@ const DevelopmentJourney = () => {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
                     {/* Left Side - Timeline Steps */}
                     <motion.div
                         className="lg:col-span-5 flex flex-col"
@@ -205,26 +205,55 @@ const DevelopmentJourney = () => {
                         transition={{ duration: 0.6 }}
                     >
                         <div className="relative">
-                            {/* Vertical Line */}
+                            {/* Vertical Line - Hidden on mobile */}
                             <div
-                                className="absolute left-6 top-0 bottom-0 w-[2px]"
+                                className="hidden md:block absolute left-5 lg:left-6 top-0 bottom-0 w-[2px]"
                                 style={{ backgroundColor: '#F0E6DC' }}
                             />
 
-                            {/* Progress Line */}
+                            {/* Progress Line - Hidden on mobile */}
                             <motion.div
-                                className="absolute left-6 top-0 w-[2px]"
+                                className="hidden md:block absolute left-5 lg:left-6 top-0 w-[2px]"
                                 style={{ backgroundColor: '#C4A484' }}
                                 initial={{ height: 0 }}
                                 animate={{ height: `${(activeStep / (steps.length - 1)) * 100}%` }}
                                 transition={{ duration: 0.5, ease: "easeOut" }}
                             />
 
-                            <div className="space-y-2">
+                            {/* Mobile: Horizontal scrollable steps */}
+                            <div className="md:hidden flex overflow-x-auto pb-3 gap-2 -mx-4 px-4 scrollbar-hide">
+                                {steps.map((step, index) => (
+                                    <motion.button
+                                        key={step.number}
+                                        className={`flex-shrink-0 flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-300 ${activeStep === index
+                                            ? 'bg-gray-900 text-white'
+                                            : 'bg-gray-100 text-gray-600'
+                                            }`}
+                                        onClick={() => setActiveStep(index)}
+                                        whileTap={{ scale: 0.95 }}
+                                    >
+                                        <span
+                                            className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${activeStep === index
+                                                ? 'bg-white/20'
+                                                : 'bg-gray-200'
+                                                }`}
+                                            style={{
+                                                backgroundColor: activeStep === index ? 'rgba(196, 164, 132, 0.3)' : undefined
+                                            }}
+                                        >
+                                            {activeStep > index ? '✓' : step.number}
+                                        </span>
+                                        <span className="text-xs font-medium whitespace-nowrap">{step.title}</span>
+                                    </motion.button>
+                                ))}
+                            </div>
+
+                            {/* Desktop: Vertical timeline */}
+                            <div className="hidden md:block space-y-1 lg:space-y-2">
                                 {steps.map((step, index) => (
                                     <motion.div
                                         key={step.number}
-                                        className={`relative flex items-start gap-4 p-3 rounded-xl cursor-pointer transition-all duration-300 ${activeStep === index
+                                        className={`relative flex items-start gap-3 lg:gap-4 p-2 lg:p-3 rounded-xl cursor-pointer transition-all duration-300 ${activeStep === index
                                             ? 'bg-gray-50'
                                             : 'hover:bg-gray-50/50'
                                             }`}
@@ -237,7 +266,7 @@ const DevelopmentJourney = () => {
                                     >
                                         {/* Step Number Circle */}
                                         <div
-                                            className={`relative z-10 w-12 h-12 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300 ${activeStep === index
+                                            className={`relative z-10 w-10 h-10 lg:w-12 lg:h-12 rounded-full flex items-center justify-center font-bold text-xs lg:text-sm transition-all duration-300 flex-shrink-0 ${activeStep === index
                                                 ? 'text-white shadow-lg'
                                                 : activeStep > index
                                                     ? 'text-white'
@@ -252,8 +281,8 @@ const DevelopmentJourney = () => {
                                         </div>
 
                                         {/* Step Title */}
-                                        <div className="flex-1 pt-2">
-                                            <h3 className={`font-semibold text-base transition-colors duration-300 ${activeStep === index
+                                        <div className="flex-1 pt-1.5 lg:pt-2">
+                                            <h3 className={`font-semibold text-sm lg:text-base transition-colors duration-300 ${activeStep === index
                                                 ? 'text-gray-900'
                                                 : 'text-gray-500'
                                                 }`}>
@@ -281,10 +310,10 @@ const DevelopmentJourney = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
                                 transition={{ duration: 0.4 }}
-                                className="bg-gray-50 rounded-2xl p-6 h-full flex flex-col"
+                                className="bg-gray-50 rounded-xl md:rounded-2xl p-4 md:p-6 h-full flex flex-col"
                             >
                                 {/* Step Image */}
-                                <div className="relative h-40 md:h-48 rounded-xl overflow-hidden mb-5">
+                                <div className="relative h-36 sm:h-40 md:h-48 rounded-lg md:rounded-xl overflow-hidden mb-4 md:mb-5">
                                     <motion.img
                                         key={currentStep.image}
                                         src={currentStep.image}
@@ -296,45 +325,45 @@ const DevelopmentJourney = () => {
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                                     <div
-                                        className="absolute top-3 left-3 w-10 h-10 rounded-lg flex items-center justify-center text-xl bg-white/90 backdrop-blur-sm shadow-lg"
+                                        className="absolute top-2 left-2 md:top-3 md:left-3 w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center text-lg md:text-xl bg-white/90 backdrop-blur-sm shadow-lg"
                                     >
                                         {currentStep.icon}
                                     </div>
                                 </div>
 
                                 {/* Step Header */}
-                                <div className="mb-4">
+                                <div className="mb-3 md:mb-4">
                                     <span
-                                        className="text-xs font-bold uppercase tracking-wider"
+                                        className="text-[10px] md:text-xs font-bold uppercase tracking-wider"
                                         style={{ color: '#C4A484' }}
                                     >
                                         Step {currentStep.number}
                                     </span>
-                                    <h3 className="text-xl md:text-2xl font-bold text-gray-900" style={{ fontFamily: 'serif' }}>
+                                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900" style={{ fontFamily: 'serif' }}>
                                         {currentStep.title}
                                     </h3>
                                 </div>
 
                                 {/* Description */}
-                                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                                <p className="text-gray-600 text-xs md:text-sm leading-relaxed mb-3 md:mb-4">
                                     {currentStep.description}
                                 </p>
 
                                 {/* Details Grid */}
-                                <div className="grid grid-cols-2 gap-2 mb-4">
+                                <div className="grid grid-cols-2 gap-1.5 md:gap-2 mb-3 md:mb-4">
                                     {currentStep.details.map((detail, index) => (
                                         <motion.div
                                             key={index}
-                                            className="flex items-center gap-2 p-2 bg-white rounded-lg"
+                                            className="flex items-center gap-1.5 md:gap-2 p-1.5 md:p-2 bg-white rounded-md md:rounded-lg"
                                             initial={{ opacity: 0, scale: 0.9 }}
                                             animate={{ opacity: 1, scale: 1 }}
                                             transition={{ delay: index * 0.1, duration: 0.3 }}
                                         >
                                             <div
-                                                className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                                                className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full flex-shrink-0"
                                                 style={{ backgroundColor: '#C4A484' }}
                                             />
-                                            <span className="text-xs font-medium text-gray-700">{detail}</span>
+                                            <span className="text-[10px] md:text-xs font-medium text-gray-700">{detail}</span>
                                         </motion.div>
                                     ))}
                                 </div>
@@ -368,29 +397,29 @@ const DevelopmentJourney = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                    <div className="grid grid-cols-1 lg:grid-cols-[280px,1fr] gap-6 md:gap-8 items-start">
+                    <div className="grid grid-cols-1 lg:grid-cols-[280px,1fr] gap-4 md:gap-6 lg:gap-8 items-start">
                         {/* Left Side - Title */}
-                        <div className="mb-4 lg:mb-0">
-                            <div className="flex items-center gap-3 mb-2">
-                                <div className="w-8 h-[2px]" style={{ backgroundColor: '#C4A484' }} />
-                                <span className="text-xs font-bold uppercase tracking-widest" style={{ color: '#C4A484' }}>
+                        <div className="mb-2 lg:mb-0">
+                            <div className="flex items-center gap-2 md:gap-3 mb-2">
+                                <div className="w-6 md:w-8 h-[2px]" style={{ backgroundColor: '#C4A484' }} />
+                                <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest" style={{ color: '#C4A484' }}>
                                     Tech Stack
                                 </span>
                             </div>
-                            <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-2" style={{ fontFamily: 'serif' }}>
+                            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-1 md:mb-2" style={{ fontFamily: 'serif' }}>
                                 Technologies We Use
                             </h3>
-                            <p className="text-gray-500 text-sm hidden md:block">
+                            <p className="text-gray-500 text-xs md:text-sm hidden sm:block">
                                 Cutting-edge tools for modern solutions
                             </p>
                         </div>
 
                         {/* Right Side - Tech Cards Grid */}
-                        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3">
+                        <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-6 gap-1.5 sm:gap-2 md:gap-3">
                             {technologies.map((tech, index) => (
                                 <motion.div
                                     key={tech.name}
-                                    className="group relative bg-white rounded-lg md:rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden border border-gray-100"
+                                    className="group relative bg-white rounded-md sm:rounded-lg md:rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden border border-gray-100"
                                     style={{ aspectRatio: '1' }}
                                     initial={{ opacity: 0, y: 15 }}
                                     whileInView={{ opacity: 1, y: 0 }}
@@ -406,7 +435,7 @@ const DevelopmentJourney = () => {
                                     }}
                                 >
                                     {/* Logo Container */}
-                                    <div className="relative w-full h-full flex items-center justify-center p-2 md:p-4 bg-white">
+                                    <div className="relative w-full h-full flex items-center justify-center p-1.5 sm:p-2 md:p-4 bg-white">
                                         <AnimatePresence mode="wait">
                                             <motion.img
                                                 key={techIndices[index]}
@@ -426,7 +455,7 @@ const DevelopmentJourney = () => {
 
                                     {/* Hover Border Accent */}
                                     <div
-                                        className="absolute inset-0 border-2 border-transparent rounded-xl transition-all duration-300"
+                                        className="absolute inset-0 border-2 border-transparent rounded-md sm:rounded-lg md:rounded-xl transition-all duration-300"
                                         style={{ borderColor: 'transparent' }}
                                         onMouseEnter={(e) => e.currentTarget.style.borderColor = '#C4A484'}
                                         onMouseLeave={(e) => e.currentTarget.style.borderColor = 'transparent'}

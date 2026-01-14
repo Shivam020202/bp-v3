@@ -254,74 +254,74 @@ const ScrollVideoHero = () => {
       {/* Content Container */}
       <div ref={contentRef} className="absolute inset-0 z-10">
         {/* Slide 1 */}
-        <div className="hero-slide absolute inset-0 flex flex-col items-center justify-center p-6 text-center opacity-0 pointer-events-none">
-          <div className="anim-child mb-6 px-6 py-2 border border-white/30 rounded-full backdrop-blur-md bg-white/10">
-            <span className="text-sm font-medium text-white tracking-widest uppercase">
+        <div className="hero-slide absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-6 text-center opacity-0 pointer-events-none">
+          <div className="anim-child mb-4 sm:mb-6 px-4 sm:px-6 py-1.5 sm:py-2 border border-white/30 rounded-full backdrop-blur-md bg-white/10">
+            <span className="text-[10px] sm:text-sm font-medium text-white tracking-widest uppercase">
               Brand Elevation
             </span>
           </div>
-          <h2 className="anim-child text-5xl md:text-8xl font-bold text-white tracking-tighter mb-6 drop-shadow-2xl">
+          <h2 className="anim-child text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter mb-4 sm:mb-6 drop-shadow-2xl">
             REDEFINE YOUR <br />{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
               DIGITAL IDENTITY
             </span>
           </h2>
-          <p className="anim-child text-lg md:text-2xl text-gray-200 font-light max-w-2xl mb-10 leading-relaxed shadow-black drop-shadow-md">
+          <p className="anim-child text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-light max-w-2xl mb-6 sm:mb-10 leading-relaxed shadow-black drop-shadow-md px-2">
             We craft immersive digital experiences that resonate with your
             audience and drive meaningful engagement.
           </p>
           <div className="anim-child">
-            <button className="group relative overflow-hidden flex items-center gap-3 px-10 py-3 bg-white/10 backdrop-blur-sm border border-white/50 text-white rounded-full font-medium text-sm tracking-[0.2em] uppercase transition-all duration-300 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] hover:border-white">
+            <button className="group relative overflow-hidden flex items-center gap-2 sm:gap-3 px-6 sm:px-10 py-2.5 sm:py-3 bg-white/10 backdrop-blur-sm border border-white/50 text-white rounded-full font-medium text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase transition-all duration-300 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] hover:border-white">
               <span className="relative z-10">Start The Journey</span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 relative z-10" />
+              <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1 relative z-10" />
             </button>
           </div>
         </div>
 
         {/* Slide 2 */}
-        <div className="hero-slide absolute inset-0 flex flex-col items-center justify-center p-6 text-center opacity-0 pointer-events-none">
-          <div className="anim-child mb-6 px-6 py-2 border border-white/30 rounded-full backdrop-blur-md bg-gray-200/10">
-            <span className="text-sm font-medium text-white/90 tracking-widest uppercase">
+        <div className="hero-slide absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-6 text-center opacity-0 pointer-events-none">
+          <div className="anim-child mb-4 sm:mb-6 px-4 sm:px-6 py-1.5 sm:py-2 border border-white/30 rounded-full backdrop-blur-md bg-gray-200/10">
+            <span className="text-[10px] sm:text-sm font-medium text-white/90 tracking-widest uppercase">
               Strategic Growth
             </span>
           </div>
-          <h2 className="anim-child text-5xl md:text-8xl font-bold text-white tracking-tighter mb-6 drop-shadow-2xl">
+          <h2 className="anim-child text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter mb-4 sm:mb-6 drop-shadow-2xl">
             DATA DRIVEN <br />{" "}
             <span className="text-[#EDE9D0]">PERFORMANCE</span>
           </h2>
-          <p className="anim-child text-lg md:text-2xl text-gray-200 font-light max-w-2xl mb-10 leading-relaxed drop-shadow-md">
+          <p className="anim-child text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-light max-w-2xl mb-6 sm:mb-10 leading-relaxed drop-shadow-md px-2">
             Unlock the power of analytics. We turn complex data points into
             actionable strategies for exponential growth.
           </p>
           <div className="anim-child flex gap-4">
-            <button className="group relative overflow-hidden flex items-center gap-3 px-10 py-3 bg-[#FFEAD3] text-[#574964] rounded-full font-medium text-sm tracking-[0.2em] uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,234,211,0.6)] hover:-translate-y-1">
+            <button className="group relative overflow-hidden flex items-center gap-2 sm:gap-3 px-6 sm:px-10 py-2.5 sm:py-3 bg-[#FFEAD3] text-[#574964] rounded-full font-medium text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,234,211,0.6)] hover:-translate-y-1">
               <span className="relative z-10">View Case Studies</span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </div>
         </div>
 
         {/* Slide 3 */}
-        <div className="hero-slide absolute inset-0 flex flex-col items-center justify-center p-6 text-center opacity-0 pointer-events-none">
-          <div className="anim-child mb-6 px-6 py-2 border border-white/30 rounded-full backdrop-blur-md bg-white/10">
-            <span className="text-sm font-medium text-white tracking-widest uppercase">
+        <div className="hero-slide absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-6 text-center opacity-0 pointer-events-none">
+          <div className="anim-child mb-4 sm:mb-6 px-4 sm:px-6 py-1.5 sm:py-2 border border-white/30 rounded-full backdrop-blur-md bg-white/10">
+            <span className="text-[10px] sm:text-sm font-medium text-white tracking-widest uppercase">
               Future Ready
             </span>
           </div>
-          <h2 className="anim-child text-5xl md:text-8xl font-bold text-white tracking-tighter mb-6 drop-shadow-2xl">
+          <h2 className="anim-child text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter mb-4 sm:mb-6 drop-shadow-2xl">
             DOMINATE THE <br />{" "}
             <span className="italic font-serif font-light text-[#D3D3FF]">
               FUTURE
             </span>
           </h2>
-          <p className="anim-child text-lg md:text-2xl text-gray-200 font-light max-w-2xl mb-10 leading-relaxed drop-shadow-md">
+          <p className="anim-child text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-light max-w-2xl mb-6 sm:mb-10 leading-relaxed drop-shadow-md px-2">
             Stay ahead of the curve with our AI-powered marketing stacks
             designed for tomorrow's market leaders.
           </p>
           <div className="anim-child">
-            <button className="group relative overflow-hidden flex items-center gap-3 px-10 py-3 bg-transparent border border-white/60 text-white rounded-full font-medium text-sm tracking-[0.2em] uppercase transition-all duration-300 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+            <button className="group relative overflow-hidden flex items-center gap-2 sm:gap-3 px-6 sm:px-10 py-2.5 sm:py-3 bg-transparent border border-white/60 text-white rounded-full font-medium text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase transition-all duration-300 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]">
               <span className="relative z-10">Book Consultation</span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </div>
         </div>

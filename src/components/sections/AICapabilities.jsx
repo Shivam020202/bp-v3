@@ -65,18 +65,23 @@ const capabilities = [
 
 const AICapabilities = () => {
   const [activeId, setActiveId] = useState("landing");
+  const [mobileActiveId, setMobileActiveId] = useState(null);
+
+  const toggleMobileItem = (id) => {
+    setMobileActiveId(mobileActiveId === id ? null : id);
+  };
 
   return (
-    <section className="py-12 bg-white text-black overflow-hidden relative border-t border-gray-100 font-sans">
-      <div className="container mx-auto px-6">
+    <section className="py-8 md:py-12 bg-white text-black overflow-hidden relative border-t border-gray-100 font-sans">
+      <div className="container mx-auto px-4 md:px-6">
         {/* Header - Matching AboutCompany Style */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6 mb-8 md:mb-12">
           <div className="max-w-3xl">
-            <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em] mb-4 block">
+            <span className="text-blue-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 md:mb-4 block">
               AI Solutions
             </span>
-            <h2 className="text-5xl md:text-6xl font-black tracking-tighter leading-[0.9]">
-              POWERED BY <br />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9]">
+              POWERED BY <br className="hidden sm:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 font-serif italic pr-2">
                 INTELLIGENCE.
               </span>
@@ -88,8 +93,8 @@ const AICapabilities = () => {
           </p>
         </div>
 
-        {/* Horizontal Accordion */}
-        <div className="flex flex-col lg:flex-row gap-4 h-auto lg:h-[500px]">
+        {/* Desktop: Horizontal Accordion */}
+        <div className="hidden lg:flex flex-row gap-4 h-[500px]">
           {capabilities.map((item) => {
             const isActive = activeId === item.id;
             return (
@@ -98,11 +103,10 @@ const AICapabilities = () => {
                 layout
                 onClick={() => setActiveId(item.id)}
                 onMouseEnter={() => setActiveId(item.id)}
-                className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out ${
-                  isActive
-                    ? "flex-[3] lg:flex-[3.5] h-[450px] lg:h-auto"
-                    : "flex-[1] h-24 lg:h-auto bg-gray-50 hover:bg-gray-100 border border-gray-100"
-                }`}
+                className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out ${isActive
+                    ? "flex-[3.5]"
+                    : "flex-[1] bg-gray-50 hover:bg-gray-100 border border-gray-100"
+                  }`}
               >
                 {/* Active Content (Background Image + Details) */}
                 {isActive && (
@@ -167,25 +171,110 @@ const AICapabilities = () => {
 
                 {/* Inactive Content (Vertical Text) */}
                 {!isActive && (
-                  <div className="absolute inset-0 z-10 flex lg:flex-col items-center justify-between p-6 text-gray-400 group-hover:text-black transition-colors">
-                    <span className="text-xl lg:text-2xl transition-transform duration-300 group-hover:scale-110 text-blue-600/50 group-hover:text-blue-600">
+                  <div className="absolute inset-0 z-10 flex flex-col items-center justify-between p-6 text-gray-400 group-hover:text-black transition-colors">
+                    <span className="text-2xl transition-transform duration-300 group-hover:scale-110 text-blue-600/50 group-hover:text-blue-600">
                       {item.icon}
                     </span>
 
-                    {/* Desktop Vertical Text */}
-                    <div className="hidden lg:block [writing-mode:vertical-rl] rotate-180 font-bold text-xl tracking-wide whitespace-nowrap">
+                    <div className="[writing-mode:vertical-rl] rotate-180 font-bold text-xl tracking-wide whitespace-nowrap">
                       {item.title}
                     </div>
 
-                    {/* Mobile Horizontal Text */}
-                    <div className="lg:hidden font-bold text-lg text-black">
-                      {item.title}
-                    </div>
-
-                    <span className="hidden lg:block w-1 h-1 rounded-full bg-gray-300 group-hover:bg-blue-600 transition-colors" />
-                    <ArrowUpRight className="lg:hidden w-5 h-5 text-gray-400" />
+                    <span className="w-1 h-1 rounded-full bg-gray-300 group-hover:bg-blue-600 transition-colors" />
                   </div>
                 )}
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Mobile & Tablet: Vertical Accordion List */}
+        <div className="lg:hidden flex flex-col gap-3">
+          {capabilities.map((item) => {
+            const isActive = mobileActiveId === item.id;
+            return (
+              <motion.div
+                key={item.id}
+                layout
+                className="rounded-xl overflow-hidden border border-gray-200"
+              >
+                {/* Header - Always visible */}
+                <button
+                  onClick={() => toggleMobileItem(item.id)}
+                  className={`w-full flex items-center justify-between p-4 transition-all duration-300 ${isActive ? "bg-gray-900 text-white" : "bg-white text-black hover:bg-gray-50"
+                    }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className={`${isActive ? "text-blue-400" : "text-blue-600"}`}>
+                      {item.icon}
+                    </span>
+                    <div className="text-left">
+                      <h3 className="font-bold text-base">{item.title}</h3>
+                      <p className={`text-xs ${isActive ? "text-gray-300" : "text-gray-500"}`}>
+                        {item.subtitle}
+                      </p>
+                    </div>
+                  </div>
+                  <motion.div
+                    animate={{ rotate: isActive ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </motion.div>
+                </button>
+
+                {/* Expanded Content */}
+                <AnimatePresence>
+                  {isActive && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="relative">
+                        {/* Image */}
+                        <div className="relative h-48 w-full">
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                        </div>
+
+                        {/* Content Overlay */}
+                        <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                          <p className="text-sm leading-relaxed mb-3">
+                            {item.description}
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {item.benefits.map((benefit, idx) => (
+                              <span
+                                key={idx}
+                                className="inline-flex items-center gap-1 text-xs bg-white/20 backdrop-blur-sm rounded-full px-2 py-1"
+                              >
+                                <Check className="w-3 h-3 text-blue-400" />
+                                {benefit}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* CTA Button */}
+                      <div className="p-4 bg-gray-50 border-t border-gray-100">
+                        <button className="w-full py-3 bg-blue-600 text-white rounded-lg font-bold text-sm flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors">
+                          Learn More
+                          <ArrowUpRight className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             );
           })}

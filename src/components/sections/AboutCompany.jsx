@@ -81,11 +81,11 @@ const AboutCompany = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+        <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-16 lg:gap-24">
           {/* Left: The Visual Anchor */}
           <div className="w-full lg:w-1/2 relative">
             {/* The "Frame" */}
-            <div className="relative aspect-[3/4] md:aspect-square w-full max-w-md mx-auto">
+            <div className="relative aspect-[3/4] sm:aspect-square w-full max-w-xs sm:max-w-md mx-auto">
               {/* Back Element (Outline) */}
               <div className="absolute inset-0 border border-black/10 rounded-full scale-105" />
 
@@ -109,7 +109,7 @@ const AboutCompany = () => {
               </div>
 
               {/* Floating "Badge" Element */}
-              <div className="absolute -top-10 -right-10 w-32 h-32 md:w-40 md:h-40 animate-[spin_10s_linear_infinite]">
+              <div className="absolute -top-6 -right-6 sm:-top-10 sm:-right-10 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 animate-[spin_10s_linear_infinite]">
                 <svg
                   viewBox="0 0 100 100"
                   className="w-full h-full overflow-visible"
@@ -135,11 +135,11 @@ const AboutCompany = () => {
             ref={contentRef}
             className="w-full lg:w-1/2 flex flex-col justify-center"
           >
-            <div className="mb-6">
-              <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em] mb-4 block">
+            <div className="mb-4 md:mb-6">
+              <span className="text-blue-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 md:mb-4 block">
                 The Philosophy
               </span>
-              <h2 className="text-5xl md:text-6xl font-black tracking-tighter leading-[0.9]">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9]">
                 WE MOLD <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 italic font-serif pr-2">
                   CHAOS.
@@ -147,22 +147,22 @@ const AboutCompany = () => {
               </h2>
             </div>
 
-            <p className="text-lg text-gray-600 leading-relaxed mb-10 max-w-lg border-l border-black/10 pl-6">
+            <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-6 md:mb-10 max-w-lg border-l border-black/10 pl-4 md:pl-6">
               Redefining the digital landscape through bold strategy and
               meticulous design. We don't just build brands; we cultivate
               digital ecosystems that thrive in the noise.
             </p>
 
-            <div className="grid grid-cols-2 gap-8 mb-10">
+            <div className="grid grid-cols-2 gap-4 md:gap-8 mb-6 md:mb-10">
               <div>
-                <h3 className="text-3xl font-bold text-black mb-1">500+</h3>
-                <p className="text-xs text-gray-500 uppercase tracking-widest">
+                <h3 className="text-2xl md:text-3xl font-bold text-black mb-1">500+</h3>
+                <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest">
                   Projects Shipped
                 </p>
               </div>
               <div>
-                <h3 className="text-3xl font-bold text-black mb-1">98%</h3>
-                <p className="text-xs text-gray-500 uppercase tracking-widest">
+                <h3 className="text-2xl md:text-3xl font-bold text-black mb-1">98%</h3>
+                <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest">
                   Client Retention
                 </p>
               </div>
