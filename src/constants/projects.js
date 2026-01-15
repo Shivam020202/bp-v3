@@ -91,7 +91,7 @@ export const projects = [
         client: "Raj Hospital",
         duration: "6 months",
         image: pcard1,
-        heroImage: s2,
+        heroImage: s1,
         
         tags: ["UI/UX Design", "Web App", "Design System"],
         description: "Enterprise platform for startup accelerators",
@@ -156,7 +156,7 @@ export const projects = [
         client: "Lifecare",
         duration: "2 months",
         image: pcard2,
-        heroImage: t2,
+        heroImage: t1,
         tags: ["Content Strategy", "Instagram", "TikTok"],
         description: "Plant-based meal delivery service marketing",
         challenge: "Green Eats wanted to expand their reach among young professionals who value health but lack time for meal prep.",

@@ -64,7 +64,7 @@ const PortfolioDetail = () => {
             alt={project.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80" />
         </div>
 
         {/* Pattern Overlay */}
@@ -97,7 +97,7 @@ const PortfolioDetail = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center text-white">
               {/* Category Badge */}
-              <motion.div
+              {/* <motion.div
                 className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 px-4 py-2 rounded-full text-xs font-medium mb-6 tracking-[0.2em] uppercase"
                 initial={{ scale: 0 }}
                 animate={isHeroInView ? { scale: 1 } : {}}
@@ -105,30 +105,30 @@ const PortfolioDetail = () => {
               >
                 <FaTag />
                 {project.category}
-              </motion.div>
+              </motion.div> */}
 
               {/* Title */}
-              <motion.h1
+              {/* <motion.h1
                 className="text-5xl md:text-7xl lg:text-8xl font-black mb-4 leading-tight tracking-tighter"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.3 }}
               >
                 {project.title}
-              </motion.h1>
+              </motion.h1> */}
 
               {/* Subtitle */}
-              <motion.p
+              {/* <motion.p
                 className="text-xl md:text-2xl text-gray-200 mb-8 font-light"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.4 }}
               >
                 {project.subtitle}
-              </motion.p>
+              </motion.p> */}
 
               {/* Meta Info */}
-              <motion.div
+              {/* <motion.div
                 className="flex flex-wrap items-center justify-center gap-6 text-sm"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
@@ -146,7 +146,7 @@ const PortfolioDetail = () => {
                 <div>
                   <span className="text-gray-300">Duration:</span> {project.duration}
                 </div>
-              </motion.div>
+              </motion.div> */}
             </div>
           </div>
         </div>
@@ -168,7 +168,7 @@ const PortfolioDetail = () => {
       </section>
 
       {/* Project Overview - Case Study Style */}
-      <section ref={contentRef} className="py-20 bg-[#6b5744] relative overflow-hidden">
+      <section ref={contentRef} className="py-20 bg-white relative overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600" />
 
@@ -186,7 +186,7 @@ const PortfolioDetail = () => {
                 <h3 className="text-blue-600 font-mono text-xs font-bold uppercase tracking-[0.2em] mb-4">
                   BUSINESS CHALLENGE
                 </h3>
-                <h2 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight tracking-tighter">
+                <h2 className="text-3xl md:text-4xl font-black text-black mb-6 leading-tight tracking-tighter">
                   {project.title}
                 </h2>
               </div>
@@ -197,10 +197,10 @@ const PortfolioDetail = () => {
                   THE DETAILS
                 </h3>
                 <div className="space-y-6">
-                  <p className="text-gray-200 leading-relaxed">
+                  <p className="text-gray-700 leading-relaxed">
                     {project.challenge}
                   </p>
-                  <p className="text-gray-200 leading-relaxed">
+                  <p className="text-gray-700 leading-relaxed">
                     {project.solution}
                   </p>
                 </div>
@@ -208,7 +208,7 @@ const PortfolioDetail = () => {
             </motion.div>
 
             {/* Vertical Divider */}
-            <div className="hidden lg:block w-px bg-gradient-to-b from-transparent via-gray-700 to-transparent" />
+            <div className="hidden lg:block w-px bg-gradient-to-b from-transparent via-gray-300 to-transparent" />
 
             {/* Right Column - Services & Why Partner */}
             <motion.div
@@ -226,7 +226,7 @@ const PortfolioDetail = () => {
                   {project.tags.map((tag, index) => (
                     <motion.li
                       key={index}
-                      className="text-white font-medium flex items-center gap-3"
+                      className="text-black font-medium flex items-center gap-3"
                       initial={{ opacity: 0, x: 20 }}
                       animate={isContentInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ delay: 0.3 + index * 0.1 }}
@@ -251,7 +251,7 @@ const PortfolioDetail = () => {
                   ]).map((reason, index) => (
                     <motion.li
                       key={index}
-                      className="text-gray-200 leading-relaxed"
+                      className="text-gray-700 leading-relaxed"
                       initial={{ opacity: 0, x: 20 }}
                       animate={isContentInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ delay: 0.5 + index * 0.1 }}
@@ -266,7 +266,7 @@ const PortfolioDetail = () => {
 
           {/* Results Metrics Bar */}
           <motion.div
-            className="mt-16 bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/30"
+            className="mt-16 bg-gray-100 rounded-2xl p-8 border border-gray-200"
             initial={{ opacity: 0, y: 30 }}
             animate={isContentInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.8 }}
@@ -280,7 +280,7 @@ const PortfolioDetail = () => {
                   animate={isContentInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ delay: 0.9 + index * 0.1 }}
                 >
-                  <div className="text-4xl md:text-5xl font-black text-white mb-2">
+                  <div className="text-4xl md:text-5xl font-black text-black mb-2">
                     {result.metric}
                   </div>
                   <div className="text-blue-600 text-sm font-mono font-bold uppercase tracking-[0.2em]">
