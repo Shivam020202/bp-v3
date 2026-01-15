@@ -14,7 +14,7 @@ const AboutPage = () => {
         {
             name: "Arush Thapar",
             role: "Managing Partner",
-            image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=1000&fit=crop",
+            image: "https://brandingpioneers.com/assets/arush.webp",
             bio: "Branding Pioneers was born out of a vision to redefine what it means to create impactful connections between brands and their audiences.",
             icon: (
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -25,7 +25,7 @@ const AboutPage = () => {
         {
             name: "Nishu Sharma",
             role: "Managing Partner",
-            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&h=1000&fit=crop",
+            image: "https://brandingpioneers.com/assets/nishu.webp",
             bio: "Leading from the front—breaking barriers and setting benchmarks in the digital marketing space. Making brands unforgettable.",
             icon: (
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -202,7 +202,7 @@ const AboutPage = () => {
                             Since 2018
                         </motion.span>
                         <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">
-                            Elevating Brands in the<br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Digital Stratosphere</span>
+                            Elevating Brands in the<br /><span style={{ color: '#C4A484' }}>Digital Stratosphere</span>
                         </h1>
                         <p className="text-lg text-white/80 max-w-xl mx-auto">
                             Your vision, our expertise — together we thrive.
@@ -227,42 +227,20 @@ const AboutPage = () => {
                                 transition={{ duration: 0.7 }}
                             >
                                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                                    <img
-                                        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200"
-                                        alt="Our Team"
+                                    <video
+                                        autoPlay
+                                        muted
+                                        loop
+                                        playsInline
                                         className="w-full h-[400px] lg:h-[500px] object-cover"
-                                    />
-                                    {/* Decorative Badge */}
-                                    <motion.div
-                                        className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-sm px-5 py-3 rounded-xl shadow-lg"
-                                        initial={{ opacity: 0, scale: 0.8 }}
-                                        whileInView={{ opacity: 1, scale: 1 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.5 }}
                                     >
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#C4A484' }}>
-                                                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                                </svg>
-                                            </div>
-                                            <div>
-                                                <p className="text-xs text-gray-500 uppercase tracking-wide">Inspiring</p>
-                                                <p className="text-sm font-bold text-gray-900">Creative Minds</p>
-                                            </div>
-                                        </div>
-                                    </motion.div>
+                                        <source src="https://res.cloudinary.com/damfndmrm/video/upload/v1768472297/bp_upd_1_orndgn.mp4" type="video/mp4" />
+                                    </video>
+
+
                                 </div>
-                                {/* Arrow Button */}
-                                <motion.button
-                                    className="absolute top-4 right-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                    </svg>
-                                </motion.button>
+
+
                             </motion.div>
 
                             {/* Right - Content */}
@@ -398,7 +376,7 @@ const AboutPage = () => {
                                 >
                                     <div className="w-[240px] h-[320px] xl:w-[280px] xl:h-[360px]">
                                         <img
-                                            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=1000&fit=crop"
+                                            src="https://brandingpioneers.com/assets/arush.webp"
                                             alt="Arush Thapar"
                                             className="w-full h-full object-cover object-top rounded-t-full"
                                         />
@@ -439,7 +417,7 @@ const AboutPage = () => {
                                 >
                                     <div className="w-[240px] h-[320px] xl:w-[280px] xl:h-[360px]">
                                         <img
-                                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&h=1000&fit=crop"
+                                            src="https://brandingpioneers.com/assets/nishu.webp"
                                             alt="Nishu Sharma"
                                             className="w-full h-full object-cover object-top rounded-t-full"
                                         />
@@ -481,7 +459,7 @@ const AboutPage = () => {
                                 >
                                     <div className="w-full h-[180px] overflow-hidden rounded-xl mb-3">
                                         <img
-                                            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=1000&fit=crop"
+                                            src="https://brandingpioneers.com/assets/arush.webp"
                                             alt="Arush Thapar"
                                             className="w-full h-full object-cover object-top"
                                         />
@@ -498,7 +476,7 @@ const AboutPage = () => {
                                 >
                                     <div className="w-full h-[180px] overflow-hidden rounded-xl mb-3">
                                         <img
-                                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&h=1000&fit=crop"
+                                            src="https://brandingpioneers.com/assets/nishu.webp"
                                             alt="Nishu Sharma"
                                             className="w-full h-full object-cover object-top"
                                         />
