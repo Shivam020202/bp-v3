@@ -80,7 +80,7 @@ const PortfolioDetail = () => {
         />
 
         {/* Back Button */}
-        <motion.button
+        {/* <motion.button
           className="absolute top-8 left-8 z-20 flex items-center gap-2 bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-bold hover:bg-white/20 transition-all"
           onClick={() => navigate('/portfolio')}
           initial={{ opacity: 0, x: -20 }}
@@ -90,7 +90,7 @@ const PortfolioDetail = () => {
         >
           <FaArrowLeft />
           <span>Back to Portfolio</span>
-        </motion.button>
+        </motion.button> */}
 
         {/* Content */}
         <div className="absolute inset-0 flex items-center justify-center z-10">
@@ -168,7 +168,7 @@ const PortfolioDetail = () => {
       </section>
 
       {/* Project Overview - Case Study Style */}
-      <section ref={contentRef} className="py-20 bg-black relative overflow-hidden">
+      <section ref={contentRef} className="py-20 bg-[#6b5744] relative overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600" />
 

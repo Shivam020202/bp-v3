@@ -1,20 +1,37 @@
-import p1 from "../assets/portfolio-demo/p-1.avif";
-import p2 from "../assets/portfolio-demo/p-2-bp.png";
-import p3 from "../assets/portfolio-demo/p-3-bp.png";
-import p4 from "../assets/portfolio-demo/p-4-bp.png";
-import p5 from "../assets/portfolio-demo/p-5-bp.png";
-import p6 from "../assets/portfolio-demo/p-6-bp.png";
-import p7 from "../assets/portfolio-demo/p-6bp.png";
+import p1 from "../assets/portfolio/Tanmay - BP MAX   2847 x 1602/1.jpg";
+import p2 from "../assets/portfolio/Tanmay - BP MAX   2847 x 1602/2.jpg";
+import p3 from "../assets/portfolio/Tanmay - BP MAX   2847 x 1602/3.jpg";
+import p4 from "../assets/portfolio/Tanmay - BP MAX   2847 x 1602/4.jpg";
+import p5 from "../assets/portfolio/Tanmay - BP MAX   2847 x 1602/5.jpg";
+import p6 from "../assets/portfolio/Tanmay - BP MAX   2847 x 1602/6.jpg";
+import s1 from "../assets/portfolio/Tanmay - BP Raj hospital  2847 x 1602/1.jpg";
+import s2 from "../assets/portfolio/Tanmay - BP Raj hospital  2847 x 1602/2.jpg";
+import s3 from "../assets/portfolio/Tanmay - BP Raj hospital  2847 x 1602/3.jpg";
+import s4 from "../assets/portfolio/Tanmay - BP Raj hospital  2847 x 1602/4.jpg";
+import s5 from "../assets/portfolio/Tanmay - BP Raj hospital  2847 x 1602/5.jpg";
+import s6 from "../assets/portfolio/Tanmay - BP Raj hospital  2847 x 1602/6.jpg";
+import s7 from "../assets/portfolio/Tanmay - BP Raj hospital  2847 x 1602/7.jpg";
+import s8 from "../assets/portfolio/Tanmay - BP Raj hospital  2847 x 1602/8.jpg";
+import t1 from "../assets/portfolio/_Tanmay - BP  LIFECARE  2847 x 1602/1.jpg";
+import t2 from "../assets/portfolio/_Tanmay - BP  LIFECARE  2847 x 1602/2.jpg";
+import t3 from "../assets/portfolio/_Tanmay - BP  LIFECARE  2847 x 1602/3.jpg";
+import t4 from "../assets/portfolio/_Tanmay - BP  LIFECARE  2847 x 1602/4.jpg";
+import t5 from "../assets/portfolio/_Tanmay - BP  LIFECARE  2847 x 1602/5.jpg";
+import t6 from "../assets/portfolio/_Tanmay - BP  LIFECARE  2847 x 1602/6.jpg";
+import t7 from "../assets/portfolio/_Tanmay - BP  LIFECARE  2847 x 1602/7.jpg";
+import t8 from "../assets/portfolio/_Tanmay - BP  LIFECARE  2847 x 1602/8.jpg";
+import t9 from "../assets/portfolio/_Tanmay - BP  LIFECARE  2847 x 1602/9.jpg";
 import pcard1 from "../assets/portfolio-demo/pcard/pcrd-1.avif";
 import pcard2 from "../assets/portfolio-demo/pcard/pcard-2.avif";
 import pcard3 from "../assets/portfolio-demo/pcard/pcard-3.jpg";
 import pcard4 from "../assets/portfolio-demo/pcard/pcard-4.avif";
 import pcard5 from "../assets/portfolio-demo/pcard/pcard-5.avif";
 import pcard6 from "../assets/portfolio-demo/pcard/pcard6.avif";
+import { i } from "framer-motion/client";
 export const projects = [
     {
         id: 1,
-        title: "Bloom Beauty Co.",
+        title: "MAX Home",
         subtitle: "Complete Brand Identity",
         category: "branding",
         year: "2024",
@@ -29,7 +46,7 @@ export const projects = [
         result: "200% increase in brand recognition",
         color: "from-pink-300 via-rose-300 to-pink-400",
         stats: { reach: "2.5M", engagement: "+180%", sales: "+200%" },
-        images: [p1, p2, p3, p4, p5, p6, p7],
+        images: [p1, p2, p3, p4, p5, p6],
         keyFeatures: [
             { title: "Brand Identity System", description: "Complete logo suite with primary, secondary, and icon variations." },
             { title: "Sustainable Packaging", description: "Eco-friendly packaging design using recyclable materials." },
@@ -67,14 +84,15 @@ export const projects = [
     },
     {
         id: 2,
-        title: "TechVenture Platform",
+        title: "Raj Hospital",
         subtitle: "SaaS Product Design",
         category: "web",
         year: "2024",
-        client: "TechVenture",
+        client: "Raj Hospital",
         duration: "6 months",
         image: pcard1,
-        heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop",
+        heroImage: s2,
+        
         tags: ["UI/UX Design", "Web App", "Design System"],
         description: "Enterprise platform for startup accelerators",
         challenge: "TechVenture needed a robust yet intuitive platform to manage complex accelerator workflows and facilitate investor-founder connections globally.",
@@ -83,11 +101,19 @@ export const projects = [
         color: "from-blue-300 via-indigo-300 to-purple-400",
         stats: { users: "50K+", satisfaction: "95%", retention: "+65%" },
         images: [
-            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-            "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
-            "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&h=600&fit=crop",
-            "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop",
-            "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop",
+            // "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+            // "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
+            // "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&h=600&fit=crop",
+            // "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop",
+            // "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop",
+            s1,
+            s2,
+            s3,
+            s4,
+            s5,
+            s6,
+            s7,
+            s8,
         ],
         keyFeatures: [
             { title: "Real-time Analytics", description: "Dynamic data visualization for portfolio performance tracking." },
@@ -123,14 +149,14 @@ export const projects = [
     },
     {
         id: 3,
-        title: "Green Eats Kitchen",
+        title: "Lifecare Hospital",
         subtitle: "Social Media Campaign",
         category: "social",
         year: "2024",
-        client: "Green Eats",
+        client: "Lifecare",
         duration: "2 months",
         image: pcard2,
-        heroImage: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=1200&h=800&fit=crop",
+        heroImage: t2,
         tags: ["Content Strategy", "Instagram", "TikTok"],
         description: "Plant-based meal delivery service marketing",
         challenge: "Green Eats wanted to expand their reach among young professionals who value health but lack time for meal prep.",
@@ -139,9 +165,18 @@ export const projects = [
         color: "from-green-300 via-emerald-300 to-teal-400",
         stats: { followers: "+50K", reach: "3.2M", engagement: "+240%" },
         images: [
-            "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=600&fit=crop",
-            "https://images.unsplash.com/photo-1494390248081-4e521a5940db?w=800&h=600&fit=crop",
-            "https://images.unsplash.com/photo-1464454709131-df6925f3bbcc?w=800&h=600&fit=crop",
+            // "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=600&fit=crop",
+            // "https://images.unsplash.com/photo-1494390248081-4e521a5940db?w=800&h=600&fit=crop",
+            // "https://images.unsplash.com/photo-1464454709131-df6925f3bbcc?w=800&h=600&fit=crop",
+            t1,
+            t2,
+            t3,
+            t4,
+            t5,
+            t6,
+            t7,
+            t8,
+            t9
         ],
         keyFeatures: [
             { title: "Influencer Marketing", description: "Strategic partnerships with health and wellness creators." },
