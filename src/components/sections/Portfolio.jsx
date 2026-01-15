@@ -1,79 +1,23 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { ArrowUpRight, MoveRight, Layers, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { projects as allProjects } from "../../constants/projects";
 
-const projects = [
-  {
-    id: 1,
-    title: "Bloom Beauty",
-    category: "Branding & Identity",
-    image:
-      "https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=800&q=80",
-    year: "2024",
-    result: "200% Growth",
-    color: "bg-rose-500",
-  },
-  {
-    id: 2,
-    title: "TechVenture",
-    category: "Web Platform",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-    year: "2023",
-    result: "Series B Raised",
-    color: "bg-blue-600",
-  },
-  {
-    id: 3,
-    title: "Green Eats",
-    category: "Mobile App",
-    image:
-      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80",
-    year: "2024",
-    result: "1M Users",
-    color: "bg-green-500",
-  },
-  {
-    id: 4,
-    title: "Artisan Coffee",
-    category: "Packaging Design",
-    image:
-      "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=800&q=80",
-    year: "2023",
-    result: "Best Design Award",
-    color: "bg-amber-600",
-  },
-  {
-    id: 5,
-    title: "FitLife Pro",
-    category: "Product Design",
-    image:
-      "https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=800&q=80",
-    year: "2024",
-    result: "#1 Health App",
-    color: "bg-cyan-500",
-  },
-  {
-    id: 6,
-    title: "Urban Architecture",
-    category: "Web Design",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
-    year: "2025",
-    result: "Awwwards SOTD",
-    color: "bg-zinc-800",
-  },
-];
+// Use the first 4 projects from constants
+const projects = allProjects.slice(0, 4);
 
 const ProjectCard = ({ project, x }) => {
-  // Parallax Effect: Map the container scroll (x) to image position
-  // We need a way to know the item's position relative to viewport, but with drag="x" on parent,
-  // the parent moves. Simple parallax: Move image opposite to drag direction slightly.
-  // Using a simplified spring for "floaty" feel.
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/portfolio/${project.id}`);
+  };
 
   return (
     <motion.div
-      className="relative flex-shrink-0 w-[280px] sm:w-[350px] md:w-[450px] aspect-[3/4] rounded-2xl md:rounded-3xl overflow-hidden group border border-white/10"
+      onClick={handleClick}
+      className="relative flex-shrink-0 w-[280px] sm:w-[350px] md:w-[450px] aspect-[3/4] rounded-2xl md:rounded-3xl overflow-hidden group border border-white/10 cursor-pointer"
       whileHover={{ scale: 0.98 }}
       transition={{ duration: 0.4 }}
     >
@@ -101,9 +45,9 @@ const ProjectCard = ({ project, x }) => {
         {/* Bottom Info */}
         <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
           <div className="mb-2 flex items-center gap-2">
-            <span className={`w-2 h-2 rounded-full ${project.color}`} />
+            <span className={`w-2 h-2 rounded-full bg-blue-500`} />
             <span className="text-white/70 text-[10px] sm:text-xs uppercase tracking-widest font-bold">
-              {project.category}
+              {project.subtitle || project.category}
             </span>
           </div>
           <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight mb-2">
@@ -111,7 +55,7 @@ const ProjectCard = ({ project, x }) => {
           </h3>
           <div className="h-0 group-hover:h-8 overflow-hidden transition-all duration-500">
             <p className="text-white/60 text-sm font-medium">
-              Result: <span className="text-white">{project.result}</span>
+              Result: <span className="text-white">{project.result || `${project.year} Project`}</span>
             </p>
           </div>
         </div>
@@ -121,6 +65,7 @@ const ProjectCard = ({ project, x }) => {
 };
 
 const Portfolio = () => {
+  const navigate = useNavigate();
   const containerRef = useRef(null);
   const trackRef = useRef(null);
   const [width, setWidth] = useState(0);
@@ -171,7 +116,10 @@ const Portfolio = () => {
               <MoveRight size={16} className="text-gray-600 animate-pulse" />
               Drag to Explore
             </div>
-            <button className="hidden sm:flex px-4 md:px-6 py-2 md:py-3 rounded-full bg-gray-100 text-black font-bold text-xs md:text-sm hover:bg-black hover:text-white transition-all items-center gap-2 group">
+            <button
+              onClick={() => navigate('/portfolio')}
+              className="hidden sm:flex px-4 md:px-6 py-2 md:py-3 rounded-full bg-gray-100 text-black font-bold text-xs md:text-sm hover:bg-black hover:text-white transition-all items-center gap-2 group"
+            >
               View All Projects{" "}
               <ArrowRight
                 size={16}

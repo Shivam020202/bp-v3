@@ -21,13 +21,21 @@ import t6 from "../assets/portfolio/_Tanmay - BP  LIFECARE  2847 x 1602/6.jpg";
 import t7 from "../assets/portfolio/_Tanmay - BP  LIFECARE  2847 x 1602/7.jpg";
 import t8 from "../assets/portfolio/_Tanmay - BP  LIFECARE  2847 x 1602/8.jpg";
 import t9 from "../assets/portfolio/_Tanmay - BP  LIFECARE  2847 x 1602/9.jpg";
-import pcard1 from "../assets/portfolio-demo/pcard/pcrd-1.avif";
-import pcard2 from "../assets/portfolio-demo/pcard/pcard-2.avif";
-import pcard3 from "../assets/portfolio-demo/pcard/pcard-3.jpg";
+import apolloHero from "../assets/portfolio/apollo/hero.jpg";
+import apollo2 from "../assets/portfolio/apollo/2.jpg";
+import apollo3 from "../assets/portfolio/apollo/3.jpg";
+import apollo4 from "../assets/portfolio/apollo/4.jpg";
+import apollo5 from "../assets/portfolio/apollo/5.jpg";
+import apollo6 from "../assets/portfolio/apollo/6.jpg";
+// Placeholder images for projects without custom covers
 import pcard4 from "../assets/portfolio-demo/pcard/pcard-4.avif";
-import pcard5 from "../assets/portfolio-demo/pcard/pcard-5.avif";
 import pcard6 from "../assets/portfolio-demo/pcard/pcard6.avif";
-import { i } from "framer-motion/client";
+
+// Cover images for portfolio cards and related works
+import maxCover from "../assets/portfolio/covers/max-cover.jpg";
+import rajCover from "../assets/portfolio/covers/raj-cover.jpg";
+import lifeCover from "../assets/portfolio/covers/life-cover.jpg";
+import apolloCover from "../assets/portfolio/covers/apollo-cover.jpg";
 export const projects = [
     {
         id: 1,
@@ -37,7 +45,7 @@ export const projects = [
         year: "2024",
         client: "Bloom Beauty",
         duration: "3 months",
-        image: pcard5,
+        image: maxCover,
         heroImage: p1,
         tags: ["Brand Strategy", "Visual Identity", "Packaging"],
         description: "A fresh, modern beauty brand targeting Gen-Z consumers",
@@ -90,9 +98,9 @@ export const projects = [
         year: "2024",
         client: "Raj Hospital",
         duration: "6 months",
-        image: pcard1,
+        image: rajCover,
         heroImage: s1,
-        
+
         tags: ["UI/UX Design", "Web App", "Design System"],
         description: "Enterprise platform for startup accelerators",
         challenge: "TechVenture needed a robust yet intuitive platform to manage complex accelerator workflows and facilitate investor-founder connections globally.",
@@ -155,7 +163,7 @@ export const projects = [
         year: "2024",
         client: "Lifecare",
         duration: "2 months",
-        image: pcard2,
+        image: lifeCover,
         heroImage: t1,
         tags: ["Content Strategy", "Instagram", "TikTok"],
         description: "Plant-based meal delivery service marketing",
@@ -212,14 +220,14 @@ export const projects = [
     },
     {
         id: 4,
-        title: "Artisan Coffee Roasters",
+        title: "APOLLO",
         subtitle: "Premium Packaging Design",
         category: "packaging",
         year: "2023",
         client: "Artisan Coffee",
         duration: "4 months",
-        image: pcard3,
-        heroImage: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200&h=800&fit=crop",
+        image: apolloCover,
+        heroImage: apolloHero,
         tags: ["Package Design", "Print", "Illustration"],
         description: "Luxury coffee packaging for boutique roasters",
         challenge: "Standing out in a competitive luxury coffee market while conveying the origin story of each bean variety.",
@@ -228,9 +236,12 @@ export const projects = [
         color: "from-amber-300 via-orange-300 to-amber-400",
         stats: { awards: "3", sales: "+150%", retailers: "100+" },
         images: [
-            "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&h=600&fit=crop",
-            "https://images.unsplash.com/photo-1580915411954-282cb1b0d780?w=800&h=600&fit=crop",
-            "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800&h=600&fit=crop",
+            apolloHero,
+            apollo2,
+            apollo3,
+            apollo4,
+            apollo5,
+            apollo6,
         ],
         keyFeatures: [
             { title: "Custom Illustration", description: "Unique artwork for each origin story." },
