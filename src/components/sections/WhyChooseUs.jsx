@@ -40,12 +40,12 @@ const WhyChooseUs = () => {
       <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="mb-4 max-w-2xl">
-          <span className="text-blue-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 md:mb-4 block">
+          <span className="text-gray-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 md:mb-4 block">
             Our DNA
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9]">
             WHY WE <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 italic font-serif pr-2">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-200 to-gray-500 italic font-serif pr-2">
               WIN.
             </span>
           </h2>
@@ -64,16 +64,18 @@ const WhyChooseUs = () => {
                 <div className="flex items-center gap-3 md:gap-4">
                   {/* Status Indicator Line */}
                   <motion.div
-                    className={`w-6 md:w-8 h-[2px] transition-colors duration-300 ${activeId === item.id ? "bg-black" : "bg-gray-200"
-                      }`}
+                    className={`w-6 md:w-8 h-[2px] transition-colors duration-300 ${
+                      activeId === item.id ? "bg-black" : "bg-gray-200"
+                    }`}
                     layout
                   />
 
                   <h3
-                    className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-black tracking-tighter transition-colors duration-300 ${activeId === item.id
+                    className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-black tracking-tighter transition-colors duration-300 ${
+                      activeId === item.id
                         ? "text-black"
                         : "text-gray-200 group-hover:text-gray-400"
-                      }`}
+                    }`}
                   >
                     {item.title}
                   </h3>

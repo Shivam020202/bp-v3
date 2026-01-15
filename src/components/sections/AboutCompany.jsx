@@ -136,12 +136,12 @@ const AboutCompany = () => {
             className="w-full lg:w-1/2 flex flex-col justify-center"
           >
             <div className="mb-4 md:mb-6">
-              <span className="text-blue-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 md:mb-4 block">
+              <span className="text-gray-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 md:mb-4 block">
                 The Philosophy
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9]">
                 WE MOLD <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 italic font-serif pr-2">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-200 to-gray-500 italic font-serif pr-2">
                   CHAOS.
                 </span>
               </h2>
@@ -155,13 +155,17 @@ const AboutCompany = () => {
 
             <div className="grid grid-cols-2 gap-4 md:gap-8 mb-6 md:mb-10">
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-black mb-1">500+</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-black mb-1">
+                  500+
+                </h3>
                 <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest">
                   Projects Shipped
                 </p>
               </div>
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-black mb-1">98%</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-black mb-1">
+                  98%
+                </h3>
                 <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest">
                   Client Retention
                 </p>

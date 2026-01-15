@@ -93,7 +93,7 @@ const ProjectCard = ({ project, x }) => {
           <span className="px-2 sm:px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[10px] sm:text-xs font-bold text-white border border-white/10">
             {project.year}
           </span>
-          <button className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors">
+          <button className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:bg-black hover:text-white transition-colors">
             <ArrowUpRight size={18} />
           </button>
         </div>
@@ -138,12 +138,12 @@ const Portfolio = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8 mb-10 md:mb-16">
           <div className="max-w-xl">
-            <span className="text-blue-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-3 md:mb-4 block">
+            <span className="text-gray-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-3 md:mb-4 block">
               Selected Works
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9]">
               DIGITAL <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 italic font-serif pr-4">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-200 to-gray-500 italic font-serif pr-4">
                 LANDMARKS.
               </span>
             </h2>
@@ -151,14 +151,24 @@ const Portfolio = () => {
           <div className="flex items-center gap-4">
             {/* Mobile Swipe Indicator */}
             <div className="flex md:hidden items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-gray-400">
-              <svg className="w-5 h-5 text-blue-600 animate-bounce-x" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              <svg
+                className="w-5 h-5 text-gray-600 animate-bounce-x"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
               </svg>
               Swipe to Explore
             </div>
             {/* Desktop Drag Indicator */}
             <div className="hidden md:flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gray-400">
-              <MoveRight size={16} className="text-blue-600 animate-pulse" />
+              <MoveRight size={16} className="text-gray-600 animate-pulse" />
               Drag to Explore
             </div>
             <button className="hidden sm:flex px-4 md:px-6 py-2 md:py-3 rounded-full bg-gray-100 text-black font-bold text-xs md:text-sm hover:bg-black hover:text-white transition-all items-center gap-2 group">
@@ -182,8 +192,18 @@ const Portfolio = () => {
               }}
               className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors"
             >
-              <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg
+                className="w-5 h-5 text-gray-700"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
             </button>
             <button
@@ -193,8 +213,18 @@ const Portfolio = () => {
               }}
               className="w-10 h-10 rounded-full bg-gray-900 text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </button>
           </div>

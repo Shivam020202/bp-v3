@@ -88,12 +88,12 @@ const BeforeAfter = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
           <div>
-            <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em] mb-4 block">
+            <span className="text-gray-600 font-mono text-xs uppercase tracking-[0.2em] mb-4 block">
               Proven Outcomes
             </span>
             <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9]">
               REAL <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 italic font-serif pr-2">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-200 to-gray-500 italic font-serif pr-2">
                 RESULTS.
               </span>
             </h2>
@@ -191,7 +191,7 @@ const BeforeAfter = () => {
               {/* Default Center Hint */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:opacity-0 transition-opacity duration-300">
                 <div className="bg-black/60 backdrop-blur-md text-white px-6 py-3 rounded-full flex items-center gap-3">
-                  <ScanEye className="w-5 h-5 text-blue-400" />
+                  <ScanEye className="w-5 h-5 text-gray-400" />
                   <span className="text-sm font-bold tracking-widest uppercase">
                     Hover to Unveil
                   </span>
@@ -224,7 +224,7 @@ const BeforeAfter = () => {
                       className="group bg-gray-50 hover:bg-black hover:text-white transition-all duration-300 p-6 rounded-xl border border-black/5 cursor-default"
                     >
                       <div className="flex items-end justify-between mb-2">
-                        <p className="text-4xl font-black tracking-tighter group-hover:text-blue-400 transition-colors">
+                        <p className="text-4xl font-black tracking-tighter group-hover:text-gray-400 transition-colors">
                           {stat.value}
                         </p>
                         <Sparkles className="w-4 h-4 opacity-0 group-hover:opacity-100 text-yellow-400 transition-opacity" />

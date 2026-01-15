@@ -77,12 +77,12 @@ const AICapabilities = () => {
         {/* Header - Matching AboutCompany Style */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6 mb-8 md:mb-12">
           <div className="max-w-3xl">
-            <span className="text-blue-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 md:mb-4 block">
+            <span className="text-gray-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 md:mb-4 block">
               AI Solutions
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9]">
               POWERED BY <br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 font-serif italic pr-2">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-200 to-gray-500 font-serif italic pr-2">
                 INTELLIGENCE.
               </span>
             </h2>
@@ -103,10 +103,11 @@ const AICapabilities = () => {
                 layout
                 onClick={() => setActiveId(item.id)}
                 onMouseEnter={() => setActiveId(item.id)}
-                className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out ${isActive
+                className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out ${
+                  isActive
                     ? "flex-[3.5]"
                     : "flex-[1] bg-gray-50 hover:bg-gray-100 border border-gray-100"
-                  }`}
+                }`}
               >
                 {/* Active Content (Background Image + Details) */}
                 {isActive && (
@@ -152,7 +153,7 @@ const AICapabilities = () => {
                                 key={idx}
                                 className="flex items-center gap-2 text-white/90 text-sm font-medium"
                               >
-                                <div className="p-0.5 rounded-full bg-blue-600 text-white">
+                                <div className="p-0.5 rounded-full bg-gray-800 text-white">
                                   <Check className="w-3 h-3" />
                                 </div>
                                 {benefit}
@@ -161,7 +162,7 @@ const AICapabilities = () => {
                           </div>
                         </div>
 
-                        <button className="h-14 w-14 rounded-full bg-white text-black flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all shadow-[0_0_20px_rgba(0,0,0,0.3)] shrink-0 self-end">
+                        <button className="h-14 w-14 rounded-full bg-white text-black flex items-center justify-center hover:bg-black hover:text-white transition-all shadow-[0_0_20px_rgba(0,0,0,0.3)] shrink-0 self-end">
                           <ArrowUpRight strokeWidth={2} />
                         </button>
                       </div>
@@ -172,7 +173,7 @@ const AICapabilities = () => {
                 {/* Inactive Content (Vertical Text) */}
                 {!isActive && (
                   <div className="absolute inset-0 z-10 flex flex-col items-center justify-between p-6 text-gray-400 group-hover:text-black transition-colors">
-                    <span className="text-2xl transition-transform duration-300 group-hover:scale-110 text-blue-600/50 group-hover:text-blue-600">
+                    <span className="text-2xl transition-transform duration-300 group-hover:scale-110 text-gray-400 group-hover:text-black">
                       {item.icon}
                     </span>
 
@@ -180,7 +181,7 @@ const AICapabilities = () => {
                       {item.title}
                     </div>
 
-                    <span className="w-1 h-1 rounded-full bg-gray-300 group-hover:bg-blue-600 transition-colors" />
+                    <span className="w-1 h-1 rounded-full bg-gray-300 group-hover:bg-black transition-colors" />
                   </div>
                 )}
               </motion.div>
@@ -201,16 +202,27 @@ const AICapabilities = () => {
                 {/* Header - Always visible */}
                 <button
                   onClick={() => toggleMobileItem(item.id)}
-                  className={`w-full flex items-center justify-between p-4 transition-all duration-300 ${isActive ? "bg-gray-900 text-white" : "bg-white text-black hover:bg-gray-50"
-                    }`}
+                  className={`w-full flex items-center justify-between p-4 transition-all duration-300 ${
+                    isActive
+                      ? "bg-gray-900 text-white"
+                      : "bg-white text-black hover:bg-gray-50"
+                  }`}
                 >
                   <div className="flex items-center gap-3">
-                    <span className={`${isActive ? "text-blue-400" : "text-blue-600"}`}>
+                    <span
+                      className={`${
+                        isActive ? "text-gray-400" : "text-gray-600"
+                      }`}
+                    >
                       {item.icon}
                     </span>
                     <div className="text-left">
                       <h3 className="font-bold text-base">{item.title}</h3>
-                      <p className={`text-xs ${isActive ? "text-gray-300" : "text-gray-500"}`}>
+                      <p
+                        className={`text-xs ${
+                          isActive ? "text-gray-300" : "text-gray-500"
+                        }`}
+                      >
                         {item.subtitle}
                       </p>
                     </div>
@@ -219,8 +231,18 @@ const AICapabilities = () => {
                     animate={{ rotate: isActive ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
                     </svg>
                   </motion.div>
                 </button>
@@ -257,7 +279,7 @@ const AICapabilities = () => {
                                 key={idx}
                                 className="inline-flex items-center gap-1 text-xs bg-white/20 backdrop-blur-sm rounded-full px-2 py-1"
                               >
-                                <Check className="w-3 h-3 text-blue-400" />
+                                <Check className="w-3 h-3 text-gray-400" />
                                 {benefit}
                               </span>
                             ))}
@@ -267,7 +289,7 @@ const AICapabilities = () => {
 
                       {/* CTA Button */}
                       <div className="p-4 bg-gray-50 border-t border-gray-100">
-                        <button className="w-full py-3 bg-blue-600 text-white rounded-lg font-bold text-sm flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors">
+                        <button className="w-full py-3 bg-black text-white rounded-lg font-bold text-sm flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors">
                           Learn More
                           <ArrowUpRight className="w-4 h-4" />
                         </button>

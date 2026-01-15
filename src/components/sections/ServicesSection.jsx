@@ -94,18 +94,20 @@ const ServiceCard = ({ service, idx }) => {
       <img
         src={service.image}
         alt={service.title}
-        className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700 ease-out"
+        className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent transition-all duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent transition-all duration-500" />
 
       {/* Content */}
       <div className="absolute inset-0 p-4 sm:p-6 md:p-8 flex flex-col justify-end z-20 text-white">
-        <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 p-2 sm:p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg md:rounded-xl text-white opacity-80 group-hover:opacity-100 group-hover:bg-blue-600 group-hover:border-blue-500 transition-all duration-300">
-          <span className="[&>svg]:w-4 [&>svg]:h-4 sm:[&>svg]:w-5 sm:[&>svg]:h-5 md:[&>svg]:w-6 md:[&>svg]:h-6">{service.icon}</span>
-        </div>
+        {/* <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 p-2 sm:p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg md:rounded-xl text-white opacity-80 group-hover:opacity-100 group-hover:bg-blue-600 group-hover:border-blue-500 transition-all duration-300">
+          <span className="[&>svg]:w-4 [&>svg]:h-4 sm:[&>svg]:w-5 sm:[&>svg]:h-5 md:[&>svg]:w-6 md:[&>svg]:h-6">
+            {service.icon}
+          </span>
+        </div> */}
 
         <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-          <h3 className="text-sm sm:text-base md:text-xl font-bold mb-1 md:mb-2 leading-tight">
+          <h3 className="text-sm sm:text-base md:text-xl font-bold mb-1 md:mb-2 leadi ng-tight">
             {service.title}
           </h3>
           {/* Description - Hidden on mobile */}
@@ -132,17 +134,17 @@ const ServicesSection = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6 mb-8 md:mb-12">
           <div>
-            <span className="text-blue-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 md:mb-4 block">
+            <span className="text-gray-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 md:mb-4 block">
               Our Capabilities
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9]">
               DIGITAL <br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 italic font-serif pr-2">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-200 to-gray-500 italic font-serif pr-2">
                 MARKETING.
               </span>
             </h2>
           </div>
-          <button className="hidden md:flex items-center gap-2 text-sm font-bold uppercase tracking-widest border-b border-black pb-1 hover:text-blue-600 hover:border-blue-600 transition-colors">
+          <button className="hidden md:flex items-center gap-2 text-sm font-bold uppercase tracking-widest border-b border-black pb-1 hover:text-gray-600 hover:border-gray-600 transition-colors">
             View All Services
           </button>
         </div>

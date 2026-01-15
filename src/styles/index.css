@@ -146,6 +146,39 @@ html {
     margin-top: 2rem;
     padding-left: 2rem;
   }
+
+  /* The blurred background element */
+  .blurred-bg {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, #ff0080, #4158d0, #ff8c00);
+    filter: blur(40px);
+    border-radius: 50%;
+    z-index: -1;
+    animation: move 10s infinite alternate;
+    pointer-events: none;
+    opacity: 0.8;
+  }
+
+  /* The Magic Text */
+  .inverted-text {
+    position: relative;
+    z-index: 10;
+    font-weight: 900;
+    color: white; /* White is essential for the full invert effect */
+    mix-blend-mode: difference;
+    pointer-events: none;
+  }
+
+  @keyframes move {
+    from {
+      transform: translate(-20%, -20%);
+    }
+    to {
+      transform: translate(20%, 20%);
+    }
+  }
 }
 
 /* Animation delay utilities */

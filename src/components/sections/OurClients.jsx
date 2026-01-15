@@ -105,17 +105,17 @@ const OurClients = () => {
       />
 
       {/* Lighting Effect */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none mix-blend-multiply" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gray-500/5 blur-[100px] rounded-full pointer-events-none mix-blend-multiply" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="flex flex-col items-center justify-center text-center mb-10 lg:mb-16">
-          <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em] mb-4 block">
+          <span className="text-gray-600 font-mono text-xs uppercase tracking-[0.2em] mb-4 block">
             Global Ecosystem
           </span>
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter leading-[0.9] text-black mb-6">
             TRUSTED BY <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 italic font-serif pr-2">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-200 to-gray-500 italic font-serif pr-2">
               THE GIANTS
             </span>
           </h2>
