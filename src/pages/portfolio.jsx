@@ -299,7 +299,7 @@ const PortfolioPage = () => {
                 whileTap={{ scale: 0.95 }}
                 layout
               >
-                <span className="text-base">{filter.icon}</span>
+                {/* <span className="text-base">{filter.icon}</span> */}
                 {filter.label}
                 {activeFilter === filter.id && (
                   <motion.span
@@ -350,7 +350,7 @@ const PortfolioPage = () => {
                       alt={project.title}
                       className="absolute inset-0 w-full h-full object-cover"
                       animate={{
-                        scale: hoveredProject === project.id ? 1.1 : 1,
+                        scale: hoveredProject === project.id ? 1 : 1,
                       }}
                       transition={{ duration: 0.6, ease: "easeOut" }}
                     />

@@ -30,6 +30,7 @@ const PortfolioDetail = () => {
 
   const [openFaqIndex, setOpenFaqIndex] = useState(1); // Default to second FAQ open
   const [isCarouselPaused, setIsCarouselPaused] = useState(false);
+  const [isMobileCarouselPaused, setIsMobileCarouselPaused] = useState(false);
 
   // Get project data from constants based on id
   const project = projects.find(p => p.id === parseInt(id));
@@ -370,8 +371,8 @@ const PortfolioDetail = () => {
           >
             <motion.div
               className="flex gap-6"
-              animate={isCarouselPaused ? {} : {
-                x: [0, -1956], // 6 items * 320px + 6 gaps * 24px = 1956px
+              animate={{
+                x: isCarouselPaused ? undefined : [0, -1956], // 6 items * 320px + 6 gaps * 24px = 1956px
               }}
               transition={{
                 x: {
@@ -386,7 +387,7 @@ const PortfolioDetail = () => {
               }}
             >
               {/* Dynamically get related projects (other projects in same category or just others) */}
-              {[...Array(2)].map((_, loopIndex) => (
+              {[...Array(4)].map((_, loopIndex) => (
                 <Fragment key={loopIndex}>
                   {projects
                     .filter(p => p.id !== project.id)
