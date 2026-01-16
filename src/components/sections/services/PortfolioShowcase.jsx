@@ -53,17 +53,17 @@ const PortfolioShowcase = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-[2px]" style={{ backgroundColor: '#C4A484' }} />
-                        <span className="text-xs font-bold uppercase tracking-widest" style={{ color: '#C4A484' }}>
-                            Our Work
+                    <span className="text-gray-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 md:mb-4 block">
+                        Our Work
+                    </span>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9] mb-3">
+                        FEATURED <br className="hidden sm:block" />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">
+                            PORTFOLIO.
                         </span>
-                    </div>
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-2" style={{ fontFamily: 'serif' }}>
-                        Portfolio
                     </h2>
-                    <p className="text-gray-500 text-sm">
-                        Featured projects delivered with excellence
+                    <p className="text-gray-500 text-sm md:text-base max-w-lg">
+                        Projects delivered with excellence
                     </p>
                 </motion.div>
 

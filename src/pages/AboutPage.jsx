@@ -299,42 +299,17 @@ const AboutPage = () => {
                                 transition={{ duration: 0.8, delay: 0.1 }}
                             >
                                 {/* Label */}
-                                <motion.span
-                                    className="inline-block px-4 py-1.5 rounded-full text-xs uppercase tracking-widest font-semibold mb-5"
-                                    style={{ backgroundColor: 'rgba(196,164,132,0.12)', color: '#C4A484' }}
-                                    initial={{ opacity: 0, y: 15 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.2 }}
-                                >
+                                <span className="text-gray-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 md:mb-4 block">
                                     Who We Are
-                                </motion.span>
+                                </span>
 
-                                {/* Heading with Glow Effect */}
-                                <motion.h2
-                                    className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-5"
-                                    initial={{ opacity: 0, y: 25 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.3, duration: 0.6 }}
-                                >
-                                    Building{' '}
-                                    <motion.span
-                                        className="italic font-serif"
-                                        style={{ color: '#C4A484' }}
-                                        animate={{
-                                            textShadow: [
-                                                '0 0 0px rgba(196,164,132,0)',
-                                                '0 0 15px rgba(196,164,132,0.3)',
-                                                '0 0 0px rgba(196,164,132,0)'
-                                            ]
-                                        }}
-                                        transition={{ duration: 3, repeat: Infinity }}
-                                    >
-                                        Brands
-                                    </motion.span>{' '}
-                                    That Stand Out
-                                </motion.h2>
+                                {/* Heading - Matching Home Page Style */}
+                                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9] mb-5">
+                                    BUILDING <br className="hidden sm:block" />
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">
+                                        BRANDS.
+                                    </span>
+                                </h2>
 
                                 {/* Description with Animated Border */}
                                 <motion.div
@@ -653,11 +628,14 @@ const AboutPage = () => {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.7 }}
                             >
-                                <span className="font-semibold text-sm uppercase tracking-widest mb-4 block" style={{ color: '#C4A484' }}>
+                                <span className="text-gray-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 md:mb-4 block">
                                     What Drives Us
                                 </span>
-                                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                                    Our <span style={{ color: '#C4A484' }}>Vision</span>
+                                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9] mb-6">
+                                    OUR <br className="hidden sm:block" />
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">
+                                        VISION.
+                                    </span>
                                 </h2>
                                 <p className="text-gray-600 text-base leading-relaxed mb-10 max-w-md">
                                     At Branding Pioneers, we offer a comprehensive range of services to bring your digital vision to life. Each service is tailored to meet the unique needs of our clients.

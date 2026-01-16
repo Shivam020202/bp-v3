@@ -1,16 +1,16 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { Search, ClipboardList, Palette, Code, CheckCircle, Rocket } from "lucide-react";
 
 const DevelopmentJourney = () => {
     const [activeStep, setActiveStep] = useState(0);
-    const [techIndices, setTechIndices] = useState({});
 
     const steps = [
         {
             number: "01",
             title: "Discovery & Research",
             description: "We dive deep into understanding your business, goals, target audience, and competitive landscape to build a solid foundation.",
-            icon: "🔍",
+            icon: Search,
             image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop&auto=format",
             details: ["Market Analysis", "User Research", "Competitive Audit", "Goals Definition"]
         },
@@ -18,7 +18,7 @@ const DevelopmentJourney = () => {
             number: "02",
             title: "Strategy & Planning",
             description: "Creating a comprehensive roadmap with clear milestones, timelines, and deliverables tailored to your project needs.",
-            icon: "📋",
+            icon: ClipboardList,
             image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop&auto=format",
             details: ["Project Roadmap", "Tech Stack Selection", "Timeline Planning", "Resource Allocation"]
         },
@@ -26,7 +26,7 @@ const DevelopmentJourney = () => {
             number: "03",
             title: "Design & Prototyping",
             description: "Crafting beautiful, intuitive interfaces through wireframes, mockups, and interactive prototypes for validation.",
-            icon: "🎨",
+            icon: Palette,
             image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop&auto=format",
             details: ["Wireframing", "UI Design", "Prototyping", "User Testing"]
         },
@@ -34,7 +34,7 @@ const DevelopmentJourney = () => {
             number: "04",
             title: "Development",
             description: "Building robust, scalable solutions using modern technologies with clean, maintainable code architecture.",
-            icon: "💻",
+            icon: Code,
             image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop&auto=format",
             details: ["Frontend Dev", "Backend Dev", "API Integration", "Database Setup"]
         },
@@ -42,7 +42,7 @@ const DevelopmentJourney = () => {
             number: "05",
             title: "Testing & QA",
             description: "Rigorous testing across devices and browsers to ensure flawless performance and exceptional user experience.",
-            icon: "✅",
+            icon: CheckCircle,
             image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop&auto=format",
             details: ["Unit Testing", "Integration Testing", "Performance Testing", "Security Audit"]
         },
@@ -50,128 +50,32 @@ const DevelopmentJourney = () => {
             number: "06",
             title: "Launch & Support",
             description: "Seamless deployment with ongoing maintenance, monitoring, and support to ensure continued success.",
-            icon: "🚀",
+            icon: Rocket,
             image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&auto=format",
             details: ["Deployment", "Monitoring", "Maintenance", "Optimization"]
         },
     ];
 
-    // Technologies with rotating logos - using reliable CDN sources
     const technologies = [
-        {
-            name: "React",
-            logos: [
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg"
-            ]
-        },
-        {
-            name: "Node.js",
-            logos: [
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain.svg"
-            ]
-        },
-        {
-            name: "TypeScript",
-            logos: [
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg"
-            ]
-        },
-        {
-            name: "MongoDB",
-            logos: [
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain.svg"
-            ]
-        },
-        {
-            name: "WordPress",
-            logos: [
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg"
-            ]
-        },
-        {
-            name: "PHP",
-            logos: [
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg"
-            ]
-        },
-        {
-            name: "Shopify",
-            logos: [
-                "https://cdn.worldvectorlogo.com/logos/shopify.svg",
-                "https://cdn.worldvectorlogo.com/logos/shopify.svg"
-            ]
-        },
-        {
-            name: "WooCommerce",
-            logos: [
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/woocommerce/woocommerce-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/woocommerce/woocommerce-plain.svg"
-            ]
-        },
-        {
-            name: "AWS",
-            logos: [
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"
-            ]
-        },
-        {
-            name: "Docker",
-            logos: [
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg"
-            ]
-        },
-        {
-            name: "Figma",
-            logos: [
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
-            ]
-        },
-        {
-            name: "PostgreSQL",
-            logos: [
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg"
-            ]
-        },
+        { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+        { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+        { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+        { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+        { name: "WordPress", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" },
+        { name: "PHP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+        { name: "Shopify", logo: "https://cdn.worldvectorlogo.com/logos/shopify.svg" },
+        { name: "WooCommerce", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/woocommerce/woocommerce-original.svg" },
+        { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" },
+        { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+        { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+        { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
     ];
 
     const currentStep = steps[activeStep];
-
-    // Initialize tech indices
-    useEffect(() => {
-        const initialIndices = {};
-        technologies.forEach((_, index) => {
-            initialIndices[index] = 0;
-        });
-        setTechIndices(initialIndices);
-    }, []);
-
-    // Auto-cycle tech logos
-    useEffect(() => {
-        const intervals = technologies.map((tech, index) => {
-            const randomInterval = 4000 + Math.random() * 3000;
-            return setInterval(() => {
-                setTechIndices(prev => ({
-                    ...prev,
-                    [index]: (prev[index] + 1) % tech.logos.length
-                }));
-            }, randomInterval);
-        });
-
-        return () => intervals.forEach(interval => clearInterval(interval));
-    }, []);
+    const IconComponent = currentStep.icon;
 
     return (
-        <section className="py-12 md:py-16 bg-white">
+        <section className="py-16 md:py-24 bg-white">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <motion.div
@@ -181,14 +85,14 @@ const DevelopmentJourney = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    <div className="flex items-center gap-4 mb-4">
-                        <div className="w-12 h-[3px]" style={{ backgroundColor: '#C4A484' }} />
-                        <span className="text-sm font-bold uppercase tracking-widest" style={{ color: '#C4A484' }}>
-                            Our Process
+                    <span className="text-gray-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 md:mb-4 block">
+                        Our Process
+                    </span>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9] mb-4">
+                        DEVELOPMENT <br className="hidden sm:block" />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">
+                            JOURNEY.
                         </span>
-                    </div>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'serif' }}>
-                        Development Journey
                     </h2>
                     <p className="text-gray-600 text-base md:text-lg max-w-2xl leading-relaxed">
                         A proven methodology that transforms your ideas into successful digital products.
@@ -196,113 +100,77 @@ const DevelopmentJourney = () => {
                 </motion.div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
-                    {/* Left Side - Timeline Steps */}
+                    {/* Left Side - Timeline */}
                     <motion.div
                         className="lg:col-span-5 flex flex-col"
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
                     >
                         <div className="relative">
-                            {/* Vertical Line - Hidden on mobile */}
-                            <div
-                                className="hidden md:block absolute left-5 lg:left-6 top-0 bottom-0 w-[2px]"
-                                style={{ backgroundColor: '#F0E6DC' }}
-                            />
-
-                            {/* Progress Line - Hidden on mobile */}
+                            {/* Vertical Line */}
+                            <div className="hidden md:block absolute left-5 lg:left-6 top-0 bottom-0 w-[2px] bg-gray-100" />
                             <motion.div
                                 className="hidden md:block absolute left-5 lg:left-6 top-0 w-[2px]"
                                 style={{ backgroundColor: '#C4A484' }}
                                 initial={{ height: 0 }}
                                 animate={{ height: `${(activeStep / (steps.length - 1)) * 100}%` }}
-                                transition={{ duration: 0.5, ease: "easeOut" }}
+                                transition={{ duration: 0.5 }}
                             />
 
-                            {/* Mobile: Horizontal scrollable steps */}
+                            {/* Mobile scroll */}
                             <div className="md:hidden flex overflow-x-auto pb-3 gap-2 -mx-4 px-4 scrollbar-hide">
                                 {steps.map((step, index) => (
-                                    <motion.button
+                                    <button
                                         key={step.number}
-                                        className={`flex-shrink-0 flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-300 ${activeStep === index
-                                            ? 'bg-gray-900 text-white'
-                                            : 'bg-gray-100 text-gray-600'
-                                            }`}
+                                        className={`flex-shrink-0 flex items-center gap-2 px-3 py-2 rounded-full transition-all ${activeStep === index ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600'}`}
                                         onClick={() => setActiveStep(index)}
-                                        whileTap={{ scale: 0.95 }}
                                     >
-                                        <span
-                                            className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${activeStep === index
-                                                ? 'bg-white/20'
-                                                : 'bg-gray-200'
-                                                }`}
-                                            style={{
-                                                backgroundColor: activeStep === index ? 'rgba(196, 164, 132, 0.3)' : undefined
-                                            }}
-                                        >
-                                            {activeStep > index ? '✓' : step.number}
+                                        <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: activeStep === index ? 'rgba(196,164,132,0.3)' : '#e5e7eb' }}>
+                                            {step.number}
                                         </span>
-                                        <span className="text-xs font-medium whitespace-nowrap">{step.title}</span>
-                                    </motion.button>
+                                        <span className="text-xs font-medium whitespace-nowrap">{step.title.split(' ')[0]}</span>
+                                    </button>
                                 ))}
                             </div>
 
-                            {/* Desktop: Vertical timeline */}
-                            <div className="hidden md:block space-y-1 lg:space-y-2">
-                                {steps.map((step, index) => (
-                                    <motion.div
-                                        key={step.number}
-                                        className={`relative flex items-start gap-3 lg:gap-4 p-2 lg:p-3 rounded-xl cursor-pointer transition-all duration-300 ${activeStep === index
-                                            ? 'bg-gray-50'
-                                            : 'hover:bg-gray-50/50'
-                                            }`}
-                                        onClick={() => setActiveStep(index)}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ duration: 0.3, delay: index * 0.08 }}
-                                        whileHover={{ x: 3 }}
-                                    >
-                                        {/* Step Number Circle */}
-                                        <div
-                                            className={`relative z-10 w-10 h-10 lg:w-12 lg:h-12 rounded-full flex items-center justify-center font-bold text-xs lg:text-sm transition-all duration-300 flex-shrink-0 ${activeStep === index
-                                                ? 'text-white shadow-lg'
-                                                : activeStep > index
-                                                    ? 'text-white'
-                                                    : 'text-gray-400 bg-white border-2'
-                                                }`}
-                                            style={{
-                                                backgroundColor: activeStep >= index ? '#C4A484' : 'white',
-                                                borderColor: activeStep >= index ? '#C4A484' : '#E5E7EB'
-                                            }}
+                            {/* Desktop timeline */}
+                            <div className="hidden md:block space-y-2">
+                                {steps.map((step, index) => {
+                                    const StepIcon = step.icon;
+                                    return (
+                                        <motion.div
+                                            key={step.number}
+                                            className={`relative flex items-start gap-4 p-3 rounded-xl cursor-pointer transition-all ${activeStep === index ? 'bg-gray-50' : 'hover:bg-gray-50/50'}`}
+                                            onClick={() => setActiveStep(index)}
+                                            whileHover={{ x: 3 }}
                                         >
-                                            {activeStep > index ? '✓' : step.number}
-                                        </div>
-
-                                        {/* Step Title */}
-                                        <div className="flex-1 pt-1.5 lg:pt-2">
-                                            <h3 className={`font-semibold text-sm lg:text-base transition-colors duration-300 ${activeStep === index
-                                                ? 'text-gray-900'
-                                                : 'text-gray-500'
-                                                }`}>
-                                                {step.title}
-                                            </h3>
-                                        </div>
-                                    </motion.div>
-                                ))}
+                                            <motion.div
+                                                className={`relative z-10 w-12 h-12 rounded-full flex items-center justify-center transition-all ${activeStep >= index ? 'text-white shadow-lg' : 'text-gray-400 bg-white border-2 border-gray-200'}`}
+                                                style={{ backgroundColor: activeStep >= index ? '#C4A484' : 'white' }}
+                                            >
+                                                {activeStep > index ? (
+                                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                                                    </svg>
+                                                ) : (
+                                                    <StepIcon className="w-5 h-5" />
+                                                )}
+                                            </motion.div>
+                                            <div className="flex-1 pt-2">
+                                                <h3 className={`font-semibold text-base ${activeStep === index ? 'text-gray-900' : 'text-gray-500'}`}>
+                                                    {step.title}
+                                                </h3>
+                                            </div>
+                                        </motion.div>
+                                    );
+                                })}
                             </div>
                         </div>
                     </motion.div>
 
-                    {/* Right Side - Step Details */}
-                    <motion.div
-                        className="lg:col-span-7 flex flex-col"
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
+                    {/* Right Side - Details */}
+                    <motion.div className="lg:col-span-7 flex flex-col" initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeStep}
@@ -310,78 +178,31 @@ const DevelopmentJourney = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
                                 transition={{ duration: 0.4 }}
-                                className="bg-gray-50 rounded-xl md:rounded-2xl p-4 md:p-6 h-full flex flex-col"
+                                className="bg-gray-50 rounded-2xl p-6 h-full flex flex-col"
                             >
-                                {/* Step Image */}
-                                <div className="relative h-36 sm:h-40 md:h-48 rounded-lg md:rounded-xl overflow-hidden mb-4 md:mb-5">
-                                    <motion.img
-                                        key={currentStep.image}
-                                        src={currentStep.image}
-                                        alt={currentStep.title}
-                                        className="w-full h-full object-cover"
-                                        initial={{ scale: 1.1, opacity: 0 }}
-                                        animate={{ scale: 1, opacity: 1 }}
-                                        transition={{ duration: 0.5 }}
-                                    />
+                                <div className="relative h-48 rounded-xl overflow-hidden mb-5">
+                                    <img src={currentStep.image} alt={currentStep.title} className="w-full h-full object-cover" />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                                    <div
-                                        className="absolute top-2 left-2 md:top-3 md:left-3 w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center text-lg md:text-xl bg-white/90 backdrop-blur-sm shadow-lg"
-                                    >
-                                        {currentStep.icon}
+                                    <div className="absolute top-3 left-3 w-10 h-10 rounded-lg flex items-center justify-center bg-white/90 shadow-lg">
+                                        <IconComponent className="w-5 h-5" style={{ color: '#C4A484' }} />
                                     </div>
                                 </div>
-
-                                {/* Step Header */}
-                                <div className="mb-3 md:mb-4">
-                                    <span
-                                        className="text-[10px] md:text-xs font-bold uppercase tracking-wider"
-                                        style={{ color: '#C4A484' }}
-                                    >
-                                        Step {currentStep.number}
-                                    </span>
-                                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900" style={{ fontFamily: 'serif' }}>
-                                        {currentStep.title}
-                                    </h3>
+                                <div className="mb-4">
+                                    <span className="text-xs font-bold uppercase tracking-wider" style={{ color: '#C4A484' }}>Step {currentStep.number}</span>
+                                    <h3 className="text-2xl font-bold text-gray-900">{currentStep.title}</h3>
                                 </div>
-
-                                {/* Description */}
-                                <p className="text-gray-600 text-xs md:text-sm leading-relaxed mb-3 md:mb-4">
-                                    {currentStep.description}
-                                </p>
-
-                                {/* Details Grid */}
-                                <div className="grid grid-cols-2 gap-1.5 md:gap-2 mb-3 md:mb-4">
-                                    {currentStep.details.map((detail, index) => (
-                                        <motion.div
-                                            key={index}
-                                            className="flex items-center gap-1.5 md:gap-2 p-1.5 md:p-2 bg-white rounded-md md:rounded-lg"
-                                            initial={{ opacity: 0, scale: 0.9 }}
-                                            animate={{ opacity: 1, scale: 1 }}
-                                            transition={{ delay: index * 0.1, duration: 0.3 }}
-                                        >
-                                            <div
-                                                className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full flex-shrink-0"
-                                                style={{ backgroundColor: '#C4A484' }}
-                                            />
-                                            <span className="text-[10px] md:text-xs font-medium text-gray-700">{detail}</span>
-                                        </motion.div>
+                                <p className="text-gray-600 text-sm leading-relaxed mb-4">{currentStep.description}</p>
+                                <div className="grid grid-cols-2 gap-2 mb-4">
+                                    {currentStep.details.map((detail, i) => (
+                                        <div key={i} className="flex items-center gap-2 p-2 bg-white rounded-lg">
+                                            <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#C4A484' }} />
+                                            <span className="text-xs font-medium text-gray-700">{detail}</span>
+                                        </div>
                                     ))}
                                 </div>
-
-                                {/* Navigation Dots */}
                                 <div className="flex items-center gap-2 mt-auto pt-3">
-                                    {steps.map((_, index) => (
-                                        <button
-                                            key={index}
-                                            onClick={() => setActiveStep(index)}
-                                            className={`transition-all duration-300 rounded-full ${activeStep === index
-                                                ? 'w-6 h-1.5'
-                                                : 'w-1.5 h-1.5 hover:bg-gray-400'
-                                                }`}
-                                            style={{
-                                                backgroundColor: activeStep === index ? '#C4A484' : '#D1D5DB'
-                                            }}
-                                        />
+                                    {steps.map((_, i) => (
+                                        <button key={i} onClick={() => setActiveStep(i)} className={`rounded-full transition-all ${activeStep === i ? 'w-6 h-1.5' : 'w-1.5 h-1.5'}`} style={{ backgroundColor: activeStep === i ? '#C4A484' : '#D1D5DB' }} />
                                     ))}
                                 </div>
                             </motion.div>
@@ -389,77 +210,29 @@ const DevelopmentJourney = () => {
                     </motion.div>
                 </div>
 
-                {/* Technologies Section - Portfolio Style */}
-                <motion.div
-                    className="mt-12 md:mt-16 pt-10 md:pt-16 border-t border-gray-100"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                >
-                    <div className="grid grid-cols-1 lg:grid-cols-[280px,1fr] gap-4 md:gap-6 lg:gap-8 items-start">
-                        {/* Left Side - Title */}
-                        <div className="mb-2 lg:mb-0">
-                            <div className="flex items-center gap-2 md:gap-3 mb-2">
-                                <div className="w-6 md:w-8 h-[2px]" style={{ backgroundColor: '#C4A484' }} />
-                                <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest" style={{ color: '#C4A484' }}>
-                                    Tech Stack
-                                </span>
-                            </div>
-                            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-1 md:mb-2" style={{ fontFamily: 'serif' }}>
-                                Technologies We Use
+                {/* Technologies */}
+                <motion.div className="mt-16 pt-16 border-t border-gray-100" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                    <div className="grid grid-cols-1 lg:grid-cols-[280px,1fr] gap-8 items-start">
+                        <div>
+                            <span className="text-gray-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 block">Tech Stack</span>
+                            <h3 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tighter leading-[0.9] mb-2">
+                                TECHNOLOGIES <br className="hidden sm:block" />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">WE USE.</span>
                             </h3>
-                            <p className="text-gray-500 text-xs md:text-sm hidden sm:block">
-                                Cutting-edge tools for modern solutions
-                            </p>
+                            <p className="text-gray-500 text-sm hidden sm:block">Cutting-edge tools for modern solutions</p>
                         </div>
-
-                        {/* Right Side - Tech Cards Grid */}
-                        <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-6 gap-1.5 sm:gap-2 md:gap-3">
-                            {technologies.map((tech, index) => (
+                        <div className="grid grid-cols-4 lg:grid-cols-6 gap-3">
+                            {technologies.map((tech, i) => (
                                 <motion.div
                                     key={tech.name}
-                                    className="group relative bg-white rounded-md sm:rounded-lg md:rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden border border-gray-100"
-                                    style={{ aspectRatio: '1' }}
+                                    className="aspect-square bg-white rounded-xl border border-gray-100 p-4 flex items-center justify-center hover:shadow-lg hover:border-[#C4A484] transition-all cursor-pointer"
                                     initial={{ opacity: 0, y: 15 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ delay: index * 0.03 }}
+                                    transition={{ delay: i * 0.03 }}
                                     whileHover={{ y: -4, scale: 1.02 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    onClick={() => {
-                                        setTechIndices(prev => ({
-                                            ...prev,
-                                            [index]: (prev[index] + 1) % tech.logos.length
-                                        }));
-                                    }}
                                 >
-                                    {/* Logo Container */}
-                                    <div className="relative w-full h-full flex items-center justify-center p-1.5 sm:p-2 md:p-4 bg-white">
-                                        <AnimatePresence mode="wait">
-                                            <motion.img
-                                                key={techIndices[index]}
-                                                src={tech.logos[techIndices[index] || 0]}
-                                                alt={tech.name}
-                                                className="w-full h-full object-contain"
-                                                initial={{ y: "100%", opacity: 0 }}
-                                                animate={{ y: 0, opacity: 1 }}
-                                                exit={{ y: "-100%", opacity: 0 }}
-                                                transition={{
-                                                    duration: 0.8,
-                                                    ease: [0.43, 0.13, 0.23, 0.96]
-                                                }}
-                                            />
-                                        </AnimatePresence>
-                                    </div>
-
-                                    {/* Hover Border Accent */}
-                                    <div
-                                        className="absolute inset-0 border-2 border-transparent rounded-md sm:rounded-lg md:rounded-xl transition-all duration-300"
-                                        style={{ borderColor: 'transparent' }}
-                                        onMouseEnter={(e) => e.currentTarget.style.borderColor = '#C4A484'}
-                                        onMouseLeave={(e) => e.currentTarget.style.borderColor = 'transparent'}
-                                    />
+                                    <img src={tech.logo} alt={tech.name} className="w-full h-full object-contain" />
                                 </motion.div>
                             ))}
                         </div>
