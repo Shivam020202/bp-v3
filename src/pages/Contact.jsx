@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   FaPhone,
   FaMapMarkerAlt,
@@ -8,7 +9,9 @@ import {
   FaInstagram,
   FaLinkedin,
   FaPaperPlane,
-  FaCheckCircle
+  FaCheckCircle,
+  FaHome,
+  FaChevronRight
 } from "react-icons/fa";
 
 const Contact = () => {
@@ -80,15 +83,118 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
+      {/* Hero Section with Video Background */}
+      <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source
+            src="https://res.cloudinary.com/de4kw1t2i/video/upload/v1768548652/hf_20260116_072754_a6514d7f-751e-4a41-942f-c2943b1b63ea_l0a1x8.mp4"
+            type="video/mp4"
+          />
+        </video>
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
+
+        {/* Pattern Overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, white 1px, transparent 1px),
+              linear-gradient(to bottom, white 1px, transparent 1px)
+            `,
+            backgroundSize: "60px 60px"
+          }}
+        />
+
+        {/* Hero Content */}
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            {/* Breadcrumb */}
+            <motion.nav
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="flex items-center justify-center gap-2 mb-8"
+            >
+              <Link
+                to="/"
+                className="flex items-center gap-2 text-white/80 hover:text-white transition-colors duration-300 group"
+              >
+                <FaHome className="text-xs group-hover:scale-110 transition-transform duration-300" />
+                <span className="text-sm font-medium">Home</span>
+              </Link>
+              <FaChevronRight className="text-white/50 text-[10px]" />
+              <span className="text-sm font-semibold text-white">Contact</span>
+            </motion.nav>
+
+            {/* Main Title */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.1] tracking-tight"
+            >
+              Let's Create
+              <br />
+              Something{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400">
+                Amazing
+              </span>
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-white/90 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
+            >
+              Ready to transform your brand? Get in touch with our team and let's discuss how we can help bring your vision to life.
+            </motion.p>
+
+            {/* Decorative Line */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-8 rounded-full"
+            />
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+            <motion.div
+              className="w-1.5 h-1.5 bg-white rounded-full"
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+          </div>
+        </motion.div>
+      </section>
+
       {/* Background Decorative Elements */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-100 rounded-full blur-3xl" />
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+        <div className="absolute top-[70vh] right-20 w-96 h-96 bg-blue-100 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-20 w-96 h-96 bg-purple-100 rounded-full blur-3xl" />
       </div>
 
       {/* Decorative Grid Pattern */}
       <div
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.02] pointer-events-none"
         style={{
           backgroundImage: `
             linear-gradient(to right, #000 1px, transparent 1px),
@@ -108,7 +214,7 @@ const Contact = () => {
             className="lg:sticky lg:top-24 order-2 lg:order-1"
           >
             {/* Decorative Badge */}
-            <motion.div
+            {/* <motion.div
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ type: "spring", duration: 1, delay: 0.3 }}
@@ -123,7 +229,7 @@ const Contact = () => {
                   <div className="text-2xl lg:text-3xl">✉️</div>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
 
             {/* Main Title */}
             <motion.h1
