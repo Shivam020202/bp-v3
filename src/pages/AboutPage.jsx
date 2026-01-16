@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useRef } from "react";
-import SpiralTimeline from "../components/sections/SpiralTimeline";
+import JourneyTimeline from "../components/sections/JourneyTimeline";
 
 const AboutPage = () => {
     const [flippedCard, setFlippedCard] = useState(null);
@@ -114,6 +114,20 @@ const AboutPage = () => {
             subtitle: "2,500 Clients and Counting",
             desc: "Crossing the 2,500-client mark globally is a testament to our relentless commitment to innovation and client satisfaction.",
             image: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+            year: "2025",
+            title: "Global Expansion",
+            subtitle: "International Presence",
+            desc: "Expanding our reach across continents, we established partnerships with leading brands worldwide, bringing world-class digital solutions to new markets.",
+            image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+            year: "2026",
+            title: "The Future is Now",
+            subtitle: "AI-Powered Innovation",
+            desc: "Pioneering the next era of digital marketing with cutting-edge AI solutions, transforming how brands connect with their audiences.",
+            image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800"
         }
     ];
 
@@ -489,28 +503,31 @@ const AboutPage = () => {
                     </div>
                 </section>
 
-                {/* Vision Section - Reference Matched Layout */}
-                <section className="py-12 bg-white">
+                {/* Vision Section - Enhanced with Beige Theme */}
+                <section className="py-16 bg-white">
                     <div className="container mx-auto px-6">
                         <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
                             {/* Left Side - Title, Description, and Image */}
                             <motion.div
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
+                                initial={{ opacity: 0, x: -40 }}
+                                whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.6 }}
+                                transition={{ duration: 0.7 }}
                             >
-                                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6" style={{ fontFamily: 'serif' }}>
-                                    Our Vision
+                                <span className="font-semibold text-sm uppercase tracking-widest mb-4 block" style={{ color: '#C4A484' }}>
+                                    What Drives Us
+                                </span>
+                                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                                    Our <span style={{ color: '#C4A484' }}>Vision</span>
                                 </h2>
-                                <p className="text-gray-900 text-sm leading-relaxed mb-10 max-w-md">
-                                    At Branding Pioneers, we offer a comprehensive range of services to bring your digital vision to life. Each service is tailored to meet the unique needs of our clients, ensuring a seamless and satisfying experience.
+                                <p className="text-gray-600 text-base leading-relaxed mb-10 max-w-md">
+                                    At Branding Pioneers, we offer a comprehensive range of services to bring your digital vision to life. Each service is tailored to meet the unique needs of our clients.
                                 </p>
 
                                 {/* Image with Cutout Effect */}
                                 <div className="relative h-[300px] md:h-[340px]">
                                     {/* Main Image Container with Rounded Corners */}
-                                    <div className="relative w-[85%] h-full rounded-2xl overflow-hidden">
+                                    <div className="relative w-[85%] h-full rounded-2xl overflow-hidden shadow-xl">
                                         {visionPoints.map((point, i) => (
                                             <motion.img
                                                 key={i}
@@ -527,81 +544,183 @@ const AboutPage = () => {
                                         ))}
                                     </div>
                                     {/* Cutout Elements - Small floating images */}
-                                    <div className="absolute -right-4 bottom-8 w-24 h-32 rounded-xl overflow-hidden shadow-lg border-4 border-white">
+                                    <motion.div
+                                        className="absolute -right-4 bottom-8 w-24 h-32 rounded-xl overflow-hidden shadow-lg border-4 border-white"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: 0.3 }}
+                                    >
                                         <img
                                             src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=200&h=300&fit=crop"
                                             alt=""
                                             className="w-full h-full object-cover"
                                         />
-                                    </div>
-                                    <div className="absolute right-8 -bottom-4 w-20 h-20 rounded-full overflow-hidden shadow-lg border-4 border-white">
+                                    </motion.div>
+                                    <motion.div
+                                        className="absolute right-8 -bottom-4 w-20 h-20 rounded-full overflow-hidden shadow-lg border-4 border-white"
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: 0.5 }}
+                                    >
                                         <img
                                             src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=100&h=100&fit=crop"
                                             alt=""
                                             className="w-full h-full object-cover"
                                         />
-                                    </div>
+                                    </motion.div>
                                 </div>
                             </motion.div>
 
-                            {/* Right Side - Vision Items (Exact Reference Style) */}
+                            {/* Right Side - Vision Items with Enhanced Styling */}
                             <motion.div
                                 className="flex flex-col justify-center"
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
+                                initial={{ opacity: 0, x: 40 }}
+                                whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: 0.2 }}
+                                transition={{ duration: 0.7 }}
                             >
                                 {visionPoints.map((point, i) => (
-                                    <div
+                                    <motion.div
                                         key={i}
-                                        className={`py-5 border-b border-gray-100 cursor-pointer transition-all duration-300 ${activeService === i ? 'opacity-100' : 'opacity-60 hover:opacity-100'
-                                            }`}
+                                        className={`py-6 border-b border-gray-100 cursor-pointer transition-all duration-400 group`}
                                         onMouseEnter={() => setActiveService(i)}
                                         onClick={() => setActiveService(i)}
+                                        initial={{ opacity: 0, x: 20 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: i * 0.1 }}
+                                        whileHover={{ x: 8 }}
                                     >
-                                        <h3
-                                            className="text-lg md:text-xl font-bold mb-2 tracking-wide uppercase transition-colors duration-300"
-                                            style={{
-                                                fontFamily: 'serif',
-                                                color: activeService === i ? '#C4A484' : '#1f2937'
-                                            }}
-                                        >
-                                            {point.title}
-                                        </h3>
-                                        <p className="text-gray-700 text-sm leading-relaxed">
-                                            {point.desc}
-                                        </p>
-                                    </div>
+                                        <div className="flex items-start gap-4">
+                                            {/* Number indicator */}
+                                            <motion.div
+                                                className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0 transition-all duration-300"
+                                                style={{
+                                                    backgroundColor: activeService === i ? '#C4A484' : '#E8E0D8'
+                                                }}
+                                                animate={{
+                                                    scale: activeService === i ? 1.1 : 1
+                                                }}
+                                            >
+                                                {String(i + 1).padStart(2, '0')}
+                                            </motion.div>
+
+                                            <div className="flex-1">
+                                                <h3
+                                                    className="text-lg md:text-xl font-bold mb-2 tracking-wide uppercase transition-colors duration-300"
+                                                    style={{
+                                                        color: activeService === i ? '#C4A484' : '#1f2937'
+                                                    }}
+                                                >
+                                                    {point.title}
+                                                </h3>
+                                                <motion.p
+                                                    className="text-gray-600 text-sm leading-relaxed"
+                                                    animate={{
+                                                        opacity: activeService === i ? 1 : 0.7
+                                                    }}
+                                                >
+                                                    {point.desc}
+                                                </motion.p>
+                                            </div>
+
+                                            {/* Arrow indicator */}
+                                            <motion.div
+                                                className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300"
+                                                style={{
+                                                    backgroundColor: activeService === i ? '#C4A484' : 'transparent',
+                                                    border: activeService === i ? 'none' : '1px solid #E8E0D8'
+                                                }}
+                                                animate={{
+                                                    x: activeService === i ? 0 : -5,
+                                                    opacity: activeService === i ? 1 : 0.5
+                                                }}
+                                            >
+                                                <svg
+                                                    className="w-4 h-4 transition-colors duration-300"
+                                                    fill="none"
+                                                    stroke={activeService === i ? 'white' : '#C4A484'}
+                                                    viewBox="0 0 24 24"
+                                                >
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                </svg>
+                                            </motion.div>
+                                        </div>
+                                    </motion.div>
                                 ))}
                             </motion.div>
                         </div>
                     </div>
                 </section>
 
-                {/* Stats Section - Beige Theme */}
-                <section className="py-16" style={{ backgroundColor: '#FDF8F3' }}>
+                {/* Stats Section - Compact & Premium Design */}
+                <section className="py-6 bg-white">
                     <div className="container mx-auto px-6">
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-                            {stats.map((stat, i) => (
-                                <motion.div
-                                    key={i}
-                                    className="text-center py-8 px-4"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: i * 0.1 }}
-                                >
-                                    <div className="text-4xl md:text-5xl font-bold mb-2" style={{ color: '#C4A484' }}>{stat.number}</div>
-                                    <div className="text-sm text-gray-600 font-medium uppercase tracking-wider">{stat.label}</div>
-                                </motion.div>
-                            ))}
-                        </div>
+                        <motion.div
+                            className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden"
+                            style={{ backgroundColor: '#1a1a1a' }}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            {/* Background Pattern */}
+                            <div className="absolute inset-0 opacity-5">
+                                <div className="absolute inset-0" style={{
+                                    backgroundImage: 'radial-gradient(circle at 2px 2px, #C4A484 1px, transparent 0)',
+                                    backgroundSize: '32px 32px'
+                                }} />
+                            </div>
+
+                            {/* Content */}
+                            <div className="relative z-10 grid grid-cols-2 md:grid-cols-4">
+                                {stats.map((stat, i) => (
+                                    <motion.div
+                                        key={i}
+                                        className="relative group py-10 px-6 text-center border-r border-white/10 last:border-r-0 md:[&:nth-child(2)]:border-r md:[&:nth-child(4)]:border-r-0"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: i * 0.1 }}
+                                        whileHover={{ backgroundColor: 'rgba(196, 164, 132, 0.1)' }}
+                                    >
+                                        {/* Hover Glow */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-[#C4A484]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                                        <div className="relative z-10">
+                                            {/* Number with animated underline */}
+                                            <motion.div
+                                                className="text-4xl md:text-5xl font-bold mb-1"
+                                                style={{ color: '#C4A484' }}
+                                                whileHover={{ scale: 1.05 }}
+                                                transition={{ type: "spring", stiffness: 300 }}
+                                            >
+                                                {stat.number}
+                                            </motion.div>
+
+                                            {/* Decorative line */}
+                                            <div className="w-8 h-0.5 mx-auto mb-3 rounded-full transition-all duration-300 group-hover:w-12" style={{ backgroundColor: '#C4A484' }} />
+
+                                            {/* Label */}
+                                            <div className="text-xs text-white/70 font-medium uppercase tracking-[0.2em] group-hover:text-white/90 transition-colors">
+                                                {stat.label}
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+
+                            {/* Accent corners */}
+                            <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 rounded-tl-2xl" style={{ borderColor: '#C4A484' }} />
+                            <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 rounded-br-2xl" style={{ borderColor: '#C4A484' }} />
+                        </motion.div>
                     </div>
                 </section>
 
                 {/* 3D Spiral Timeline Section */}
-                <SpiralTimeline journeyData={journeyData} />
+                <JourneyTimeline journeyData={journeyData} />
 
                 {/* Curved CTA Card */}
                 <section className="py-16 bg-gray-50">

@@ -8,10 +8,12 @@ import PortfolioPage from "./pages/portfolio";
 import PortfolioDetail from "./pages/PortfolioDetail";
 import StackScrollTest from "./pages/StackScrollTest";
 import Contact from "./pages/Contact";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
