@@ -200,115 +200,254 @@ const AboutPage = () => {
             </div>
 
             {/* Hero Section */}
-            <section className="relative h-[60vh] min-h-[450px] flex items-center justify-center z-10 overflow-hidden">
+            <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center z-10 overflow-hidden">
                 <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-                    <source src="https://res.cloudinary.com/damfndmrm/video/upload/v1767787523/49949B00-9B30-46C4-Bcac-B91c47930d82_kiwg7n.mp4" type="video/mp4" />
+                    <source src="https://res.cloudinary.com/de4kw1t2i/video/upload/v1768548652/hf_20260116_072754_a6514d7f-751e-4a41-942f-c2943b1b63ea_l0a1x8.mp4" type="video/mp4" />
                 </video>
-                <div className="absolute inset-0 bg-black/60" />
-                <div className="container mx-auto px-6 relative z-10">
-                    <motion.div
-                        className="text-center max-w-4xl mx-auto"
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <motion.span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm text-white border border-white/20 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
-                            Since 2018
-                        </motion.span>
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">
-                            Elevating Brands in the<br /><span style={{ color: '#C4A484' }}>Digital Stratosphere</span>
-                        </h1>
-                        <p className="text-lg text-white/80 max-w-xl mx-auto">
-                            Your vision, our expertise — together we thrive.
-                        </p>
-                    </motion.div>
-                </div>
             </section>
 
             {/* Content Container */}
             <div className="relative z-10">
 
-                {/* Who We Are Section */}
-                <section className="py-20 bg-white">
-                    <div className="container mx-auto px-6">
-                        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
-                            {/* Left - Team Image */}
+                {/* Who We Are Section - Clean & Animated */}
+                <section className="relative py-24 bg-white overflow-hidden">
+
+                    {/* Background Kinetic Typography - Same as Home Page */}
+                    <div className="absolute top-1/4 left-0 w-full overflow-hidden pointer-events-none select-none">
+                        <motion.div
+                            className="whitespace-nowrap text-[15vw] leading-none font-black font-serif tracking-tighter text-black/5"
+                            animate={{ x: [0, -1500] }}
+                            transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+                        >
+                            BRANDING PIONEERS • BRANDING PIONEERS • BRANDING PIONEERS •
+                        </motion.div>
+                    </div>
+
+                    <div className="container mx-auto px-6 relative z-10">
+                        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center max-w-6xl mx-auto">
+
+                            {/* Left - Video with Premium Frame */}
                             <motion.div
                                 className="relative"
-                                initial={{ opacity: 0, x: -40 }}
-                                whileInView={{ opacity: 1, x: 0 }}
+                                initial={{ opacity: 0, x: -60, scale: 0.95 }}
+                                whileInView={{ opacity: 1, x: 0, scale: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.7 }}
+                                transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                             >
-                                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                                {/* Decorative Back Frame */}
+                                <motion.div
+                                    className="absolute -inset-3 border border-black/10 rounded-3xl"
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.3 }}
+                                />
+
+                                {/* Video Container */}
+                                <motion.div
+                                    className="relative rounded-2xl overflow-hidden shadow-2xl"
+                                    whileHover={{ scale: 1.02, boxShadow: '0 30px 60px -15px rgba(0,0,0,0.2)' }}
+                                    transition={{ duration: 0.4 }}
+                                >
                                     <video
                                         autoPlay
                                         muted
                                         loop
                                         playsInline
-                                        className="w-full h-[400px] lg:h-[500px] object-cover"
+                                        className="w-full aspect-[4/3] object-cover"
                                     >
                                         <source src="https://res.cloudinary.com/damfndmrm/video/upload/v1768472297/bp_upd_1_orndgn.mp4" type="video/mp4" />
                                     </video>
 
+                                    {/* Gradient Overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
-                                </div>
+                                    {/* Year Badge */}
+                                    <motion.span
+                                        className="absolute bottom-5 left-5 px-4 py-2 bg-white/10 backdrop-blur-xl rounded-full text-sm font-semibold text-white border border-white/20"
+                                        whileHover={{ scale: 1.05 }}
+                                    >
+                                        Est. 2018
+                                    </motion.span>
+                                </motion.div>
 
-
+                                {/* Spinning Badge - Small */}
+                                <motion.div
+                                    className="absolute -top-4 -right-4 w-20 h-20 md:w-22 md:h-22"
+                                    animate={{ rotate: 360 }}
+                                    transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+                                >
+                                    <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-lg">
+                                        <defs>
+                                            <path id="whoWeAreCircle" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+                                        </defs>
+                                        <circle cx="50" cy="50" r="46" fill="white" />
+                                        <text className="text-[7px] font-bold uppercase tracking-[2px]" style={{ fill: '#C4A484' }}>
+                                            <textPath href="#whoWeAreCircle">• EXCELLENCE • INNOVATION •</textPath>
+                                        </text>
+                                        <circle cx="50" cy="50" r="16" style={{ fill: '#C4A484' }} />
+                                        <text x="50" y="53" textAnchor="middle" className="text-[9px] font-black" fill="white">BP</text>
+                                    </svg>
+                                </motion.div>
                             </motion.div>
 
                             {/* Right - Content */}
                             <motion.div
-                                initial={{ opacity: 0, x: 40 }}
+                                initial={{ opacity: 0, x: 60 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.7 }}
+                                transition={{ duration: 0.8, delay: 0.1 }}
                             >
-                                <span className="font-semibold text-sm uppercase tracking-widest mb-4 block" style={{ color: '#C4A484' }}>Who We Are</span>
-                                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                                    <span style={{ color: '#C4A484' }}>Building Brands</span> That Stand Out in a Crowded World.
-                                </h2>
-                                <p className="text-gray-600 mb-8 leading-relaxed">
-                                    We combine creativity with strategic thinking to help brands discover their unique voice.
-                                    Our team of experts crafts compelling narratives that resonate with your audience and
-                                    drive meaningful engagement across all touchpoints.
-                                </p>
+                                {/* Label */}
+                                <motion.span
+                                    className="inline-block px-4 py-1.5 rounded-full text-xs uppercase tracking-widest font-semibold mb-5"
+                                    style={{ backgroundColor: 'rgba(196,164,132,0.12)', color: '#C4A484' }}
+                                    initial={{ opacity: 0, y: 15 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.2 }}
+                                >
+                                    Who We Are
+                                </motion.span>
 
-                                {/* Services Grid */}
-                                <div className="grid grid-cols-2 gap-x-8 gap-y-4">
-                                    <div className="flex items-center gap-3">
-                                        <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C4A484' }}></span>
-                                        <span className="text-gray-700 font-medium">Brand Strategy</span>
-                                    </div>
-                                    <div className="flex items-center gap-3">
-                                        <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C4A484' }}></span>
-                                        <span className="text-gray-700 font-medium">Brand Consulting</span>
-                                    </div>
-                                    <div className="flex items-center gap-3">
-                                        <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C4A484' }}></span>
-                                        <span className="text-gray-700 font-medium">Logo Design & Identity</span>
-                                    </div>
-                                    <div className="flex items-center gap-3">
-                                        <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C4A484' }}></span>
-                                        <span className="text-gray-700 font-medium">Creative Design Services</span>
-                                    </div>
-                                    <div className="flex items-center gap-3">
-                                        <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C4A484' }}></span>
-                                        <span className="text-gray-700 font-medium">Digital Marketing</span>
-                                    </div>
-                                    <div className="flex items-center gap-3">
-                                        <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C4A484' }}></span>
-                                        <span className="text-gray-700 font-medium">Content Creation</span>
-                                    </div>
-                                    <div className="flex items-center gap-3">
-                                        <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C4A484' }}></span>
-                                        <span className="text-gray-700 font-medium">Brand Activation</span>
-                                    </div>
-                                    <div className="flex items-center gap-3">
-                                        <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C4A484' }}></span>
-                                        <span className="text-gray-700 font-medium">Brand Monitoring</span>
-                                    </div>
-                                </div>
+                                {/* Heading with Glow Effect */}
+                                <motion.h2
+                                    className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-5"
+                                    initial={{ opacity: 0, y: 25 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.3, duration: 0.6 }}
+                                >
+                                    Building{' '}
+                                    <motion.span
+                                        className="italic font-serif"
+                                        style={{ color: '#C4A484' }}
+                                        animate={{
+                                            textShadow: [
+                                                '0 0 0px rgba(196,164,132,0)',
+                                                '0 0 15px rgba(196,164,132,0.3)',
+                                                '0 0 0px rgba(196,164,132,0)'
+                                            ]
+                                        }}
+                                        transition={{ duration: 3, repeat: Infinity }}
+                                    >
+                                        Brands
+                                    </motion.span>{' '}
+                                    That Stand Out
+                                </motion.h2>
+
+                                {/* Description with Animated Border */}
+                                <motion.div
+                                    className="relative mb-7"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.4 }}
+                                >
+                                    <motion.div
+                                        className="absolute left-0 top-0 bottom-0 w-0.5 rounded-full origin-top"
+                                        style={{ backgroundColor: '#C4A484' }}
+                                        initial={{ scaleY: 0 }}
+                                        whileInView={{ scaleY: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: 0.5, duration: 0.6 }}
+                                    />
+                                    <p className="text-gray-600 leading-relaxed pl-4">
+                                        We combine creativity with strategic thinking to help brands discover their unique voice.
+                                        Our team crafts compelling narratives that resonate and drive meaningful engagement.
+                                    </p>
+                                </motion.div>
+
+                                {/* Stats Row - Clean */}
+                                <motion.div
+                                    className="flex items-center gap-8 mb-7 py-4 border-y border-gray-100"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.5 }}
+                                >
+                                    {[
+                                        { num: '8+', label: 'Years' },
+                                        { num: '2,500+', label: 'Clients' },
+                                        { num: '100+', label: 'Experts' },
+                                        { num: '98%', label: 'Retention' }
+                                    ].map((stat, idx) => (
+                                        <motion.div
+                                            key={idx}
+                                            initial={{ opacity: 0, y: 15 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: 0.55 + idx * 0.08 }}
+                                            whileHover={{ scale: 1.08, y: -2 }}
+                                            className="cursor-default"
+                                        >
+                                            <div className="text-2xl font-bold" style={{ color: '#C4A484' }}>{stat.num}</div>
+                                            <div className="text-xs text-gray-500 uppercase tracking-wider">{stat.label}</div>
+                                        </motion.div>
+                                    ))}
+                                </motion.div>
+
+                                {/* Services - Animated Pills */}
+                                <motion.div
+                                    className="flex flex-wrap gap-2 mb-7"
+                                    initial={{ opacity: 0 }}
+                                    whileInView={{ opacity: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.6 }}
+                                >
+                                    {[
+                                        'Brand Strategy',
+                                        'Visual Identity',
+                                        'Web Development',
+                                        'SEO Optimization',
+                                        'Content Marketing',
+                                        'Social Media Growth',
+                                        'Motion Graphics',
+                                        'Packaging Design'
+                                    ].map((service, idx) => (
+                                        <motion.span
+                                            key={service}
+                                            className="px-3 py-1.5 text-xs font-medium rounded-full border text-gray-600 cursor-pointer"
+                                            style={{ borderColor: '#C4A484' }}
+                                            initial={{ opacity: 0, scale: 0.8 }}
+                                            whileInView={{ opacity: 1, scale: 1 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: 0.65 + idx * 0.04, type: "spring", stiffness: 300, damping: 20 }}
+                                            whileHover={{
+                                                backgroundColor: '#C4A484',
+                                                color: 'white',
+                                                scale: 1.05,
+                                                boxShadow: '0 4px 15px -3px rgba(196,164,132,0.4)'
+                                            }}
+                                        >
+                                            {service}
+                                        </motion.span>
+                                    ))}
+                                </motion.div>
+
+                                {/* Premium CTA Button */}
+                                <motion.button
+                                    className="group relative flex items-center gap-3 px-8 py-4 text-white rounded-full text-sm font-semibold overflow-hidden"
+                                    style={{ backgroundColor: '#C4A484' }}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.75 }}
+                                    whileHover={{ scale: 1.03, boxShadow: '0 20px 40px -12px rgba(196,164,132,0.4)' }}
+                                    whileTap={{ scale: 0.98 }}
+                                >
+                                    {/* Shine Effect */}
+                                    <motion.div
+                                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12"
+                                        initial={{ x: '-150%' }}
+                                        whileHover={{ x: '150%' }}
+                                        transition={{ duration: 0.5 }}
+                                    />
+                                    <span className="relative z-10">Explore Our Work</span>
+                                    <svg className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </motion.button>
                             </motion.div>
                         </div>
                     </div>
@@ -370,10 +509,10 @@ const AboutPage = () => {
                             ))}
                         </motion.div>
                     </div>
-                </section>
+                </section >
 
                 {/* Leadership Section - Meet The Principals */}
-                <section className="py-16 bg-white overflow-visible">
+                < section className="py-16 bg-white overflow-visible" >
                     <div className="container mx-auto px-6">
                         <div className="relative max-w-6xl mx-auto">
                             {/* Main Layout - Founders on sides, content in center */}
@@ -501,10 +640,10 @@ const AboutPage = () => {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section >
 
                 {/* Vision Section - Enhanced with Beige Theme */}
-                <section className="py-16 bg-white">
+                < section className="py-16 bg-white" >
                     <div className="container mx-auto px-6">
                         <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
                             {/* Left Side - Title, Description, and Image */}
@@ -653,10 +792,10 @@ const AboutPage = () => {
                             </motion.div>
                         </div>
                     </div>
-                </section>
+                </section >
 
                 {/* Stats Section - Compact & Premium Design */}
-                <section className="py-6 bg-white">
+                < section className="py-6 bg-white" >
                     <div className="container mx-auto px-6">
                         <motion.div
                             className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden"
@@ -717,13 +856,13 @@ const AboutPage = () => {
                             <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 rounded-br-2xl" style={{ borderColor: '#C4A484' }} />
                         </motion.div>
                     </div>
-                </section>
+                </section >
 
                 {/* 3D Spiral Timeline Section */}
-                <JourneyTimeline journeyData={journeyData} />
+                < JourneyTimeline journeyData={journeyData} />
 
                 {/* Curved CTA Card */}
-                <section className="py-16 bg-gray-50">
+                < section className="py-16 bg-gray-50" >
                     <div className="container mx-auto px-6">
                         <motion.div
                             className="relative rounded-[3rem] overflow-hidden shadow-2xl h-[300px] md:h-[350px]"
@@ -746,11 +885,11 @@ const AboutPage = () => {
                             </div>
                         </motion.div>
                     </div>
-                </section>
+                </section >
 
 
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
