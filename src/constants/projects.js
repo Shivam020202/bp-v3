@@ -92,187 +92,161 @@ export const projects = [
     },
     {
         id: 2,
-        title: "Raj Hospital",
-        subtitle: "SaaS Product Design",
-        category: "web",
-        year: "2024",
-        client: "Raj Hospital",
-        duration: "6 months",
+        title: "Raj Hospitals Ranchi",
+        subtitle: "Digital Healthcare Transformation",
+        category: "healthcare",
+        year: "2025",
+        client: "Raj Hospitals Ranchi",
+        duration: "12 months",
         image: rajCover,
         heroImage: s1,
-
-        tags: ["UI/UX Design", "Web App", "Design System"],
-        description: "Enterprise platform for startup accelerators",
-        challenge: "TechVenture needed a robust yet intuitive platform to manage complex accelerator workflows and facilitate investor-founder connections globally.",
-        solution: "We designed a comprehensive dashboard system with real-time analytics, automated reporting, and a seamless networking interface for all stakeholders.",
-        result: "3x user engagement & 95% satisfaction",
+        tags: ["Full-Funnel Digital Strategy", "Doctor-Led Video Production", "Patient Community Building", "SEO & Local Search Optimization", "Performance Analytics", "Web Development"],
+        description: "Digitizing Care: A Year of Expanding Healthcare Horizons in Jharkhand",
+        challenge: "Transitioning from 'traditional hospital marketing' to an interactive, educational ecosystem that reduces patient anxiety and builds preemptive trust. In 2025, Raj Hospitals Ranchi embarked on a mission to modernize its legacy brand image to align with its high-tech medical infrastructure (Cath Lab, Modular OTs).",
+        solution: "The Human Hospital – Humanizing specialists through 1:1 video Q&As and showcasing 'Real Patient Outcomes' to validate clinical excellence. We optimized Google My Business and Instagram SEO, launched the Health-Byte Reel series, and implemented direct 'Book Appointment' integrations on social platforms.",
+        result: "140% YoY increase in digital reach",
         color: "from-blue-300 via-indigo-300 to-purple-400",
-        stats: { users: "50K+", satisfaction: "95%", retention: "+65%" },
-        images: [
-            // "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-            // "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
-            // "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&h=600&fit=crop",
-            // "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop",
-            // "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop",
-            s1,
-            s2,
-            s3,
-            s4,
-            s5,
-            s6,
-            s7,
-            s8,
-        ],
+        stats: { impressions: "5M+", engagement: "+85%", patientGrowth: "+28%" },
+        images: [s1, s2, s3, s4, s5, s6, s7, s8],
         keyFeatures: [
-            { title: "Real-time Analytics", description: "Dynamic data visualization for portfolio performance tracking." },
-            { title: "Automated Workflows", description: "Streamlined application and vetting processes for startups." }
+            { title: "Doctor-Led Video Production", description: "Health-Byte Reel series simplifying complex cardiac and neurosurgical topics for laypeople." },
+            { title: "Patient Community Building", description: "Built trust through 1:1 video Q&As and real patient outcome showcases." },
+            { title: "Local Search Optimization", description: "Focused on 'Best Hospital in Ranchi' keywords for maximum local visibility." },
+            { title: "Direct Appointment Integration", description: "Streamlined patient journey from discovery to consultation on social platforms." }
         ],
         results: [
-            { metric: "3x", label: "User Engagement" },
-            { metric: "95%", label: "User Satisfaction" },
-            { metric: "65%", label: "Retention Increase" },
+            { metric: "5M+", label: "Total Impressions" },
+            { metric: "+140%", label: "Annual Reach Growth" },
+            { metric: "+85%", label: "Community Engagement" },
+            { metric: "+28%", label: "Patient Acquisition" },
         ],
         testimonial: {
-            quote: "The design system has scaled perfectly with our rapid growth. The user experience is second to none.",
-            author: "James Chen",
-            position: "CTO, TechVenture"
+            quote: "By the end of 2025, Raj Hospitals established itself as the most engaged healthcare brand in Jharkhand, proving that empathy-driven content is the most effective driver of clinical growth.",
+            author: "Raj Hospitals Team",
+            position: "Jharkhand's #1 Digital Healthcare Growth Story"
         },
         faqs: [
             {
                 number: "001",
-                question: "How do you handle complex data visualization?",
-                answer: "We use high-performance charting libraries and custom SVG layouts to ensure that large datasets are both beautiful and readable, maintaining 60fps interactions."
+                question: "What was the core strategy for digital transformation?",
+                answer: "The Human Hospital approach – humanizing specialists through 1:1 video Q&As and showcasing 'Real Patient Outcomes' to validate clinical excellence and build preemptive trust with the 2.5 Million+ residents of Ranchi."
             },
             {
                 number: "002",
-                question: "Is the platform mobile-responsive?",
-                answer: "Absolutely. We designed the experience 'mobile-first' to ensure that investors and founders can manage their workflows seamlessly on any device."
+                question: "Which content performed best?",
+                answer: "Video content (Reels) drove 3.5x more saves than static graphics. The Health-Byte Reel series simplifying complex cardiac and neurosurgical topics resonated strongly, especially during October's 'Cardiac Care Awareness' month."
             }
         ],
         partnershipReasons: [
-            "Strategic product design for TechVenture with 6 months of dedication",
-            "Robust design system that scales across multiple enterprise modules",
-            "User-centric workflows that significantly reduced platform churn"
+            "Full-funnel digital strategy transforming legacy brand image for modern healthcare",
+            "210% growth in video views through doctor-led educational content",
+            "Established Raj Hospitals as Jharkhand's most engaged healthcare brand"
         ]
     },
     {
         id: 3,
-        title: "Lifecare Hospital",
-        subtitle: "Social Media Campaign",
-        category: "social",
-        year: "2024",
-        client: "Lifecare",
-        duration: "2 months",
+        title: "Lifecare Hospitals Africa",
+        subtitle: "Healthcare Digital Ecosystem",
+        category: "healthcare",
+        year: "2025–2026",
+        client: "Lifecare Hospitals Africa",
+        duration: "Ongoing",
         image: lifeCover,
         heroImage: t1,
-        tags: ["Content Strategy", "Instagram", "TikTok"],
-        description: "Plant-based meal delivery service marketing",
-        challenge: "Green Eats wanted to expand their reach among young professionals who value health but lack time for meal prep.",
-        solution: "We launched a high-energy content series showcasing the ease and taste of plant-based living through short-form video and influencer partnerships.",
-        result: "50K new followers in 3 months",
+        tags: ["Social Media Strategy", "Content Production (Reels)", "Performance Marketing", "Community Management", "Healthcare SEO", "Web Development"],
+        description: "Democratizing Specialized Healthcare Across the African Continent",
+        challenge: "Move away from ad-heavy healthcare marketing to a trust-driven, community-first digital model that resonates with diverse local populations. Lifecare Hospitals operates a distributed healthcare ecosystem, bringing advanced clinical services—MRI, Dialysis, ICU—to underserved regions like Bungoma, Migori, and Freetown.",
+        solution: "The Human Side of Clinical Excellence – Introduced surgeons, pediatricians, and specialists to build trust before the first visit. Complex procedures like dialysis and neurosurgery simplified into 60-second explainers. Used Instagram's preference for educational health content for explosive organic discovery.",
+        result: "210% organic growth",
         color: "from-green-300 via-emerald-300 to-teal-400",
-        stats: { followers: "+50K", reach: "3.2M", engagement: "+240%" },
-        images: [
-            // "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=600&fit=crop",
-            // "https://images.unsplash.com/photo-1494390248081-4e521a5940db?w=800&h=600&fit=crop",
-            // "https://images.unsplash.com/photo-1464454709131-df6925f3bbcc?w=800&h=600&fit=crop",
-            t1,
-            t2,
-            t3,
-            t4,
-            t5,
-            t6,
-            t7,
-            t8,
-            t9
-        ],
+        stats: { views: "839.6K+", reach: "130,812", followers: "41.2K+" },
+        images: [t1, t2, t3, t4, t5, t6, t7, t8, t9],
         keyFeatures: [
-            { title: "Influencer Marketing", description: "Strategic partnerships with health and wellness creators." },
-            { title: "Video Production", description: "High-quality short-form content for social platforms." }
+            { title: "Specialist Spotlights", description: "Introduced surgeons, pediatricians, and specialists to build trust before the first visit." },
+            { title: "Educational Reels", description: "Complex procedures like dialysis and neurosurgery simplified into 60-second explainers." },
+            { title: "Organic Growth Engine", description: "Used Instagram's preference for educational health content—resulting in explosive organic discovery." },
+            { title: "Community Management", description: "Built digital communities across Kenya and Sierra Leone regions." }
         ],
         results: [
-            { metric: "50K", label: "New Followers" },
-            { metric: "3.2M", label: "Monthly Reach" },
-            { metric: "+240%", label: "Engagement Rate" },
+            { metric: "839.6K+", label: "Total Views (30 Days)" },
+            { metric: "210%", label: "Organic Growth" },
+            { metric: "41.2K+", label: "Followers Built" },
+            { metric: "92.5%", label: "Non-Follower Reach" },
         ],
         testimonial: {
-            quote: "Our brand voice has never been clearer. The engagement numbers speak for themselves.",
-            author: "Elena Rodriguez",
-            position: "Marketing Director, Green Eats"
+            quote: "By aligning Lifecare's mission—'Making Life Better'—with a human-first digital strategy, we positioned the brand as a trusted healthcare leader, proving that clinical excellence works best when it's accessible, visible, and authentic.",
+            author: "Lifecare Team",
+            position: "Elevating Africa's Healthcare Standards"
         },
         faqs: [
             {
                 number: "001",
-                question: "How do you select influencers for the campaign?",
-                answer: "We use a data-driven approach, looking for creators whose audience demographics align with our target persona and who have high engagement rates and authentic brand affinity."
+                question: "How did you achieve 210% organic growth?",
+                answer: "By leveraging Instagram's preference for educational health content and creating specialist spotlights and 60-second procedure explainers that resonated with local communities in Kenya and Sierra Leone."
             },
             {
                 number: "002",
-                question: "What was the most successful content type?",
-                answer: "Short-form recipe videos and 'day-in-the-life' reels featuring our meal prep containers performed best, driving both high engagement and direct website traffic."
+                question: "What were the top content pillars?",
+                answer: "Predictive AI Diagnostics and Maternal Health Tips were the top performers, with audience hotspots in Nairobi, Mombasa, and Nakuru driving peak interactions of 34.9K."
             }
         ],
         partnershipReasons: [
-            "Data-driven influencer strategy for Green Eats with 2 months of dedication",
-            "High-energy content production that resonated with health-conscious professionals",
-            "Significant growth in social following and community engagement"
+            "Trust-driven, community-first digital model for multi-region healthcare",
+            "92.5% non-follower reach proving viral organic discovery",
+            "Successfully broke free from ad-dependency with sustainable organic growth"
         ]
     },
     {
         id: 4,
-        title: "APOLLO",
-        subtitle: "Premium Packaging Design",
-        category: "packaging",
-        year: "2023",
-        client: "Artisan Coffee",
-        duration: "4 months",
+        title: "Apollo Hospitals Delhi",
+        subtitle: "Healthcare Digital Scaling",
+        category: "healthcare",
+        year: "2025–2026",
+        client: "Indraprastha Apollo Hospitals, Delhi",
+        duration: "5 months",
         image: apolloCover,
         heroImage: apolloHero,
-        tags: ["Package Design", "Print", "Illustration"],
-        description: "Luxury coffee packaging for boutique roasters",
-        challenge: "Standing out in a competitive luxury coffee market while conveying the origin story of each bean variety.",
-        solution: "A minimalist design language using premium textured papers and custom illustrations that narrate the heritage of each coffee region.",
-        result: "Featured in 5 design publications",
+        tags: ["Omnichannel Growth Strategy", "Paid Media Scaling", "Educational Content Production", "Medical Tourism Marketing", "Robotic Surgery Awareness"],
+        description: "Bridging Clinical Brilliance with Digital Mass Awareness",
+        challenge: "Maintain brand prestige while scaling reach to local and international patients. Premier NCR hospital with 710+ beds needing digital scale to match clinical leadership as India's first JCI-accredited hospital.",
+        solution: "Dual-engine approach: organic trust via Reels + hyper-targeted paid conversion. 'Science of Healing' series on robotics and transplants. Video-first pivot causing 717.2% organic growth with ad engine delivering 7.5M views.",
+        result: "+598.7% view growth",
         color: "from-amber-300 via-orange-300 to-amber-400",
-        stats: { awards: "3", sales: "+150%", retailers: "100+" },
-        images: [
-            apolloHero,
-            apollo2,
-            apollo3,
-            apollo4,
-            apollo5,
-            apollo6,
-        ],
+        stats: { views: "8.3M", reach: "5.6M", interactions: "+2.4K%" },
+        images: [apolloHero, apollo2, apollo3, apollo4, apollo5, apollo6],
         keyFeatures: [
-            { title: "Custom Illustration", description: "Unique artwork for each origin story." },
-            { title: "Sustainable Materials", description: "Compostable bags with luxury finish." }
+            { title: "Omnichannel Growth Strategy", description: "Dual-engine: organic trust via Reels + hyper-targeted paid conversion campaigns." },
+            { title: "Science of Healing Series", description: "Educational content on robotics and transplant Centres of Excellence." },
+            { title: "Video-First Pivot", description: "Strategic shift to Reels-first content causing 717.2% organic growth." },
+            { title: "Medical Tourism Marketing", description: "Targeting global transplant seekers and local NCR families." }
         ],
         results: [
-            { metric: "3", label: "International Design Awards" },
-            { metric: "+150%", label: "Sales Increase" },
-            { metric: "100+", label: "New Retail Partners" },
+            { metric: "8.3M", label: "Total Views" },
+            { metric: "+598.7%", label: "View Growth" },
+            { metric: "5.6M", label: "Unique Reach" },
+            { metric: "+2.4K%", label: "Interactions Growth" },
         ],
         testimonial: {
-            quote: "The packaging is as exquisite as our coffee. It's been a game-changer for our retail presence.",
-            author: "Marcus Thorne",
-            position: "Founder, Artisan Roasters"
+            quote: "Transformed India's most trusted hospital into its most visible healthcare brand. Now a top-of-funnel discovery engine with 8.3M views.",
+            author: "Apollo Team",
+            position: "India's First JCI Hospital, Now Its Digital Leader"
         },
         faqs: [
             {
                 number: "001",
-                question: "How did you translate the bean's origin into the design?",
-                answer: "We worked with local illustrators to create patterns inspired by the topography and flora of each region, using tactile papers that evoke the natural feel of coffee sacks."
+                question: "What drove the 598.7% view growth?",
+                answer: "A video-first pivot with 5–7 posts/week, Reels-first strategy. The 'Science of Healing' series on robotic surgery and transplants resonated strongly, achieving 55.2K deep engagements."
             },
             {
                 number: "002",
-                question: "Are the materials used truly sustainable?",
-                answer: "Yes, we utilized certified compostable films and recycled paper stocks, ensuring the entire packaging cycle reflects the client's commitment to the environment."
+                question: "What content performed best?",
+                answer: "Robotic Surgery Reels and Transplant Centres of Excellence content drove the highest engagement, with a strong Q4 rise via the 'Expert Insight' campaign."
             }
         ],
         partnershipReasons: [
-            "Innovative packaging design for Artisan Coffee with 4 months of dedication",
-            "Successful brand storytelling through custom illustrations and premium materials",
-            "Recognition in top-tier design publications for aesthetic and functional excellence"
+            "Scaled India's first JCI-accredited hospital to 8.3M+ digital views",
+            "Achieved 717.2% organic growth through video-first content strategy",
+            "Transformed trusted clinical brand into most visible healthcare digital presence"
         ]
     },
     // {
