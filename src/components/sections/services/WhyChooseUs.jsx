@@ -55,8 +55,8 @@ const WhyChooseUs = () => {
     };
 
     return (
-        <section className="py-16 md:py-24 bg-gray-50 overflow-hidden">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-12 md:py-16 bg-gray-50 overflow-hidden">
+            <div className="container mx-auto px-6">
                 {/* Header - Enhanced with animations */}
                 <motion.div
                     className="mb-12 md:mb-16"
@@ -85,7 +85,7 @@ const WhyChooseUs = () => {
                             WHY
                         </motion.span>
                         <motion.span
-                            className="block text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-200 to-gray-500 italic font-serif"
+                            className="block text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}

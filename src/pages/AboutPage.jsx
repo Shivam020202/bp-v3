@@ -143,74 +143,52 @@ const AboutPage = () => {
     return (
         <div ref={containerRef} className="relative min-h-screen bg-white overflow-hidden">
             {/* Enhanced Animated Background */}
-            <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-                {/* Base Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white to-purple-50/50" />
-
-                {/* Animated Floating Orbs */}
-                <motion.div
-                    className="absolute top-[10%] right-[10%] w-[500px] h-[500px] bg-gradient-to-br from-blue-200/50 to-cyan-200/30 rounded-full blur-[80px]"
-                    animate={{
-                        x: [0, 50, 0],
-                        y: [0, 30, 0],
-                        scale: [1, 1.1, 1]
-                    }}
-                    transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+            {/* Hero Image Background */}
+            <div className="absolute inset-0 z-0">
+                <img
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2000"
+                    alt="Team working together"
+                    className="w-full h-full object-cover"
                 />
-                <motion.div
-                    className="absolute bottom-[20%] left-[5%] w-[400px] h-[400px] bg-gradient-to-br from-purple-200/40 to-pink-200/30 rounded-full blur-[80px]"
-                    animate={{
-                        x: [0, -40, 0],
-                        y: [0, -50, 0],
-                        scale: [1, 1.15, 1]
-                    }}
-                    transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-                />
-                <motion.div
-                    className="absolute top-[50%] left-[40%] w-[300px] h-[300px] bg-gradient-to-br from-cyan-200/30 to-blue-200/20 rounded-full blur-[60px]"
-                    animate={{
-                        x: [0, 60, 0],
-                        y: [0, -40, 0]
-                    }}
-                    transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-                />
-
-                {/* Subtle Grid Pattern */}
-                <div className="absolute inset-0 opacity-[0.02]" style={{
-                    backgroundImage: 'linear-gradient(#3b82f6 1px, transparent 1px), linear-gradient(90deg, #3b82f6 1px, transparent 1px)',
-                    backgroundSize: '50px 50px'
-                }} />
-
-                {/* Floating Dots Animation */}
-                <motion.div
-                    className="absolute top-[30%] right-[20%] w-3 h-3 bg-blue-400/30 rounded-full"
-                    animate={{ y: [0, -20, 0], opacity: [0.3, 0.6, 0.3] }}
-                    transition={{ duration: 4, repeat: Infinity }}
-                />
-                <motion.div
-                    className="absolute top-[60%] left-[15%] w-2 h-2 bg-purple-400/30 rounded-full"
-                    animate={{ y: [0, -15, 0], opacity: [0.3, 0.5, 0.3] }}
-                    transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-                />
-                <motion.div
-                    className="absolute top-[40%] right-[40%] w-4 h-4 bg-cyan-400/20 rounded-full"
-                    animate={{ y: [0, -25, 0], opacity: [0.2, 0.5, 0.2] }}
-                    transition={{ duration: 5, repeat: Infinity, delay: 0.5 }}
-                />
+                <div className="absolute inset-0 bg-black/80" /> {/* Dark Overlay */}
             </div>
 
             {/* Hero Section */}
             <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center z-10 overflow-hidden">
-                <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-                    <source src="https://res.cloudinary.com/de4kw1t2i/video/upload/v1768548652/hf_20260116_072754_a6514d7f-751e-4a41-942f-c2943b1b63ea_l0a1x8.mp4" type="video/mp4" />
-                </video>
+                <div className="container mx-auto px-6 text-center text-white relative z-10">
+                    <motion.span
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="inline-block py-1 px-3 border border-white/30 rounded-full bg-white/10 backdrop-blur-md font-mono text-xs uppercase tracking-[0.2em] mb-6"
+                    >
+                        About Branding Pioneers
+                    </motion.span>
+                    <motion.h1
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4 }}
+                        className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tighter leading-tight"
+                    >
+                        WHERE <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484]">INNOVATION</span><br />
+                        MEETS IMPACT.
+                    </motion.h1>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.6 }}
+                        className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed font-light"
+                    >
+                        We are a team of visionaries, strategists, and creators dedicated to transforming brands through digital excellence.
+                    </motion.p>
+                </div>
             </section>
 
             {/* Content Container */}
             <div className="relative z-10">
 
                 {/* Who We Are Section - Clean & Animated */}
-                <section className="relative py-24 bg-white overflow-hidden">
+                <section className="relative py-12 md:py-16 bg-white overflow-hidden">
 
                     {/* Background Kinetic Typography - Same as Home Page */}
                     <div className="absolute top-1/4 left-0 w-full overflow-hidden pointer-events-none select-none">
@@ -429,7 +407,7 @@ const AboutPage = () => {
                 </section>
 
                 {/* Partners/Clients Section */}
-                <section className="py-20 overflow-hidden" style={{ backgroundColor: '#FDF8F3' }}>
+                <section className="py-12 md:py-16 overflow-hidden" style={{ backgroundColor: '#FDF8F3' }}>
                     <div className="container mx-auto px-6">
                         {/* Header */}
                         <motion.div
@@ -487,7 +465,7 @@ const AboutPage = () => {
                 </section >
 
                 {/* Leadership Section - Meet The Principals */}
-                < section className="py-16 bg-white overflow-visible" >
+                < section className="py-12 md:py-16 bg-white overflow-visible" >
                     <div className="container mx-auto px-6">
                         <div className="relative max-w-6xl mx-auto">
                             {/* Main Layout - Founders on sides, content in center */}
@@ -618,7 +596,7 @@ const AboutPage = () => {
                 </section >
 
                 {/* Vision Section - Enhanced with Beige Theme */}
-                < section className="py-16 bg-white" >
+                < section className="py-12 md:py-16 bg-white" >
                     <div className="container mx-auto px-6">
                         <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
                             {/* Left Side - Title, Description, and Image */}
@@ -840,7 +818,7 @@ const AboutPage = () => {
                 < JourneyTimeline journeyData={journeyData} />
 
                 {/* Curved CTA Card */}
-                < section className="py-16 bg-gray-50" >
+                < section className="py-12 md:py-16 bg-gray-50" >
                     <div className="container mx-auto px-6">
                         <motion.div
                             className="relative rounded-[3rem] overflow-hidden shadow-2xl h-[300px] md:h-[350px]"

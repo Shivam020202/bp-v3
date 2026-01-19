@@ -1,51 +1,18 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
+import { projects as allProjectsSource } from "../../../constants/projects";
 
 const PortfolioShowcase = () => {
-    const projects = [
-        {
-            id: 1,
-            title: "AIIMS Geriatrics",
-            subtitle: "Healthcare Digital Platform",
-            image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&h=600&fit=crop&auto=format",
-        },
-        {
-            id: 2,
-            title: "Apollo Indraprastha",
-            subtitle: "Web Development",
-            image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=500&h=600&fit=crop&auto=format",
-        },
-        {
-            id: 3,
-            title: "Astro Bazzar",
-            subtitle: "E-commerce Platform",
-            image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=600&fit=crop&auto=format",
-        },
-        {
-            id: 4,
-            title: "MindCare Pro",
-            subtitle: "Mental Health App",
-            image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=500&h=600&fit=crop&auto=format",
-        },
-        {
-            id: 5,
-            title: "EduTech Plus",
-            subtitle: "Learning Platform",
-            image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=500&h=600&fit=crop&auto=format",
-        },
-        {
-            id: 6,
-            title: "FinanceHub",
-            subtitle: "Financial Dashboard",
-            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=600&fit=crop&auto=format",
-        },
-    ];
+    // Use first 6 projects from the real data
+    const projects = allProjectsSource.slice(0, 6);
 
     // Duplicate for seamless loop
     const allProjects = [...projects, ...projects];
 
     return (
         <section className="py-12 md:py-16 bg-white">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="container mx-auto px-6">
                 {/* Header - Same as other sections */}
                 <motion.div
                     className="mb-8"
@@ -58,7 +25,7 @@ const PortfolioShowcase = () => {
                     </span>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9] mb-3 text-black">
                         FEATURED <br className="hidden sm:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-200 to-gray-500 italic font-serif gap-2">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif gap-2">
                             PORTFOLIO.
                         </span>
                     </h2>
@@ -84,26 +51,29 @@ const PortfolioShowcase = () => {
                         style={{ width: 'fit-content' }}
                     >
                         {allProjects.map((project, index) => (
-                            <motion.a
+                            <Link
                                 key={`${project.id}-${index}`}
-                                href="#"
+                                to={`/portfolio/${project.id}`}
                                 className="group block flex-shrink-0"
-                                whileHover={{ y: -8 }}
-                                transition={{ duration: 0.3 }}
                             >
-                                <div className="w-64 md:w-72 lg:w-80 aspect-[4/5] bg-gray-100 rounded-2xl overflow-hidden shadow-lg relative">
-                                    <img
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                                    <div className="absolute bottom-0 left-0 right-0 p-5">
-                                        <h3 className="text-lg md:text-xl font-bold text-white mb-1" style={{ fontFamily: 'serif' }}>{project.title}</h3>
-                                        <p className="text-white/70 text-sm">{project.subtitle}</p>
+                                <motion.div
+                                    whileHover={{ y: -8 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <div className="w-64 md:w-72 lg:w-80 aspect-[4/5] bg-gray-100 rounded-2xl overflow-hidden shadow-lg relative">
+                                        <img
+                                            src={project.image}
+                                            alt={project.title}
+                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                                        <div className="absolute bottom-0 left-0 right-0 p-5">
+                                            <h3 className="text-lg md:text-xl font-bold text-white mb-1" style={{ fontFamily: 'serif' }}>{project.title}</h3>
+                                            <p className="text-white/70 text-sm">{project.subtitle}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </motion.a>
+                                </motion.div>
+                            </Link>
                         ))}
                     </motion.div>
                 </div>

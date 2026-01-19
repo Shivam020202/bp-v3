@@ -29,7 +29,7 @@ const FAQ = () => {
 
     return (
         <section className="py-12 md:py-16 bg-white">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="container mx-auto px-6">
                 <div className="grid lg:grid-cols-2 gap-10 items-start">
                     {/* Left - FAQ Content */}
                     <div>
@@ -44,7 +44,7 @@ const FAQ = () => {
                             </span>
                             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9] mb-4 text-black">
                                 COMMON <br className="hidden sm:block" />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-200 to-gray-500 italic font-serif">
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">
                                     QUESTIONS.
                                 </span>
                             </h2>
