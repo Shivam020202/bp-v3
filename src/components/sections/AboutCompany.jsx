@@ -68,13 +68,13 @@ const AboutCompany = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-12 overflow-hidden bg-white text-black"
+      className="relative w-full pt-10 pb-6 overflow-hidden bg-white text-black"
     >
       {/* Background Kinetic Typography */}
       <div className="absolute top-1/4 left-0 w-full overflow-hidden pointer-events-none select-none">
         <div
           ref={textRef}
-          className="whitespace-nowrap text-[15vw] leading-none font-black font-serif tracking-tighter text-black/5"
+          className="whitespace-nowrap text-[15vw] text-[#C4A484]/15 leading-none font-black font-serif tracking-relaxed text-black/5"
         >
           STRATEGY VISION CREATIVE GROWTH FUTURE
         </div>
@@ -109,7 +109,7 @@ const AboutCompany = () => {
               </div>
 
               {/* Floating "Badge" Element */}
-              <div className="absolute -top-6 -right-6 sm:-top-10 sm:-right-10 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 animate-[spin_10s_linear_infinite]">
+              {/* <div className="absolute -top-6 -right-6 sm:-top-10 sm:-right-10 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 animate-[spin_10s_linear_infinite]">
                 <svg
                   viewBox="0 0 100 100"
                   className="w-full h-full overflow-visible"
@@ -126,7 +126,7 @@ const AboutCompany = () => {
                     </textPath>
                   </text>
                 </svg>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -173,9 +173,9 @@ const AboutCompany = () => {
             </div>
 
             <div>
-              <button className="group relative flex items-center gap-3 px-8 py-3 bg-black text-white rounded-none border border-black hover:bg-white hover:text-black transition-all duration-300 shadow-lg hover:shadow-xl">
+              <button className="group relative flex items-center gap-3 px-8 py-3 bg-[#C4A484] text-white  border border-[#C4A484] hover:bg-white hover:text-black rounded-full transition-all duration-300 shadow-lg hover:shadow-xl">
                 <span className="uppercase tracking-widest text-sm font-bold">
-                  Explore Our DNA
+                  Know more
                 </span>
                 <ArrowUpRight className="w-5 h-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
               </button>

@@ -14,7 +14,7 @@ const OurClients = () => {
   const row1 = [
     {
       name: "Google",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+      logo: "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768821192/Max_Healthcare_idgYyMpRtA_0_peq7x1.png",
     },
     {
       name: "Spotify",
@@ -30,18 +30,18 @@ const OurClients = () => {
     },
     {
       name: "Uber",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png",
+      logo: "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768821428/Apollo_Hospitals_idWw7kGUjw_0_phxhmd.png",
     },
     {
       name: "Nike",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg",
+      logo: "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768821429/AIIMS_idRROtSI4u_0_gtr8zu.png",
     },
   ];
 
   const row2 = [
     {
       name: "Microsoft",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
+      logo: "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768821429/id2BuFPwYP_logos_dlkups.jpg",
     },
     {
       name: "Netflix",

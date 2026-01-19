@@ -13,11 +13,11 @@ import {
 const capabilities = [
   {
     id: "landing",
-    title: "AI Landing Pages",
+    title: "AI Websites",
     subtitle: "Web Experience",
     description: "Generative high-conversion layouts optimized for speed.",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1481487196290-c152efe083f5?q=80&w=2162&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     benefits: ["SEO Optimized", "Instant Deploy", "A/B Testing"],
     icon: <Code />,
   },
@@ -27,7 +27,7 @@ const capabilities = [
     subtitle: "Media Synthesis",
     description: "Cinematic text-to-video production in minutes.",
     image:
-      "https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1640888092372-d323d3f8354a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%s 3D%3D",
     benefits: ["4K Resolution", "Avatars", "Multi-Language"],
     icon: <Video />,
   },
@@ -37,27 +37,27 @@ const capabilities = [
     subtitle: "Visual Assets",
     description: "Stunning brand-consistent imagery on demand.",
     image:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1726066012749-f81bf4422d4e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     benefits: ["Vector Export", "Brand Aligned", "Fast Gen"],
     icon: <Palette />,
   },
   {
     id: "audio",
-    title: "Neural Audio",
-    subtitle: "Voice Cloning",
-    description: "Studio-quality voiceovers and soundscapes.",
+    title: "AI Call Assistant",
+    subtitle: "Voice AI",
+    description: "24/7 AI voice agents handling calls automagically.",
     image:
-      "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1571079570759-8b8800f7c412?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     benefits: ["Voice Cloning", "Clean Audio", "Multi-Track"],
     icon: <Mic />,
   },
   {
     id: "assistant",
-    title: "AI Agents",
+    title: "AI Chatbots",
     subtitle: "24/7 Support",
     description: "Intelligent voice assistants handling calls automagically.",
     image:
-      "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1684493735679-359868df0e18?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     benefits: ["Natural Voice", "CRM Sync", "Sentiment Analysis"],
     icon: <Bot />,
   },
@@ -72,7 +72,7 @@ const AICapabilities = () => {
   };
 
   return (
-    <section className="py-8 md:py-12 bg-white text-black overflow-hidden relative border-t border-gray-100 font-sans">
+    <section className="py-8 md:pb-12 bg-white text-black overflow-hidden relative font-sans">
       <div className="container mx-auto px-4 md:px-6">
         {/* Header - Matching AboutCompany Style */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6 mb-8 md:mb-12">
