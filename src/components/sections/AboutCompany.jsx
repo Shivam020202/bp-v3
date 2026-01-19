@@ -92,18 +92,18 @@ const AboutCompany = () => {
               {/* Main Image Container */}
               <div
                 ref={imageRef}
-                className="relative w-full h-full rounded-t-full rounded-b-[200px] overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200"
+                className="relative w-full h-full rounded-t-full rounded-b-[200px] overflow-hidden bg-gradient-to-b from-gray-100 to-gray-50"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop"
+                  src="/award.png"
                   alt="Visionary"
-                  className="w-full h-full object-cover opacity-90 transition-all duration-700 ease-in-out scale-110 grayscale hover:grayscale-0"
+                  className="w-full h-full object-cover opacity-90 transition-all duration-700 ease-in-out scale-110"
                 />
 
                 {/* Overlay Text on Image */}
                 <div className="absolute bottom-10 left-0 w-full text-center">
-                  <span className="inline-block px-4 py-1 bg-black/5 backdrop-blur-md rounded-full text-xs font-mono uppercase tracking-widest text-black/80 border border-black/10">
-                    Est. 2024
+                  <span className="inline-block px-4 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-mono uppercase tracking-widest text-white/80 border border-black/10">
+                    Est. 2016
                   </span>
                 </div>
               </div>
@@ -141,7 +141,7 @@ const AboutCompany = () => {
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9]">
                 WE MOLD <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-200 to-gray-500 italic font-serif pr-2">
+                <span className="text-transparent bg-clip-text bg-[#C4A484] italic font-serif pr-2 ">
                   CHAOS.
                 </span>
               </h2>

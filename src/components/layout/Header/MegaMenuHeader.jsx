@@ -424,7 +424,7 @@ const MegaMenuHeader = () => {
           <div className="flex items-center gap-8">
             <Link to="/" className="flex items-center gap-2">
               <img
-                src="/bp-logo.png"
+                src="https://res.cloudinary.com/de4kw1t2i/image/upload/v1768545326/bp-logo_3_j7upkn.png"
                 alt="Branding Pioneers Logo"
                 className="h-10"
               />
@@ -789,10 +789,10 @@ const MegaMenuHeader = () => {
           {/* Right Side Actions */}
           <div className="flex items-center gap-3">
             <button
-              className={`hidden lg:block px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+              className={`hidden lg:block px-4 py-2 rounded-full text-sm font-medium transition-colors shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 ${
                 isScrolled || isContactPage
-                  ? "bg-warm-700 text-white hover:bg-warm-800"
-                  : "bg-white text-warm-700 hover:bg-white/90"
+                  ? "text-black/70 hover:text-black/80 hover:bg-amber-500/20 border hover:border-amber-500/30 "
+                  : "text-black/70 hover:text-black/80 hover:bg-amber-500/20 border hover:border-amber-500/30"
               }`}
             >
               Request a demo

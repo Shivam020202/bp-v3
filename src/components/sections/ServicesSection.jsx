@@ -19,7 +19,7 @@ const services = [
       "Rank higher and drive targeted traffic with data-driven keyword strategies.",
     icon: <Search />,
     image:
-      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768398678/Gemini_Generated_Image_l175udl175udl175_lx6wby.png",
+      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768817880/SEO_qymlqf.svg",
   },
   {
     id: "02",
@@ -28,7 +28,7 @@ const services = [
       "Maximize ROI with precision-targeted PPC and social ad campaigns.",
     icon: <Megaphone />,
     image:
-      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768398673/Gemini_Generated_Image_zbladlzbladlzbla_x0xy90.png",
+      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768817877/Digital_Promotion_q5zfml.svg",
   },
   {
     id: "03",
@@ -36,7 +36,7 @@ const services = [
     description: "Build community and engagement across all major platforms.",
     icon: <Share2 />,
     image:
-      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768398676/Gemini_Generated_Image_8usoog8usoog8uso_pgbdrt.png",
+      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768817876/Social_Media_Activity_qmsix9.svg",
   },
   {
     id: "04",
@@ -44,7 +44,7 @@ const services = [
     description: "Compelling storytelling that builds authority and trust.",
     icon: <PenTool />,
     image:
-      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768398673/content_eb3vp7.png",
+      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768817877/Creative_Content_Writer_nrybwy.svg",
   },
   {
     id: "05",
@@ -53,7 +53,7 @@ const services = [
       "Personalized automation flows that nurture and convert leads.",
     icon: <Mail />,
     image:
-      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768398670/email_saa1nd.png",
+      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768817876/Chat_Via_Email_nwa7vz.svg",
   },
   {
     id: "06",
@@ -61,7 +61,7 @@ const services = [
     description: "Automate repetitive tasks with AI-powered tools.",
     icon: <BarChart />,
     image:
-      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768398675/ai_1_pxdzpo.png",
+      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768817876/AI_and_Data_Integration_o0cqqm.svg",
   },
   {
     id: "07",
@@ -69,7 +69,7 @@ const services = [
     description: "Increase visibility and engagement with video content.",
     icon: <TrendingUp />,
     image:
-      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768398670/Gemini_Generated_Image_b0q74db0q74db0q7_voqx5q.png",
+      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768817876/Video_Learning_nojkh4.svg",
   },
   {
     id: "08",
@@ -77,18 +77,19 @@ const services = [
     description: "Develop responsive and user-friendly websites.",
     icon: <Zap />,
     image:
-      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768398678/Gemini_Generated_Image_s8kj55s8kj55s8kj_y7zgqe.png",
+      "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768817880/App_Development_jawnsm.svg",
   },
 ];
 
 const ServiceCard = ({ service, idx }) => {
   return (
-    <motion.div
+    <motion.a
+      href="#"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: idx * 0.1, duration: 0.5, ease: "easeOut" }}
-      className="group relative w-full aspect-square overflow-hidden bg-black"
+      className="group relative w-full aspect-square overflow-hidden block"
     >
       {/* Background Image (Always visible, zooms on hover) */}
       <img
@@ -96,34 +97,40 @@ const ServiceCard = ({ service, idx }) => {
         alt={service.title}
         className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent transition-all duration-500" />
 
-      {/* Content */}
-      <div className="absolute inset-0 p-4 sm:p-6 md:p-8 flex flex-col justify-end z-20 text-white">
-        {/* <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 p-2 sm:p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg md:rounded-xl text-white opacity-80 group-hover:opacity-100 group-hover:bg-blue-600 group-hover:border-blue-500 transition-all duration-300">
-          <span className="[&>svg]:w-4 [&>svg]:h-4 sm:[&>svg]:w-5 sm:[&>svg]:h-5 md:[&>svg]:w-6 md:[&>svg]:h-6">
+      {/* Persistent Title (Visible by default, Glass effect title) */}
+      {/* Hides on hover when the full content overlay appears */}
+      <div className="absolute bottom-6 left-0 right-0 flex justify-center z-10 opacity-100 group-hover:opacity-0 transition-opacity duration-300 px-4">
+        <span className="inline-block px-5 py-2.5 bg-black/30 backdrop-blur-md border border-white/20 rounded-full text-sm font-medium text-white shadow-lg text-center truncate w-auto max-w-full hover:bg-black/40 transition-colors">
+          {service.title}
+        </span>
+      </div>
+
+      {/* Hover Overlay with Glassmorphism */}
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 z-20 border border-white/10" />
+
+      {/* Hover Content */}
+      <div className="absolute inset-0 p-6 flex flex-col justify-center items-center text-center z-30 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+          <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#C4A484] shadow-[0_0_15px_rgba(196,164,132,0.3)]">
             {service.icon}
-          </span>
-        </div> */}
-
-        <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-          <h3 className="text-sm sm:text-base md:text-xl font-bold mb-1 md:mb-2 leadi ng-tight">
+          </div>
+          <h3 className="text-xl md:text-2xl font-bold mb-3 leading-tight text-white font-display drop-shadow-lg">
             {service.title}
           </h3>
-          {/* Description - Hidden on mobile */}
-          <p className="hidden md:block text-xs text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500 max-w-[90%] leading-relaxed">
+          <p className="text-sm text-gray-200 max-w-[250px] mx-auto leading-relaxed drop-shadow-md">
             {service.description}
           </p>
         </div>
 
-        <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 delay-100">
-          <ArrowUpRight className="text-white w-5 h-5" />
+        <div className="absolute bottom-6 right-6">
+          <ArrowUpRight className="text-white w-5 h-5 drop-shadow-md" />
         </div>
       </div>
 
-      {/* Border overlay for cleaner grid lines on dark images */}
-      <div className="absolute inset-0 border border-white/10 pointer-events-none" />
-    </motion.div>
+      {/* Border overlay */}
+      <div className="absolute inset-0 border border-white/5 pointer-events-none" />
+    </motion.a>
   );
 };
 
@@ -139,7 +146,7 @@ const ServicesSection = () => {
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9]">
               DIGITAL <br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-200 to-gray-500 italic font-serif pr-2">
+              <span className="text-transparent bg-clip-text bg-[#C4A484] italic font-serif pr-2">
                 MARKETING.
               </span>
             </h2>
@@ -151,7 +158,7 @@ const ServicesSection = () => {
 
         {/* Grid - 2 columns on mobile, 4 on desktop */}
         <div className="rounded-xl md:rounded-3xl overflow-hidden border border-gray-100">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-[1px] bg-gray-200">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-[1px] ">
             {services.map((service, idx) => (
               <ServiceCard key={service.id} service={service} idx={idx} />
             ))}

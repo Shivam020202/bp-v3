@@ -45,7 +45,7 @@ const WhyChooseUs = () => {
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9]">
             WHY WE <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-200 to-gray-500 italic font-serif pr-2">
+            <span className="text-transparent bg-clip-text bg-[#C4A484] italic font-serif pr-2">
               WIN.
             </span>
           </h2>

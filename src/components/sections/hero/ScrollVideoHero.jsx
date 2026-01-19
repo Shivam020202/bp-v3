@@ -103,44 +103,15 @@ const ScrollVideoHero = () => {
         const slides = gsap.utils.toArray(".hero-slide");
 
         slides.forEach((slide, i) => {
-          // Timing:
-          // Slide 0: 0.05 -> 0.30
-          // Slide 1: 0.35 -> 0.60
-          // Slide 2: 0.65 -> 0.95
-
-          const startTime = 0.05 + i * 0.3;
-          const endTime = startTime + 0.25;
-
           const elements = slide.querySelectorAll(".anim-child");
 
-          // Entrace
-          tl.fromTo(
-            slide,
-            { opacity: 0, pointerEvents: "none" },
-            {
-              opacity: 1,
-              pointerEvents: "auto",
-              duration: 0.05,
-              ease: "power1.inOut",
-            },
-            startTime
-          );
+          if (i === 0) {
+            // Slide 1: Initially Visible
+            // Ensure proper initial state for GSAP
+            gsap.set(slide, { opacity: 1, pointerEvents: "auto" });
+            gsap.set(elements, { opacity: 1, y: 0 });
 
-          tl.fromTo(
-            elements,
-            { y: 60, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 0.1,
-              stagger: 0.03,
-              ease: "power3.out",
-            },
-            startTime
-          );
-
-          // Exit (Fade out and move up)
-          if (i < slides.length - 1) {
+            // Exit (Fade out and move up)
             tl.to(
               slide,
               {
@@ -150,18 +121,63 @@ const ScrollVideoHero = () => {
                 duration: 0.1,
                 ease: "power2.in",
               },
-              endTime
+              0.25 // Exit starts around 25% of scroll
             );
           } else {
-            // Keep last slide visible until near end of scroll
-            tl.to(slide, { opacity: 1 }, 0.95);
+            // Slides 2 & 3: Entrance + Exit
+            const startTime = 0.25 + (i - 1) * 0.35; // i=1 -> 0.25, i=2 -> 0.60
+            const endTime = startTime + 0.25;
+
+            // Entrance
+            tl.fromTo(
+              slide,
+              { opacity: 0, pointerEvents: "none" },
+              {
+                opacity: 1,
+                pointerEvents: "auto",
+                duration: 0.05,
+                ease: "power1.inOut",
+              },
+              startTime
+            );
+
+            tl.fromTo(
+              elements,
+              { y: 60, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.1,
+                stagger: 0.03,
+                ease: "power3.out",
+              },
+              startTime
+            );
+
+            // Exit (Fade out and move up)
+            if (i < slides.length - 1) {
+              tl.to(
+                slide,
+                {
+                  opacity: 0,
+                  y: -50,
+                  pointerEvents: "none",
+                  duration: 0.1,
+                  ease: "power2.in",
+                },
+                endTime
+              );
+            } else {
+              // Keep last slide visible
+              tl.to(slide, { opacity: 1 }, 0.95);
+            }
           }
         });
 
         scrollTriggerInst = ScrollTrigger.create({
           trigger: containerRef.current,
           start: "top top",
-          end: "+=700%", // Slightly longer for better reading time
+          end: "+=350%", // Shorterned scroll distance
           pin: true,
           scrub: 1, // Smoothing
           animation: tl,
@@ -227,7 +243,7 @@ const ScrollVideoHero = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-screen overflow-hidden bg-black font-sans selection:bg-white/30"
+      className="relative w-full h-screen overflow-hidden bg-black font-display selection:bg-white/30"
     >
       {/* Source Video (Hidden) */}
       <video
@@ -253,8 +269,8 @@ const ScrollVideoHero = () => {
 
       {/* Content Container */}
       <div ref={contentRef} className="absolute inset-0 z-10">
-        {/* Slide 1 */}
-        <div className="hero-slide absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-6 text-center opacity-0 pointer-events-none">
+        {/* Slide 1 - Initially Visible */}
+        <div className="hero-slide absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-6 text-center">
           <div className="anim-child mb-4 sm:mb-6 px-4 sm:px-6 py-1.5 sm:py-2 border border-white/30 rounded-full backdrop-blur-md bg-white/10">
             <span className="text-[10px] sm:text-sm font-medium text-white tracking-widest uppercase">
               Brand Elevation
@@ -262,7 +278,7 @@ const ScrollVideoHero = () => {
           </div>
           <h2 className="anim-child text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter mb-4 sm:mb-6 drop-shadow-2xl">
             REDEFINE YOUR <br />{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
+            <span className="text-transparent font-medium bg-clip-text bg-gradient-to-r from-white to-[#C4A484] ">
               DIGITAL IDENTITY
             </span>
           </h2>
@@ -287,7 +303,9 @@ const ScrollVideoHero = () => {
           </div>
           <h2 className="anim-child text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter mb-4 sm:mb-6 drop-shadow-2xl">
             DATA DRIVEN <br />{" "}
-            <span className="text-[#EDE9D0]">PERFORMANCE</span>
+            <span className="text-transparent font-medium bg-clip-text bg-gradient-to-r from-white to-[#C4A484]">
+              PERFORMANCE
+            </span>
           </h2>
           <p className="anim-child text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-light max-w-2xl mb-6 sm:mb-10 leading-relaxed drop-shadow-md px-2">
             Unlock the power of analytics. We turn complex data points into
@@ -310,7 +328,7 @@ const ScrollVideoHero = () => {
           </div>
           <h2 className="anim-child text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter mb-4 sm:mb-6 drop-shadow-2xl">
             DOMINATE THE <br />{" "}
-            <span className="italic font-serif font-light text-[#D3D3FF]">
+            <span className="text-transparent font-medium bg-clip-text bg-gradient-to-r from-white to-[#C4A484]">
               FUTURE
             </span>
           </h2>

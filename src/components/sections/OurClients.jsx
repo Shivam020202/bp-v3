@@ -89,7 +89,7 @@ const OurClients = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full pt-12 overflow-hidden bg-gradient-to-b from-white via-gray-50 to-white"
+      className="relative w-full py-12 overflow-hidden bg-gradient-to-b from-white via-gray-50 to-white"
     >
       {/* Decorative Grid */}
       <div
@@ -115,7 +115,7 @@ const OurClients = () => {
           </span>
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter leading-[0.9] text-black mb-6">
             TRUSTED BY <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-200 to-gray-500 italic font-serif pr-2">
+            <span className="text-transparent bg-clip-text bg-[#C4A484] italic font-serif pr-2">
               THE GIANTS
             </span>
           </h2>
@@ -178,14 +178,13 @@ const OurClients = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Bottom Transition Content */}
-        <div className="mt-12 flex flex-col items-center justify-center">
+      {/* <div className="container mx-auto px-6 relative z-10">
+        <div className="mt-12  flex flex-col items-center justify-center">
           <div className="w-full max-w-[400px]">
             <Lottie animationData={cashFlowAnimation} loop={true} />
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };
