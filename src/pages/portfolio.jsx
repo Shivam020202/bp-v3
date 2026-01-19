@@ -194,7 +194,7 @@ const PortfolioPage = () => {
 
             {/* Main Heading */}
             <motion.h1
-              className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight tracking-tighter"
+              className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[0.9] tracking-tighter drop-shadow-2xl"
               initial={{ opacity: 0, y: 20 }}
               animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 }}
@@ -281,7 +281,7 @@ const PortfolioPage = () => {
       <section className="py-12 bg-white sticky top-0 z-40 border-b border-black/5">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em]">
+            <span className="text-gray-600 font-mono text-xs uppercase tracking-[0.2em]">
               Filter by Category
             </span>
           </div>
@@ -292,8 +292,8 @@ const PortfolioPage = () => {
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
                 className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 ${activeFilter === filter.id
-                    ? "bg-black text-white shadow-lg scale-105"
-                    : "bg-gray-100 text-black hover:bg-gray-200 hover:shadow-md"
+                  ? "bg-black text-white shadow-lg scale-105"
+                  : "bg-gray-100 text-black hover:bg-gray-200 hover:shadow-md"
                   }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -582,14 +582,14 @@ const PortfolioPage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em] mb-4 block">
+              <span className="text-gray-600 font-mono text-xs uppercase tracking-[0.2em] mb-4 block">
                 Trusted By
               </span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-tight tracking-tighter">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-[0.9] tracking-tighter">
                 OUR
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                  CLIENTS
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">
+                  CLIENTS.
                 </span>
               </h2>
               <p className="text-gray-500 text-base mb-8 leading-relaxed">
@@ -600,7 +600,7 @@ const PortfolioPage = () => {
                 whileHover={{ x: 5 }}
               >
                 View All
-                <div className="w-10 h-10 rounded-full border-2 border-black group-hover:border-blue-600 flex items-center justify-center transition-colors">
+                <div className="w-10 h-10 rounded-full border-2 border-black group-hover:border-[#C4A484] flex items-center justify-center transition-colors">
                   <FaArrowRight className="text-sm" />
                 </div>
               </motion.button>
@@ -647,7 +647,7 @@ const PortfolioPage = () => {
                     {/* Image Counter Dots */}
 
                     {/* Border Accent */}
-                    <div className="absolute inset-0 border-2 border-transparent group-hover:border-blue-600/50 rounded-2xl transition-all duration-300" />
+                    <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#C4A484]/50 rounded-2xl transition-all duration-300" />
                   </div>
                 </motion.div>
               ))}
@@ -672,11 +672,11 @@ const PortfolioPage = () => {
               className="lg:sticky lg:top-32"
             >
               <div className="mb-6">
-                <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em]">
+                <span className="text-gray-600 font-mono text-xs uppercase tracking-[0.2em]">
                   FAQs
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-tight tracking-tighter">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-[0.9] tracking-tighter">
                 Frequently ask questions
               </h2>
               <p className="text-gray-500 text-base mb-8 leading-relaxed">
@@ -726,8 +726,8 @@ const PortfolioPage = () => {
                 <motion.div
                   key={index}
                   className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${openFaqIndex === index
-                      ? "bg-white border-gray-200 shadow-lg"
-                      : "bg-white border-transparent hover:border-gray-200"
+                    ? "bg-white border-gray-200 shadow-lg"
+                    : "bg-white border-transparent hover:border-gray-200"
                     }`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -740,18 +740,18 @@ const PortfolioPage = () => {
                   >
                     <div className="flex-1">
                       <div className="flex items-baseline gap-4 mb-2">
-                        <span className="text-blue-600 font-mono text-xs font-bold">
+                        <span className="font-mono text-xs font-bold" style={{ color: '#C4A484' }}>
                           {faq.number}
                         </span>
-                        <h3 className="font-bold text-black text-lg md:text-xl group-hover:text-blue-600 transition-colors">
+                        <h3 className="font-bold text-black text-lg md:text-xl hover:text-[#C4A484] transition-colors">
                           {faq.question}
                         </h3>
                       </div>
                     </div>
                     <motion.div
                       className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${openFaqIndex === index
-                          ? "bg-black text-white"
-                          : "bg-gray-100 text-black"
+                        ? "bg-black text-white"
+                        : "bg-gray-100 text-black"
                         }`}
                       animate={{ rotate: openFaqIndex === index ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
@@ -810,7 +810,7 @@ const PortfolioPage = () => {
               <span>Ready to Start?</span>
             </motion.div>
 
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight tracking-tighter">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-[0.9] tracking-tighter">
               LET&apos;S CREATE
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 italic font-serif">

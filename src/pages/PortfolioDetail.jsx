@@ -171,7 +171,7 @@ const PortfolioDetail = () => {
       {/* Project Overview - Case Study Style */}
       <section ref={contentRef} className="py-20 bg-white relative overflow-hidden">
         {/* Decorative Elements */}
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600" />
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484]" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-[1fr,auto,1fr] gap-12 max-w-7xl mx-auto">
@@ -184,17 +184,17 @@ const PortfolioDetail = () => {
             >
               {/* Business Challenge */}
               <div>
-                <h3 className="text-blue-600 font-mono text-xs font-bold uppercase tracking-[0.2em] mb-4">
+                <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] mb-4" style={{ color: '#C4A484' }}>
                   BUSINESS CHALLENGE
                 </h3>
-                <h2 className="text-3xl md:text-4xl font-black text-black mb-6 leading-tight tracking-tighter">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-[0.9] tracking-tighter">
                   {project.title}
                 </h2>
               </div>
 
               {/* The Details */}
               <div>
-                <h3 className="text-blue-600 font-mono text-xs font-bold uppercase tracking-[0.2em] mb-6">
+                <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] mb-6" style={{ color: '#C4A484' }}>
                   THE DETAILS
                 </h3>
                 <div className="space-y-6">
@@ -220,7 +220,7 @@ const PortfolioDetail = () => {
             >
               {/* Services */}
               <div>
-                <h3 className="text-blue-600 font-mono text-xs font-bold uppercase tracking-[0.2em] mb-6">
+                <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] mb-6" style={{ color: '#C4A484' }}>
                   SERVICES
                 </h3>
                 <ul className="space-y-3">
@@ -232,7 +232,7 @@ const PortfolioDetail = () => {
                       animate={isContentInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ delay: 0.3 + index * 0.1 }}
                     >
-                      <span className="w-2 h-2 bg-blue-600 rounded-full" />
+                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C4A484' }} />
                       {tag}
                     </motion.li>
                   ))}
@@ -241,7 +241,7 @@ const PortfolioDetail = () => {
 
               {/* Why We're Proud to Partner */}
               <div>
-                <h3 className="text-blue-600 font-mono text-xs font-bold uppercase tracking-[0.2em] mb-6">
+                <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] mb-6" style={{ color: '#C4A484' }}>
                   WHY WE'RE PROUD TO PARTNER
                 </h3>
                 <ul className="space-y-4">
@@ -284,7 +284,7 @@ const PortfolioDetail = () => {
                   <div className="text-4xl md:text-5xl font-black text-black mb-2">
                     {result.metric}
                   </div>
-                  <div className="text-blue-600 text-sm font-mono font-bold uppercase tracking-[0.2em]">
+                  <div className="text-sm font-mono font-bold uppercase tracking-[0.2em]" style={{ color: '#C4A484' }}>
                     {result.label}
                   </div>
                 </motion.div>
@@ -295,7 +295,7 @@ const PortfolioDetail = () => {
       </section>
 
 
-   
+
       {/* Image Gallery - Stack Scroll Effect with Parallax */}
       <section ref={galleryRef} className="py-20 bg-white relative overflow-hidden">
 
@@ -319,7 +319,7 @@ const PortfolioDetail = () => {
               </span>
             </motion.div>
             <motion.h2
-              className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-4 tracking-tighter"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black mb-4 tracking-tighter leading-[0.9]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.5 }}
@@ -355,7 +355,7 @@ const PortfolioDetail = () => {
         <div className="container mx-auto px-4 relative z-10">
           {/* Section Title */}
           <motion.h2
-            className="text-4xl md:text-5xl font-black text-black mb-12 uppercase tracking-tighter"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black mb-12 uppercase tracking-tighter leading-[0.9]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -393,48 +393,48 @@ const PortfolioDetail = () => {
                     .filter(p => p.id !== project.id)
                     .slice(0, 6)
                     .map((relatedProject, index) => (
-                    <motion.div
-                      key={`${loopIndex}-${index}`}
-                      className="group relative w-[320px] aspect-[3/4] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex-shrink-0"
-                      initial={loopIndex === 0 ? { opacity: 0, y: 30 } : {}}
-                      whileInView={loopIndex === 0 ? { opacity: 1, y: 0 } : {}}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      whileHover={{ y: -10, scale: 1.02 }}
-                      onClick={() => navigate(`/portfolio/${relatedProject.id}`)}
-                    >
-                      {/* Image */}
-                      <img
-                        src={relatedProject.image}
-                        alt={relatedProject.title}
-                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
+                      <motion.div
+                        key={`${loopIndex}-${index}`}
+                        className="group relative w-[320px] aspect-[3/4] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex-shrink-0"
+                        initial={loopIndex === 0 ? { opacity: 0, y: 30 } : {}}
+                        whileInView={loopIndex === 0 ? { opacity: 1, y: 0 } : {}}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                        whileHover={{ y: -10, scale: 1.02 }}
+                        onClick={() => navigate(`/portfolio/${relatedProject.id}`)}
+                      >
+                        {/* Image */}
+                        <img
+                          src={relatedProject.image}
+                          alt={relatedProject.title}
+                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
 
-                      {/* Gradient Overlay */}
-                      {/* <div className={`absolute inset-0 bg-gradient-to-t ${relatedProject.color} opacity-60 group-hover:opacity-80 transition-opacity duration-500`} /> */}
+                        {/* Gradient Overlay */}
+                        {/* <div className={`absolute inset-0 bg-gradient-to-t ${relatedProject.color} opacity-60 group-hover:opacity-80 transition-opacity duration-500`} /> */}
 
-                      {/* Content */}
-                      <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-                        {/* <p className="text-sm font-bold uppercase tracking-wide mb-2 opacity-90">
+                        {/* Content */}
+                        <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
+                          {/* <p className="text-sm font-bold uppercase tracking-wide mb-2 opacity-90">
                           {relatedProject.subtitle}
                         </p>
                         <h3 className="font-display text-2xl md:text-3xl font-bold mb-4">
                           {relatedProject.title}
                         </h3> */}
 
-                        {/* Arrow Icon */}
-                        <motion.div
-                          className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300"
-                          whileHover={{ scale: 1.1, x: 5 }}
-                        >
-                          <FaArrowRight />
-                        </motion.div>
-                      </div>
+                          {/* Arrow Icon */}
+                          <motion.div
+                            className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300"
+                            whileHover={{ scale: 1.1, x: 5 }}
+                          >
+                            <FaArrowRight />
+                          </motion.div>
+                        </div>
 
-                      {/* Hover Border */}
-                      <div className="absolute inset-0 border-2 border-transparent group-hover:border-white/30 rounded-2xl transition-all duration-300" />
-                    </motion.div>
-                  ))}
+                        {/* Hover Border */}
+                        <div className="absolute inset-0 border-2 border-transparent group-hover:border-white/30 rounded-2xl transition-all duration-300" />
+                      </motion.div>
+                    ))}
                 </Fragment>
               ))}
             </motion.div>
@@ -455,11 +455,11 @@ const PortfolioDetail = () => {
               className="lg:sticky lg:top-32"
             >
               <div className="mb-6">
-                <span className="text-blue-600 font-mono text-xs font-bold uppercase tracking-[0.2em]">
+                <span className="font-mono text-xs font-bold uppercase tracking-[0.2em]" style={{ color: '#C4A484' }}>
                   FAQs
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-tight tracking-tighter">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-[0.9] tracking-tighter">
                 Frequently ask questions
               </h2>
               <p className="text-gray-500 text-base mb-8 leading-relaxed">
@@ -508,11 +508,10 @@ const PortfolioDetail = () => {
               ]).map((faq, index) => (
                 <motion.div
                   key={index}
-                  className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${
-                    openFaqIndex === index
-                      ? "bg-gray-50 border-gray-200 shadow-lg"
-                      : "bg-white border-transparent hover:border-gray-200"
-                  }`}
+                  className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${openFaqIndex === index
+                    ? "bg-gray-50 border-gray-200 shadow-lg"
+                    : "bg-white border-transparent hover:border-gray-200"
+                    }`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -524,20 +523,19 @@ const PortfolioDetail = () => {
                   >
                     <div className="flex-1">
                       <div className="flex items-baseline gap-4 mb-2">
-                        <span className="text-blue-600 font-mono text-xs font-bold">
+                        <span className="font-mono text-xs font-bold" style={{ color: '#C4A484' }}>
                           {faq.number}
                         </span>
-                        <h3 className="font-bold text-black text-lg md:text-xl group-hover:text-blue-600 transition-colors">
+                        <h3 className="font-bold text-black text-lg md:text-xl hover:text-[#C4A484] transition-colors">
                           {faq.question}
                         </h3>
                       </div>
                     </div>
                     <motion.div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
-                        openFaqIndex === index
-                          ? "bg-black text-white"
-                          : "bg-gray-100 text-black"
-                      }`}
+                      className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${openFaqIndex === index
+                        ? "bg-black text-white"
+                        : "bg-gray-100 text-black"
+                        }`}
                       animate={{ rotate: openFaqIndex === index ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
                     >
@@ -584,7 +582,7 @@ const PortfolioDetail = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-warm-900 mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-warm-900 mb-6 leading-[0.9] tracking-tighter">
               Ready to Start Your Project?
             </h2>
             <p className="text-warm-600 text-lg mb-8">

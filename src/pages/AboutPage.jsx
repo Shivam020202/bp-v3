@@ -438,7 +438,7 @@ const AboutPage = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                         >
-                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-2 leading-[0.9] tracking-tighter">
                                 Join over <span style={{ color: '#C4A484' }}>2,500+</span> businesses to
                                 <br className="hidden md:block" /> create unique brand designs.
                             </h2>
@@ -525,7 +525,7 @@ const AboutPage = () => {
                                         viewport={{ once: true }}
                                         transition={{ duration: 0.6 }}
                                     >
-                                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4 text-center" style={{ fontFamily: 'serif' }}>
+                                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[0.9] mb-4 text-center tracking-tighter" style={{ fontFamily: 'serif' }}>
                                             MEET OUR<br />FOUNDERS
                                         </h2>
                                         <p className="text-gray-500 text-sm leading-relaxed text-center">

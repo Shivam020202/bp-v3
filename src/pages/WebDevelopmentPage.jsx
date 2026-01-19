@@ -10,7 +10,7 @@ const WebDevelopmentPage = () => {
     const heroVideoUrl = "https://res.cloudinary.com/damfndmrm/video/upload/v1767787523/49949B00-9B30-46C4-Bcac-B91c47930d82_kiwg7n.mp4";
 
     return (
-        <div className="relative" style={{ fontFamily: "'Poppins', sans-serif" }}>
+        <div className="relative">
             {/* Hero - Video Only */}
             <TechStackHero videoUrl={heroVideoUrl} />
 
