@@ -75,8 +75,8 @@ const DevelopmentJourney = () => {
     const IconComponent = currentStep.icon;
 
     return (
-        <section className="py-16 md:py-24 bg-white">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-12 md:py-16 bg-white">
+            <div className="container mx-auto px-6">
                 {/* Section Header */}
                 <motion.div
                     className="mb-12"
@@ -90,7 +90,7 @@ const DevelopmentJourney = () => {
                     </span>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9] mb-4 text-black">
                         DEVELOPMENT <br className="hidden sm:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-200 to-gray-500 italic font-serif">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">
                             JOURNEY.
                         </span>
                     </h2>
@@ -217,7 +217,7 @@ const DevelopmentJourney = () => {
                             <span className="text-gray-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 block">Tech Stack</span>
                             <h3 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tighter leading-[0.9] mb-2 text-black">
                                 TECHNOLOGIES <br className="hidden sm:block" />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-200 to-gray-500 italic font-serif">WE USE.</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">WE USE.</span>
                             </h3>
                             <p className="text-gray-500 text-sm hidden sm:block">Cutting-edge tools for modern solutions</p>
                         </div>

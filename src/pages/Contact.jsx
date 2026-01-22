@@ -115,7 +115,7 @@ const Contact = () => {
         />
 
         {/* Hero Content */}
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white">
             {/* Breadcrumb */}
             <motion.nav
@@ -140,13 +140,13 @@ const Contact = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.1] tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[0.9] tracking-tighter"
             >
               Let's Create
               <br />
               Something{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400">
-                Amazing
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">
+                Amazing.
               </span>
             </motion.h1>
 
@@ -165,7 +165,7 @@ const Contact = () => {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-8 rounded-full"
+              className="w-24 h-1 bg-gradient-to-r from-[#C4A484] to-[#d4b896] mx-auto mt-8 rounded-full"
             />
           </div>
         </div>
@@ -204,7 +204,7 @@ const Contact = () => {
         }}
       />
 
-      <div className="container mx-auto px-4 py-20 relative z-10">
+      <div className="container mx-auto px-6 py-12 md:py-16 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Left Side - Hero Content */}
           <motion.div
@@ -233,14 +233,14 @@ const Contact = () => {
 
             {/* Main Title */}
             <motion.h1
-              className="text-5xl md:text-7xl lg:text-8xl font-black text-black mb-6 leading-tight tracking-tighter"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-[0.9] tracking-tighter"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               Let's work
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">
                 together!
               </span>
             </motion.h1>
@@ -270,11 +270,11 @@ const Contact = () => {
                 className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                     <FaPhone className="text-white text-lg" />
                   </div>
                   <div>
-                    <h3 className="text-blue-600 font-mono text-xs font-bold uppercase tracking-[0.2em] mb-2">
+                    <h3 className="text-gray-600 font-mono text-xs font-bold uppercase tracking-[0.2em] mb-2">
                       Call Us
                     </h3>
                     <p className="text-black font-semibold text-lg">+11 2158 973027</p>
@@ -289,11 +289,11 @@ const Contact = () => {
                 className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                     <FaMapMarkerAlt className="text-white text-lg" />
                   </div>
                   <div>
-                    <h3 className="text-blue-600 font-mono text-xs font-bold uppercase tracking-[0.2em] mb-2">
+                    <h3 className="text-gray-600 font-mono text-xs font-bold uppercase tracking-[0.2em] mb-2">
                       Address
                     </h3>
                     <p className="text-black font-semibold text-lg">
@@ -326,7 +326,7 @@ const Contact = () => {
 
               {/* Social Media */}
               <motion.div variants={itemVariants}>
-                <h3 className="text-blue-600 font-mono text-xs font-bold uppercase tracking-[0.2em] mb-4">
+                <h3 className="text-gray-600 font-mono text-xs font-bold uppercase tracking-[0.2em] mb-4">
                   Follow Us
                 </h3>
                 <div className="flex gap-4">
@@ -341,7 +341,7 @@ const Contact = () => {
                       href={social.href}
                       whileHover={{ scale: 1.1, y: -5 }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-12 h-12 bg-white border border-gray-200 rounded-xl flex items-center justify-center hover:bg-blue-600 hover:border-blue-600 transition-all duration-300 group"
+                      className="w-12 h-12 bg-white border border-gray-200 rounded-xl flex items-center justify-center hover:bg-black hover:border-black transition-all duration-300 group"
                     >
                       <social.icon className="text-black text-lg group-hover:text-white transition-colors" />
                     </motion.a>
@@ -392,7 +392,7 @@ const Contact = () => {
                 transition={{ delay: 0.1 }}
               >
                 <label className="flex items-center gap-3 mb-3">
-                  <span className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-sm flex-shrink-0">
+                  <span className="w-10 h-10 bg-[#f4e7e1] rounded-full flex items-center justify-center text-[#6b5744] font-bold text-sm flex-shrink-0">
                     01
                   </span>
                   <span className="text-black font-semibold">What's your name?</span>
@@ -404,7 +404,7 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="Type your full name"
                   required
-                  className="w-full bg-gray-50 border-b-2 border-gray-200 text-black px-4 py-3 focus:outline-none focus:border-blue-600 transition-all placeholder:text-gray-400 rounded-t-lg"
+                  className="w-full bg-gray-50 border-b-2 border-gray-200 text-[#6b5744] px-4 py-3 focus:outline-none focus:border-[#C4A484] transition-all placeholder:text-gray-400 rounded-t-lg"
                 />
               </motion.div>
 
@@ -415,7 +415,7 @@ const Contact = () => {
                 transition={{ delay: 0.2 }}
               >
                 <label className="flex items-center gap-3 mb-3">
-                  <span className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-sm flex-shrink-0">
+                  <span className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-black font-bold text-sm flex-shrink-0">
                     02
                   </span>
                   <span className="text-black font-semibold">What's your email address?</span>
@@ -427,7 +427,7 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="example@email.com"
                   required
-                  className="w-full bg-gray-50 border-b-2 border-gray-200 text-black px-4 py-3 focus:outline-none focus:border-blue-600 transition-all placeholder:text-gray-400 rounded-t-lg"
+                  className="w-full bg-gray-50 border-b-2 border-gray-200 text-[#6b5744] px-4 py-3 focus:outline-none focus:border-[#C4A484] transition-all placeholder:text-gray-400 rounded-t-lg"
                 />
               </motion.div>
 
@@ -438,7 +438,7 @@ const Contact = () => {
                 transition={{ delay: 0.3 }}
               >
                 <label className="flex items-center gap-3 mb-3">
-                  <span className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-sm flex-shrink-0">
+                  <span className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-black font-bold text-sm flex-shrink-0">
                     03
                   </span>
                   <span className="text-black font-semibold">What's your phone number?</span>
@@ -449,7 +449,7 @@ const Contact = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="+1 2222 3333444"
-                  className="w-full bg-gray-50 border-b-2 border-gray-200 text-black px-4 py-3 focus:outline-none focus:border-blue-600 transition-all placeholder:text-gray-400 rounded-t-lg"
+                  className="w-full bg-gray-50 border-b-2 border-gray-200 text-[#6b5744] px-4 py-3 focus:outline-none focus:border-[#C4A484] transition-all placeholder:text-gray-400 rounded-t-lg"
                 />
               </motion.div>
 
@@ -460,7 +460,7 @@ const Contact = () => {
                 transition={{ delay: 0.4 }}
               >
                 <label className="flex items-center gap-3 mb-3">
-                  <span className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-sm flex-shrink-0">
+                  <span className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-black font-bold text-sm flex-shrink-0">
                     04
                   </span>
                   <span className="text-black font-semibold">What's your company/organization name?</span>
@@ -471,7 +471,7 @@ const Contact = () => {
                   value={formData.company}
                   onChange={handleChange}
                   placeholder="Type your company/organization name"
-                  className="w-full bg-gray-50 border-b-2 border-gray-200 text-black px-4 py-3 focus:outline-none focus:border-blue-600 transition-all placeholder:text-gray-400 rounded-t-lg"
+                  className="w-full bg-gray-50 border-b-2 border-gray-200 text-[#6b5744] px-4 py-3 focus:outline-none focus:border-[#C4A484] transition-all placeholder:text-gray-400 rounded-t-lg"
                 />
               </motion.div>
 
@@ -482,7 +482,7 @@ const Contact = () => {
                 transition={{ delay: 0.5 }}
               >
                 <label className="flex items-center gap-3 mb-3">
-                  <span className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-sm flex-shrink-0">
+                  <span className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-black font-bold text-sm flex-shrink-0">
                     05
                   </span>
                   <span className="text-black font-semibold">What services are you looking for?</span>
@@ -491,7 +491,7 @@ const Contact = () => {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full bg-gray-50 border-b-2 border-gray-200 text-black px-4 py-3 focus:outline-none focus:border-blue-600 transition-all rounded-t-lg appearance-none cursor-pointer"
+                  className="w-full bg-gray-50 border-b-2 border-gray-200 text-[#6b5744] px-4 py-3 focus:outline-none focus:border-[#C4A484] transition-all rounded-t-lg appearance-none cursor-pointer"
                 >
                   <option value="">Choose from a list here</option>
                   <option value="branding">Branding & Identity</option>
@@ -536,7 +536,7 @@ const Contact = () => {
                 transition={{ delay: 0.7 }}
               >
                 <label className="flex items-center gap-3 mb-3">
-                  <span className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-sm flex-shrink-0">
+                  <span className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-black font-bold text-sm flex-shrink-0">
                     06
                   </span>
                   <span className="text-black font-semibold">Tell us about your project</span>
@@ -548,7 +548,7 @@ const Contact = () => {
                   placeholder="Please type your project description"
                   rows="5"
                   required
-                  className="w-full bg-gray-50 border-2 border-gray-200 text-black px-4 py-3 focus:outline-none focus:border-blue-600 transition-all placeholder:text-gray-400 rounded-lg resize-none"
+                  className="w-full bg-gray-50 border-2 border-gray-200 text-[#6b5744] px-4 py-3 focus:outline-none focus:border-[#C4A484] transition-all placeholder:text-gray-400 rounded-lg resize-none"
                 />
               </motion.div>
 

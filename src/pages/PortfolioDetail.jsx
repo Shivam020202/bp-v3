@@ -95,7 +95,7 @@ const PortfolioDetail = () => {
 
         {/* Content */}
         <div className="absolute inset-0 flex items-center justify-center z-10">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center text-white">
               {/* Category Badge */}
               {/* <motion.div
@@ -173,7 +173,7 @@ const PortfolioDetail = () => {
         {/* Decorative Elements */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484]" />
 
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-[1fr,auto,1fr] gap-12 max-w-7xl mx-auto">
             {/* Left Column - Business Challenge & Details */}
             <motion.div
@@ -297,9 +297,9 @@ const PortfolioDetail = () => {
 
 
       {/* Image Gallery - Stack Scroll Effect with Parallax */}
-      <section ref={galleryRef} className="py-20 bg-white relative overflow-hidden">
+      <section ref={galleryRef} className="py-12 md:py-16 bg-white relative overflow-hidden">
 
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-6 relative z-10">
           {/* Section Header with Parallax */}
           <motion.div
             className="text-center max-w-3xl mx-auto mb-16"
@@ -350,9 +350,9 @@ const PortfolioDetail = () => {
 
 
       {/* Related Work Section */}
-      <section className="py-20 bg-gray-50 relative overflow-hidden z-50 border-t border-black/5">
+      <section className="py-12 md:py-16 bg-gray-50 relative overflow-hidden z-50 border-t border-black/5">
 
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-6 relative z-10">
           {/* Section Title */}
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black mb-12 uppercase tracking-tighter leading-[0.9]"
@@ -360,7 +360,10 @@ const PortfolioDetail = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Related Work
+            RELATED <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">
+              WORK.
+            </span>
           </motion.h2>
 
           {/* Auto-scrolling Projects Carousel */}
@@ -443,8 +446,8 @@ const PortfolioDetail = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white relative overflow-hidden z-50 border-t border-black/5">
-        <div className="container mx-auto px-4">
+      <section className="py-12 md:py-16 bg-white relative overflow-hidden z-50 border-t border-black/5">
+        <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Left Side - Title & Description */}
             <motion.div
@@ -574,8 +577,8 @@ const PortfolioDetail = () => {
       </section>
 
       {/* Next Project CTA */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-12 md:py-16 bg-white">
+        <div className="container mx-auto px-6">
           <motion.div
             className="max-w-4xl mx-auto text-center"
             initial={{ opacity: 0, y: 30 }}
