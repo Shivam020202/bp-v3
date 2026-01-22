@@ -6,6 +6,7 @@ import WebDevelopmentPage from "./pages/WebDevelopmentPage";
 import AboutPage from "./pages/AboutPage";
 import PortfolioPage from "./pages/portfolio";
 import PortfolioDetail from "./pages/PortfolioDetail";
+import AIServicesPage from "./pages/AIServicesPage";
 import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/portfolio/:id" element={<PortfolioDetail />} />
+          <Route path="/services/ai-solutions" element={<AIServicesPage />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>

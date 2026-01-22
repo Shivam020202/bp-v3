@@ -12,6 +12,7 @@ import {
   FaMinus,
 } from "react-icons/fa";
 import portfolioVideo from "../assets/portfolio-demo/portfolio-video.mp4";
+import PortfolioSpotlight from "../components/sections/PortfolioSpotlight";
 const PortfolioPage = () => {
   const navigate = useNavigate();
   const heroRef = useRef(null);
@@ -20,7 +21,10 @@ const PortfolioPage = () => {
 
   const isHeroInView = useInView(heroRef, { once: true });
   const isStatsInView = useInView(statsRef, { once: true, margin: "-100px" });
-  const isProjectsInView = useInView(projectsRef, { once: true, margin: "-100px" });
+  const isProjectsInView = useInView(projectsRef, {
+    once: true,
+    margin: "-100px",
+  });
 
   const [activeFilter, setActiveFilter] = useState("all");
   const [hoveredProject, setHoveredProject] = useState(null);
@@ -136,7 +140,8 @@ const PortfolioPage = () => {
   const cycleClientImage = (clientIndex) => {
     setClientImageIndices((prev) => ({
       ...prev,
-      [clientIndex]: (prev[clientIndex] + 1) % clientsData[clientIndex].images.length,
+      [clientIndex]:
+        (prev[clientIndex] + 1) % clientsData[clientIndex].images.length,
     }));
   };
 
@@ -155,10 +160,7 @@ const PortfolioPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section
-        ref={heroRef}
-        className="relative pt-32 pb-20 overflow-hidden"
-      >
+      <section ref={heroRef} className="relative pt-32 pb-20 overflow-hidden">
         {/* Video Background */}
         <div className="absolute inset-0 overflow-hidden">
           <video
@@ -275,8 +277,6 @@ const PortfolioPage = () => {
         </div>
       </section> */}
 
-
-
       {/* Filter Section */}
       <section className="py-12 bg-white sticky top-0 z-40 border-b border-black/5">
         <div className="container mx-auto px-4">
@@ -291,10 +291,11 @@ const PortfolioPage = () => {
               <motion.button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 ${activeFilter === filter.id
-                  ? "bg-black text-white shadow-lg scale-105"
-                  : "bg-gray-100 text-black hover:bg-gray-200 hover:shadow-md"
-                  }`}
+                className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 ${
+                  activeFilter === filter.id
+                    ? "bg-black text-white shadow-lg scale-105"
+                    : "bg-gray-100 text-black hover:bg-gray-200 hover:shadow-md"
+                }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 layout
@@ -317,8 +318,10 @@ const PortfolioPage = () => {
       </section>
 
       {/* Projects Grid */}
-      <section ref={projectsRef} className="py-20 bg-gray-50 relative overflow-hidden">
-
+      <section
+        ref={projectsRef}
+        className="py-20 bg-gray-50 relative overflow-hidden"
+      >
         <div className="container mx-auto px-4 relative z-10">
           <AnimatePresence mode="wait">
             <motion.div
@@ -374,7 +377,7 @@ const PortfolioPage = () => {
                       initial={{ x: 20, opacity: 0 }}
                       animate={{
                         x: 0,
-                        opacity: hoveredProject === project.id ? 1 : 0
+                        opacity: hoveredProject === project.id ? 1 : 0,
                       }}
                       transition={{ duration: 0.3 }}
                     >
@@ -387,7 +390,7 @@ const PortfolioPage = () => {
                       initial={{ x: -20, opacity: 0 }}
                       animate={{
                         x: 0,
-                        opacity: hoveredProject === project.id ? 1 : 0
+                        opacity: hoveredProject === project.id ? 1 : 0,
                       }}
                       transition={{ duration: 0.3 }}
                     >
@@ -421,7 +424,7 @@ const PortfolioPage = () => {
                         className="font-display text-3xl md:text-4xl font-bold mb-2 leading-tight"
                         animate={{
                           y: hoveredProject === project.id ? 0 : 20,
-                          opacity: hoveredProject === project.id ? 1 : 0
+                          opacity: hoveredProject === project.id ? 1 : 0,
                         }}
                         transition={{ duration: 0.3 }}
                       >
@@ -433,7 +436,7 @@ const PortfolioPage = () => {
                         className="text-cream-100 font-medium text-base mb-4"
                         animate={{
                           y: hoveredProject === project.id ? 0 : 20,
-                          opacity: hoveredProject === project.id ? 1 : 0
+                          opacity: hoveredProject === project.id ? 1 : 0,
                         }}
                         transition={{ duration: 0.3, delay: 0.05 }}
                       >
@@ -463,26 +466,28 @@ const PortfolioPage = () => {
                         }}
                         transition={{ duration: 0.3, delay: 0.15 }}
                       >
-                        {Object.entries(project.stats).map(([key, value], i) => (
-                          <motion.div
-                            key={key}
-                            className="bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/20"
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={
-                              hoveredProject === project.id
-                                ? { scale: 1, opacity: 1 }
-                                : { scale: 0.8, opacity: 0 }
-                            }
-                            transition={{ delay: 0.2 + i * 0.05 }}
-                          >
-                            <div className="text-xs text-white/70 uppercase tracking-wide font-semibold mb-1">
-                              {key}
-                            </div>
-                            <div className="text-lg font-bold text-white">
-                              {value}
-                            </div>
-                          </motion.div>
-                        ))}
+                        {Object.entries(project.stats).map(
+                          ([key, value], i) => (
+                            <motion.div
+                              key={key}
+                              className="bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/20"
+                              initial={{ scale: 0.8, opacity: 0 }}
+                              animate={
+                                hoveredProject === project.id
+                                  ? { scale: 1, opacity: 1 }
+                                  : { scale: 0.8, opacity: 0 }
+                              }
+                              transition={{ delay: 0.2 + i * 0.05 }}
+                            >
+                              <div className="text-xs text-white/70 uppercase tracking-wide font-semibold mb-1">
+                                {key}
+                              </div>
+                              <div className="text-lg font-bold text-white">
+                                {value}
+                              </div>
+                            </motion.div>
+                          ),
+                        )}
                       </motion.div>
 
                       {/* Result Badge - Visible on hover */}
@@ -490,7 +495,7 @@ const PortfolioPage = () => {
                         className="flex items-center justify-between"
                         animate={{
                           y: hoveredProject === project.id ? 0 : 20,
-                          opacity: hoveredProject === project.id ? 1 : 0
+                          opacity: hoveredProject === project.id ? 1 : 0,
                         }}
                         transition={{ duration: 0.3, delay: 0.1 }}
                       >
@@ -569,10 +574,11 @@ const PortfolioPage = () => {
         </div>
       </section>
 
+      {/* Feature Spotlight */}
+      <PortfolioSpotlight />
 
       {/* Clients Section */}
       <section className="py-20 bg-white relative overflow-hidden border-t border-black/5">
-
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-[400px,1fr] gap-12 items-center">
             {/* Left Side - Title & CTA */}
@@ -632,7 +638,7 @@ const PortfolioPage = () => {
                         exit={{ y: "-100%", opacity: 0 }}
                         transition={{
                           duration: 1.2,
-                          ease: [0.43, 0.13, 0.23, 0.96]
+                          ease: [0.43, 0.13, 0.23, 0.96],
                         }}
                       />
                     </AnimatePresence>
@@ -680,7 +686,8 @@ const PortfolioPage = () => {
                 Frequently ask questions
               </h2>
               <p className="text-gray-500 text-base mb-8 leading-relaxed">
-                Experience intelligent, efficient, and sustainable software designed to drive progress.
+                Experience intelligent, efficient, and sustainable software
+                designed to drive progress.
               </p>
               <motion.button
                 className="group inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full font-medium text-sm tracking-[0.1em] uppercase hover:bg-gray-900 transition-all duration-300 shadow-lg"
@@ -700,47 +707,59 @@ const PortfolioPage = () => {
                 {
                   number: "001",
                   question: "What features does this software offer?",
-                  answer: "Our software provides comprehensive features including advanced analytics, automated workflows, seamless integrations, real-time collaboration tools, and customizable dashboards designed to streamline your business operations."
+                  answer:
+                    "Our software provides comprehensive features including advanced analytics, automated workflows, seamless integrations, real-time collaboration tools, and customizable dashboards designed to streamline your business operations.",
                 },
                 {
                   number: "002",
                   question: "How does this solution improve efficiency?",
-                  answer: "This solution boosts efficiency by automating tasks, streamlining workflows, and providing data insights that support faster, smarter decision-making."
+                  answer:
+                    "This solution boosts efficiency by automating tasks, streamlining workflows, and providing data insights that support faster, smarter decision-making.",
                 },
                 {
                   number: "003",
                   question: "What kind of support is provided?",
-                  answer: "We offer 24/7 customer support through multiple channels including email, chat, and phone. Our dedicated team provides onboarding assistance, training resources, comprehensive documentation, and ongoing technical support to ensure your success."
+                  answer:
+                    "We offer 24/7 customer support through multiple channels including email, chat, and phone. Our dedicated team provides onboarding assistance, training resources, comprehensive documentation, and ongoing technical support to ensure your success.",
                 },
                 {
                   number: "004",
                   question: "How secure is the data managed by this software?",
-                  answer: "We implement industry-leading security measures including end-to-end encryption, regular security audits, compliance with international standards (ISO 27001, GDPR), multi-factor authentication, and automated backup systems to protect your sensitive data."
+                  answer:
+                    "We implement industry-leading security measures including end-to-end encryption, regular security audits, compliance with international standards (ISO 27001, GDPR), multi-factor authentication, and automated backup systems to protect your sensitive data.",
                 },
                 {
                   number: "005",
-                  question: "Can the software integrate with our existing systems?",
-                  answer: "Yes, our software seamlessly integrates with popular platforms and tools through our robust API and pre-built connectors. We support integrations with CRM systems, marketing tools, payment gateways, and custom applications to ensure smooth workflow continuity."
-                }
+                  question:
+                    "Can the software integrate with our existing systems?",
+                  answer:
+                    "Yes, our software seamlessly integrates with popular platforms and tools through our robust API and pre-built connectors. We support integrations with CRM systems, marketing tools, payment gateways, and custom applications to ensure smooth workflow continuity.",
+                },
               ].map((faq, index) => (
                 <motion.div
                   key={index}
-                  className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${openFaqIndex === index
-                    ? "bg-white border-gray-200 shadow-lg"
-                    : "bg-white border-transparent hover:border-gray-200"
-                    }`}
+                  className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${
+                    openFaqIndex === index
+                      ? "bg-white border-gray-200 shadow-lg"
+                      : "bg-white border-transparent hover:border-gray-200"
+                  }`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
                   <button
-                    onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                    onClick={() =>
+                      setOpenFaqIndex(openFaqIndex === index ? null : index)
+                    }
                     className="w-full text-left p-6 flex items-start justify-between gap-4 group"
                   >
                     <div className="flex-1">
                       <div className="flex items-baseline gap-4 mb-2">
-                        <span className="font-mono text-xs font-bold" style={{ color: '#C4A484' }}>
+                        <span
+                          className="font-mono text-xs font-bold"
+                          style={{ color: "#C4A484" }}
+                        >
                           {faq.number}
                         </span>
                         <h3 className="font-bold text-black text-lg md:text-xl hover:text-[#C4A484] transition-colors">
@@ -749,10 +768,11 @@ const PortfolioPage = () => {
                       </div>
                     </div>
                     <motion.div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${openFaqIndex === index
-                        ? "bg-black text-white"
-                        : "bg-gray-100 text-black"
-                        }`}
+                      className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
+                        openFaqIndex === index
+                          ? "bg-black text-white"
+                          : "bg-gray-100 text-black"
+                      }`}
                       animate={{ rotate: openFaqIndex === index ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
                     >
@@ -792,7 +812,6 @@ const PortfolioPage = () => {
 
       {/* CTA Section */}
       <section className="py-20 bg-black relative overflow-hidden">
-
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             className="text-center max-w-3xl mx-auto"

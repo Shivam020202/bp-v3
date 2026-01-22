@@ -36,7 +36,7 @@ const WhyChooseUs = () => {
   const [activeId, setActiveId] = useState(principles[0].id);
 
   return (
-    <section className="pb-8 md:pb-10 bg-white text-black overflow-hidden border-t border-black/5">
+    <section className="pb-8 md:pb-10 bg-white text-black overflow-hidden ">
       <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="mb-4 max-w-2xl">
