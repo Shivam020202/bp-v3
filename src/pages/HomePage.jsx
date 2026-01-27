@@ -14,8 +14,8 @@ const HomePage = () => {
       <ScrollVideoHero />
       <AboutCompany />
       <OurClients />
-      <Portfolio />
       <ServicesSection />
+      <Portfolio />
       {/* <BeforeAfter /> */}
       <AICapabilities />
       <WhyChooseUs />

@@ -13,6 +13,7 @@ import {
 } from "react-icons/fa";
 import portfolioVideo from "../assets/portfolio-demo/portfolio-video.mp4";
 import PortfolioSpotlight from "../components/sections/PortfolioSpotlight";
+import DeviceShowcase from "../components/sections/DeviceShowcase";
 const PortfolioPage = () => {
   const navigate = useNavigate();
   const heroRef = useRef(null);
@@ -576,6 +577,9 @@ const PortfolioPage = () => {
 
       {/* Feature Spotlight */}
       <PortfolioSpotlight />
+
+      {/* Device Showcase (New Section) */}
+      {/* <DeviceShowcase /> */}
 
       {/* Clients Section */}
       <section className="py-12 md:py-16 bg-white relative overflow-hidden border-t border-black/5">

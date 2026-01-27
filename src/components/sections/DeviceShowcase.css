@@ -1,0 +1,362 @@
+.mockup-section-container {
+  overflow: hidden;
+  padding: 6rem 0;
+  background: #1d0f20; /* Dark Theme Background */
+  color: #fff;
+  font-family: "Parkinsans", sans-serif;
+  position: relative;
+}
+
+.mockup-section-title {
+  font-family: "Parkinsans", sans-serif;
+  font-weight: 900;
+  text-align: center;
+  margin: 0 auto 10px;
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.mockup-section-subtitle {
+  font-family: "Parkinsans", sans-serif;
+  font-weight: normal;
+  text-align: center;
+  margin: 0 auto 60px;
+  font-size: 1rem;
+  color: #c4a484; /* Gold Accent */
+}
+
+.mockup_wrap {
+  position: relative;
+  display: block;
+  width: 600px; /* Base width for scaling */
+  height: 600px;
+  margin: 0 auto;
+  perspective: 1600px;
+  transform-style: preserve-3d;
+}
+
+/* Scaling container for responsiveness */
+.mockup_scaler {
+  transform-origin: center top;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 600px; /* Reserve height */
+}
+
+.mockup_wrap .md-iphone-5,
+.mockup_wrap .md-ipad,
+.mockup_wrap .md-macbook-pro,
+.mockup_wrap .md-macbook-pro .md-base {
+  transform-style: preserve-3d;
+  perspective-origin: 50%;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: all 0.5s ease-out;
+  cursor: pointer;
+}
+
+/* --- MacBook Pro --- */
+.mockup_wrap .md-macbook-pro {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  margin-left: -27.65em; /* Half of width */
+  transform: translateX(0) translateY(-100px) scale(0.6);
+  z-index: 10;
+}
+
+.md-macbook-pro {
+  width: 55.3125em;
+  height: 31.875em;
+  font-size: 10px; /* Base font size for em units */
+}
+
+.md-macbook-pro .md-lid {
+  width: 45em;
+  height: 30.625em;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 1.875em;
+  border: solid 0.1875em #cdced1;
+  background: #131313;
+}
+
+.md-macbook-pro .md-camera {
+  width: 0.375em;
+  height: 0.375em;
+  margin: 0 auto;
+  position: relative;
+  top: 1.0625em;
+  background: #000;
+  border-radius: 100%;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.md-macbook-pro .md-camera:after {
+  content: "";
+  display: block;
+  width: 0.125em;
+  height: 0.125em;
+  position: absolute;
+  left: 0.125em;
+  top: 0.0625em;
+  background: #353542;
+  border-radius: 100%;
+}
+
+.md-macbook-pro .md-screen {
+  width: 42.25em;
+  height: 26.375em;
+  margin: 0 auto;
+  position: relative;
+  top: 2.0625em;
+  background: #1d1d1d;
+  overflow: hidden;
+}
+
+.md-macbook-pro .md-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.md-macbook-pro .md-base {
+  width: 100%;
+  height: 0.9375em;
+  position: relative;
+  top: -0.75em;
+  background: #c6c7ca;
+  box-shadow: 15px 16px 10px 2px rgba(51, 49, 51, 0.5);
+}
+
+.md-macbook-pro .md-base:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0.5em;
+  margin: 0 auto;
+  position: relative;
+  bottom: -0.1875em;
+  background: #b9babe;
+  border-radius: 0 0 1.25em 1.25em;
+}
+
+.md-macbook-pro .md-base:before {
+  content: "";
+  display: block;
+  width: 7.6875em;
+  height: 0.625em;
+  margin: 0 auto;
+  position: relative;
+  background: #a6a8ad;
+  border-radius: 0 0 0.625em 0.625em;
+}
+
+.md-macbook-pro.md-glare .md-lid:after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 0 1.25em 0 0;
+  background: linear-gradient(
+    53deg,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(247, 248, 240, 0.025) 50%,
+    rgba(250, 245, 252, 0.08)
+  );
+  pointer-events: none;
+}
+
+/* --- iPad --- */
+.mockup_wrap .md-ipad {
+  position: absolute;
+  bottom: -150px;
+  right: -100px;
+  transform: rotateY(25deg) rotateX(10deg) scale(0.35);
+  box-shadow: -40px 20px 70px -10px rgba(0, 0, 0, 0.5);
+  border-radius: 3.5em;
+  z-index: 20;
+}
+
+.md-ipad {
+  width: 53.375em;
+  height: 79.4375em;
+  font-size: 10px;
+  background: #ebebe4;
+  border: 0.375em solid #f1f2eb;
+  border-radius: 3.75em;
+}
+
+.md-ipad .md-body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.md-ipad .md-screen {
+  width: 48em;
+  height: 64em;
+  position: relative;
+  margin: 0 auto;
+  top: 6.25em;
+  background-color: #161616;
+  border-radius: 0.25em;
+  overflow: hidden;
+  box-shadow: 0 0 0px 3px #161616;
+}
+
+.md-ipad .md-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.md-ipad .md-camera {
+  width: 0.875em;
+  height: 0.875em;
+  margin: 0 auto;
+  position: relative;
+  top: 3.125em;
+  border-radius: 100%;
+  background: #d0d0c5;
+}
+
+.md-ipad .md-home-button {
+  display: block;
+  width: 3.625em;
+  height: 3.625em;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 2em;
+  left: 50%;
+  margin-left: -1.8125em;
+  border-radius: 100%;
+  border: 1px solid #eff1e6;
+  background: linear-gradient(#d0d0c5, #eeeeea);
+}
+
+/* --- iPhone 5 (Modernized look slightly via CSS) --- */
+.mockup_wrap .md-iphone-5 {
+  position: absolute;
+  left: -100px;
+  bottom: -50px;
+  transform: rotateY(-25deg) rotateX(10deg) scale(0.35);
+  box-shadow: 20px 15px 80px -20px rgba(0, 0, 0, 0.5);
+  border-radius: 3em;
+  z-index: 30;
+}
+
+.md-iphone-5 {
+  width: 22.8125em;
+  height: 49em;
+  font-size: 10px;
+  background: #ebebe4;
+  border: 0.375em solid #f1f2eb;
+  border-radius: 3.75em;
+}
+
+.md-iphone-5 .md-screen {
+  width: 20em;
+  height: 35.5em;
+  position: relative;
+  margin: 0 auto;
+  top: 6em;
+  background-color: #161616;
+  border-radius: 0.25em;
+  overflow: hidden;
+}
+
+.md-iphone-5 .md-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.md-iphone-5 .md-top-speaker {
+  width: 3.75em;
+  height: 0.875em;
+  margin: 0 auto;
+  position: relative;
+  top: 2.25em;
+  background: #d0d0c5;
+  border-radius: 3.125em;
+}
+
+.md-iphone-5 .md-front-camera {
+  width: 0.875em;
+  height: 0.875em;
+  margin: 0 auto;
+  position: relative;
+  top: 1.25em;
+  background: #d0d0c5;
+  border-radius: 100%;
+}
+
+.md-iphone-5 .md-home-button {
+  width: 3.625em;
+  height: 3.625em;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 1.5em;
+  left: 50%;
+  margin-left: -1.8125em;
+  border-radius: 100%;
+  border: 1px solid #eff1e6;
+  background: linear-gradient(#d0d0c5, #eeeeea);
+}
+
+/* --- Hover Effects --- */
+
+/* Hover iPhone */
+.mockup_wrap .md-iphone-5:hover {
+  transform: rotateY(0deg) rotateX(0deg) translateY(-80px) translateX(50px)
+    scale(0.5);
+  z-index: 50;
+  box-shadow: 0px 35px 100px -20px rgba(0, 0, 0, 0.6);
+}
+
+/* Hover iPad */
+.mockup_wrap .md-ipad:hover {
+  transform: rotateY(0deg) rotateX(0deg) translateY(0px) translateX(-50px)
+    scale(0.5);
+  z-index: 50;
+  box-shadow: 0px 30px 120px 0px rgba(0, 0, 0, 0.6);
+}
+
+/* Hover MacBook */
+.mockup_wrap .md-macbook-pro:hover {
+  transform: translateX(0) translateY(-80px) scale(0.75);
+  z-index: 40;
+}
+
+/* Sibling Interactions (when hovering macbook, push others away) */
+.mockup_wrap .md-macbook-pro:hover ~ .md-iphone-5 {
+  transform: translateY(100px) translateX(-250px) scale(0.25) rotateY(-45deg);
+  opacity: 0.6;
+}
+
+.mockup_wrap .md-macbook-pro:hover ~ .md-ipad {
+  transform: translateY(100px) translateX(250px) scale(0.25) rotateY(45deg);
+  opacity: 0.6;
+}
+
+@media (max-width: 850px) {
+  .mockup_scaler {
+    transform: scale(0.6);
+    height: 400px;
+  }
+}
+
+@media (max-width: 500px) {
+  .mockup_scaler {
+    transform: scale(0.4);
+    height: 300px;
+  }
+  .mockup-section-title {
+    font-size: 1.8rem;
+  }
+}

@@ -1,213 +1,213 @@
 import { useRef, useState, useEffect } from "react";
-import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
-import { ArrowUpRight, MoveRight, Layers, ArrowRight } from "lucide-react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { ArrowUpRight, ArrowRight, MousePointer2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { projects as allProjects } from "../../constants/projects";
 
-// Use the first 4 projects from constants
-const projects = allProjects.slice(0, 4);
+const projects = allProjects.slice(0, 5);
 
-const ProjectCard = ({ project, x }) => {
+const Portfolio = () => {
   const navigate = useNavigate();
+  const scrollRef = useRef(null);
 
-  const handleClick = () => {
-    navigate(`/portfolio/${project.id}`);
+  // Custom Drag Scroll Logic
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [hasMoved, setHasMoved] = useState(false);
+
+  const onMouseDown = (e) => {
+    setIsDragging(true);
+    setHasMoved(false);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+  };
+
+  const onMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const onMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const onMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5; // Scroll speed multiplier
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+    if (Math.abs(walk) > 5) setHasMoved(true);
+  };
+
+  const handleCardClick = (projectId) => {
+    if (!hasMoved) {
+      navigate(`/portfolio/${projectId}`);
+    }
   };
 
   return (
-    <motion.div
-      onClick={handleClick}
-      className="relative flex-shrink-0 w-[280px] sm:w-[350px] md:w-[450px] aspect-[3/4] rounded-2xl md:rounded-3xl overflow-hidden group border border-white/10 cursor-pointer"
-      whileHover={{ scale: 0.98 }}
-      transition={{ duration: 0.4 }}
-    >
-      {/* Parallax Image Container */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-90" />
-      </div>
-
-      {/* Floating Content */}
-      <div className="absolute inset-0 p-5 sm:p-6 md:p-8 flex flex-col justify-between z-10">
-        <div className="flex justify-between items-start translate-y-[-20px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-          <span className="px-2 sm:px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[10px] sm:text-xs font-bold text-white border border-white/10">
-            {project.year}
-          </span>
-          <button className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:bg-black hover:text-white transition-colors">
-            <ArrowUpRight size={18} />
-          </button>
+    <section className="py-32 bg-white text-black overflow-hidden select-none">
+      <div className="container mx-auto px-6 mb-16 flex flex-col md:flex-row items-end justify-between gap-8">
+        <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-3 mb-6"
+          >
+            <span className="w-12 h-[1px] bg-black"></span>
+            <span className="text-sm font-bold tracking-[0.2em] uppercase">
+              Selected Works
+            </span>
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.85]"
+          >
+            DIGITAL
+            <br />
+            <span className="text-gray-400 font-serif italic font-light">
+              masterpieces
+            </span>
+          </motion.h2>
         </div>
 
-        {/* Bottom Info */}
-        <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-          <div className="mb-2 flex items-center gap-2">
-            <span className={`w-2 h-2 rounded-full bg-blue-500`} />
-            <span className="text-white/70 text-[10px] sm:text-xs uppercase tracking-widest font-bold">
-              {project.subtitle || project.category}
-            </span>
+        <div className="hidden md:flex items-center gap-6 text-sm font-bold tracking-widest uppercase">
+          <div className="flex items-center gap-2">
+            <MousePointer2 className="w-4 h-4 animate-bounce-x" />
+            <span>Drag or Scroll</span>
           </div>
-          <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight mb-2">
-            {project.title}
-          </h3>
-          <div className="h-0 group-hover:h-8 overflow-hidden transition-all duration-500">
-            <p className="text-white/60 text-sm font-medium">
-              Result:{" "}
-              <span className="text-white">
-                {project.result || `${project.year} Project`}
-              </span>
+          <button
+            onClick={() => navigate("/portfolio")}
+            className="w-12 h-12 rounded-full border border-black hover:bg-black hover:text-white transition-all flex items-center justify-center"
+          >
+            <ArrowRight size={20} />
+          </button>
+        </div>
+      </div>
+
+      {/* Scroll Container */}
+      <div
+        ref={scrollRef}
+        className="flex overflow-x-auto gap-8 px-6 md:px-[10vw] pb-20 pt-10 hide-scrollbar cursor-grab active:cursor-grabbing"
+        onMouseDown={onMouseDown}
+        onMouseLeave={onMouseLeave}
+        onMouseUp={onMouseUp}
+        onMouseMove={onMouseMove}
+      >
+        {projects.map((project, index) => (
+          <PortfolioCard
+            key={project.id}
+            project={project}
+            index={index}
+            onClick={() => handleCardClick(project.id)}
+          />
+        ))}
+
+        {/* View All Card */}
+        <div
+          onClick={() => !hasMoved && navigate("/portfolio")}
+          className="min-w-[300px] aspect-[3/4] rounded-none border-l border-black/10 flex items-center justify-center hover:bg-gray-50 transition-colors cursor-pointer group"
+        >
+          <div className="text-center">
+            <div className="w-20 h-20 rounded-full border border-black/20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform bg-white">
+              <ArrowRight size={24} />
+            </div>
+            <h3 className="text-2xl font-black">View All</h3>
+            <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mt-2">
+              Explore Archive
             </p>
           </div>
         </div>
       </div>
-    </motion.div>
-  );
-};
 
-const Portfolio = () => {
-  const navigate = useNavigate();
-  const containerRef = useRef(null);
-  const trackRef = useRef(null);
-  const [width, setWidth] = useState(0);
-  const x = useMotionValue(0);
-
-  useEffect(() => {
-    if (trackRef.current && containerRef.current) {
-      setWidth(trackRef.current.scrollWidth - containerRef.current.offsetWidth);
-    }
-  }, []);
-
-  return (
-    <section className="py-12 bg-white text-black overflow-hidden font-sans">
-      <div className="container mx-auto px-6">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8 mb-10 md:mb-16">
-          <div className="max-w-xl">
-            <span className="text-gray-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-3 md:mb-4 block">
-              Selected Works
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9]">
-              DIGITAL <br />
-              <span className="text-transparent bg-clip-text bg-[#C4A484] italic font-serif pr-4">
-                LANDMARKS.
-              </span>
-            </h2>
-          </div>
-          <div className="flex items-center gap-4">
-            {/* Mobile Swipe Indicator */}
-            <div className="flex md:hidden items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-gray-400">
-              <svg
-                className="w-5 h-5 text-gray-600 animate-bounce-x"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-              Swipe to Explore
-            </div>
-            {/* Desktop Drag Indicator */}
-            <div className="hidden md:flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gray-400">
-              <MoveRight size={16} className="text-gray-600 animate-pulse" />
-              Drag to Explore
-            </div>
-            <button
-              onClick={() => navigate("/portfolio")}
-              className="hidden sm:flex px-4 md:px-6 py-2 md:py-3 rounded-full bg-gray-100 text-black font-bold text-xs md:text-sm hover:bg-black hover:text-white transition-all items-center gap-2 group"
-            >
-              View All Projects{" "}
-              <ArrowRight
-                size={16}
-                className="group-hover:translate-x-1 transition-transform"
-              />
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation Arrows - Above the slider */}
-        <div className="flex md:hidden items-center justify-between mb-4">
-          <span className="text-xs text-gray-400">Swipe or use arrows</span>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => {
-                const currentX = x.get();
-                x.set(Math.min(currentX + 300, 0));
-              }}
-              className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors"
-            >
-              <svg
-                className="w-5 h-5 text-gray-700"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-            <button
-              onClick={() => {
-                const currentX = x.get();
-                x.set(Math.max(currentX - 300, -width));
-              }}
-              className="w-10 h-10 rounded-full bg-gray-900 text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
-            >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        {/* Containerized Slider */}
-        <div
-          ref={containerRef}
-          className="w-full bg-gray-50 rounded-2xl md:rounded-[3rem] p-3 sm:p-4 md:p-8 border border-gray-100 relative overflow-hidden group cursor-grab active:cursor-grabbing"
-        >
-          {/* Background Deco */}
-          <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-100 pointer-events-none" />
-
-          {/* Motion Track */}
+      {/* Bottom Progress Bar */}
+      <div className="container mx-auto px-6 mt-8">
+        <div className="w-full h-[1px] bg-black/10 relative overflow-hidden">
           <motion.div
-            ref={trackRef}
-            drag="x"
-            dragConstraints={{ right: 0, left: -width }}
-            whileTap={{ cursor: "grabbing" }}
-            style={{ x }}
-            className="flex gap-4 sm:gap-6 md:gap-8 w-max px-2 sm:px-4 md:px-0"
-          >
-            {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} x={x} />
-            ))}
-          </motion.div>
-
-          {/* Fade overlay on right to hint scroll */}
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none z-20 hidden md:block" />
+            className="absolute top-0 left-0 h-full bg-black"
+            style={{ width: "20%" }}
+            animate={{
+              left: ["0%", "80%", "0%"],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
         </div>
       </div>
     </section>
+  );
+};
+
+const PortfolioCard = ({ project, index, onClick }) => {
+  const cardRef = useRef(null);
+  const { scrollXProgress } = useScroll({
+    target: cardRef,
+    offset: ["start end", "end start"],
+    layoutEffect: false,
+  });
+
+  // Parallax effect for image
+  const x = useTransform(scrollXProgress, [0, 1], ["0%", "15%"]);
+  const scale = useTransform(scrollXProgress, [0, 0.5, 1], [0.95, 1, 0.95]);
+
+  return (
+    <motion.div
+      ref={cardRef}
+      onClick={onClick}
+      className="relative min-w-[85vw] md:min-w-[600px] aspect-[16/9] md:aspect-[1.5/1] group"
+      whileHover={{ scale: 0.98 }}
+      transition={{ duration: 0.5, ease: "circOut" }}
+    >
+      {/* Number */}
+      <div className="absolute -top-12 left-0 text-9xl font-black text-black/5 z-0 font-serif translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+        {String(index + 1).padStart(2, "0")}
+      </div>
+
+      {/* Image Container */}
+      <div className="absolute inset-0 overflow-hidden bg-gray-200 shadow-2xl shadow-black/10">
+        <motion.div className="w-[120%] h-full absolute left-[-10%] top-0">
+          <motion.img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+            style={{ x }}
+          />
+        </motion.div>
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+      </div>
+
+      {/* Content Overlay */}
+      <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 flex items-end justify-between bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <div>
+          <div className="flex items-center gap-3 mb-4">
+            <span className="px-3 py-1 bg-white text-black text-xs font-bold uppercase tracking-widest">
+              {project.category || "Case Study"}
+            </span>
+            <span className="text-white/80 text-xs font-mono">
+              {project.year || "2024"}
+            </span>
+          </div>
+          <h3 className="text-4xl md:text-5xl font-black text-white leading-none mb-2">
+            {project.title}
+          </h3>
+          <p className="text-white/80 max-w-md hidden md:block">
+            {project.excerpt || "A digital experience crafted for impact."}
+          </p>
+        </div>
+
+        <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
+          <ArrowUpRight className="text-black w-6 h-6" />
+        </div>
+      </div>
+    </motion.div>
   );
 };
 
