@@ -28,66 +28,71 @@ import apollo4 from "../assets/portfolio/apollo/4.jpg";
 import apollo5 from "../assets/portfolio/apollo/5.jpg";
 import apollo6 from "../assets/portfolio/apollo/6.jpg";
 // Placeholder images for projects without custom covers
+import pcard3 from "../assets/portfolio-demo/pcard/pcard-3.jpg";
 import pcard4 from "../assets/portfolio-demo/pcard/pcard-4.avif";
-import pcard6 from "../assets/portfolio-demo/pcard/pcard6.avif";
 
-// Cover images for portfolio cards and related works
-import maxCover from "../assets/portfolio/covers/max-cover.jpg";
-import rajCover from "../assets/portfolio/covers/raj-cover.jpg";
-import lifeCover from "../assets/portfolio/covers/life-cover.jpg";
-import apolloCover from "../assets/portfolio/covers/apollo-cover.jpg";
+// Cover images for portfolio cards
+import rajCard from "../assets/portfolio/covers/RAJ-CARD.webp";
+import maxCard from "../assets/portfolio/covers/max-thumbnail.webp";
+import lifecareCard from "../assets/portfolio/covers/lifecare-card.webp";
+import apolloCard from "../assets/portfolio/covers/apollo-card.webp";
 export const projects = [
     {
         id: 1,
         title: "MAX Home",
-        subtitle: "Complete Brand Identity",
-        category: "branding",
+        subtitle: "E-Commerce Website Development",
+        category: "web",
         year: "2024",
-        client: "Bloom Beauty",
-        duration: "3 months",
-        image: maxCover,
+        client: "MAX Home",
+        duration: "4 months",
+        image: maxCard,
         heroImage: p1,
-        tags: ["Brand Strategy", "Visual Identity", "Packaging"],
-        description: "A fresh, modern beauty brand targeting Gen-Z consumers",
-        challenge: "Bloom Beauty needed to stand out in a saturated market while maintaining a premium feel. The brand required a complete visual identity from scratch, including logo design, color palette, typography, and packaging design that would resonate with eco-conscious millennials and Gen-Z consumers.",
-        solution: "We developed a bold, nature-inspired brand identity featuring organic shapes, a vibrant color palette, and sustainable packaging solutions. The design system is flexible enough to grow with the brand while maintaining a strong, recognizable presence.",
-        result: "200% increase in brand recognition",
-        color: "from-pink-300 via-rose-300 to-pink-400",
-        stats: { reach: "2.5M", engagement: "+180%", sales: "+200%" },
+        tags: ["Website Development", "E-Commerce", "UI/UX Design", "Custom CMS", "Performance Optimization"],
+        description: "A modern, high-performance e-commerce platform for premium home furnishings and décor",
+        challenge: "MAX Home needed a complete digital transformation to compete in the rapidly evolving home furnishings market. Their existing website was outdated, slow, and lacked the modern e-commerce features required to convert visitors into customers. The challenge was to create a seamless shopping experience that showcases their premium product catalog while handling high traffic volumes during sales events.",
+        solution: "We developed a custom e-commerce platform with a headless CMS architecture for lightning-fast performance. The website features an intuitive product catalog with advanced filtering, a streamlined checkout process, and a responsive design optimized for all devices. We implemented lazy loading, image optimization, and CDN integration to ensure sub-2-second load times.",
+        result: "185% increase in online conversions",
+        color: "from-amber-300 via-orange-300 to-amber-400",
+        stats: { conversions: "+185%", speed: "1.8s", traffic: "+240%" },
         images: [p1, p2, p3, p4, p5, p6],
         keyFeatures: [
-            { title: "Brand Identity System", description: "Complete logo suite with primary, secondary, and icon variations." },
-            { title: "Sustainable Packaging", description: "Eco-friendly packaging design using recyclable materials." },
-            { title: "Visual Language", description: "Cohesive color palette and typography system." },
-            { title: "Digital Templates", description: "Social media and email assets for brand consistency." }
+            { title: "Headless E-Commerce Architecture", description: "Lightning-fast performance with React frontend and headless CMS backend." },
+            { title: "Advanced Product Catalog", description: "Dynamic filtering, search, and AR product preview for furniture visualization." },
+            { title: "Optimized Checkout Flow", description: "Streamlined 3-step checkout with multiple payment gateway integrations." },
+            { title: "Mobile-First Design", description: "Fully responsive design with 60% of traffic coming from mobile devices." }
         ],
         results: [
-            { metric: "200%", label: "Increase in Brand Recognition" },
-            { metric: "150%", label: "Social Media Growth" },
-            { metric: "85%", label: "Customer Satisfaction" },
-            { metric: "3x", label: "Sales Performance" },
+            { metric: "185%", label: "Conversion Rate Increase", description: "Achieved through streamlined UX and optimized checkout flow." },
+            { metric: "1.8s", label: "Average Load Time", description: "Implemented lazy loading and CDN for blazing-fast performance." },
+            { metric: "240%", label: "Organic Traffic Growth", description: "SEO optimization and improved Core Web Vitals boosted rankings." },
+            { metric: "45%", label: "Cart Abandonment Reduction", description: "Simplified checkout process with saved carts and guest checkout." },
         ],
         testimonial: {
-            quote: "The team transformed our vision into a stunning reality. The brand identity they created perfectly captures our values.",
-            author: "Sarah Mitchell",
-            position: "Founder & CEO, Bloom Beauty"
+            quote: "The new website has completely transformed our online business. The user experience is seamless and our sales have nearly tripled since launch.",
+            author: "Rajesh Kumar",
+            position: "Director, MAX Home"
         },
         faqs: [
             {
                 number: "001",
-                question: "How did you ensure the brand appeals to Gen-Z?",
-                answer: "We conducted extensive market research on Gen-Z aesthetic preferences, focusing on 'maximalist' yet clean design, vibrant color palettes, and authentic storytelling that highlights sustainability."
+                question: "What technologies were used for the website?",
+                answer: "We built the frontend using React with Next.js for server-side rendering and optimal SEO. The backend uses a headless CMS (Strapi) with a custom product management system, integrated with payment gateways like Razorpay and PayU."
             },
             {
                 number: "002",
-                question: "What makes the packaging sustainable?",
-                answer: "We used 100% post-consumer recycled paper and soy-based inks. The structural design was optimized to minimize material waste without compromising the unboxing experience."
+                question: "How did you achieve such fast load times?",
+                answer: "We implemented multiple optimization strategies: lazy loading for images and components, WebP image format with fallbacks, CDN distribution via Cloudflare, code splitting, and efficient caching strategies. This resulted in a 90+ Lighthouse performance score."
+            },
+            {
+                number: "003",
+                question: "Does the website support mobile users?",
+                answer: "Absolutely. We designed mobile-first, with 60% of MAX Home's traffic coming from smartphones. The responsive design includes touch-optimized navigation, mobile-specific CTAs, and a simplified mobile checkout process."
             }
         ],
         partnershipReasons: [
-            "Innovative brand approach for Bloom Beauty with 3 months of dedication",
-            "Deep understanding of Gen-Z consumer psychology and aesthetic trends",
-            "Commitment to sustainable design practices that didn't sacrifice luxury"
+            "End-to-end e-commerce development with 4 months of dedicated delivery",
+            "Custom headless architecture providing superior performance and scalability",
+            "Comprehensive SEO and performance optimization resulting in 240% traffic growth"
         ]
     },
     {
@@ -98,7 +103,7 @@ export const projects = [
         year: "2025",
         client: "Raj Hospitals Ranchi",
         duration: "12 months",
-        image: rajCover,
+        image: rajCard,
         heroImage: s1,
         tags: ["Full-Funnel Digital Strategy", "Doctor-Led Video Production", "Patient Community Building", "SEO & Local Search Optimization", "Performance Analytics", "Web Development"],
         description: "Digitizing Care: A Year of Expanding Healthcare Horizons in Jharkhand",
@@ -151,7 +156,7 @@ export const projects = [
         year: "2025–2026",
         client: "Lifecare Hospitals Africa",
         duration: "Ongoing",
-        image: lifeCover,
+        image: lifecareCard,
         heroImage: t1,
         tags: ["Social Media Strategy", "Content Production (Reels)", "Performance Marketing", "Community Management", "Healthcare SEO", "Web Development"],
         description: "Democratizing Specialized Healthcare Across the African Continent",
@@ -204,7 +209,7 @@ export const projects = [
         year: "2025–2026",
         client: "Indraprastha Apollo Hospitals, Delhi",
         duration: "5 months",
-        image: apolloCover,
+        image: apolloCard,
         heroImage: apolloHero,
         tags: ["Omnichannel Growth Strategy", "Paid Media Scaling", "Educational Content Production", "Medical Tourism Marketing", "Robotic Surgery Awareness"],
         description: "Bridging Clinical Brilliance with Digital Mass Awareness",
@@ -249,8 +254,102 @@ export const projects = [
             "Transformed trusted clinical brand into most visible healthcare digital presence"
         ]
     },
+    {
+        id: 5,
+        title: "Ecovana Wellness",
+        subtitle: "Brand Identity & Web Design",
+        category: "branding",
+        year: "2024",
+        client: "Ecovana",
+        duration: "3 months",
+        image: pcard4,
+        heroImage: pcard4,
+        tags: ["Brand Identity", "Web Design", "UI/UX", "Digital Strategy"],
+        description: "A holistic wellness brand bringing sustainable health solutions to modern consumers",
+        challenge: "Ecovana needed a cohesive brand identity that communicated their commitment to sustainable wellness while appealing to health-conscious millennials seeking authentic, eco-friendly products.",
+        solution: "We crafted a nature-inspired visual identity with earthy tones and organic shapes, paired with a clean, modern website that showcases their product range and brand philosophy effectively.",
+        result: "150% increase in brand awareness",
+        color: "from-green-300 via-emerald-300 to-teal-400",
+        stats: { awareness: "+150%", engagement: "+120%", sales: "+95%" },
+        images: [pcard4],
+        keyFeatures: [
+            { title: "Sustainable Brand Identity", description: "Eco-conscious visual language reflecting brand values." },
+            { title: "Responsive Web Design", description: "Mobile-first e-commerce platform with seamless UX." },
+            { title: "Content Strategy", description: "Educational content positioning brand as wellness authority." },
+            { title: "Social Media Templates", description: "Cohesive visual assets for digital marketing." }
+        ],
+        results: [
+            { metric: "150%", label: "Brand Awareness Increase", description: "Achieved through cohesive visual identity across all touchpoints." },
+            { metric: "120%", label: "Social Engagement Growth", description: "Educational content strategy drove organic community building." },
+            { metric: "95%", label: "Website Traffic Increase", description: "SEO-optimized content and improved user experience." },
+        ],
+        testimonial: {
+            quote: "The brand identity perfectly captures our vision for sustainable wellness. Our customers immediately connect with our values.",
+            author: "Priya Sharma",
+            position: "Founder, Ecovana"
+        },
+        faqs: [
+            {
+                number: "001",
+                question: "How did you approach the sustainable brand identity?",
+                answer: "We used earth tones, organic shapes, and sustainable printing methods to ensure the brand identity aligned with Ecovana's eco-conscious values from concept to execution."
+            }
+        ],
+        partnershipReasons: [
+            "Complete brand identity development with sustainable design practices",
+            "End-to-end web design delivering improved user experience",
+            "Strategic positioning as a leader in the wellness space"
+        ]
+    },
+    {
+        id: 6,
+        title: "Astro Bazzar",
+        subtitle: "E-Commerce Platform Development",
+        category: "web",
+        year: "2024",
+        client: "Astro Bazzar",
+        duration: "4 months",
+        image: pcard3,
+        heroImage: pcard3,
+        tags: ["E-Commerce", "Web Development", "UI/UX Design", "Payment Integration"],
+        description: "A modern astrology marketplace connecting users with authentic astrologers and spiritual products",
+        challenge: "Astro Bazzar needed a trustworthy digital platform that could handle live consultations, product sales, and secure payments while maintaining the mystical aesthetic of their brand.",
+        solution: "We built a comprehensive e-commerce platform with integrated booking systems, live video consultation features, and a curated marketplace for spiritual products with secure payment processing.",
+        result: "250% increase in online bookings",
+        color: "from-purple-300 via-violet-300 to-indigo-400",
+        stats: { bookings: "+250%", revenue: "+180%", users: "50K+" },
+        images: [pcard3],
+        keyFeatures: [
+            { title: "Live Consultation Platform", description: "Integrated video calling for real-time astrology sessions." },
+            { title: "Curated Marketplace", description: "E-commerce for authentic spiritual products and gemstones." },
+            { title: "Secure Payment Gateway", description: "Multiple payment options with fraud protection." },
+            { title: "Astrologer Dashboard", description: "Comprehensive panel for managing appointments and earnings." }
+        ],
+        results: [
+            { metric: "250%", label: "Online Bookings Increase", description: "Streamlined booking flow and improved user trust." },
+            { metric: "180%", label: "Revenue Growth", description: "Diversified income streams through consultations and products." },
+            { metric: "50K+", label: "Active Users", description: "Growing community of spiritual seekers and practitioners." },
+        ],
+        testimonial: {
+            quote: "The platform has revolutionized how we connect with our clients. The booking system and marketplace work seamlessly together.",
+            author: "Pandit Ramesh",
+            position: "CEO, Astro Bazzar"
+        },
+        faqs: [
+            {
+                number: "001",
+                question: "How does the live consultation feature work?",
+                answer: "Users can book time slots with verified astrologers and join secure video sessions directly through the platform. Payments are processed before sessions, ensuring trust for both parties."
+            }
+        ],
+        partnershipReasons: [
+            "Full-stack e-commerce development with live consultation features",
+            "Secure payment integration handling thousands of transactions",
+            "Scalable platform architecture supporting rapid user growth"
+        ]
+    },
     // {
-    //     id: 5,
+    //     id: 7,
     //     title: "FitLife Wellness App",
     //     subtitle: "Mobile App Redesign",
     //     category: "branding",
