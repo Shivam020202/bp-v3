@@ -44,6 +44,7 @@ export default {
         display: ["Parkinsans", "sans-serif"],
         body: ["Parkinsans", "sans-serif"],
         funky: ["Parkinsans", "sans-serif"],
+        serif: ["Georgia", "serif"],
       },
       animation: {
         float: "float 6s ease-in-out infinite",

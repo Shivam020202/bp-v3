@@ -7,6 +7,7 @@ import BeforeAfter from "../components/sections/BeforeAfter";
 import AICapabilities from "../components/sections/AICapabilities";
 import WhyChooseUs from "../components/sections/WhyChooseUs";
 import Gallery from "../components/sections/Gallery";
+import PortfolioSpotlight from "../components/sections/PortfolioSpotlight";
 
 const HomePage = () => {
   return (
@@ -15,7 +16,8 @@ const HomePage = () => {
       <AboutCompany />
       <OurClients />
       <ServicesSection />
-      <Portfolio />
+      <PortfolioSpotlight />
+      {/* <Portfolio /> */}
       {/* <BeforeAfter /> */}
       <AICapabilities />
       <WhyChooseUs />
