@@ -55,75 +55,99 @@ const PortfolioPage = () => {
   // Client logos data from homepage - each logo repeated 3 times for cycling effect
   const clientsData = [
     {
-      name: "Google",
+      name: "Max Home",
       images: [
-        "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
-        "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
-        "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/max_home-logo_ya130a.png",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/max_home-logo_ya130a.png",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/max_home-logo_ya130a.png",
       ],
     },
     {
-      name: "Spotify",
+      name: "SCOD",
       images: [
-        "https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg",
-        "https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg",
-        "https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/scod-favicon_b2d7cp.png",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/scod-favicon_b2d7cp.png",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/scod-favicon_b2d7cp.png",
       ],
     },
     {
-      name: "Stripe",
+      name: "La Midas",
       images: [
-        "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg",
-        "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg",
-        "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/La-Midas-Logo_swzrlp.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/La-Midas-Logo_swzrlp.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/La-Midas-Logo_swzrlp.webp",
       ],
     },
     {
-      name: "Airbnb",
+      name: "IGEHRC",
       images: [
-        "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg",
-        "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg",
-        "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/IGEHRC-new-logo_ydf3ww.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/IGEHRC-new-logo_ydf3ww.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/IGEHRC-new-logo_ydf3ww.webp",
       ],
     },
     {
-      name: "Uber",
+      name: "Lifecare",
       images: [
-        "https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png",
-        "https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png",
-        "https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/lifecare-new-logo_xerg1l.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/lifecare-new-logo_xerg1l.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/lifecare-new-logo_xerg1l.webp",
       ],
     },
     {
-      name: "Nike",
+      name: "Aureus",
       images: [
-        "https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg",
-        "https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg",
-        "https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/aureus-new-logo_lbyme0.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/aureus-new-logo_lbyme0.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/aureus-new-logo_lbyme0.webp",
       ],
     },
     {
-      name: "Microsoft",
+      name: "Astrovazar",
       images: [
-        "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
-        "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
-        "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/astrovazar_wbf12h.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/astrovazar_wbf12h.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/astrovazar_wbf12h.webp",
       ],
     },
     {
-      name: "Netflix",
+      name: "Ecovana",
       images: [
-        "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
-        "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
-        "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ecovana-logo_a1r4ct.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ecovana-logo_a1r4ct.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ecovana-logo_a1r4ct.webp",
       ],
     },
     {
-      name: "Tesla",
+      name: "DST",
       images: [
-        "https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png",
-        "https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png",
-        "https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/dst_k894jm.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/dst_k894jm.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/dst_k894jm.webp",
+      ],
+    },
+    {
+      name: "Ivy",
+      images: [
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ivy-new-logo_tnjcme.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ivy-new-logo_tnjcme.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ivy-new-logo_tnjcme.webp",
+      ],
+    },
+    {
+      name: "Cloudnine",
+      images: [
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/cloudnine-logo_mcocql.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/cloudnine-logo_mcocql.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/cloudnine-logo_mcocql.webp",
+      ],
+    },
+    {
+      name: "AIIMS",
+      images: [
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580793/aiims_pleq0o.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580793/aiims_pleq0o.webp",
+        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580793/aiims_pleq0o.webp",
       ],
     },
   ];
@@ -292,11 +316,10 @@ const PortfolioPage = () => {
               <motion.button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 ${
-                  activeFilter === filter.id
+                className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 ${activeFilter === filter.id
                     ? "bg-black text-white shadow-lg scale-105"
                     : "bg-gray-100 text-black hover:bg-gray-200 hover:shadow-md"
-                }`}
+                  }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 layout
@@ -742,11 +765,10 @@ const PortfolioPage = () => {
               ].map((faq, index) => (
                 <motion.div
                   key={index}
-                  className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${
-                    openFaqIndex === index
+                  className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${openFaqIndex === index
                       ? "bg-white border-gray-200 shadow-lg"
                       : "bg-white border-transparent hover:border-gray-200"
-                  }`}
+                    }`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -772,11 +794,10 @@ const PortfolioPage = () => {
                       </div>
                     </div>
                     <motion.div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
-                        openFaqIndex === index
+                      className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${openFaqIndex === index
                           ? "bg-black text-white"
                           : "bg-gray-100 text-black"
-                      }`}
+                        }`}
                       animate={{ rotate: openFaqIndex === index ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
                     >

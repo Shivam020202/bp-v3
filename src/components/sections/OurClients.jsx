@@ -13,55 +13,55 @@ const OurClients = () => {
 
   const row1 = [
     {
-      name: "Google",
-      logo: "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768821192/Max_Healthcare_idgYyMpRtA_0_peq7x1.png",
+      name: "Max Home",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/max_home-logo_ya130a.png",
     },
     {
-      name: "Spotify",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg",
+      name: "SCOD",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/scod-favicon_b2d7cp.png",
     },
     {
-      name: "Stripe",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg",
+      name: "La Midas",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/La-Midas-Logo_swzrlp.webp",
     },
     {
-      name: "Airbnb",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg",
+      name: "IGEHRC",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/IGEHRC-new-logo_ydf3ww.webp",
     },
     {
-      name: "Uber",
-      logo: "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768821428/Apollo_Hospitals_idWw7kGUjw_0_phxhmd.png",
+      name: "Lifecare",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/lifecare-new-logo_xerg1l.webp",
     },
     {
-      name: "Nike",
-      logo: "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768821429/AIIMS_idRROtSI4u_0_gtr8zu.png",
+      name: "Aureus",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/aureus-new-logo_lbyme0.webp",
     },
   ];
 
   const row2 = [
     {
-      name: "Microsoft",
-      logo: "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768821429/id2BuFPwYP_logos_dlkups.jpg",
+      name: "Astrovazar",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/astrovazar_wbf12h.webp",
     },
     {
-      name: "Netflix",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+      name: "Ecovana",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ecovana-logo_a1r4ct.webp",
     },
     {
-      name: "Tesla",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png",
+      name: "DST",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/dst_k894jm.webp",
     },
     {
-      name: "Amazon",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+      name: "Ivy",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ivy-new-logo_tnjcme.webp",
     },
     {
-      name: "Apple",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
+      name: "Cloudnine",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/cloudnine-logo_mcocql.webp",
     },
     {
-      name: "Adobe",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/8/8d/Adobe_Corporate_Logo.png",
+      name: "AIIMS",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580793/aiims_pleq0o.webp",
     },
   ];
 
@@ -135,20 +135,25 @@ const OurClients = () => {
             animate={{ x: "-25%" }}
             transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
           >
-            {marqueeRow1.map((client, i) => (
-              <div
-                key={i}
-                className="relative flex items-center justify-center w-[160px] h-[80px] md:w-[200px] md:h-[100px] 
-                            bg-white shadow-lg rounded-xl flex-shrink-0
-                            border border-gray-100 select-none"
-              >
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  className="h-6 md:h-8 w-auto object-contain"
-                />
-              </div>
-            ))}
+            {marqueeRow1.map((client, i) => {
+              const isFeaturedLogo = ['Max Home', 'Lifecare'].includes(client.name);
+              return (
+                <div
+                  key={i}
+                  className="relative flex items-center justify-center w-[160px] h-[80px] md:w-[200px] md:h-[100px] 
+                              bg-white shadow-lg rounded-xl flex-shrink-0
+                              border border-gray-100 select-none"
+                >
+                  <img
+                    src={client.logo}
+                    alt={client.name}
+                    className={`w-auto object-contain ${client.name === 'Max Home' ? 'h-16 md:h-20' :
+                        isFeaturedLogo ? 'h-14 md:h-18' : 'h-6 md:h-8'
+                      }`}
+                  />
+                </div>
+              );
+            })}
           </motion.div>
         </div>
 
@@ -160,20 +165,24 @@ const OurClients = () => {
             animate={{ x: "0%" }}
             transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
           >
-            {marqueeRow2.map((client, i) => (
-              <div
-                key={i}
-                className="relative flex items-center justify-center w-[160px] h-[80px] md:w-[200px] md:h-[100px] 
-                            bg-white shadow-lg rounded-xl flex-shrink-0
-                            border border-gray-100 select-none"
-              >
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  className="h-6 md:h-8 w-auto object-contain"
-                />
-              </div>
-            ))}
+            {marqueeRow2.map((client, i) => {
+              const isFeaturedLogo = ['DST'].includes(client.name);
+              return (
+                <div
+                  key={i}
+                  className="relative flex items-center justify-center w-[160px] h-[80px] md:w-[200px] md:h-[100px] 
+                              bg-white shadow-lg rounded-xl flex-shrink-0
+                              border border-gray-100 select-none"
+                >
+                  <img
+                    src={client.logo}
+                    alt={client.name}
+                    className={`w-auto object-contain ${isFeaturedLogo ? 'h-14 md:h-18' : 'h-6 md:h-8'
+                      }`}
+                  />
+                </div>
+              );
+            })}
           </motion.div>
         </div>
       </div>

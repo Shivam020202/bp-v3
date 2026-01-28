@@ -433,11 +433,12 @@ const AboutPage = () => {
                         >
                             {[...Array(2)].map((_, setIndex) => (
                                 <div key={setIndex} className="flex items-center justify-around flex-shrink-0 gap-8 md:gap-12 px-6" style={{ width: "50%" }}>
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" alt="Stripe" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" alt="Airbnb" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike" className="h-6 md:h-7 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/max_home-logo_ya130a.png" alt="Max Home" className="h-16 md:h-20 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/scod-favicon_b2d7cp.png" alt="SCOD" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/La-Midas-Logo_swzrlp.webp" alt="La Midas" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/IGEHRC-new-logo_ydf3ww.webp" alt="IGEHRC" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/lifecare-new-logo_xerg1l.webp" alt="Lifecare" className="h-14 md:h-18 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/aureus-new-logo_lbyme0.webp" alt="Aureus" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
                                 </div>
                             ))}
                         </motion.div>
@@ -453,11 +454,12 @@ const AboutPage = () => {
                         >
                             {[...Array(2)].map((_, setIndex) => (
                                 <div key={setIndex} className="flex items-center justify-around flex-shrink-0 gap-8 md:gap-12 px-6" style={{ width: "50%" }}>
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" className="h-6 md:h-8 w-auto object-contain flex-shrink-0" />
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" className="h-6 md:h-8 w-auto object-contain flex-shrink-0" />
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" className="h-6 md:h-8 w-auto object-contain flex-shrink-0" />
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Adobe_Corporate_Logo.png" alt="Adobe" className="h-6 md:h-8 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/astrovazar_wbf12h.webp" alt="Astrovazar" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ecovana-logo_a1r4ct.webp" alt="Ecovana" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/dst_k894jm.webp" alt="DST" className="h-14 md:h-18 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ivy-new-logo_tnjcme.webp" alt="Ivy" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/cloudnine-logo_mcocql.webp" alt="Cloudnine" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://res.cloudinary.com/damfndmrm/image/upload/v1769580793/aiims_pleq0o.webp" alt="AIIMS" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
                                 </div>
                             ))}
                         </motion.div>
