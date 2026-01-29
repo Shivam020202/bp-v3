@@ -20,17 +20,14 @@ const OurClients = () => {
       name: "SCOD",
       logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/scod-favicon_b2d7cp.png",
     },
-    {
-      name: "La Midas",
-      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/La-Midas-Logo_swzrlp.webp",
-    },
+
     {
       name: "IGEHRC",
       logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/IGEHRC-new-logo_ydf3ww.webp",
     },
     {
-      name: "Lifecare",
-      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/lifecare-new-logo_xerg1l.webp",
+      name: "LCH Africa",
+      logo: "https://lchafrica.com/img/cropped-FINAL-LOGO-svg.png",
     },
     {
       name: "Aureus",
@@ -136,7 +133,7 @@ const OurClients = () => {
             transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
           >
             {marqueeRow1.map((client, i) => {
-              const isFeaturedLogo = ['Max Home', 'Lifecare'].includes(client.name);
+              const isFeaturedLogo = ['Max Home', 'LCH Africa'].includes(client.name);
               return (
                 <div
                   key={i}
@@ -148,7 +145,7 @@ const OurClients = () => {
                     src={client.logo}
                     alt={client.name}
                     className={`w-auto object-contain ${client.name === 'Max Home' ? 'h-16 md:h-20' :
-                        isFeaturedLogo ? 'h-14 md:h-18' : 'h-6 md:h-8'
+                      isFeaturedLogo ? 'h-14 md:h-18' : 'h-6 md:h-8'
                       }`}
                   />
                 </div>

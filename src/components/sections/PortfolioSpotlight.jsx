@@ -77,8 +77,8 @@ const PortfolioSpotlight = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section className="py-12 md:py-12 bg-white relative flex justify-center items-center">
-      <div className="container mx-auto  max-w-[1500px]">
+    <section className="py-12 md:py-16 bg-white relative">
+      <div className="container mx-auto px-6">
         {/* Main Card Container */}
         <motion.div
           animate={{ background: spotlights[activeTab].cardGradient }}
@@ -93,20 +93,18 @@ const PortfolioSpotlight = () => {
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(index)}
-                  className={`w-16 h-10 md:w-20 md:h-20 bg-white/10 rounded-lg flex items-center justify-center transition-all duration-300 border backdrop-blur-sm p-2 ${
-                    activeTab === index
+                  className={`w-16 h-10 md:w-20 md:h-20 bg-white/10 rounded-lg flex items-center justify-center transition-all duration-300 border backdrop-blur-sm p-2 ${activeTab === index
                       ? "border-white/40 bg-white/20 shadow-lg scale-110"
                       : "border-white/5 hover:bg-white/15"
-                  }`}
+                    }`}
                 >
                   <img
                     src={item.logo}
                     alt={item.tab}
-                    className={`w-full h-full object-contain filter transition-all duration-300 ${
-                      activeTab === index
+                    className={`w-full h-full object-contain filter transition-all duration-300 ${activeTab === index
                         ? "brightness-0 invert"
                         : "brightness-0 invert"
-                    }`}
+                      }`}
                   />
                 </button>
               ))}

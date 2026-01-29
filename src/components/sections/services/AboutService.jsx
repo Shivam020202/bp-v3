@@ -14,7 +14,7 @@ const AboutService = () => {
             id: 1,
             title: "Frontend Development",
             description: "Modern, responsive user interfaces built with React and cutting-edge technologies for exceptional user experiences that captivate and convert visitors into customers.",
-            image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=800&fit=crop&auto=format",
+            image: "https://res.cloudinary.com/damfndmrm/image/upload/v1769600952/Gemini_Generated_Image_f8cncof8cncof8cn_fzouqf.png",
             technologies: ["React", "Vue.js", "TypeScript", "Next.js"],
             icon: <Code className="w-6 h-6" />,
             stats: { projects: "120+", satisfaction: "99%" }
@@ -23,7 +23,7 @@ const AboutService = () => {
             id: 2,
             title: "Backend Development",
             description: "Robust server-side applications, RESTful APIs, and database architecture for scalable web solutions that power your business growth and handle millions of requests.",
-            image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=800&fit=crop&auto=format",
+            image: "https://res.cloudinary.com/damfndmrm/image/upload/v1769600951/Gemini_Generated_Image_g1202tg1202tg120_tupi0h.png",
             technologies: ["Node.js", "Express.js", "MongoDB", "PostgreSQL"],
             icon: <Server className="w-6 h-6" />,
             stats: { projects: "85+", satisfaction: "98%" }
@@ -32,7 +32,7 @@ const AboutService = () => {
             id: 3,
             title: "E-commerce Solutions",
             description: "Custom online stores with shopping carts, payment processing, and inventory management systems designed to maximize conversions and streamline operations.",
-            image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&h=800&fit=crop&auto=format",
+            image: "https://res.cloudinary.com/damfndmrm/image/upload/v1769600942/Gemini_Generated_Image_n826djn826djn826_ss8izj.png",
             technologies: ["Shopify", "WooCommerce", "Stripe", "PayPal"],
             icon: <ShoppingCart className="w-6 h-6" />,
             stats: { projects: "50+", satisfaction: "100%" }
@@ -41,7 +41,7 @@ const AboutService = () => {
             id: 4,
             title: "CMS Development",
             description: "Content Management Systems that allow easy content updates and website management, giving you full control over your digital presence without technical expertise.",
-            image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=1200&h=800&fit=crop&auto=format",
+            image: "https://res.cloudinary.com/damfndmrm/image/upload/v1769600941/cms-develop_s9dqru.jpg",
             technologies: ["WordPress", "Strapi", "Contentful", "Sanity"],
             icon: <FileText className="w-6 h-6" />,
             stats: { projects: "95+", satisfaction: "97%" }
@@ -50,7 +50,7 @@ const AboutService = () => {
             id: 5,
             title: "Mobile App Development",
             description: "Native and cross-platform mobile applications for iOS and Android, delivering seamless experiences with intuitive UI/UX design and robust backend integration.",
-            image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=800&fit=crop&auto=format",
+            image: "https://res.cloudinary.com/damfndmrm/image/upload/v1769600943/Gemini_Generated_Image_sx9fvpsx9fvpsx9f_g86xms.png",
             technologies: ["React Native", "Flutter", "Swift", "Kotlin"],
             icon: <Smartphone className="w-6 h-6" />,
             stats: { projects: "60+", satisfaction: "98%" }
@@ -68,64 +68,79 @@ const AboutService = () => {
     useEffect(() => {
         if (!isLargeScreen || !containerRef.current) return;
 
-        const cards = containerRef.current.querySelectorAll('.service-card');
-        if (!cards || cards.length === 0) return;
+        let triggers = [];
+        let timeoutId;
 
-        const totalCards = cards.length;
-        const lastCard = cards[totalCards - 1];
+        // Delay setup to ensure video section's ScrollTrigger initializes first
+        timeoutId = setTimeout(() => {
+            const cards = containerRef.current?.querySelectorAll('.service-card');
+            if (!cards || cards.length === 0) return;
 
-        const triggers = [];
+            const totalCards = cards.length;
+            const lastCard = cards[totalCards - 1];
 
-        cards.forEach((card, index) => {
-            const cardContent = card.querySelector('.service-card-content');
-            const isLastCard = index === totalCards - 1;
+            cards.forEach((card, index) => {
+                const cardContent = card.querySelector('.service-card-content');
+                const isLastCard = index === totalCards - 1;
 
-            // Pin all cards
-            const pinTrigger = ScrollTrigger.create({
-                trigger: card,
-                start: 'center center',
-                pin: true,
-                pinSpacing: false,
-                endTrigger: isLastCard ? card : lastCard,
-                end: isLastCard ? 'bottom 35%' : 'bottom 35%',
+                // Pin all cards - start when card center reaches viewport center
+                const pinTrigger = ScrollTrigger.create({
+                    trigger: card,
+                    start: 'center center',
+                    pin: true,
+                    pinSpacing: false,
+                    endTrigger: isLastCard ? card : lastCard,
+                    end: isLastCard ? 'bottom 35%' : 'bottom 35%',
+                    markers: false,
+                    invalidateOnRefresh: true,
+                });
+                triggers.push(pinTrigger);
+
+                // Scale down animation for stacked effect (simpler, smoother)
+                if (!isLastCard) {
+                    const scaleTween = gsap.to(cardContent, {
+                        scale: 0.85,
+                        ease: 'none',
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'center center',
+                            end: () => `+=${window.innerHeight}`,
+                            scrub: true,
+                            markers: false,
+                            invalidateOnRefresh: true,
+                        }
+                    });
+                    if (scaleTween.scrollTrigger) triggers.push(scaleTween.scrollTrigger);
+                } else {
+                    const lastTween = gsap.to(cardContent, {
+                        scale: 0.9,
+                        ease: 'none',
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'center center',
+                            end: 'bottom 35%',
+                            scrub: true,
+                            markers: false,
+                            invalidateOnRefresh: true,
+                        }
+                    });
+                    if (lastTween.scrollTrigger) triggers.push(lastTween.scrollTrigger);
+                }
             });
-            triggers.push(pinTrigger);
 
-            // Scale down animation for stacked effect (simpler, smoother)
-            if (!isLastCard) {
-                const scaleTween = gsap.to(cardContent, {
-                    scale: 0.85,
-                    ease: 'none',
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'center center',
-                        end: () => `+=${window.innerHeight}`,
-                        scrub: true,
-                    }
-                });
-                if (scaleTween.scrollTrigger) triggers.push(scaleTween.scrollTrigger);
-            } else {
-                const lastTween = gsap.to(cardContent, {
-                    scale: 0.9,
-                    ease: 'none',
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'center center',
-                        end: 'bottom 35%',
-                        scrub: true,
-                    }
-                });
-                if (lastTween.scrollTrigger) triggers.push(lastTween.scrollTrigger);
-            }
-        });
+            // Refresh ScrollTrigger to recalculate positions after video section
+            ScrollTrigger.refresh();
+        }, 100);
 
         return () => {
+            clearTimeout(timeoutId);
             triggers.forEach(trigger => trigger.kill());
+            ScrollTrigger.refresh();
         };
     }, [isLargeScreen]);
 
     return (
-        <section className="relative bg-white overflow-hidden">
+        <section className="relative bg-white overflow-hidden z-10">
 
             {/* Lightweight CSS Background */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -176,7 +191,7 @@ const AboutService = () => {
                                         <img
                                             src={service.image}
                                             alt={service.title}
-                                            className="absolute inset-0 w-full h-full object-cover"
+                                            className="absolute inset-0 w-full h-full object-cover object-center"
                                             loading="lazy"
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-transparent" />
@@ -208,7 +223,7 @@ const AboutService = () => {
                                             {service.technologies.slice(0, 3).map((tech, i) => (
                                                 <span
                                                     key={i}
-                                                    className="px-2.5 py-1 text-xs font-medium rounded-full border"
+                                                    className="px-3 py-1.5 text-xs font-medium rounded-full border transition-all duration-300 hover:bg-[#C4A484] hover:text-white hover:border-[#C4A484]"
                                                     style={{ borderColor: '#C4A484', color: '#C4A484' }}
                                                 >
                                                     {tech}
@@ -233,7 +248,7 @@ const AboutService = () => {
             {isLargeScreen && (
                 <div
                     ref={containerRef}
-                    className="w-full lg:max-w-[85vw] mx-auto"
+                    className="w-full lg:max-w-[95vw] mx-auto relative z-20 bg-white"
                 >
                     <ul className="list-none" style={{ '--numcards': services.length }}>
                         {services.map((service, index) => (
@@ -252,14 +267,14 @@ const AboutService = () => {
                                 >
                                     <div className="grid lg:grid-cols-2">
                                         {/* Image Side */}
-                                        <div className="relative h-56 sm:h-64 md:h-80 lg:h-auto lg:min-h-[550px] overflow-hidden">
+                                        <div className="relative h-56 sm:h-64 md:h-80 lg:h-auto lg:min-h-[550px] overflow-hidden bg-[#1a1a2e]">
                                             <img
                                                 src={service.image}
                                                 alt={service.title}
-                                                className="absolute inset-0 w-full h-full object-cover"
+                                                className="absolute inset-0 w-full h-full object-contain"
                                                 loading="lazy"
                                             />
-                                            <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-transparent" />
+                                            <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent" />
 
                                             {/* Number Badge */}
                                             <div className="absolute top-4 left-4 md:top-6 md:left-6">
@@ -304,7 +319,7 @@ const AboutService = () => {
                                                 {service.technologies.map((tech, i) => (
                                                     <span
                                                         key={i}
-                                                        className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-medium rounded-full border transition-colors hover:bg-[#C4A484] hover:text-white hover:border-[#C4A484]"
+                                                        className="px-4 py-2 md:px-5 md:py-2.5 text-sm md:text-base font-medium rounded-full border transition-all duration-300 hover:bg-[#C4A484] hover:text-white hover:border-[#C4A484]"
                                                         style={{ borderColor: '#C4A484', color: '#C4A484' }}
                                                     >
                                                         {tech}

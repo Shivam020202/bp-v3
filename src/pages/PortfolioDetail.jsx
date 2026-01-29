@@ -348,9 +348,9 @@ const PortfolioDetail = () => {
                   {[
                     { name: "Max Home", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/max_home-logo_ya130a.png", size: "h-16" },
                     { name: "SCOD", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/scod-favicon_b2d7cp.png", size: "h-8" },
-                    { name: "La Midas", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/La-Midas-Logo_swzrlp.webp", size: "h-8" },
+
                     { name: "IGEHRC", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/IGEHRC-new-logo_ydf3ww.webp", size: "h-8" },
-                    { name: "Lifecare", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/lifecare-new-logo_xerg1l.webp", size: "h-14" },
+                    { name: "LCH Africa", logo: "https://lchafrica.com/img/cropped-FINAL-LOGO-svg.png", size: "h-14" },
                     { name: "Aureus", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/aureus-new-logo_lbyme0.webp", size: "h-8" },
                     { name: "Astrovazar", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/astrovazar_wbf12h.webp", size: "h-8" },
                     { name: "Ecovana", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ecovana-logo_a1r4ct.webp", size: "h-8" },

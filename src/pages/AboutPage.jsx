@@ -25,7 +25,7 @@ const AboutPage = () => {
         {
             name: "Nishu Sharma",
             role: "Managing Partner",
-            image: "https://brandingpioneers.com/assets/nishu.webp",
+            image: "https://brandingpioneers.com/healthcare/assets/images/nishu-img.webp",
             bio: "Leading from the front—breaking barriers and setting benchmarks in the digital marketing space. Making brands unforgettable.",
             icon: (
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -168,10 +168,12 @@ const AboutPage = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 }}
-                        className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tighter leading-tight"
+                        className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tighter leading-[0.9]"
                     >
-                        WHERE <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484]">INNOVATION</span><br />
-                        MEETS IMPACT.
+                        WHERE <br className="hidden sm:block" />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">
+                            INNOVATION MEETS IMPACT.
+                        </span>
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -202,11 +204,11 @@ const AboutPage = () => {
                     </div>
 
                     <div className="container mx-auto px-6 relative z-10">
-                        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center max-w-6xl mx-auto">
+                        <div className="grid lg:grid-cols-2 gap-14 lg:gap-16 items-center max-w-7xl mx-auto">
 
                             {/* Left - Video with Premium Frame */}
                             <motion.div
-                                className="relative"
+                                className="relative lg:col-span-1"
                                 initial={{ opacity: 0, x: -60, scale: 0.95 }}
                                 whileInView={{ opacity: 1, x: 0, scale: 1 }}
                                 viewport={{ once: true }}
@@ -214,17 +216,17 @@ const AboutPage = () => {
                             >
                                 {/* Decorative Back Frame */}
                                 <motion.div
-                                    className="absolute -inset-3 border border-black/10 rounded-3xl"
+                                    className="absolute -inset-4 border border-black/10 rounded-3xl"
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: 0.3 }}
                                 />
 
-                                {/* Video Container */}
+                                {/* Video Container - Larger and more prominent */}
                                 <motion.div
                                     className="relative rounded-2xl overflow-hidden shadow-2xl"
-                                    whileHover={{ scale: 1.02, boxShadow: '0 30px 60px -15px rgba(0,0,0,0.2)' }}
+                                    whileHover={{ scale: 1.02, boxShadow: '0 40px 80px -20px rgba(0,0,0,0.25)' }}
                                     transition={{ duration: 0.4 }}
                                 >
                                     <video
@@ -232,7 +234,7 @@ const AboutPage = () => {
                                         muted
                                         loop
                                         playsInline
-                                        className="w-full aspect-[4/3] object-cover"
+                                        className="w-full aspect-[4/3] lg:aspect-video object-cover min-h-[350px] md:min-h-[400px] lg:min-h-[450px]"
                                     >
                                         <source src="https://res.cloudinary.com/damfndmrm/video/upload/v1768472297/bp_upd_1_orndgn.mp4" type="video/mp4" />
                                     </video>
@@ -242,7 +244,7 @@ const AboutPage = () => {
 
                                     {/* Year Badge */}
                                     <motion.span
-                                        className="absolute bottom-5 left-5 px-4 py-2 bg-white/10 backdrop-blur-xl rounded-full text-sm font-semibold text-white border border-white/20"
+                                        className="absolute bottom-6 left-6 px-5 py-2.5 bg-white/10 backdrop-blur-xl rounded-full text-base font-semibold text-white border border-white/20"
                                         whileHover={{ scale: 1.05 }}
                                     >
                                         Est. 2018
@@ -416,9 +418,14 @@ const AboutPage = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                         >
-                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-2 leading-[0.9] tracking-tighter">
-                                Join over <span style={{ color: '#C4A484' }}>2,500+</span> businesses to
-                                <br className="hidden md:block" /> create unique brand designs.
+                            <span className="text-gray-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 md:mb-4 block">
+                                Trusted Partners
+                            </span>
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9] mb-2">
+                                JOIN OVER <br className="hidden sm:block" />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">
+                                    2,500+ BRANDS.
+                                </span>
                             </h2>
                         </motion.div>
                     </div>
@@ -435,9 +442,9 @@ const AboutPage = () => {
                                 <div key={setIndex} className="flex items-center justify-around flex-shrink-0 gap-8 md:gap-12 px-6" style={{ width: "50%" }}>
                                     <img src="https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/max_home-logo_ya130a.png" alt="Max Home" className="h-16 md:h-20 w-auto object-contain flex-shrink-0" />
                                     <img src="https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/scod-favicon_b2d7cp.png" alt="SCOD" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
-                                    <img src="https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/La-Midas-Logo_swzrlp.webp" alt="La Midas" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
+
                                     <img src="https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/IGEHRC-new-logo_ydf3ww.webp" alt="IGEHRC" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
-                                    <img src="https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/lifecare-new-logo_xerg1l.webp" alt="Lifecare" className="h-14 md:h-18 w-auto object-contain flex-shrink-0" />
+                                    <img src="https://lchafrica.com/img/cropped-FINAL-LOGO-svg.png" alt="LCH Africa" className="h-14 md:h-18 w-auto object-contain flex-shrink-0" />
                                     <img src="https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/aureus-new-logo_lbyme0.webp" alt="Aureus" className="h-7 md:h-9 w-auto object-contain flex-shrink-0" />
                                 </div>
                             ))}
@@ -505,8 +512,14 @@ const AboutPage = () => {
                                         viewport={{ once: true }}
                                         transition={{ duration: 0.6 }}
                                     >
-                                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[0.9] mb-4 text-center tracking-tighter" style={{ fontFamily: 'serif' }}>
-                                            MEET OUR<br />FOUNDERS
+                                        <span className="text-gray-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 md:mb-4 block text-center">
+                                            Leadership
+                                        </span>
+                                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9] mb-4 text-center">
+                                            MEET OUR<br />
+                                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">
+                                                FOUNDERS
+                                            </span>
                                         </h2>
                                         <p className="text-gray-500 text-sm leading-relaxed text-center">
                                             Visionaries who transformed Branding Pioneers from an ambitious idea into a leading digital agency, driving innovation and excellence in every project we undertake.
@@ -525,7 +538,7 @@ const AboutPage = () => {
                                 >
                                     <div className="w-[240px] h-[320px] xl:w-[280px] xl:h-[360px]">
                                         <img
-                                            src="https://brandingpioneers.com/assets/nishu.webp"
+                                            src="https://brandingpioneers.com/healthcare/assets/images/nishu-img.webp"
                                             alt="Nishu Sharma"
                                             className="w-full h-full object-cover object-top rounded-t-full"
                                         />
@@ -543,7 +556,7 @@ const AboutPage = () => {
                                     transition={{ duration: 0.5, delay: 0.3 }}
                                 >
                                     <h3 className="text-2xl font-bold text-gray-900">Arush Thapar</h3>
-                                    <p className="text-gray-500 uppercase tracking-widest text-xs mt-0.5">FOUNDER AND PRINCIPAL</p>
+                                    <p className="text-gray-500 uppercase tracking-widest text-xs mt-0.5">FOUNDER </p>
                                 </motion.div>
                                 <motion.div
                                     className="text-right"
@@ -553,7 +566,7 @@ const AboutPage = () => {
                                     transition={{ duration: 0.5, delay: 0.3 }}
                                 >
                                     <h3 className="text-2xl font-bold text-gray-900">Nishu Sharma</h3>
-                                    <p className="text-gray-500 uppercase tracking-widest text-xs mt-0.5">FOUNDER AND PRINCIPAL</p>
+                                    <p className="text-gray-500 uppercase tracking-widest text-xs mt-0.5">FOUNDER </p>
                                 </motion.div>
                             </div>
 
@@ -584,7 +597,7 @@ const AboutPage = () => {
                                 >
                                     <div className="w-full h-[180px] overflow-hidden rounded-xl mb-3">
                                         <img
-                                            src="https://brandingpioneers.com/assets/nishu.webp"
+                                            src="https://brandingpioneers.com/healthcare/assets/images/nishu-img.webp"
                                             alt="Nishu Sharma"
                                             className="w-full h-full object-cover object-top"
                                         />
