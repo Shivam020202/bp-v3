@@ -52,14 +52,12 @@ const PortfolioPage = () => {
       ? projects
       : projects.filter((p) => p.category === activeFilter);
 
-<<<<<<< Updated upstream
   // All client logos in a flat array
   const allClientLogos = [
     { name: "Max Home", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/max_home-logo_ya130a.png" },
     { name: "SCOD", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/scod-favicon_b2d7cp.png" },
-    { name: "La Midas", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/La-Midas-Logo_swzrlp.webp" },
     { name: "IGEHRC", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/IGEHRC-new-logo_ydf3ww.webp" },
-    { name: "Lifecare", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/lifecare-new-logo_xerg1l.webp" },
+    { name: "LCH Africa", logo: "https://lchafrica.com/img/cropped-FINAL-LOGO-svg.png" },
     { name: "Aureus", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/aureus-new-logo_lbyme0.webp" },
     { name: "Astrovazar", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/astrovazar_wbf12h.webp" },
     { name: "Ecovana", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ecovana-logo_a1r4ct.webp" },
@@ -67,99 +65,6 @@ const PortfolioPage = () => {
     { name: "Ivy", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ivy-new-logo_tnjcme.webp" },
     { name: "Cloudnine", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/cloudnine-logo_mcocql.webp" },
     { name: "AIIMS", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580793/aiims_pleq0o.webp" },
-=======
-  // Client logos data from homepage - each logo repeated 3 times for cycling effect
-  const clientsData = [
-    {
-      name: "Max Home",
-      images: [
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/max_home-logo_ya130a.png",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/max_home-logo_ya130a.png",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/max_home-logo_ya130a.png",
-      ],
-    },
-    {
-      name: "SCOD",
-      images: [
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/scod-favicon_b2d7cp.png",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/scod-favicon_b2d7cp.png",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/scod-favicon_b2d7cp.png",
-      ],
-    },
-
-    {
-      name: "IGEHRC",
-      images: [
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/IGEHRC-new-logo_ydf3ww.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/IGEHRC-new-logo_ydf3ww.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/IGEHRC-new-logo_ydf3ww.webp",
-      ],
-    },
-    {
-      name: "LCH Africa",
-      images: [
-        "https://lchafrica.com/img/cropped-FINAL-LOGO-svg.png",
-        "https://lchafrica.com/img/cropped-FINAL-LOGO-svg.png",
-        "https://lchafrica.com/img/cropped-FINAL-LOGO-svg.png",
-      ],
-    },
-    {
-      name: "Aureus",
-      images: [
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/aureus-new-logo_lbyme0.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/aureus-new-logo_lbyme0.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/aureus-new-logo_lbyme0.webp",
-      ],
-    },
-    {
-      name: "Astrovazar",
-      images: [
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/astrovazar_wbf12h.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/astrovazar_wbf12h.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/astrovazar_wbf12h.webp",
-      ],
-    },
-    {
-      name: "Ecovana",
-      images: [
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ecovana-logo_a1r4ct.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ecovana-logo_a1r4ct.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ecovana-logo_a1r4ct.webp",
-      ],
-    },
-    {
-      name: "DST",
-      images: [
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/dst_k894jm.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/dst_k894jm.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/dst_k894jm.webp",
-      ],
-    },
-    {
-      name: "Ivy",
-      images: [
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ivy-new-logo_tnjcme.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ivy-new-logo_tnjcme.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ivy-new-logo_tnjcme.webp",
-      ],
-    },
-    {
-      name: "Cloudnine",
-      images: [
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/cloudnine-logo_mcocql.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/cloudnine-logo_mcocql.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/cloudnine-logo_mcocql.webp",
-      ],
-    },
-    {
-      name: "AIIMS",
-      images: [
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580793/aiims_pleq0o.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580793/aiims_pleq0o.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580793/aiims_pleq0o.webp",
-      ],
-    },
->>>>>>> Stashed changes
   ];
 
   // Number of card slots to display
