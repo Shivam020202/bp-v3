@@ -414,8 +414,8 @@ const MegaMenuHeader = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 container mx-auto ${
         isScrolled || isContactPage
-          ? "bg-white/70 backdrop-blur-sm border-b border-white/10 shadow-[inset_0_2px_10px_rgba(0,0,0,0.3)] rounded-3xl mt-2"
-          : "bg-white/90    rounded-b-3xl"
+          ? "bg-white/70 backdrop-blur-sm border-b border-white/10 shadow-[inset_0_2px_10px_rgba(0,0,0,0.3)] rounded-b-3xl md:rounded-3xl md:mt-2"
+          : "bg-white/90 rounded-b-3xl"
       }`}
     >
       <div className="container mx-auto px-6">
@@ -812,7 +812,7 @@ const MegaMenuHeader = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`lg:hidden p-2 transition-colors ${
-                isScrolled || isContactPage ? "text-warm-700" : "text-white"
+                isScrolled || isContactPage ? "text-warm-700" : "text-black"
               }`}
             >
               {isMobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}

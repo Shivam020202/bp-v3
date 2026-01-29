@@ -66,7 +66,7 @@ const services = [
 
 const SwissGridServices = () => {
   return (
-    <section className="bg-cream-50 pt-24 pb-32 px-4 md:px-8">
+    <section className="bg-white py-10 px-4 md:px-8">
       <div className="container mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-10 lg:mb-16 gap-8">
@@ -97,7 +97,7 @@ const SwissGridServices = () => {
         </div>
 
         {/* The Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-l border-t border-warm-900/50">
+        <div className="grid grid-cols-2 lg:grid-cols-3 border-l border-t border-warm-900/50">
           {services.map((service, index) => (
             <GridCell key={service.id} service={service} index={index} />
           ))}
@@ -114,15 +114,16 @@ const GridCell = ({ service, index }) => {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative border-r border-b border-warm-900/50 h-[300px] group cursor-pointer overflow-hidden"
+      onClick={() => setIsHovered(!isHovered)}
+      className="relative border-r border-b border-warm-900/50 h-[250px] md:h-[300px] group cursor-pointer overflow-hidden bg-white"
     >
-      {/* Background Reveal */}
+      {/* Background Image (Visible by default) */}
       <AnimatePresence>
-        {isHovered && (
+        {!isHovered && (
           <motion.div
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
             className="absolute inset-0 z-0 bg-warm-900"
           >
@@ -131,17 +132,19 @@ const GridCell = ({ service, index }) => {
               alt={service.title}
               className="w-full h-full object-cover opacity-60"
             />
-            <div className="absolute inset-0 bg-black/20" />
+            <div className="absolute inset-0 bg-black/40" />
           </motion.div>
         )}
       </AnimatePresence>
 
       {/* Content Container */}
-      <div className="relative z-10 h-full p-8 md:p-10 flex flex-col justify-between transition-colors duration-300">
+      <div className="relative z-10 h-full p-4 md:p-10 flex flex-col justify-between transition-colors duration-300">
         {/* Top: ID & Tags */}
         <div className="flex justify-between items-start">
           <span
-            className={`font-mono text-xs uppercase tracking-widest transition-colors duration-300 ${isHovered ? "text-white/70" : "text-warm-900/40"}`}
+            className={`font-mono text-[10px] md:text-xs uppercase tracking-widest transition-colors duration-300 ${
+              !isHovered ? "text-white/70" : "text-warm-900/40"
+            }`}
           >
             ( {service.id} )
           </span>
@@ -152,7 +155,7 @@ const GridCell = ({ service, index }) => {
             {service.tags.slice(0, 3).map((tag, i) => (
               <span
                 key={i}
-                className="text-[10px] uppercase tracking-wider text-white/70"
+                className="text-[10px] uppercase tracking-wider text-warm-900/60"
               >
                 {tag}
               </span>
@@ -163,34 +166,41 @@ const GridCell = ({ service, index }) => {
         {/* Bottom: Title & Description */}
         <div>
           <h3
-            className={`text-3xl md:text-4xl font-display font-medium mb-4 leading-tight transition-colors duration-300 ${isHovered ? "text-white" : "text-warm-900"}`}
+            className={`text-xl md:text-3xl lg:text-4xl font-display font-medium mb-3 md:mb-4 leading-tight transition-colors duration-300 ${
+              !isHovered ? "text-white" : "text-warm-900"
+            }`}
           >
             {service.title}
           </h3>
 
           <div className="relative overflow-hidden">
-            {/* Default State: Description */}
+            {/* Default State: Description (Visible on Image) */}
             <motion.p
-              animate={{ y: isHovered ? 50 : 0, opacity: isHovered ? 0 : 1 }}
+              animate={{ y: isHovered ? 20 : 0, opacity: isHovered ? 0 : 1 }}
               transition={{ duration: 0.3 }}
-              className="text-warm-900/60 text-sm leading-relaxed max-w-xs"
+              className={`text-xs md:text-sm leading-relaxed max-w-xs ${
+                !isHovered ? "text-white/80" : "text-warm-900/60"
+              }`}
             >
-              {service.description}
+              <span className="line-clamp-3 md:line-clamp-none">
+                {service.description}
+              </span>
             </motion.p>
 
             {/* Hover State: Button */}
+            {/* Keep functionality: Show button on hover */}
             <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: isHovered ? 0 : 50, opacity: isHovered ? 1 : 0 }}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
               transition={{ duration: 0.3, delay: 0.1 }}
               className="absolute top-0 left-0"
             >
-              <button className="flex items-center gap-3 text-white group-hover:gap-4 transition-all">
-                <span className="text-sm font-bold uppercase tracking-widest">
+              <button className="flex items-center gap-2 md:gap-3 text-warm-900 group-hover:gap-3 md:group-hover:gap-4 transition-all">
+                <span className="text-xs md:text-sm font-bold uppercase tracking-widest">
                   Dig Deeper
                 </span>
-                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
-                  <ArrowUpRight className="w-4 h-4" />
+                <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-warm-900/10 flex items-center justify-center">
+                  <ArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
                 </div>
               </button>
             </motion.div>
@@ -198,11 +208,13 @@ const GridCell = ({ service, index }) => {
         </div>
       </div>
 
-      {/* Decorative Corner (Only visible on inactive) */}
+      {/* Decorative Corner (Visible on Hover/Plain) */}
       <div
-        className={`absolute top-0 right-0 p-4 transition-opacity duration-300 ${isHovered ? "opacity-0" : "opacity-100"}`}
+        className={`absolute top-0 right-0 p-4 transition-opacity duration-300 ${
+          !isHovered ? "opacity-0" : "opacity-100"
+        }`}
       >
-        <ArrowUpRight className="w-6 h-6 text-warm-900/20" />
+        <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 text-warm-900/20" />
       </div>
     </div>
   );
