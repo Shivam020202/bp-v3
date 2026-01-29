@@ -272,7 +272,7 @@ const PortfolioDetail = () => {
             animate={isContentInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto gap-8">
               {project.results.slice(0, 3).map((result, index) => {
                 const cardStyles = [
                   { bg: 'bg-[#1a1a1a]', textColor: 'text-white', subText: 'text-white/60', innerBg: 'bg-white/10', metricColor: '#C4A484', innerText: 'text-white/80' },

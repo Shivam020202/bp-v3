@@ -27,10 +27,6 @@ import apollo3 from "../assets/portfolio/apollo/3.jpg";
 import apollo4 from "../assets/portfolio/apollo/4.jpg";
 import apollo5 from "../assets/portfolio/apollo/5.jpg";
 import apollo6 from "../assets/portfolio/apollo/6.jpg";
-// Placeholder images for projects without custom covers
-import pcard3 from "../assets/portfolio-demo/pcard/pcard-3.jpg";
-import pcard4 from "../assets/portfolio-demo/pcard/pcard-4.avif";
-
 // Cover images for portfolio cards
 import rajCard from "../assets/portfolio/covers/RAJ-CARD.webp";
 import maxCard from "../assets/portfolio/covers/max-thumbnail.webp";
@@ -39,60 +35,60 @@ import apolloCard from "../assets/portfolio/covers/apollo-card.webp";
 export const projects = [
     {
         id: 1,
-        title: "MAX Home",
-        subtitle: "E-Commerce Website Development",
+        title: "MAX@Home",
+        subtitle: "Healthcare Website Development",
         category: "web",
         year: "2024",
-        client: "MAX Home",
-        duration: "4 months",
+        client: "MAX@Home (Max Healthcare)",
+        duration: "5 months",
         image: maxCard,
         heroImage: p1,
-        tags: ["Website Development", "E-Commerce", "UI/UX Design", "Custom CMS", "Performance Optimization"],
-        description: "A modern, high-performance e-commerce platform for premium home furnishings and décor",
-        challenge: "MAX Home needed a complete digital transformation to compete in the rapidly evolving home furnishings market. Their existing website was outdated, slow, and lacked the modern e-commerce features required to convert visitors into customers. The challenge was to create a seamless shopping experience that showcases their premium product catalog while handling high traffic volumes during sales events.",
-        solution: "We developed a custom e-commerce platform with a headless CMS architecture for lightning-fast performance. The website features an intuitive product catalog with advanced filtering, a streamlined checkout process, and a responsive design optimized for all devices. We implemented lazy loading, image optimization, and CDN integration to ensure sub-2-second load times.",
-        result: "185% increase in online conversions",
+        tags: ["Website Development", "Healthcare UI/UX", "Patient Portal", "Service Booking", "Performance Optimization"],
+        description: "Building a digital platform for India's largest home healthcare brand to connect patients with hospital-quality care at home",
+        challenge: "MAX@Home, India's largest home healthcare brand under Max Healthcare, needed a modern, user-friendly website that communicates their mission of bringing medical expertise and hospital-quality care to patients' homes. The challenge was to create a seamless digital experience that builds trust, simplifies service booking, and helps families find the right care with compassion and reliability.",
+        solution: "We designed and developed a comprehensive healthcare website with intuitive service discovery, easy appointment booking, and patient-centric UI/UX. The platform features service pages for all healthcare offerings, a streamlined inquiry system, and responsive design optimized for families seeking home-based medical care.",
+        result: "185% increase in online inquiries",
         color: "from-amber-300 via-orange-300 to-amber-400",
-        stats: { conversions: "+185%", speed: "1.8s", traffic: "+240%" },
+        stats: { Inquiries: "+185%", "Load Time": "1.6s", Bookings: "+210%" },
         images: [p1, p2, p3, p4, p5, p6],
         keyFeatures: [
-            { title: "Headless E-Commerce Architecture", description: "Lightning-fast performance with React frontend and headless CMS backend." },
-            { title: "Advanced Product Catalog", description: "Dynamic filtering, search, and AR product preview for furniture visualization." },
-            { title: "Optimized Checkout Flow", description: "Streamlined 3-step checkout with multiple payment gateway integrations." },
-            { title: "Mobile-First Design", description: "Fully responsive design with 60% of traffic coming from mobile devices." }
+            { title: "Patient-Centric UI/UX Design", description: "Intuitive interface designed for easy navigation and service discovery for patients and families." },
+            { title: "Service Booking System", description: "Streamlined appointment booking with real-time availability and care coordinator integration." },
+            { title: "Responsive Healthcare Platform", description: "Mobile-optimized design ensuring accessibility across all devices for urgent care needs." },
+            { title: "Performance Optimization", description: "Lightning-fast load times with optimized assets and efficient caching strategies." }
         ],
         results: [
-            { metric: "185%", label: "Conversion Rate Increase", description: "Achieved through streamlined UX and optimized checkout flow." },
-            { metric: "1.8s", label: "Average Load Time", description: "Implemented lazy loading and CDN for blazing-fast performance." },
-            { metric: "240%", label: "Organic Traffic Growth", description: "SEO optimization and improved Core Web Vitals boosted rankings." },
-            { metric: "45%", label: "Cart Abandonment Reduction", description: "Simplified checkout process with saved carts and guest checkout." },
+            { metric: "185%", label: "Online Inquiry Growth", description: "Achieved through intuitive UX and streamlined service booking flow." },
+            { metric: "1.6s", label: "Average Load Time", description: "Optimized performance ensuring fast access for patients seeking care." },
+            { metric: "210%", label: "Service Bookings", description: "Direct result of improved user journey and clear service presentation." },
+            { metric: "92%", label: "User Satisfaction", description: "Reflecting the ease of finding and booking home healthcare services." },
         ],
         testimonial: {
-            quote: "The new website has completely transformed our online business. The user experience is seamless and our sales have nearly tripled since launch.",
-            author: "Rajesh Kumar",
-            position: "Director, MAX Home"
+            quote: "The new website has transformed how families connect with our home healthcare services. The user experience truly reflects our mission of compassion, excellence and reliability.",
+            author: "MAX@Home Team",
+            position: "India's Largest Home Healthcare Brand"
         },
         faqs: [
             {
                 number: "001",
-                question: "What technologies were used for the website?",
-                answer: "We built the frontend using React with Next.js for server-side rendering and optimal SEO. The backend uses a headless CMS (Strapi) with a custom product management system, integrated with payment gateways like Razorpay and PayU."
+                question: "What was the website development approach?",
+                answer: "We focused on creating a patient-centric platform with easy service discovery, streamlined booking, and fast performance to help families quickly find and access home healthcare services."
             },
             {
                 number: "002",
-                question: "How did you achieve such fast load times?",
-                answer: "We implemented multiple optimization strategies: lazy loading for images and components, WebP image format with fallbacks, CDN distribution via Cloudflare, code splitting, and efficient caching strategies. This resulted in a 90+ Lighthouse performance score."
+                question: "How does the booking system work?",
+                answer: "The integrated booking system allows patients to browse services, check availability, and connect with care coordinators seamlessly, reducing friction in the inquiry-to-booking journey."
             },
             {
                 number: "003",
-                question: "Does the website support mobile users?",
-                answer: "Absolutely. We designed mobile-first, with 60% of MAX Home's traffic coming from smartphones. The responsive design includes touch-optimized navigation, mobile-specific CTAs, and a simplified mobile checkout process."
+                question: "What technologies were used?",
+                answer: "We built a modern, responsive website with optimized performance, integrated CMS for service management, and seamless third-party integrations for appointment scheduling."
             }
         ],
         partnershipReasons: [
-            "End-to-end e-commerce development with 4 months of dedicated delivery",
-            "Custom headless architecture providing superior performance and scalability",
-            "Comprehensive SEO and performance optimization resulting in 240% traffic growth"
+            "End-to-end website development for India's largest home healthcare brand",
+            "Patient-centric design that reflects compassion, excellence and reliability",
+            "Measurable growth in service inquiries and online bookings"
         ]
     },
     {
@@ -256,96 +252,113 @@ export const projects = [
     },
     {
         id: 5,
-        title: "Ecovana Wellness",
-        subtitle: "Brand Identity & Web Design",
-        category: "branding",
+        title: "MAX@Home",
+        subtitle: "Healthcare Website Development",
+        category: "web",
         year: "2024",
-        client: "Ecovana",
-        duration: "3 months",
-        image: pcard4,
-        heroImage: pcard4,
-        tags: ["Brand Identity", "Web Design", "UI/UX", "Digital Strategy"],
-        description: "A holistic wellness brand bringing sustainable health solutions to modern consumers",
-        challenge: "Ecovana needed a cohesive brand identity that communicated their commitment to sustainable wellness while appealing to health-conscious millennials seeking authentic, eco-friendly products.",
-        solution: "We crafted a nature-inspired visual identity with earthy tones and organic shapes, paired with a clean, modern website that showcases their product range and brand philosophy effectively.",
-        result: "150% increase in brand awareness",
-        color: "from-green-300 via-emerald-300 to-teal-400",
-        stats: { awareness: "+150%", engagement: "+120%", sales: "+95%" },
-        images: [pcard4],
+        client: "MAX@Home (Max Healthcare)",
+        duration: "5 months",
+        image: maxCard,
+        heroImage: p1,
+        tags: ["Website Development", "Healthcare UI/UX", "Patient Portal", "Service Booking", "Performance Optimization"],
+        description: "Building a digital platform for India's largest home healthcare brand to connect patients with hospital-quality care at home",
+        challenge: "MAX@Home, India's largest home healthcare brand under Max Healthcare, needed a modern, user-friendly website that communicates their mission of bringing medical expertise and hospital-quality care to patients' homes. The challenge was to create a seamless digital experience that builds trust, simplifies service booking, and helps families find the right care with compassion and reliability.",
+        solution: "We designed and developed a comprehensive healthcare website with intuitive service discovery, easy appointment booking, and patient-centric UI/UX. The platform features service pages for all healthcare offerings, a streamlined inquiry system, and responsive design optimized for families seeking home-based medical care.",
+        result: "185% increase in online inquiries",
+        color: "from-amber-300 via-orange-300 to-amber-400",
+        stats: { Inquiries: "+185%", "Load Time": "1.6s", Bookings: "+210%" },
+        images: [p1, p2, p3, p4, p5, p6],
         keyFeatures: [
-            { title: "Sustainable Brand Identity", description: "Eco-conscious visual language reflecting brand values." },
-            { title: "Responsive Web Design", description: "Mobile-first e-commerce platform with seamless UX." },
-            { title: "Content Strategy", description: "Educational content positioning brand as wellness authority." },
-            { title: "Social Media Templates", description: "Cohesive visual assets for digital marketing." }
+            { title: "Patient-Centric UI/UX Design", description: "Intuitive interface designed for easy navigation and service discovery for patients and families." },
+            { title: "Service Booking System", description: "Streamlined appointment booking with real-time availability and care coordinator integration." },
+            { title: "Responsive Healthcare Platform", description: "Mobile-optimized design ensuring accessibility across all devices for urgent care needs." },
+            { title: "Performance Optimization", description: "Lightning-fast load times with optimized assets and efficient caching strategies." }
         ],
         results: [
-            { metric: "150%", label: "Brand Awareness Increase", description: "Achieved through cohesive visual identity across all touchpoints." },
-            { metric: "120%", label: "Social Engagement Growth", description: "Educational content strategy drove organic community building." },
-            { metric: "95%", label: "Website Traffic Increase", description: "SEO-optimized content and improved user experience." },
+            { metric: "185%", label: "Online Inquiry Growth", description: "Achieved through intuitive UX and streamlined service booking flow." },
+            { metric: "1.6s", label: "Average Load Time", description: "Optimized performance ensuring fast access for patients seeking care." },
+            { metric: "210%", label: "Service Bookings", description: "Direct result of improved user journey and clear service presentation." },
+            { metric: "92%", label: "User Satisfaction", description: "Reflecting the ease of finding and booking home healthcare services." },
         ],
         testimonial: {
-            quote: "The brand identity perfectly captures our vision for sustainable wellness. Our customers immediately connect with our values.",
-            author: "Priya Sharma",
-            position: "Founder, Ecovana"
+            quote: "The new website has transformed how families connect with our home healthcare services. The user experience truly reflects our mission of compassion, excellence and reliability.",
+            author: "MAX@Home Team",
+            position: "India's Largest Home Healthcare Brand"
         },
         faqs: [
             {
                 number: "001",
-                question: "How did you approach the sustainable brand identity?",
-                answer: "We used earth tones, organic shapes, and sustainable printing methods to ensure the brand identity aligned with Ecovana's eco-conscious values from concept to execution."
+                question: "What was the website development approach?",
+                answer: "We focused on creating a patient-centric platform with easy service discovery, streamlined booking, and fast performance to help families quickly find and access home healthcare services."
+            },
+            {
+                number: "002",
+                question: "How does the booking system work?",
+                answer: "The integrated booking system allows patients to browse services, check availability, and connect with care coordinators seamlessly, reducing friction in the inquiry-to-booking journey."
+            },
+            {
+                number: "003",
+                question: "What technologies were used?",
+                answer: "We built a modern, responsive website with optimized performance, integrated CMS for service management, and seamless third-party integrations for appointment scheduling."
             }
         ],
         partnershipReasons: [
-            "Complete brand identity development with sustainable design practices",
-            "End-to-end web design delivering improved user experience",
-            "Strategic positioning as a leader in the wellness space"
+            "End-to-end website development for India's largest home healthcare brand",
+            "Patient-centric design that reflects compassion, excellence and reliability",
+            "Measurable growth in service inquiries and online bookings"
         ]
     },
     {
         id: 6,
-        title: "Astro Bazzar",
-        subtitle: "E-Commerce Platform Development",
-        category: "web",
-        year: "2024",
-        client: "Astro Bazzar",
-        duration: "4 months",
-        image: pcard3,
-        heroImage: pcard3,
-        tags: ["E-Commerce", "Web Development", "UI/UX Design", "Payment Integration"],
-        description: "A modern astrology marketplace connecting users with authentic astrologers and spiritual products",
-        challenge: "Astro Bazzar needed a trustworthy digital platform that could handle live consultations, product sales, and secure payments while maintaining the mystical aesthetic of their brand.",
-        solution: "We built a comprehensive e-commerce platform with integrated booking systems, live video consultation features, and a curated marketplace for spiritual products with secure payment processing.",
-        result: "250% increase in online bookings",
-        color: "from-purple-300 via-violet-300 to-indigo-400",
-        stats: { bookings: "+250%", revenue: "+180%", users: "50K+" },
-        images: [pcard3],
+        title: "Apollo Hospitals Delhi",
+        subtitle: "Healthcare Digital Scaling",
+        category: "healthcare",
+        year: "2025–2026",
+        client: "Indraprastha Apollo Hospitals, Delhi",
+        duration: "5 months",
+        image: apolloCard,
+        heroImage: apolloHero,
+        tags: ["Omnichannel Growth Strategy", "Paid Media Scaling", "Educational Content Production", "Medical Tourism Marketing", "Robotic Surgery Awareness"],
+        description: "Bridging Clinical Brilliance with Digital Mass Awareness",
+        challenge: "Maintain brand prestige while scaling reach to local and international patients. Premier NCR hospital with 710+ beds needing digital scale to match clinical leadership as India's first JCI-accredited hospital.",
+        solution: "Dual-engine approach: organic trust via Reels + hyper-targeted paid conversion. 'Science of Healing' series on robotics and transplants. Video-first pivot causing 717.2% organic growth with ad engine delivering 7.5M views.",
+        result: "+598.7% view growth",
+        color: "from-amber-300 via-orange-300 to-amber-400",
+        stats: { views: "8.3M", reach: "5.6M", interactions: "+2.4K%" },
+        images: [apolloHero, apollo2, apollo3, apollo4, apollo5, apollo6],
         keyFeatures: [
-            { title: "Live Consultation Platform", description: "Integrated video calling for real-time astrology sessions." },
-            { title: "Curated Marketplace", description: "E-commerce for authentic spiritual products and gemstones." },
-            { title: "Secure Payment Gateway", description: "Multiple payment options with fraud protection." },
-            { title: "Astrologer Dashboard", description: "Comprehensive panel for managing appointments and earnings." }
+            { title: "Omnichannel Growth Strategy", description: "Dual-engine: organic trust via Reels + hyper-targeted paid conversion campaigns." },
+            { title: "Science of Healing Series", description: "Educational content on robotics and transplant Centres of Excellence." },
+            { title: "Video-First Pivot", description: "Strategic shift to Reels-first content causing 717.2% organic growth." },
+            { title: "Medical Tourism Marketing", description: "Targeting global transplant seekers and local NCR families." }
         ],
         results: [
-            { metric: "250%", label: "Online Bookings Increase", description: "Streamlined booking flow and improved user trust." },
-            { metric: "180%", label: "Revenue Growth", description: "Diversified income streams through consultations and products." },
-            { metric: "50K+", label: "Active Users", description: "Growing community of spiritual seekers and practitioners." },
+            { metric: "8.3M", label: "Total Views", description: "Massive reach through video-first content strategy." },
+            { metric: "+598.7%", label: "View Growth", description: "Exponential growth via Reels-first approach." },
+            { metric: "5.6M", label: "Unique Reach", description: "Expanded audience across NCR and international markets." },
+            { metric: "+2.4K%", label: "Interactions Growth", description: "Deep engagement through educational content." },
         ],
         testimonial: {
-            quote: "The platform has revolutionized how we connect with our clients. The booking system and marketplace work seamlessly together.",
-            author: "Pandit Ramesh",
-            position: "CEO, Astro Bazzar"
+            quote: "Transformed India's most trusted hospital into its most visible healthcare brand. Now a top-of-funnel discovery engine with 8.3M views.",
+            author: "Apollo Team",
+            position: "India's First JCI Hospital, Now Its Digital Leader"
         },
         faqs: [
             {
                 number: "001",
-                question: "How does the live consultation feature work?",
-                answer: "Users can book time slots with verified astrologers and join secure video sessions directly through the platform. Payments are processed before sessions, ensuring trust for both parties."
+                question: "What drove the 598.7% view growth?",
+                answer: "A video-first pivot with 5–7 posts/week, Reels-first strategy. The 'Science of Healing' series on robotic surgery and transplants resonated strongly, achieving 55.2K deep engagements."
+            },
+            {
+                number: "002",
+                question: "What content performed best?",
+                answer: "Robotic Surgery Reels and Transplant Centres of Excellence content drove the highest engagement, with a strong Q4 rise via the 'Expert Insight' campaign."
             }
         ],
         partnershipReasons: [
-            "Full-stack e-commerce development with live consultation features",
-            "Secure payment integration handling thousands of transactions",
-            "Scalable platform architecture supporting rapid user growth"
+            "Scaled India's first JCI-accredited hospital to 8.3M+ digital views",
+            "Achieved 717.2% organic growth through video-first content strategy",
+            "Transformed trusted clinical brand into most visible healthcare digital presence"
         ]
     },
     // {
