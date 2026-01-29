@@ -544,7 +544,10 @@ const PortfolioDetail = () => {
                 </span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-[0.9] tracking-tighter">
-                Frequently ask questions
+                Frequently Asked <br className="hidden md:block" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">
+                  Questions
+                </span>
               </h2>
               <p className="text-gray-500 text-base mb-8 leading-relaxed">
                 Experience intelligent, efficient, and sustainable software designed to drive progress.
@@ -658,7 +661,7 @@ const PortfolioDetail = () => {
       </section>
 
       {/* Next Project CTA */}
-      <section className="py-12 md:py-16 bg-white">
+      {/* <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-6">
           <motion.div
             className="max-w-4xl mx-auto text-center"
@@ -692,7 +695,7 @@ const PortfolioDetail = () => {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

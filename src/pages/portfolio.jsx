@@ -250,8 +250,8 @@ const PortfolioPage = () => {
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
                 className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 ${activeFilter === filter.id
-                    ? "bg-black text-white shadow-lg scale-105"
-                    : "bg-gray-100 text-black hover:bg-gray-200 hover:shadow-md"
+                  ? "bg-black text-white shadow-lg scale-105"
+                  : "bg-gray-100 text-black hover:bg-gray-200 hover:shadow-md"
                   }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -634,7 +634,10 @@ const PortfolioPage = () => {
                 </span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-[0.9] tracking-tighter">
-                Frequently ask questions
+                Frequently Asked <br className="hidden md:block" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">
+                  Questions
+                </span>
               </h2>
               <p className="text-gray-500 text-base mb-8 leading-relaxed">
                 Experience intelligent, efficient, and sustainable software
@@ -690,8 +693,8 @@ const PortfolioPage = () => {
                 <motion.div
                   key={index}
                   className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${openFaqIndex === index
-                      ? "bg-white border-gray-200 shadow-lg"
-                      : "bg-white border-transparent hover:border-gray-200"
+                    ? "bg-white border-gray-200 shadow-lg"
+                    : "bg-white border-transparent hover:border-gray-200"
                     }`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -719,8 +722,8 @@ const PortfolioPage = () => {
                     </div>
                     <motion.div
                       className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${openFaqIndex === index
-                          ? "bg-black text-white"
-                          : "bg-gray-100 text-black"
+                        ? "bg-black text-white"
+                        : "bg-gray-100 text-black"
                         }`}
                       animate={{ rotate: openFaqIndex === index ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
@@ -760,7 +763,7 @@ const PortfolioPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 md:py-16 bg-black relative overflow-hidden">
+      {/* <section className="py-12 md:py-16 bg-black relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             className="text-center max-w-3xl mx-auto"
@@ -801,7 +804,7 @@ const PortfolioPage = () => {
             </motion.button>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
