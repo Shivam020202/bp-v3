@@ -85,8 +85,8 @@ const WebDevBannerHero = () => {
                     >
                         {[
                             { value: "150+", label: "Projects Delivered" },
-                            { value: "98%", label: "Client Satisfaction" },
-                            { value: "24/7", label: "Support Available" }
+                            { value: "98%", label: "Client Satisfaction" }
+
                         ].map((stat, index) => (
                             <div key={index} className="text-center md:text-left">
                                 <div className="text-2xl md:text-3xl font-black text-white">{stat.value}</div>
