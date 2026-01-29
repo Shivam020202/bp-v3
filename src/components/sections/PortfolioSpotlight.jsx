@@ -77,7 +77,7 @@ const PortfolioSpotlight = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section className="py-12 md:py-12 bg-white relative flex justify-center items-center">
+    <section className="py-12 md:py-20 bg-white relative flex justify-center items-center">
       <div className="container mx-auto  max-w-[1500px]">
         {/* Main Card Container */}
         <motion.div

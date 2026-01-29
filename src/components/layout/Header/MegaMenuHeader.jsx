@@ -414,8 +414,8 @@ const MegaMenuHeader = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 container mx-auto ${
         isScrolled || isContactPage
-          ? "bg-white/10 backdrop-blur-sm border-b border-white/10 shadow-[inset_0_2px_10px_rgba(0,0,0,0.3)] rounded-3xl mt-2"
-          : "bg-transparent"
+          ? "bg-white/70 backdrop-blur-sm border-b border-white/10 shadow-[inset_0_2px_10px_rgba(0,0,0,0.3)] rounded-3xl mt-2"
+          : "bg-white/90    rounded-b-3xl"
       }`}
     >
       <div className="container mx-auto px-6">
@@ -452,6 +452,16 @@ const MegaMenuHeader = () => {
               }`}
             >
               About
+            </Link>
+            <Link
+              to="/services/ai-solutions"
+              className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${
+                isScrolled || isContactPage
+                  ? "text-black/70 hover:text-black/80 hover:bg-white/20 "
+                  : "text-black/70 hover:text-black/80 hover:bg-white/20"
+              }`}
+            >
+              AI Solutions
             </Link>
 
             {/* Services Mega Menu */}
@@ -791,7 +801,7 @@ const MegaMenuHeader = () => {
             <button
               className={`hidden lg:block px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 isScrolled || isContactPage
-                  ? "bg-warm-700 text-white hover:bg-warm-800"
+                  ? "bg-warm-500 text-white hover:bg-warm-800"
                   : "bg-white text-warm-700 hover:bg-white/90"
               }`}
             >

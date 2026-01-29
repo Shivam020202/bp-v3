@@ -2,7 +2,7 @@ import ScrollVideoHero from "../components/sections/hero/ScrollVideoHero";
 import AboutCompany from "../components/sections/AboutCompany";
 import OurClients from "../components/sections/OurClients";
 import Portfolio from "../components/sections/Portfolio";
-import ServicesSection from "../components/sections/ServicesSection";
+import SwissGridServices from "../components/sections/SwissGridServices";
 import BeforeAfter from "../components/sections/BeforeAfter";
 import AICapabilities from "../components/sections/AICapabilities";
 import WhyChooseUs from "../components/sections/WhyChooseUs";
@@ -15,7 +15,7 @@ const HomePage = () => {
       <ScrollVideoHero />
       <AboutCompany />
       <OurClients />
-      <ServicesSection />
+      <SwissGridServices />
       <PortfolioSpotlight />
       {/* <Portfolio /> */}
       {/* <BeforeAfter /> */}
