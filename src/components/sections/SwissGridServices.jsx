@@ -67,22 +67,37 @@ const services = [
 const SwissGridServices = () => {
   return (
     <section className="bg-cream-50 pt-24 pb-32 px-4 md:px-8">
-      <div className="max-w-[1400px] mx-auto">
+      <div className="container mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-warm-900/10 pb-8">
-          <h2 className="text-5xl md:text-8xl font-display font-medium text-warm-900 leading-[0.9] tracking-tight">
-            Our <br /> Expertise.
-          </h2>
-          <div className="md:text-right mt-8 md:mt-0">
-            <p className="text-warm-900/60 max-w-sm ml-auto text-lg leading-relaxed">
-              A comprehensive suite of digital capabilities designed to propel
-              your brand forward.
+        <div className="flex flex-col md:flex-row justify-between items-end mb-10 lg:mb-16 gap-8">
+          <div className="max-w-2xl">
+            <span className="text-gray-600 font-mono text-xs uppercase tracking-[0.2em] mb-4 block">
+              Global Ecosystem
+            </span>
+            <h2 className="text-5xl md:text-6xl font-black tracking-tighter leading-[0.9] text-black mb-6">
+              TRUSTED BY <br />
+              <span className="text-transparent bg-clip-text bg-[#C4A484] italic font-serif pr-2">
+                THE GIANTS
+              </span>
+            </h2>
+            <p className="text-gray-600 text-base md:text-lg font-light">
+              We partner with the world's most ambitious brands to define what's
+              possible in the digital age.
             </p>
+          </div>
+
+          <div className="flex-shrink-0 mb-2 md:mb-0">
+            <button className="group flex items-center gap-2 border-b border-black pb-1 hover:border-[#C4A484] hover:text-[#C4A484] transition-all duration-300">
+              <span className="font-mono text-sm uppercase tracking-widest">
+                View All Services
+              </span>
+              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </button>
           </div>
         </div>
 
         {/* The Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-l border-t border-warm-900/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-l border-t border-warm-900/50">
           {services.map((service, index) => (
             <GridCell key={service.id} service={service} index={index} />
           ))}
@@ -99,7 +114,7 @@ const GridCell = ({ service, index }) => {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative border-r border-b border-warm-900/10 h-[500px] group cursor-pointer overflow-hidden"
+      className="relative border-r border-b border-warm-900/50 h-[300px] group cursor-pointer overflow-hidden"
     >
       {/* Background Reveal */}
       <AnimatePresence>
