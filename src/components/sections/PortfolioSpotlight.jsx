@@ -77,8 +77,8 @@ const PortfolioSpotlight = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section className="py-12 md:py-20 bg-white relative flex justify-center items-center">
-      <div className="container mx-auto  max-w-[1500px]">
+    <section className="py-12 md:py-16 bg-white relative">
+      <div className="container mx-auto px-6">
         {/* Main Card Container */}
         <motion.div
           animate={{ background: spotlights[activeTab].cardGradient }}

@@ -265,36 +265,117 @@ const PortfolioDetail = () => {
             </motion.div>
           </div>
 
-          {/* Results Metrics Bar */}
+          {/* Results Metrics Bar - Case Study Style Cards */}
           <motion.div
-            className="mt-16 bg-gray-100 rounded-2xl p-8 border border-gray-200"
+            className="mt-16"
             initial={{ opacity: 0, y: 30 }}
             animate={isContentInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {project.results.slice(0, 3).map((result, index) => (
-                <motion.div
-                  key={index}
-                  className="text-center"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isContentInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ delay: 0.9 + index * 0.1 }}
-                >
-                  <div className="text-4xl md:text-5xl font-black text-black mb-2">
-                    {result.metric}
-                  </div>
-                  <div className="text-sm font-mono font-bold uppercase tracking-[0.2em]" style={{ color: '#C4A484' }}>
-                    {result.label}
-                  </div>
-                </motion.div>
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto gap-8">
+              {project.results.slice(0, 3).map((result, index) => {
+                const cardStyles = [
+                  { bg: 'bg-[#1a1a1a]', textColor: 'text-white', subText: 'text-white/60', innerBg: 'bg-white/10', metricColor: '#C4A484', innerText: 'text-white/80' },
+                  { bg: 'bg-[#C4A484]', textColor: 'text-white', subText: 'text-white/70', innerBg: 'bg-white/20', metricColor: '#ffffff', innerText: 'text-white/90' },
+                  { bg: 'bg-gray-100', textColor: 'text-black', subText: 'text-gray-500', innerBg: 'bg-white', metricColor: '#1a1a1a', innerText: 'text-gray-600' },
+                ];
+                const style = cardStyles[index % 3];
+
+                return (
+                  <motion.div
+                    key={index}
+                    className={`${style.bg} rounded-2xl p-8 ${style.textColor} shadow-xl min-h-[220px] flex flex-col`}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={isContentInView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ delay: 0.9 + index * 0.1 }}
+                    whileHover={{ y: -5, scale: 1.02 }}
+                  >
+                    <div className="flex items-center gap-2 mb-6">
+                      <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: index === 1 ? '#1a1a1a' : '#C4A484' }}>
+                        <FaCheckCircle className="text-white text-base" />
+                      </div>
+                      <span className={`text-xs font-bold uppercase tracking-wider ${style.subText}`}>
+                        Key Result
+                      </span>
+                    </div>
+                    <div className={`${style.innerBg} rounded-xl p-6 flex-1 flex flex-col justify-center`}>
+                      <div className="text-4xl md:text-5xl font-black mb-3" style={{ color: style.metricColor }}>
+                        {result.metric}
+                      </div>
+                      <div className={`text-base font-semibold mb-2 ${style.textColor}`}>
+                        {result.label}
+                      </div>
+                      <div className={`text-sm leading-relaxed ${style.innerText}`}>
+                        {result.description || 'Achieved through strategic implementation and data-driven optimization across all channels.'}
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         </div>
       </section>
 
+      {/* Trusted Clients Section */}
+      {/* <section className="py-12 md:py-16 bg-gray-50 relative overflow-hidden border-t border-black/5">
+        <div className="container mx-auto px-6 relative z-10">
+         
+          <motion.div
+            className="text-center mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-gray-600 font-mono text-xs uppercase tracking-[0.2em] mb-4 block">
+              Trusted By Industry Leaders
+            </span>
+            <h2 className="text-2xl md:text-3xl font-black text-black tracking-tighter">
+              Our <span className="text-[#C4A484] italic font-serif">Clients</span>
+            </h2>
+          </motion.div>
 
+         
+          <div className="relative overflow-hidden">
+            <motion.div
+              className="flex items-center gap-8"
+              animate={{ x: [0, -1200] }}
+              transition={{ repeat: Infinity, ease: "linear", duration: 25 }}
+              style={{ width: "max-content" }}
+            >
+              {[...Array(3)].map((_, loopIndex) => (
+                <Fragment key={loopIndex}>
+                  {[
+                    { name: "Max Home", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/max_home-logo_ya130a.png", size: "h-16" },
+                    { name: "SCOD", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/scod-favicon_b2d7cp.png", size: "h-8" },
+
+                    { name: "IGEHRC", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/IGEHRC-new-logo_ydf3ww.webp", size: "h-8" },
+                    { name: "LCH Africa", logo: "https://lchafrica.com/img/cropped-FINAL-LOGO-svg.png", size: "h-14" },
+                    { name: "Aureus", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/aureus-new-logo_lbyme0.webp", size: "h-8" },
+                    { name: "Astrovazar", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/astrovazar_wbf12h.webp", size: "h-8" },
+                    { name: "Ecovana", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ecovana-logo_a1r4ct.webp", size: "h-8" },
+                    { name: "DST", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/dst_k894jm.webp", size: "h-14" },
+                    { name: "Ivy", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ivy-new-logo_tnjcme.webp", size: "h-8" },
+                    { name: "Cloudnine", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/cloudnine-logo_mcocql.webp", size: "h-8" },
+                    { name: "AIIMS", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580793/aiims_pleq0o.webp", size: "h-8" },
+                  ].map((client, index) => (
+                    <div
+                      key={`${loopIndex}-${index}`}
+                      className="flex items-center justify-center w-[160px] h-[80px] md:w-[180px] md:h-[90px] bg-white shadow-md rounded-xl flex-shrink-0 border border-gray-100 hover:shadow-lg transition-shadow duration-300"
+                    >
+                      <img
+                        src={client.logo}
+                        alt={client.name}
+                        className={`w-auto object-contain ${client.size}`}
+                      />
+                    </div>
+                  ))}
+                </Fragment>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section> */}
 
       {/* Image Gallery - Stack Scroll Effect with Parallax */}
       <section ref={galleryRef} className="py-12 md:py-16 bg-white relative overflow-hidden">
@@ -463,7 +544,10 @@ const PortfolioDetail = () => {
                 </span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-[0.9] tracking-tighter">
-                Frequently ask questions
+                Frequently Asked <br className="hidden md:block" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">
+                  Questions
+                </span>
               </h2>
               <p className="text-gray-500 text-base mb-8 leading-relaxed">
                 Experience intelligent, efficient, and sustainable software designed to drive progress.
@@ -577,7 +661,7 @@ const PortfolioDetail = () => {
       </section>
 
       {/* Next Project CTA */}
-      <section className="py-12 md:py-16 bg-white">
+      {/* <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-6">
           <motion.div
             className="max-w-4xl mx-auto text-center"
@@ -611,7 +695,7 @@ const PortfolioDetail = () => {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

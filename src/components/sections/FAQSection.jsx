@@ -41,11 +41,10 @@ const FAQItem = ({ item, isOpen, onClick, index }) => {
     >
       <button
         onClick={onClick}
-        className={`w-full text-left p-6 md:p-8 rounded-3xl transition-all duration-300 flex items-start justify-between gap-4 group ${
-          isOpen
-            ? "bg-black text-white shadow-xl"
-            : "bg-white hover:bg-cream-50 text-black border border-gray-100"
-        }`}
+        className={`w-full text-left p-6 md:p-8 rounded-3xl transition-all duration-300 flex items-start justify-between gap-4 group ${isOpen
+          ? "bg-black text-white shadow-xl"
+          : "bg-white hover:bg-cream-50 text-black border border-gray-100"
+          }`}
       >
         <span
           className={`text-lg md:text-xl font-bold tracking-tight ${isOpen ? "text-white" : "text-black group-hover:text-warm-600"} transition-colors`}
@@ -53,11 +52,10 @@ const FAQItem = ({ item, isOpen, onClick, index }) => {
           {item.question}
         </span>
         <span
-          className={`flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center border transition-all duration-300 ${
-            isOpen
-              ? "border-warm-400 bg-warm-400 text-black rotate-180"
-              : "border-gray-200 text-gray-400 group-hover:border-warm-400 group-hover:text-warm-400"
-          }`}
+          className={`flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center border transition-all duration-300 ${isOpen
+            ? "border-warm-400 bg-warm-400 text-black rotate-180"
+            : "border-gray-200 text-gray-400 group-hover:border-warm-400 group-hover:text-warm-400"
+            }`}
         >
           {isOpen ? (
             <FaMinus className="text-xs md:text-sm" />
@@ -111,7 +109,7 @@ const FAQSection = () => {
               className="sticky top-32"
             >
               <h2 className="text-4xl md:text-6xl font-black text-black mb-6 leading-none tracking-tighter">
-                Common
+                Frequently Asked
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-warm-400 to-warm-600 italic font-serif">
                   Questions
@@ -139,7 +137,7 @@ const FAQSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 

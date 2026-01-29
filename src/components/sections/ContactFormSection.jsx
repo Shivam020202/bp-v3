@@ -18,12 +18,12 @@ const ContactFormSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-[#C4A484] font-bold tracking-widest uppercase text-sm mb-4 block">
+            <span className="text-gray-500 font-mono text-[12px] uppercase tracking-[0.2em] mb-2 block">
               Get In Touch
             </span>
-            <h2 className="text-4xl md:text-5xl font-black text-black mb-6 leading-tight">
+            <h2 className="text-3xl md:text-6xl font-black tracking-tighter leading-none mb-6">
               Let's Start a <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] to-[#8B6F47]">
+              <span className="text-[#C4A484] italic font-serif pr-2">
                 Conversation.
               </span>
             </h2>

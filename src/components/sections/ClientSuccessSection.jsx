@@ -20,7 +20,7 @@ const caseStudies = [
     theme: "light",
   },
   {
-    logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/lifecare-new-logo_xerg1l.webp",
+    logo: "https://lchafrica.com/img/cropped-FINAL-LOGO-svg.png",
     metric: "1M+",
     metricLabel: "Social Media Engagement",
     title: "Viral \nGrowth",

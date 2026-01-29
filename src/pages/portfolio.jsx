@@ -52,6 +52,22 @@ const PortfolioPage = () => {
       ? projects
       : projects.filter((p) => p.category === activeFilter);
 
+<<<<<<< Updated upstream
+  // All client logos in a flat array
+  const allClientLogos = [
+    { name: "Max Home", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/max_home-logo_ya130a.png" },
+    { name: "SCOD", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/scod-favicon_b2d7cp.png" },
+    { name: "La Midas", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/La-Midas-Logo_swzrlp.webp" },
+    { name: "IGEHRC", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/IGEHRC-new-logo_ydf3ww.webp" },
+    { name: "Lifecare", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/lifecare-new-logo_xerg1l.webp" },
+    { name: "Aureus", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/aureus-new-logo_lbyme0.webp" },
+    { name: "Astrovazar", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/astrovazar_wbf12h.webp" },
+    { name: "Ecovana", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ecovana-logo_a1r4ct.webp" },
+    { name: "DST", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/dst_k894jm.webp" },
+    { name: "Ivy", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ivy-new-logo_tnjcme.webp" },
+    { name: "Cloudnine", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/cloudnine-logo_mcocql.webp" },
+    { name: "AIIMS", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580793/aiims_pleq0o.webp" },
+=======
   // Client logos data from homepage - each logo repeated 3 times for cycling effect
   const clientsData = [
     {
@@ -70,14 +86,7 @@ const PortfolioPage = () => {
         "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/scod-favicon_b2d7cp.png",
       ],
     },
-    {
-      name: "La Midas",
-      images: [
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/La-Midas-Logo_swzrlp.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/La-Midas-Logo_swzrlp.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/La-Midas-Logo_swzrlp.webp",
-      ],
-    },
+
     {
       name: "IGEHRC",
       images: [
@@ -87,11 +96,11 @@ const PortfolioPage = () => {
       ],
     },
     {
-      name: "Lifecare",
+      name: "LCH Africa",
       images: [
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/lifecare-new-logo_xerg1l.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/lifecare-new-logo_xerg1l.webp",
-        "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/lifecare-new-logo_xerg1l.webp",
+        "https://lchafrica.com/img/cropped-FINAL-LOGO-svg.png",
+        "https://lchafrica.com/img/cropped-FINAL-LOGO-svg.png",
+        "https://lchafrica.com/img/cropped-FINAL-LOGO-svg.png",
       ],
     },
     {
@@ -150,37 +159,55 @@ const PortfolioPage = () => {
         "https://res.cloudinary.com/damfndmrm/image/upload/v1769580793/aiims_pleq0o.webp",
       ],
     },
+>>>>>>> Stashed changes
   ];
 
-  // Initialize image indices
+  // Number of card slots to display
+  const cardSlots = 9;
+
+  // Initialize each card slot with a different random logo index
   useEffect(() => {
     const initialIndices = {};
-    clientsData.forEach((client, index) => {
-      initialIndices[index] = 0;
-    });
+    const usedIndices = new Set();
+    for (let i = 0; i < cardSlots; i++) {
+      let randomIndex;
+      do {
+        randomIndex = Math.floor(Math.random() * allClientLogos.length);
+      } while (usedIndices.has(randomIndex));
+      usedIndices.add(randomIndex);
+      initialIndices[i] = randomIndex;
+    }
     setClientImageIndices(initialIndices);
   }, []);
 
-  // Function to cycle images for a specific client
-  const cycleClientImage = (clientIndex) => {
-    setClientImageIndices((prev) => ({
-      ...prev,
-      [clientIndex]:
-        (prev[clientIndex] + 1) % clientsData[clientIndex].images.length,
-    }));
+  // Function to cycle to a random different logo for a specific card slot
+  const cycleClientImage = (slotIndex) => {
+    setClientImageIndices((prev) => {
+      const currentIndex = prev[slotIndex];
+      const otherSlotIndices = Object.entries(prev)
+        .filter(([key]) => parseInt(key) !== slotIndex)
+        .map(([, value]) => value);
+
+      let newIndex;
+      do {
+        newIndex = Math.floor(Math.random() * allClientLogos.length);
+      } while (newIndex === currentIndex || otherSlotIndices.includes(newIndex));
+
+      return { ...prev, [slotIndex]: newIndex };
+    });
   };
 
-  // Auto-cycle images at different intervals for each client
+  // Auto-cycle each card slot at different random intervals
   useEffect(() => {
-    const intervals = clientsData.map((_, index) => {
-      const randomInterval = 6000 + Math.random() * 3000; // 6-9 seconds, random for each
+    const intervals = Array.from({ length: cardSlots }, (_, index) => {
+      const randomInterval = 3000 + Math.random() * 4000; // 3-7 seconds, random for each
       return setInterval(() => {
         cycleClientImage(index);
       }, randomInterval);
     });
 
     return () => intervals.forEach((interval) => clearInterval(interval));
-  }, [clientsData.length]);
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -317,8 +344,8 @@ const PortfolioPage = () => {
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
                 className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 ${activeFilter === filter.id
-                    ? "bg-black text-white shadow-lg scale-105"
-                    : "bg-gray-100 text-black hover:bg-gray-200 hover:shadow-md"
+                  ? "bg-black text-white shadow-lg scale-105"
+                  : "bg-gray-100 text-black hover:bg-gray-200 hover:shadow-md"
                   }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -422,10 +449,10 @@ const PortfolioPage = () => {
                     </motion.div>
 
                     {/* Main Content - Always visible at bottom */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-6 text-white">
                       {/* Tags - Visible on hover */}
                       <motion.div
-                        className="flex flex-wrap gap-2 mb-4"
+                        className="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-3"
                         initial={{ opacity: 0, y: 10 }}
                         animate={{
                           opacity: hoveredProject === project.id ? 1 : 0,
@@ -433,10 +460,10 @@ const PortfolioPage = () => {
                         }}
                         transition={{ duration: 0.3 }}
                       >
-                        {project.tags.map((tag, i) => (
+                        {project.tags.slice(0, 2).map((tag, i) => (
                           <span
                             key={i}
-                            className="text-xs font-bold bg-white/90 text-black px-3 py-1.5 rounded-full backdrop-blur-sm"
+                            className="text-[10px] sm:text-xs font-bold bg-white/90 text-black px-2 sm:px-3 py-1 sm:py-1.5 rounded-full backdrop-blur-sm"
                           >
                             {tag}
                           </span>
@@ -445,7 +472,7 @@ const PortfolioPage = () => {
 
                       {/* Title - Visible on hover */}
                       <motion.h3
-                        className="font-display text-3xl md:text-4xl font-bold mb-2 leading-tight"
+                        className="font-display text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2 leading-tight"
                         animate={{
                           y: hoveredProject === project.id ? 0 : 20,
                           opacity: hoveredProject === project.id ? 1 : 0,
@@ -457,7 +484,7 @@ const PortfolioPage = () => {
 
                       {/* Subtitle - Visible on hover */}
                       <motion.p
-                        className="text-cream-100 font-medium text-base mb-4"
+                        className="text-cream-100 font-medium text-xs sm:text-sm md:text-base mb-2 sm:mb-3"
                         animate={{
                           y: hoveredProject === project.id ? 0 : 20,
                           opacity: hoveredProject === project.id ? 1 : 0,
@@ -467,9 +494,9 @@ const PortfolioPage = () => {
                         {project.subtitle}
                       </motion.p>
 
-                      {/* Description - Visible on hover */}
+                      {/* Description - Visible on hover (hidden on mobile) */}
                       <motion.p
-                        className="text-white/90 text-sm mb-4 leading-relaxed"
+                        className="hidden sm:block text-white/90 text-xs md:text-sm mb-3 leading-relaxed line-clamp-2"
                         initial={{ opacity: 0, height: 0 }}
                         animate={{
                           opacity: hoveredProject === project.id ? 1 : 0,
@@ -482,7 +509,7 @@ const PortfolioPage = () => {
 
                       {/* Stats Grid - Visible on hover */}
                       <motion.div
-                        className="grid grid-cols-3 gap-3 mb-4"
+                        className="grid grid-cols-3 gap-1 sm:gap-2 mb-2 sm:mb-3"
                         initial={{ opacity: 0, y: 10 }}
                         animate={{
                           opacity: hoveredProject === project.id ? 1 : 0,
@@ -494,7 +521,7 @@ const PortfolioPage = () => {
                           ([key, value], i) => (
                             <motion.div
                               key={key}
-                              className="bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/20"
+                              className="bg-white/10 backdrop-blur-md rounded-lg sm:rounded-xl p-1.5 sm:p-2 md:p-3 border border-white/20"
                               initial={{ scale: 0.8, opacity: 0 }}
                               animate={
                                 hoveredProject === project.id
@@ -503,10 +530,10 @@ const PortfolioPage = () => {
                               }
                               transition={{ delay: 0.2 + i * 0.05 }}
                             >
-                              <div className="text-xs text-white/70 uppercase tracking-wide font-semibold mb-1">
+                              <div className="text-[8px] sm:text-[10px] md:text-xs text-white/70 uppercase tracking-wide font-semibold mb-0.5">
                                 {key}
                               </div>
-                              <div className="text-lg font-bold text-white">
+                              <div className="text-xs sm:text-sm md:text-lg font-bold text-white">
                                 {value}
                               </div>
                             </motion.div>
@@ -516,26 +543,26 @@ const PortfolioPage = () => {
 
                       {/* Result Badge - Visible on hover */}
                       <motion.div
-                        className="flex items-center justify-between"
+                        className="flex items-center justify-between gap-2"
                         animate={{
                           y: hoveredProject === project.id ? 0 : 20,
                           opacity: hoveredProject === project.id ? 1 : 0,
                         }}
                         transition={{ duration: 0.3, delay: 0.1 }}
                       >
-                        <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-full border border-white/20">
-                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                          <span className="text-white/90 text-xs font-bold uppercase tracking-wide">
+                        <div className="flex items-center gap-1 sm:gap-2 bg-white/10 backdrop-blur-md px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full border border-white/20 min-w-0 flex-1">
+                          <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
+                          <span className="text-white/90 text-[8px] sm:text-[10px] md:text-xs font-bold uppercase tracking-wide flex-shrink-0">
                             Result
                           </span>
-                          <span className="text-white font-bold text-sm">
+                          <span className="text-white font-bold text-[10px] sm:text-xs md:text-sm truncate">
                             {project.result}
                           </span>
                         </div>
 
                         {/* Action Buttons - Visible on hover */}
                         <motion.div
-                          className="flex gap-2"
+                          className="flex gap-1 sm:gap-2 flex-shrink-0"
                           initial={{ opacity: 0, x: 10 }}
                           animate={{
                             opacity: hoveredProject === project.id ? 1 : 0,
@@ -544,19 +571,12 @@ const PortfolioPage = () => {
                           transition={{ duration: 0.3 }}
                         >
                           <motion.button
-                            className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-black shadow-lg hover:bg-white transition-colors"
+                            className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-black shadow-lg hover:bg-white transition-colors"
                             whileHover={{ scale: 1.1, rotate: 5 }}
                             whileTap={{ scale: 0.9 }}
                           >
-                            <FaExternalLinkAlt className="text-sm" />
+                            <FaExternalLinkAlt className="text-[10px] sm:text-xs md:text-sm" />
                           </motion.button>
-                          {/* <motion.button
-                            className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-warm-700 shadow-lg hover:bg-white transition-colors"
-                            whileHover={{ scale: 1.1, rotate: -5 }}
-                            whileTap={{ scale: 0.9 }}
-                          >
-                            <FaHeart className="text-sm" />
-                          </motion.button> */}
                         </motion.div>
                       </motion.div>
                     </div>
@@ -641,49 +661,47 @@ const PortfolioPage = () => {
 
             {/* Right Side - Client Images Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
-              {clientsData.map((client, index) => (
-                <motion.div
-                  key={client.name}
-                  className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer aspect-[4/3]"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ y: -8, scale: 1.03 }}
-                  onClick={() => cycleClientImage(index)}
-                >
-                  {/* Image Container with AnimatePresence for smooth transitions */}
-                  <div className="relative w-full h-full overflow-hidden bg-white">
-                    <AnimatePresence mode="wait">
-                      <motion.img
-                        key={clientImageIndices[index]}
-                        src={client.images[clientImageIndices[index] || 0]}
-                        alt={client.name}
-                        className="absolute inset-0 w-full h-full object-contain p-8"
-                        initial={{ y: "100%", opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: "-100%", opacity: 0 }}
-                        transition={{
-                          duration: 1.2,
-                          ease: [0.43, 0.13, 0.23, 0.96],
-                        }}
-                      />
-                    </AnimatePresence>
+              {Array.from({ length: cardSlots }, (_, index) => {
+                const logoIndex = clientImageIndices[index] ?? 0;
+                const client = allClientLogos[logoIndex];
+                return (
+                  <motion.div
+                    key={index}
+                    className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer aspect-[4/3]"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    whileHover={{ y: -8, scale: 1.03 }}
+                    onClick={() => cycleClientImage(index)}
+                  >
+                    {/* Image Container with AnimatePresence for smooth transitions */}
+                    <div className="relative w-full h-full overflow-hidden bg-white">
+                      <AnimatePresence mode="wait">
+                        <motion.img
+                          key={logoIndex}
+                          src={client?.logo}
+                          alt={client?.name}
+                          className="absolute inset-0 w-full h-full object-contain p-8"
+                          initial={{ y: "100%", opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          exit={{ y: "-100%", opacity: 0 }}
+                          transition={{
+                            duration: 1.2,
+                            ease: [0.43, 0.13, 0.23, 0.96],
+                          }}
+                        />
+                      </AnimatePresence>
 
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-50/30 via-transparent to-transparent pointer-events-none" />
+                      {/* Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-gray-50/30 via-transparent to-transparent pointer-events-none" />
 
-                    {/* Client Name Overlay */}
-
-                    {/* Hover Indicator */}
-
-                    {/* Image Counter Dots */}
-
-                    {/* Border Accent */}
-                    <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#C4A484]/50 rounded-2xl transition-all duration-300" />
-                  </div>
-                </motion.div>
-              ))}
+                      {/* Border Accent */}
+                      <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#C4A484]/50 rounded-2xl transition-all duration-300" />
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -710,7 +728,10 @@ const PortfolioPage = () => {
                 </span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-[0.9] tracking-tighter">
-                Frequently ask questions
+                Frequently Asked <br className="hidden md:block" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">
+                  Questions
+                </span>
               </h2>
               <p className="text-gray-500 text-base mb-8 leading-relaxed">
                 Experience intelligent, efficient, and sustainable software
@@ -766,8 +787,8 @@ const PortfolioPage = () => {
                 <motion.div
                   key={index}
                   className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${openFaqIndex === index
-                      ? "bg-white border-gray-200 shadow-lg"
-                      : "bg-white border-transparent hover:border-gray-200"
+                    ? "bg-white border-gray-200 shadow-lg"
+                    : "bg-white border-transparent hover:border-gray-200"
                     }`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -795,8 +816,8 @@ const PortfolioPage = () => {
                     </div>
                     <motion.div
                       className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${openFaqIndex === index
-                          ? "bg-black text-white"
-                          : "bg-gray-100 text-black"
+                        ? "bg-black text-white"
+                        : "bg-gray-100 text-black"
                         }`}
                       animate={{ rotate: openFaqIndex === index ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
@@ -836,7 +857,7 @@ const PortfolioPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 md:py-16 bg-black relative overflow-hidden">
+      {/* <section className="py-12 md:py-16 bg-black relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             className="text-center max-w-3xl mx-auto"
@@ -877,7 +898,7 @@ const PortfolioPage = () => {
             </motion.button>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

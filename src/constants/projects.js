@@ -27,67 +27,68 @@ import apollo3 from "../assets/portfolio/apollo/3.jpg";
 import apollo4 from "../assets/portfolio/apollo/4.jpg";
 import apollo5 from "../assets/portfolio/apollo/5.jpg";
 import apollo6 from "../assets/portfolio/apollo/6.jpg";
-// Placeholder images for projects without custom covers
-import pcard4 from "../assets/portfolio-demo/pcard/pcard-4.avif";
-import pcard6 from "../assets/portfolio-demo/pcard/pcard6.avif";
-
-// Cover images for portfolio cards and related works
-import maxCover from "../assets/portfolio/covers/max-cover.jpg";
-import rajCover from "../assets/portfolio/covers/raj-cover.jpg";
-import lifeCover from "../assets/portfolio/covers/life-cover.jpg";
-import apolloCover from "../assets/portfolio/covers/apollo-cover.jpg";
+// Cover images for portfolio cards
+import rajCard from "../assets/portfolio/covers/RAJ-CARD.webp";
+import maxCard from "../assets/portfolio/covers/max-thumbnail.webp";
+import lifecareCard from "../assets/portfolio/covers/lifecare-card.webp";
+import apolloCard from "../assets/portfolio/covers/apollo-card.webp";
 export const projects = [
     {
         id: 1,
-        title: "MAX Home",
-        subtitle: "Complete Brand Identity",
-        category: "branding",
+        title: "MAX@Home",
+        subtitle: "Healthcare Website Development",
+        category: "web",
         year: "2024",
-        client: "Bloom Beauty",
-        duration: "3 months",
-        image: maxCover,
+        client: "MAX@Home (Max Healthcare)",
+        duration: "5 months",
+        image: maxCard,
         heroImage: p1,
-        tags: ["Brand Strategy", "Visual Identity", "Packaging"],
-        description: "A fresh, modern beauty brand targeting Gen-Z consumers",
-        challenge: "Bloom Beauty needed to stand out in a saturated market while maintaining a premium feel. The brand required a complete visual identity from scratch, including logo design, color palette, typography, and packaging design that would resonate with eco-conscious millennials and Gen-Z consumers.",
-        solution: "We developed a bold, nature-inspired brand identity featuring organic shapes, a vibrant color palette, and sustainable packaging solutions. The design system is flexible enough to grow with the brand while maintaining a strong, recognizable presence.",
-        result: "200% increase in brand recognition",
-        color: "from-pink-300 via-rose-300 to-pink-400",
-        stats: { reach: "2.5M", engagement: "+180%", sales: "+200%" },
+        tags: ["Website Development", "Healthcare UI/UX", "Patient Portal", "Service Booking", "Performance Optimization"],
+        description: "Building a digital platform for India's largest home healthcare brand to connect patients with hospital-quality care at home",
+        challenge: "MAX@Home, India's largest home healthcare brand under Max Healthcare, needed a modern, user-friendly website that communicates their mission of bringing medical expertise and hospital-quality care to patients' homes. The challenge was to create a seamless digital experience that builds trust, simplifies service booking, and helps families find the right care with compassion and reliability.",
+        solution: "We designed and developed a comprehensive healthcare website with intuitive service discovery, easy appointment booking, and patient-centric UI/UX. The platform features service pages for all healthcare offerings, a streamlined inquiry system, and responsive design optimized for families seeking home-based medical care.",
+        result: "185% increase in online inquiries",
+        color: "from-amber-300 via-orange-300 to-amber-400",
+        stats: { Inquiries: "+185%", "Load Time": "1.6s", Bookings: "+210%" },
         images: [p1, p2, p3, p4, p5, p6],
         keyFeatures: [
-            { title: "Brand Identity System", description: "Complete logo suite with primary, secondary, and icon variations." },
-            { title: "Sustainable Packaging", description: "Eco-friendly packaging design using recyclable materials." },
-            { title: "Visual Language", description: "Cohesive color palette and typography system." },
-            { title: "Digital Templates", description: "Social media and email assets for brand consistency." }
+            { title: "Patient-Centric UI/UX Design", description: "Intuitive interface designed for easy navigation and service discovery for patients and families." },
+            { title: "Service Booking System", description: "Streamlined appointment booking with real-time availability and care coordinator integration." },
+            { title: "Responsive Healthcare Platform", description: "Mobile-optimized design ensuring accessibility across all devices for urgent care needs." },
+            { title: "Performance Optimization", description: "Lightning-fast load times with optimized assets and efficient caching strategies." }
         ],
         results: [
-            { metric: "200%", label: "Increase in Brand Recognition" },
-            { metric: "150%", label: "Social Media Growth" },
-            { metric: "85%", label: "Customer Satisfaction" },
-            { metric: "3x", label: "Sales Performance" },
+            { metric: "185%", label: "Online Inquiry Growth", description: "Achieved through intuitive UX and streamlined service booking flow." },
+            { metric: "1.6s", label: "Average Load Time", description: "Optimized performance ensuring fast access for patients seeking care." },
+            { metric: "210%", label: "Service Bookings", description: "Direct result of improved user journey and clear service presentation." },
+            { metric: "92%", label: "User Satisfaction", description: "Reflecting the ease of finding and booking home healthcare services." },
         ],
         testimonial: {
-            quote: "The team transformed our vision into a stunning reality. The brand identity they created perfectly captures our values.",
-            author: "Sarah Mitchell",
-            position: "Founder & CEO, Bloom Beauty"
+            quote: "The new website has transformed how families connect with our home healthcare services. The user experience truly reflects our mission of compassion, excellence and reliability.",
+            author: "MAX@Home Team",
+            position: "India's Largest Home Healthcare Brand"
         },
         faqs: [
             {
                 number: "001",
-                question: "How did you ensure the brand appeals to Gen-Z?",
-                answer: "We conducted extensive market research on Gen-Z aesthetic preferences, focusing on 'maximalist' yet clean design, vibrant color palettes, and authentic storytelling that highlights sustainability."
+                question: "What was the website development approach?",
+                answer: "We focused on creating a patient-centric platform with easy service discovery, streamlined booking, and fast performance to help families quickly find and access home healthcare services."
             },
             {
                 number: "002",
-                question: "What makes the packaging sustainable?",
-                answer: "We used 100% post-consumer recycled paper and soy-based inks. The structural design was optimized to minimize material waste without compromising the unboxing experience."
+                question: "How does the booking system work?",
+                answer: "The integrated booking system allows patients to browse services, check availability, and connect with care coordinators seamlessly, reducing friction in the inquiry-to-booking journey."
+            },
+            {
+                number: "003",
+                question: "What technologies were used?",
+                answer: "We built a modern, responsive website with optimized performance, integrated CMS for service management, and seamless third-party integrations for appointment scheduling."
             }
         ],
         partnershipReasons: [
-            "Innovative brand approach for Bloom Beauty with 3 months of dedication",
-            "Deep understanding of Gen-Z consumer psychology and aesthetic trends",
-            "Commitment to sustainable design practices that didn't sacrifice luxury"
+            "End-to-end website development for India's largest home healthcare brand",
+            "Patient-centric design that reflects compassion, excellence and reliability",
+            "Measurable growth in service inquiries and online bookings"
         ]
     },
     {
@@ -98,7 +99,7 @@ export const projects = [
         year: "2025",
         client: "Raj Hospitals Ranchi",
         duration: "12 months",
-        image: rajCover,
+        image: rajCard,
         heroImage: s1,
         tags: ["Full-Funnel Digital Strategy", "Doctor-Led Video Production", "Patient Community Building", "SEO & Local Search Optimization", "Performance Analytics", "Web Development"],
         description: "Digitizing Care: A Year of Expanding Healthcare Horizons in Jharkhand",
@@ -151,7 +152,7 @@ export const projects = [
         year: "2025–2026",
         client: "Lifecare Hospitals Africa",
         duration: "Ongoing",
-        image: lifeCover,
+        image: lifecareCard,
         heroImage: t1,
         tags: ["Social Media Strategy", "Content Production (Reels)", "Performance Marketing", "Community Management", "Healthcare SEO", "Web Development"],
         description: "Democratizing Specialized Healthcare Across the African Continent",
@@ -204,7 +205,7 @@ export const projects = [
         year: "2025–2026",
         client: "Indraprastha Apollo Hospitals, Delhi",
         duration: "5 months",
-        image: apolloCover,
+        image: apolloCard,
         heroImage: apolloHero,
         tags: ["Omnichannel Growth Strategy", "Paid Media Scaling", "Educational Content Production", "Medical Tourism Marketing", "Robotic Surgery Awareness"],
         description: "Bridging Clinical Brilliance with Digital Mass Awareness",
@@ -249,8 +250,119 @@ export const projects = [
             "Transformed trusted clinical brand into most visible healthcare digital presence"
         ]
     },
+    {
+        id: 5,
+        title: "MAX@Home",
+        subtitle: "Healthcare Website Development",
+        category: "web",
+        year: "2024",
+        client: "MAX@Home (Max Healthcare)",
+        duration: "5 months",
+        image: maxCard,
+        heroImage: p1,
+        tags: ["Website Development", "Healthcare UI/UX", "Patient Portal", "Service Booking", "Performance Optimization"],
+        description: "Building a digital platform for India's largest home healthcare brand to connect patients with hospital-quality care at home",
+        challenge: "MAX@Home, India's largest home healthcare brand under Max Healthcare, needed a modern, user-friendly website that communicates their mission of bringing medical expertise and hospital-quality care to patients' homes. The challenge was to create a seamless digital experience that builds trust, simplifies service booking, and helps families find the right care with compassion and reliability.",
+        solution: "We designed and developed a comprehensive healthcare website with intuitive service discovery, easy appointment booking, and patient-centric UI/UX. The platform features service pages for all healthcare offerings, a streamlined inquiry system, and responsive design optimized for families seeking home-based medical care.",
+        result: "185% increase in online inquiries",
+        color: "from-amber-300 via-orange-300 to-amber-400",
+        stats: { Inquiries: "+185%", "Load Time": "1.6s", Bookings: "+210%" },
+        images: [p1, p2, p3, p4, p5, p6],
+        keyFeatures: [
+            { title: "Patient-Centric UI/UX Design", description: "Intuitive interface designed for easy navigation and service discovery for patients and families." },
+            { title: "Service Booking System", description: "Streamlined appointment booking with real-time availability and care coordinator integration." },
+            { title: "Responsive Healthcare Platform", description: "Mobile-optimized design ensuring accessibility across all devices for urgent care needs." },
+            { title: "Performance Optimization", description: "Lightning-fast load times with optimized assets and efficient caching strategies." }
+        ],
+        results: [
+            { metric: "185%", label: "Online Inquiry Growth", description: "Achieved through intuitive UX and streamlined service booking flow." },
+            { metric: "1.6s", label: "Average Load Time", description: "Optimized performance ensuring fast access for patients seeking care." },
+            { metric: "210%", label: "Service Bookings", description: "Direct result of improved user journey and clear service presentation." },
+            { metric: "92%", label: "User Satisfaction", description: "Reflecting the ease of finding and booking home healthcare services." },
+        ],
+        testimonial: {
+            quote: "The new website has transformed how families connect with our home healthcare services. The user experience truly reflects our mission of compassion, excellence and reliability.",
+            author: "MAX@Home Team",
+            position: "India's Largest Home Healthcare Brand"
+        },
+        faqs: [
+            {
+                number: "001",
+                question: "What was the website development approach?",
+                answer: "We focused on creating a patient-centric platform with easy service discovery, streamlined booking, and fast performance to help families quickly find and access home healthcare services."
+            },
+            {
+                number: "002",
+                question: "How does the booking system work?",
+                answer: "The integrated booking system allows patients to browse services, check availability, and connect with care coordinators seamlessly, reducing friction in the inquiry-to-booking journey."
+            },
+            {
+                number: "003",
+                question: "What technologies were used?",
+                answer: "We built a modern, responsive website with optimized performance, integrated CMS for service management, and seamless third-party integrations for appointment scheduling."
+            }
+        ],
+        partnershipReasons: [
+            "End-to-end website development for India's largest home healthcare brand",
+            "Patient-centric design that reflects compassion, excellence and reliability",
+            "Measurable growth in service inquiries and online bookings"
+        ]
+    },
+    {
+        id: 6,
+        title: "Apollo Hospitals Delhi",
+        subtitle: "Healthcare Digital Scaling",
+        category: "healthcare",
+        year: "2025–2026",
+        client: "Indraprastha Apollo Hospitals, Delhi",
+        duration: "5 months",
+        image: apolloCard,
+        heroImage: apolloHero,
+        tags: ["Omnichannel Growth Strategy", "Paid Media Scaling", "Educational Content Production", "Medical Tourism Marketing", "Robotic Surgery Awareness"],
+        description: "Bridging Clinical Brilliance with Digital Mass Awareness",
+        challenge: "Maintain brand prestige while scaling reach to local and international patients. Premier NCR hospital with 710+ beds needing digital scale to match clinical leadership as India's first JCI-accredited hospital.",
+        solution: "Dual-engine approach: organic trust via Reels + hyper-targeted paid conversion. 'Science of Healing' series on robotics and transplants. Video-first pivot causing 717.2% organic growth with ad engine delivering 7.5M views.",
+        result: "+598.7% view growth",
+        color: "from-amber-300 via-orange-300 to-amber-400",
+        stats: { views: "8.3M", reach: "5.6M", interactions: "+2.4K%" },
+        images: [apolloHero, apollo2, apollo3, apollo4, apollo5, apollo6],
+        keyFeatures: [
+            { title: "Omnichannel Growth Strategy", description: "Dual-engine: organic trust via Reels + hyper-targeted paid conversion campaigns." },
+            { title: "Science of Healing Series", description: "Educational content on robotics and transplant Centres of Excellence." },
+            { title: "Video-First Pivot", description: "Strategic shift to Reels-first content causing 717.2% organic growth." },
+            { title: "Medical Tourism Marketing", description: "Targeting global transplant seekers and local NCR families." }
+        ],
+        results: [
+            { metric: "8.3M", label: "Total Views", description: "Massive reach through video-first content strategy." },
+            { metric: "+598.7%", label: "View Growth", description: "Exponential growth via Reels-first approach." },
+            { metric: "5.6M", label: "Unique Reach", description: "Expanded audience across NCR and international markets." },
+            { metric: "+2.4K%", label: "Interactions Growth", description: "Deep engagement through educational content." },
+        ],
+        testimonial: {
+            quote: "Transformed India's most trusted hospital into its most visible healthcare brand. Now a top-of-funnel discovery engine with 8.3M views.",
+            author: "Apollo Team",
+            position: "India's First JCI Hospital, Now Its Digital Leader"
+        },
+        faqs: [
+            {
+                number: "001",
+                question: "What drove the 598.7% view growth?",
+                answer: "A video-first pivot with 5–7 posts/week, Reels-first strategy. The 'Science of Healing' series on robotic surgery and transplants resonated strongly, achieving 55.2K deep engagements."
+            },
+            {
+                number: "002",
+                question: "What content performed best?",
+                answer: "Robotic Surgery Reels and Transplant Centres of Excellence content drove the highest engagement, with a strong Q4 rise via the 'Expert Insight' campaign."
+            }
+        ],
+        partnershipReasons: [
+            "Scaled India's first JCI-accredited hospital to 8.3M+ digital views",
+            "Achieved 717.2% organic growth through video-first content strategy",
+            "Transformed trusted clinical brand into most visible healthcare digital presence"
+        ]
+    },
     // {
-    //     id: 5,
+    //     id: 7,
     //     title: "FitLife Wellness App",
     //     subtitle: "Mobile App Redesign",
     //     category: "branding",

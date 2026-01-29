@@ -214,12 +214,12 @@ const DevelopmentJourney = () => {
                 <motion.div className="mt-16 pt-16 border-t border-gray-100" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                     <div className="grid grid-cols-1 lg:grid-cols-[280px,1fr] gap-8 items-start">
                         <div>
-                            <span className="text-gray-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 block">Tech Stack</span>
-                            <h3 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tighter leading-[0.9] mb-2 text-black">
-                                TECHNOLOGIES <br className="hidden sm:block" />
+                            <span className="text-gray-600 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 md:mb-4 block">Tech Stack</span>
+                            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9] mb-4 text-black">
+                                TECH <br className="hidden sm:block" />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">WE USE.</span>
                             </h3>
-                            <p className="text-gray-500 text-sm hidden sm:block">Cutting-edge tools for modern solutions</p>
+                            <p className="text-gray-500 text-sm md:text-base hidden sm:block">Cutting-edge tools for modern solutions</p>
                         </div>
                         <div className="grid grid-cols-4 lg:grid-cols-6 gap-3">
                             {technologies.map((tech, i) => (

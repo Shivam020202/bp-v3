@@ -1,59 +1,90 @@
 import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const TechStackHero = ({ videoUrl }) => {
     const sectionRef = useRef(null);
-    const [scrollProgress, setScrollProgress] = useState(0);
+    const videoRef = useRef(null);
     const [isMobile, setIsMobile] = useState(false);
+    const [isVideoReady, setIsVideoReady] = useState(false);
 
     useEffect(() => {
-        // Check if mobile
         const checkMobile = () => {
             setIsMobile(window.innerWidth < 768);
         };
         checkMobile();
         window.addEventListener('resize', checkMobile);
 
-        const handleScroll = () => {
-            if (!sectionRef.current || isMobile) return;
-            const rect = sectionRef.current.getBoundingClientRect();
-            const progress = Math.min(Math.max(-rect.top / (window.innerHeight * 0.5), 0), 1);
-            setScrollProgress(progress);
+        return () => {
+            window.removeEventListener('resize', checkMobile);
+        };
+    }, []);
+
+    useEffect(() => {
+        const video = videoRef.current;
+        const section = sectionRef.current;
+
+        if (!video || !section || isMobile) return;
+
+        let scrollTriggerInst;
+
+        const setupScrollVideo = () => {
+            if (!video.duration || isNaN(video.duration)) return;
+
+            setIsVideoReady(true);
+
+            scrollTriggerInst = ScrollTrigger.create({
+                trigger: section,
+                start: "top top",
+                end: "+=200%",
+                pin: true,
+                pinSpacing: true,
+                scrub: 0.5,
+                onUpdate: (self) => {
+                    // Bidirectional video control based on scroll progress
+                    const targetTime = self.progress * (video.duration - 0.1);
+                    video.currentTime = targetTime;
+                },
+            });
         };
 
-        window.addEventListener('scroll', handleScroll, { passive: true });
+        video.addEventListener('loadedmetadata', setupScrollVideo);
+
+        // If already loaded
+        if (video.readyState >= 1) {
+            setupScrollVideo();
+        }
+
         return () => {
-            window.removeEventListener('scroll', handleScroll);
-            window.removeEventListener('resize', checkMobile);
+            video.removeEventListener('loadedmetadata', setupScrollVideo);
+            if (scrollTriggerInst) {
+                scrollTriggerInst.kill();
+            }
         };
     }, [isMobile]);
 
     return (
         <>
-            {/* Hero Section - Responsive height */}
             <section
                 ref={sectionRef}
-                className={`relative w-full overflow-hidden ${isMobile ? '' : 'sticky top-0'}`}
+                className="relative w-full overflow-hidden bg-black"
                 style={{
                     height: isMobile ? '60vh' : '100vh',
                     minHeight: isMobile ? '400px' : '600px',
-                    transform: isMobile ? 'none' : `scale(${1 - scrollProgress * 0.1}) translateY(${scrollProgress * -50}px)`,
-                    opacity: isMobile ? 1 : 1 - scrollProgress * 0.3,
-                    borderRadius: isMobile ? '0' : `${scrollProgress * 24}px`,
-                    transformOrigin: 'center top',
-                    zIndex: 1
                 }}
             >
                 {/* Video Background */}
                 {videoUrl && (
                     <video
-                        autoPlay
+                        ref={videoRef}
                         muted
-                        loop
                         playsInline
+                        preload="auto"
                         className="absolute inset-0 w-full h-full object-cover"
-                        style={{
-                            borderRadius: isMobile ? '0' : `${scrollProgress * 24}px`
-                        }}
+                        autoPlay={isMobile}
+                        loop={isMobile}
                     >
                         <source src={videoUrl} type="video/mp4" />
                     </video>
@@ -61,29 +92,16 @@ const TechStackHero = ({ videoUrl }) => {
 
                 {/* Fallback if no video */}
                 {!videoUrl && (
-                    <div
-                        className="absolute inset-0 bg-gray-900"
-                        style={{ borderRadius: isMobile ? '0' : `${scrollProgress * 24}px` }}
-                    />
+                    <div className="absolute inset-0 bg-gray-900" />
                 )}
 
-                {/* Dark overlay */}
-                <div
-                    className="absolute inset-0 bg-black transition-opacity duration-100"
-                    style={{
-                        opacity: isMobile ? 0.2 : scrollProgress * 0.4,
-                        borderRadius: isMobile ? '0' : `${scrollProgress * 24}px`
-                    }}
-                />
-
-                {/* Bottom Gradient - helps blend into next section on mobile */}
-                {isMobile && (
-                    <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-50 to-transparent" />
+                {/* Loading state */}
+                {!isVideoReady && !isMobile && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-black z-10">
+                        <div className="w-10 h-10 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                    </div>
                 )}
             </section>
-
-            {/* Spacer only needed on desktop for scroll effect */}
-            {!isMobile && <div className="h-screen" style={{ marginTop: '-100vh' }} />}
         </>
     );
 };
