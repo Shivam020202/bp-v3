@@ -13,6 +13,7 @@ import {
   FaMinus,
 } from "react-icons/fa";
 import StackScroll2 from "../components/StackScroll2";
+import maxHeroBanner from "../assets/portfoliodetailbanner/max-hero-banner.webp";
 
 const PortfolioDetail = () => {
   const { id } = useParams();
@@ -61,24 +62,11 @@ const PortfolioDetail = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={project.heroImage}
+            src={maxHeroBanner}
             alt={project.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80" />
         </div>
-
-        {/* Pattern Overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, white 1px, transparent 1px),
-              linear-gradient(to bottom, white 1px, transparent 1px)
-            `,
-            backgroundSize: "40px 40px"
-          }}
-        />
 
         {/* Back Button */}
         {/* <motion.button
@@ -348,9 +336,9 @@ const PortfolioDetail = () => {
                   {[
                     { name: "Max Home", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/max_home-logo_ya130a.png", size: "h-16" },
                     { name: "SCOD", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/scod-favicon_b2d7cp.png", size: "h-8" },
-
+                    { name: "La Midas", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/La-Midas-Logo_swzrlp.webp", size: "h-8" },
                     { name: "IGEHRC", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/IGEHRC-new-logo_ydf3ww.webp", size: "h-8" },
-                    { name: "LCH Africa", logo: "https://lchafrica.com/img/cropped-FINAL-LOGO-svg.png", size: "h-14" },
+                    { name: "Lifecare", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/lifecare-new-logo_xerg1l.webp", size: "h-14" },
                     { name: "Aureus", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/aureus-new-logo_lbyme0.webp", size: "h-8" },
                     { name: "Astrovazar", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/astrovazar_wbf12h.webp", size: "h-8" },
                     { name: "Ecovana", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ecovana-logo_a1r4ct.webp", size: "h-8" },
