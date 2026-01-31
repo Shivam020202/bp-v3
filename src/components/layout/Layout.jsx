@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   return (
-    <div className="min-h-screen bg-cream-200 overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden">
       <MegaMenuHeader />
       <motion.main
         initial={{ opacity: 0 }}
