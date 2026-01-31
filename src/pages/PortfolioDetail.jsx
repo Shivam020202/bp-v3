@@ -58,7 +58,7 @@ const PortfolioDetail = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative h-[70vh] md:h-[80vh] overflow-hidden mt-16 md:mt-20">
+      <section ref={heroRef} className="relative h-[70vh] md:h-[80vh] overflow-hidden mt-16 md:mt-14">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
