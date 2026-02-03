@@ -8,6 +8,7 @@ import PortfolioPage from "./pages/portfolio";
 import PortfolioDetail from "./pages/PortfolioDetail";
 import AIServicesPage from "./pages/AIServicesPage";
 import Contact from "./pages/Contact";
+import CareersPage from "./pages/CareersPage";
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/portfolio/:id" element={<PortfolioDetail />} />
           <Route path="/services/ai-solutions" element={<AIServicesPage />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/careers" element={<CareersPage />} />
         </Routes>
       </Layout>
     </Router>
