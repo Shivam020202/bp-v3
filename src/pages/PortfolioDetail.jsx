@@ -13,7 +13,6 @@ import {
   FaMinus,
 } from "react-icons/fa";
 import StackScroll2 from "../components/StackScroll2";
-import maxHeroBanner from "../assets/portfoliodetailbanner/max-hero-banner.webp";
 
 const PortfolioDetail = () => {
   const { id } = useParams();
@@ -62,7 +61,7 @@ const PortfolioDetail = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={maxHeroBanner}
+            src={project.heroBanner || project.heroImage}
             alt={project.title}
             className="w-full h-full object-cover"
           />

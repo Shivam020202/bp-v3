@@ -32,6 +32,10 @@ import rajCard from "../assets/portfolio/covers/RAJ-CARD.webp";
 import maxCard from "../assets/portfolio/covers/max-thumbnail.webp";
 import lifecareCard from "../assets/portfolio/covers/lifecare-card.webp";
 import apolloCard from "../assets/portfolio/covers/apollo-card.webp";
+// Hero banners for portfolio detail pages
+import maxHeroBanner from "../assets/portfoliodetailbanner/Max@home_updated.png";
+import rajHeroBanner from "../assets/portfoliodetailbanner/raj-hero-banner.png";
+import apolloHeroBanner from "../assets/portfoliodetailbanner/apollo-hero-banner.png";
 export const projects = [
     {
         id: 1,
@@ -43,6 +47,7 @@ export const projects = [
         duration: "5 months",
         image: maxCard,
         heroImage: p1,
+        heroBanner: maxHeroBanner,
         tags: ["Website Development", "Healthcare UI/UX", "Patient Portal", "Service Booking", "Performance Optimization"],
         description: "Building a digital platform for India's largest home healthcare brand to connect patients with hospital-quality care at home",
         challenge: "MAX@Home, India's largest home healthcare brand under Max Healthcare, needed a modern, user-friendly website that communicates their mission of bringing medical expertise and hospital-quality care to patients' homes. The challenge was to create a seamless digital experience that builds trust, simplifies service booking, and helps families find the right care with compassion and reliability.",
@@ -101,6 +106,7 @@ export const projects = [
         duration: "12 months",
         image: rajCard,
         heroImage: s1,
+        heroBanner: rajHeroBanner,
         tags: ["Full-Funnel Digital Strategy", "Doctor-Led Video Production", "Patient Community Building", "SEO & Local Search Optimization", "Performance Analytics", "Web Development"],
         description: "Digitizing Care: A Year of Expanding Healthcare Horizons in Jharkhand",
         challenge: "Transitioning from 'traditional hospital marketing' to an interactive, educational ecosystem that reduces patient anxiety and builds preemptive trust. In 2025, Raj Hospitals Ranchi embarked on a mission to modernize its legacy brand image to align with its high-tech medical infrastructure (Cath Lab, Modular OTs).",
@@ -207,6 +213,7 @@ export const projects = [
         duration: "5 months",
         image: apolloCard,
         heroImage: apolloHero,
+        heroBanner: apolloHeroBanner,
         tags: ["Omnichannel Growth Strategy", "Paid Media Scaling", "Educational Content Production", "Medical Tourism Marketing", "Robotic Surgery Awareness"],
         description: "Bridging Clinical Brilliance with Digital Mass Awareness",
         challenge: "Maintain brand prestige while scaling reach to local and international patients. Premier NCR hospital with 710+ beds needing digital scale to match clinical leadership as India's first JCI-accredited hospital.",
@@ -260,6 +267,7 @@ export const projects = [
         duration: "5 months",
         image: maxCard,
         heroImage: p1,
+        heroBanner: maxHeroBanner,
         tags: ["Website Development", "Healthcare UI/UX", "Patient Portal", "Service Booking", "Performance Optimization"],
         description: "Building a digital platform for India's largest home healthcare brand to connect patients with hospital-quality care at home",
         challenge: "MAX@Home, India's largest home healthcare brand under Max Healthcare, needed a modern, user-friendly website that communicates their mission of bringing medical expertise and hospital-quality care to patients' homes. The challenge was to create a seamless digital experience that builds trust, simplifies service booking, and helps families find the right care with compassion and reliability.",
@@ -318,6 +326,7 @@ export const projects = [
         duration: "5 months",
         image: apolloCard,
         heroImage: apolloHero,
+        heroBanner: apolloHeroBanner,
         tags: ["Omnichannel Growth Strategy", "Paid Media Scaling", "Educational Content Production", "Medical Tourism Marketing", "Robotic Surgery Awareness"],
         description: "Bridging Clinical Brilliance with Digital Mass Awareness",
         challenge: "Maintain brand prestige while scaling reach to local and international patients. Premier NCR hospital with 710+ beds needing digital scale to match clinical leadership as India's first JCI-accredited hospital.",
