@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   ArrowUpRight,
   Search,
@@ -20,6 +21,7 @@ const services = [
     icon: <Search />,
     image:
       "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768817880/SEO_qymlqf.svg",
+    link: "/services/seo-optimization",
   },
   {
     id: "02",
@@ -29,6 +31,7 @@ const services = [
     icon: <Megaphone />,
     image:
       "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768817877/Digital_Promotion_q5zfml.svg",
+    link: "/services/paid-advertising",
   },
   {
     id: "03",
@@ -37,6 +40,7 @@ const services = [
     icon: <Share2 />,
     image:
       "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768817876/Social_Media_Activity_qmsix9.svg",
+    link: "/services/social-media",
   },
   {
     id: "04",
@@ -45,6 +49,7 @@ const services = [
     icon: <PenTool />,
     image:
       "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768817877/Creative_Content_Writer_nrybwy.svg",
+    link: "/services/content-marketing",
   },
   {
     id: "05",
@@ -54,6 +59,7 @@ const services = [
     icon: <Mail />,
     image:
       "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768817876/Chat_Via_Email_nwa7vz.svg",
+    link: "/services/email-marketing",
   },
   {
     id: "06",
@@ -62,6 +68,7 @@ const services = [
     icon: <BarChart />,
     image:
       "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768817876/AI_and_Data_Integration_o0cqqm.svg",
+    link: "/services/ai-automation",
   },
   {
     id: "07",
@@ -70,6 +77,7 @@ const services = [
     icon: <TrendingUp />,
     image:
       "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768817876/Video_Learning_nojkh4.svg",
+    link: "/services/youtube-marketing",
   },
   {
     id: "08",
@@ -78,58 +86,62 @@ const services = [
     icon: <Zap />,
     image:
       "https://res.cloudinary.com/de4kw1t2i/image/upload/v1768817880/App_Development_jawnsm.svg",
+    link: "/services/web-development",
   },
 ];
 
 const ServiceCard = ({ service, idx }) => {
   return (
-    <motion.a
-      href="#"
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ delay: idx * 0.05, duration: 0.4, ease: "backOut" }}
-      className="group relative w-full aspect-square rounded-[2rem] overflow-hidden block shadow-[0_10px_30px_rgba(0,0,0,0.1)]"
+    <Link
+      to={service.link}
     >
-      {/* Liquid Crystal Border & Depth Effect */}
-      <div className="absolute inset-0 z-40 rounded-[2rem] border border-white/40 pointer-events-none shadow-[inset_0_0_20px_rgba(255,255,255,0.3)] ring-1 ring-black/5" />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: idx * 0.05, duration: 0.4, ease: "backOut" }}
+        className="group relative w-full aspect-square rounded-[2rem] overflow-hidden block shadow-[0_10px_30px_rgba(0,0,0,0.1)]"
+      >
+        {/* Liquid Crystal Border & Depth Effect */}
+        <div className="absolute inset-0 z-40 rounded-[2rem] border border-white/40 pointer-events-none shadow-[inset_0_0_20px_rgba(255,255,255,0.3)] ring-1 ring-black/5" />
 
-      {/* Background Image */}
-      <img
-        src={service.image}
-        alt={service.title}
-        className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-      />
+        {/* Background Image */}
+        <img
+          src={service.image}
+          alt={service.title}
+          className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+        />
 
-      {/* Persistent Title (Glass Pill) */}
-      <div className="absolute bottom-6 left-0 right-0 flex justify-center z-10 opacity-100 group-hover:opacity-0 transition-opacity duration-300 px-4 pointer-events-none">
-        <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/30 rounded-full text-xs font-bold text-black/70 shadow-lg shadow-black/10 text-center tracking-wider uppercase">
-          {service.title}
-        </span>
-      </div>
-
-      {/* Hover Overlay (Glassmorphism) */}
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 z-20" />
-
-      {/* Hover Content */}
-      <div className="absolute inset-0 p-6 flex flex-col justify-center items-center text-center z-30 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-          <div className="mb-3 inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-[#C4A484] shadow-[0_0_15px_rgba(196,164,132,0.4)]">
-            {service.icon}
-          </div>
-          <h3 className="text-lg md:text-xl font-bold mb-2 leading-tight text-white font-display drop-shadow-lg">
+        {/* Persistent Title (Glass Pill) */}
+        <div className="absolute bottom-6 left-0 right-0 flex justify-center z-10 opacity-100 group-hover:opacity-0 transition-opacity duration-300 px-4 pointer-events-none">
+          <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/30 rounded-full text-xs font-bold text-black/70 shadow-lg shadow-black/10 text-center tracking-wider uppercase">
             {service.title}
-          </h3>
-          <p className="text-xs text-gray-200 max-w-[200px] mx-auto leading-relaxed drop-shadow-md font-medium">
-            {service.description}
-          </p>
+          </span>
         </div>
 
-        <div className="absolute bottom-5 right-5">
-          <ArrowUpRight className="text-white w-4 h-4 drop-shadow-md" />
+        {/* Hover Overlay (Glassmorphism) */}
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 z-20" />
+
+        {/* Hover Content */}
+        <div className="absolute inset-0 p-6 flex flex-col justify-center items-center text-center z-30 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+            <div className="mb-3 inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-[#C4A484] shadow-[0_0_15px_rgba(196,164,132,0.4)]">
+              {service.icon}
+            </div>
+            <h3 className="text-lg md:text-xl font-bold mb-2 leading-tight text-white font-display drop-shadow-lg">
+              {service.title}
+            </h3>
+            <p className="text-xs text-gray-200 max-w-[200px] mx-auto leading-relaxed drop-shadow-md font-medium">
+              {service.description}
+            </p>
+          </div>
+
+          <div className="absolute bottom-5 right-5">
+            <ArrowUpRight className="text-white w-4 h-4 drop-shadow-md" />
+          </div>
         </div>
-      </div>
-    </motion.a>
+      </motion.div>
+    </Link>
   );
 };
 

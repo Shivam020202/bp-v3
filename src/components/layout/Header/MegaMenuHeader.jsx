@@ -248,19 +248,19 @@ const MegaMenuHeader = () => {
                 icon: <FaSearch />,
                 title: "SEO Optimization",
                 description: "Rank higher and drive organic traffic.",
-                link: "/services/web-development",
+                link: "/services/seo-optimization",
               },
               {
                 icon: <FaBullhorn />,
                 title: "PPC Advertising",
                 description: "Maximize ROI with targeted ad campaigns.",
-                link: "#",
+                link: "/services/paid-advertising",
               },
               {
                 icon: <FaChartLine />,
                 title: "Analytics & Reporting",
                 description: "Data-driven insights for better decisions.",
-                link: "#",
+                link: "/services/ai-automation",
               },
             ],
           },
@@ -271,19 +271,19 @@ const MegaMenuHeader = () => {
                 icon: <FaPencilAlt />,
                 title: "Content Marketing",
                 description: "Engaging content that converts.",
-                link: "#",
+                link: "/services/content-marketing",
               },
               {
                 icon: <FaShareAlt />,
                 title: "Social Media Marketing",
                 description: "Build community and brand awareness.",
-                link: "#",
+                link: "/services/social-media",
               },
               {
                 icon: <FaEnvelope />,
                 title: "Email Marketing",
                 description: "Personalized campaigns that resonate.",
-                link: "#",
+                link: "/services/email-marketing",
               },
             ],
           },
@@ -302,19 +302,19 @@ const MegaMenuHeader = () => {
                 icon: <FaPalette />,
                 title: "Brand Strategy",
                 description: "Define your unique brand identity.",
-                link: "#",
+                link: "/services/content-marketing",
               },
               {
                 icon: <FaPencilAlt />,
                 title: "Logo Design",
                 description: "Memorable logos that stand out.",
-                link: "#",
+                link: "/services/content-marketing",
               },
               {
                 icon: <FaFileAlt />,
                 title: "Brand Guidelines",
                 description: "Consistent brand across all touchpoints.",
-                link: "#",
+                link: "/services/content-marketing",
               },
             ],
           },
@@ -325,19 +325,19 @@ const MegaMenuHeader = () => {
                 icon: <FaMobileAlt />,
                 title: "UI/UX Design",
                 description: "Intuitive interfaces users love.",
-                link: "#",
+                link: "/services/web-development",
               },
               {
                 icon: <FaVideo />,
                 title: "Motion Graphics",
                 description: "Bring your brand to life with animation.",
-                link: "#",
+                link: "/services/youtube-marketing",
               },
               {
                 icon: <FaShareAlt />,
                 title: "Social Media Graphics",
                 description: "Eye-catching visuals for social platforms.",
-                link: "#",
+                link: "/services/social-media",
               },
             ],
           },
@@ -356,19 +356,19 @@ const MegaMenuHeader = () => {
                 icon: <FaCode />,
                 title: "Website Development",
                 description: "Fast, responsive, and SEO-friendly websites.",
-                link: "#",
+                link: "/services/web-development",
               },
               {
                 icon: <FaBuilding />,
                 title: "E-commerce Solutions",
                 description: "Powerful online stores that convert.",
-                link: "#",
+                link: "/services/web-development",
               },
               {
                 icon: <FaRocket />,
                 title: "Web Applications",
                 description: "Custom web apps for your business needs.",
-                link: "#",
+                link: "/services/web-development",
               },
             ],
           },
@@ -379,19 +379,19 @@ const MegaMenuHeader = () => {
                 icon: <FaMobileAlt />,
                 title: "Mobile App Development",
                 description: "Native and cross-platform mobile apps.",
-                link: "#",
+                link: "/services/web-development",
               },
               {
                 icon: <FaChartLine />,
                 title: "API Integration",
                 description: "Seamless third-party integrations.",
-                link: "#",
+                link: "/services/ai-automation",
               },
               {
                 icon: <FaLightbulb />,
                 title: "Technical Consulting",
                 description: "Expert guidance for your tech stack.",
-                link: "#",
+                link: "/services/ai-automation",
               },
             ],
           },
@@ -413,8 +413,8 @@ const MegaMenuHeader = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 container mx-auto ${isScrolled || isContactPage
-          ? "bg-white/70 backdrop-blur-sm border-b border-white/10 shadow-[inset_0_2px_10px_rgba(0,0,0,0.3)] rounded-b-3xl md:rounded-3xl md:mt-2"
-          : "bg-white/90 rounded-b-3xl"
+        ? "bg-white/70 backdrop-blur-sm border-b border-white/10 shadow-[inset_0_2px_10px_rgba(0,0,0,0.3)] rounded-b-3xl md:rounded-3xl md:mt-2"
+        : "bg-white/90 rounded-b-3xl"
         }`}
     >
       <div className="container mx-auto px-6">

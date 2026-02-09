@@ -11,6 +11,15 @@ import Contact from "./pages/Contact";
 import CareersPage from "./pages/CareersPage";
 import ScrollToTop from "./components/ScrollToTop";
 
+// Service Pages
+import SEOOptimizationPage from "./pages/SEOOptimizationPage";
+import PaidAdvertisingPage from "./pages/PaidAdvertisingPage";
+import SocialMediaPage from "./pages/SocialMediaPage";
+import ContentMarketingPage from "./pages/ContentMarketingPage";
+import EmailMarketingPage from "./pages/EmailMarketingPage";
+import YoutubeMarketingPage from "./pages/YoutubeMarketingPage";
+import AIAutomationPage from "./pages/AIAutomationPage";
+
 function App() {
   return (
     <Router>
@@ -28,6 +37,15 @@ function App() {
           <Route path="/services/ai-solutions" element={<AIServicesPage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<CareersPage />} />
+
+          {/* Service Pages */}
+          <Route path="/services/seo-optimization" element={<SEOOptimizationPage />} />
+          <Route path="/services/paid-advertising" element={<PaidAdvertisingPage />} />
+          <Route path="/services/social-media" element={<SocialMediaPage />} />
+          <Route path="/services/content-marketing" element={<ContentMarketingPage />} />
+          <Route path="/services/email-marketing" element={<EmailMarketingPage />} />
+          <Route path="/services/youtube-marketing" element={<YoutubeMarketingPage />} />
+          <Route path="/services/ai-automation" element={<AIAutomationPage />} />
         </Routes>
       </Layout>
     </Router>

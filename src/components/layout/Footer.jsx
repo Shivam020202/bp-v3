@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Instagram,
   Twitter,
@@ -31,14 +32,14 @@ const Footer = () => {
   };
 
   const services = [
-    "Brand Strategy",
-    "Visual Identity",
-    "Web Development",
-    "SEO Optimization",
-    "Content Marketing",
-    "Social Media Growth",
-    "Motion Graphics",
-    "Packaging Design",
+    { name: "SEO Optimization", link: "/services/seo-optimization" },
+    { name: "Paid Advertising", link: "/services/paid-advertising" },
+    { name: "Social Media Marketing", link: "/services/social-media" },
+    { name: "Content Marketing", link: "/services/content-marketing" },
+    { name: "Email Marketing", link: "/services/email-marketing" },
+    { name: "YouTube Marketing", link: "/services/youtube-marketing" },
+    { name: "AI & Automation", link: "/services/ai-automation" },
+    { name: "Web Development", link: "/services/web-development" },
   ];
 
   const indianCities = [
@@ -224,14 +225,14 @@ const Footer = () => {
               </h4>
               <ul className="space-y-2.5">
                 {services.map((s) => (
-                  <li key={s}>
-                    <a
-                      href="#"
+                  <li key={s.name}>
+                    <Link
+                      to={s.link}
                       className="text-sm hover:text-orange-100 transition-colors duration-300 flex items-center gap-2 group"
                     >
                       <span className="w-1 h-1 rounded-full bg-stone-700 group-hover:bg-orange-200 transition-colors" />
-                      {s}
-                    </a>
+                      {s.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
