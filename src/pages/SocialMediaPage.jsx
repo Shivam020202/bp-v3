@@ -1,4 +1,4 @@
-import ServiceBannerHero from "../components/sections/services/ServiceBannerHero";
+import SocialMediaBannerHero from "../components/sections/services/SocialMediaBannerHero";
 import ServiceAboutSection from "../components/sections/services/ServiceAboutSection";
 import PortfolioShowcase from "../components/sections/services/PortfolioShowcase";
 import ServiceJourney from "../components/sections/services/ServiceJourney";
@@ -12,14 +12,7 @@ const SocialMediaPage = () => {
     return (
         <div className="relative">
             {/* Hero - Banner */}
-            <ServiceBannerHero
-                title={service.title}
-                titleHighlight={service.titleHighlight}
-                subtitle={service.subtitle}
-                description={service.description}
-                heroImage={service.heroImage}
-                stats={service.stats}
-            />
+            <SocialMediaBannerHero />
 
             {/* Services Section */}
             <ServiceAboutSection
