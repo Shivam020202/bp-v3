@@ -316,15 +316,25 @@ const Footer = () => {
                 </span>
                 <div className="h-32 overflow-y-auto no-scrollbar pr-2">
                   <div className="flex flex-wrap gap-x-1 gap-y-2">
-                    {indianCities.map((city, i) => (
-                      <a
-                        key={i}
-                        href="#"
-                        className="text-[11px] text-stone-500 hover:text-white transition-colors duration-200 px-2 py-1 rounded bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 whitespace-nowrap"
-                      >
-                        Best digital marketing agency in {city}
-                      </a>
-                    ))}
+                    {indianCities.map((city, i) =>
+                      city === "Gurgaon" ? (
+                        <Link
+                          key={i}
+                          to="/locations/gurugram"
+                          className="text-[11px] text-stone-500 hover:text-white transition-colors duration-200 px-2 py-1 rounded bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 whitespace-nowrap"
+                        >
+                          Best digital marketing agency in {city}
+                        </Link>
+                      ) : (
+                        <a
+                          key={i}
+                          href="#"
+                          className="text-[11px] text-stone-500 hover:text-white transition-colors duration-200 px-2 py-1 rounded bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 whitespace-nowrap"
+                        >
+                          Best digital marketing agency in {city}
+                        </a>
+                      )
+                    )}
                   </div>
                 </div>
               </div>

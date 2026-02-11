@@ -19,6 +19,7 @@ import ContentMarketingPage from "./pages/ContentMarketingPage";
 import EmailMarketingPage from "./pages/EmailMarketingPage";
 import YoutubeMarketingPage from "./pages/YoutubeMarketingPage";
 import AIAutomationPage from "./pages/AIAutomationPage";
+import GurgaonLocationPage from "./pages/GurgaonLocationPage";
 
 function App() {
   return (
@@ -46,6 +47,9 @@ function App() {
           <Route path="/services/email-marketing" element={<EmailMarketingPage />} />
           <Route path="/services/youtube-marketing" element={<YoutubeMarketingPage />} />
           <Route path="/services/ai-automation" element={<AIAutomationPage />} />
+
+          {/* Location Pages */}
+          <Route path="/locations/gurugram" element={<GurgaonLocationPage />} />
         </Routes>
       </Layout>
     </Router>
