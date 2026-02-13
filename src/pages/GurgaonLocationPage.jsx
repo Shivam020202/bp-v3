@@ -581,16 +581,21 @@ const GurgaonLocationPage = () => {
                             </h2>
                             <p className="text-gray-400 mb-10">Fill out the form below and our Gurugram team will get back to you within 2 hours.</p>
 
-                            <form className="space-y-4">
+                            <form
+                                acceptCharset="UTF-8"
+                                action="https://app.formester.com/forms/bhMEoU7zL/submissions"
+                                method="POST"
+                                className="space-y-4"
+                            >
                                 <div className="grid grid-cols-2 gap-4">
-                                    <input type="text" placeholder="First Name" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-[#C4A484] transition-colors" />
-                                    <input type="text" placeholder="Last Name" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-[#C4A484] transition-colors" />
+                                    <input type="text" name="First Name" placeholder="First Name" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-[#C4A484] transition-colors" />
+                                    <input type="text" name="Last Name" placeholder="Last Name" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-[#C4A484] transition-colors" />
                                 </div>
-                                <input type="email" placeholder="Work Email" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-[#C4A484] transition-colors" />
-                                <input type="tel" placeholder="Phone Number" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-[#C4A484] transition-colors" />
-                                <textarea rows="4" placeholder="Tell us about your project goals..." className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-[#C4A484] transition-colors resize-none"></textarea>
+                                <input type="email" name="email" placeholder="Work Email" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-[#C4A484] transition-colors" />
+                                <input type="tel" name="Phone Number" placeholder="Phone Number" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-[#C4A484] transition-colors" />
+                                <textarea rows="4" name="Message" placeholder="Tell us about your project goals..." className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-[#C4A484] transition-colors resize-none"></textarea>
 
-                                <button className="w-full bg-[#C4A484] text-black font-bold py-4 rounded-xl hover:bg-white transition-colors flex items-center justify-center gap-2">
+                                <button type="submit" className="w-full bg-[#C4A484] text-black font-bold py-4 rounded-xl hover:bg-white transition-colors flex items-center justify-center gap-2">
                                     Send Message <Send className="w-4 h-4" />
                                 </button>
                             </form>

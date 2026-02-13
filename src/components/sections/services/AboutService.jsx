@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useLayoutEffect, useState } from "react";
 import { ArrowRight, Code, Server, ShoppingCart, FileText, Smartphone } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -65,7 +65,7 @@ const AboutService = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (!isLargeScreen || !containerRef.current) return;
 
         let triggers = [];

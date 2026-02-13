@@ -35,7 +35,7 @@ const MegaMenuHeader = () => {
   const [activeMenu, setActiveMenu] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeCategory, setActiveCategory] = useState(0);
+
   const menuTimeoutRef = useRef(null);
 
   useEffect(() => {
@@ -49,7 +49,7 @@ const MegaMenuHeader = () => {
   const handleMenuEnter = (menuType) => {
     if (menuTimeoutRef.current) clearTimeout(menuTimeoutRef.current);
     setActiveMenu(menuType);
-    setActiveCategory(0);
+
   };
 
   const handleMenuLeave = () => {
@@ -58,163 +58,9 @@ const MegaMenuHeader = () => {
     }, 200);
   };
 
-  // Resources Menu Structure (similar to Lattice's Library menu)
-  const resourcesMenu = {
-    categories: [
-      {
-        id: "library",
-        title: "Library",
-        subtitle: "Your one-stop shop to learn all things people.",
-        icon: <FaBook />,
-      },
-      {
-        id: "customers",
-        title: "For customers",
-        subtitle: "Helpful resources for the HR leaders using Lattice.",
-        icon: <FaUsers />,
-      },
-      {
-        id: "company",
-        title: "Company",
-        subtitle: "Why we're proud to be Latticians.",
-        icon: <FaBuilding />,
-      },
-    ],
-    content: {
-      library: {
-        sections: [
-          {
-            title: "POPULAR CONTENT TYPES",
-            items: [
-              {
-                icon: <FaCalendar />,
-                title: "Events & Webinars",
-                description: "Learn with peers, or watch on demand.",
-                link: "#",
-              },
-              {
-                icon: <FaFileAlt />,
-                title: "Templates",
-                description: "Easy templates for busy HR teams.",
-                link: "#",
-              },
-              {
-                icon: <FaBookOpen />,
-                title: "Ebooks",
-                description: "Leave the library card at home.",
-                link: "#",
-              },
-            ],
-          },
-          {
-            title: "POPULAR CONTENT TOPICS",
-            items: [
-              {
-                icon: <FaHeart />,
-                title: "Company Culture",
-                description:
-                  "Let your values come alive with the right culture.",
-                link: "#",
-              },
-              {
-                icon: <FaChartLine />,
-                title: "Performance Management",
-                description: "Activate the best in your people.",
-                link: "#",
-              },
-              {
-                icon: <FaDollarSign />,
-                title: "Compensation & Payroll",
-                description: "Motivate and reward your people, effectively.",
-                link: "#",
-              },
-            ],
-          },
-        ],
-        featured: {
-          title: "The 2026 State of People Strategy Report",
-          description: "Your favorite report is finally here.",
-          image:
-            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop",
-        },
-      },
-      customers: {
-        sections: [
-          {
-            title: "RESOURCES",
-            items: [
-              {
-                icon: <FaLightbulb />,
-                title: "Best Practices",
-                description: "Learn from the experts.",
-                link: "#",
-              },
-              {
-                icon: <FaBook />,
-                title: "Documentation",
-                description: "Complete guides and tutorials.",
-                link: "#",
-              },
-              {
-                icon: <FaCalendar />,
-                title: "Upcoming Events",
-                description: "Join our community events.",
-                link: "#",
-              },
-            ],
-          },
-          {
-            title: "SUPPORT",
-            items: [
-              {
-                icon: <FaUsers />,
-                title: "Customer Success",
-                description: "Get help from our team.",
-                link: "#",
-              },
-              {
-                icon: <FaFileAlt />,
-                title: "Help Center",
-                description: "Find answers quickly.",
-                link: "#",
-              },
-            ],
-          },
-        ],
-      },
-      company: {
-        sections: [
-          {
-            title: "ABOUT US",
-            items: [
-              {
-                icon: <FaBuilding />,
-                title: "Our Story",
-                description: "Learn about our journey.",
-                link: "#",
-              },
-              {
-                icon: <FaUsers />,
-                title: "Team",
-                description: "Meet the people behind the brand.",
-                link: "#",
-              },
-              {
-                icon: <FaAward />,
-                title: "Careers",
-                description: "Join our growing team.",
-                link: "/careers",
-              },
-            ],
-          },
-        ],
-      },
-    },
-  };
 
-  const currentContent =
-    resourcesMenu.content[resourcesMenu.categories[activeCategory]?.id] ||
-    resourcesMenu.content.library;
+
+
 
   // Services Menu Structure
   const servicesMenu = {
@@ -615,160 +461,15 @@ const MegaMenuHeader = () => {
               </AnimatePresence>
             </div>
 
-            {/* Resources Mega Menu */}
-            <div
-              className="relative"
-              onMouseEnter={() => handleMenuEnter("resources")}
-              onMouseLeave={handleMenuLeave}
+            <Link
+              to="/portfolio"
+              className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${isScrolled || isContactPage
+                ? "text-black/70 hover:text-black/80 hover:bg-white/20 "
+                : "text-black/70 hover:text-black/80 hover:bg-white/20"
+                }`}
             >
-              <button
-                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${isScrolled || isContactPage
-                  ? "text-black/70 hover:text-black/80 hover:bg-white/20 "
-                  : "text-black/70 hover:text-black/80 hover:bg-white/20"
-                  }`}
-              >
-                Resources
-                <FaChevronDown
-                  className={`text-xs transition-transform duration-200 ${activeMenu === "resources" ? "rotate-180" : ""
-                    }`}
-                />
-              </button>
-
-              {/* Mega Menu Dropdown */}
-              <AnimatePresence>
-                {activeMenu === "resources" && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.2 }}
-                    className="fixed inset-x-0 top-20 px-4 flex justify-center"
-                    onMouseEnter={() => handleMenuEnter("resources")}
-                    onMouseLeave={handleMenuLeave}
-                  >
-                    <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden w-full max-w-6xl">
-                      <div className="flex">
-                        {/* Left Sidebar - Categories */}
-                        <div className="w-64 bg-gray-50 border-r border-gray-100 p-4">
-                          <div className="space-y-1">
-                            {resourcesMenu.categories.map((category, index) => (
-                              <button
-                                key={category.id}
-                                onMouseEnter={() => setActiveCategory(index)}
-                                className={`w-full text-left px-3 py-3 rounded-lg transition-all ${activeCategory === index
-                                  ? "bg-white shadow-sm"
-                                  : "hover:bg-white/50"
-                                  }`}
-                              >
-                                <div className="flex items-start gap-3">
-                                  <div
-                                    className={`text-lg mt-0.5 ${activeCategory === index
-                                      ? "text-gray-900"
-                                      : "text-gray-400"
-                                      }`}
-                                  >
-                                    {category.icon}
-                                  </div>
-                                  <div className="flex-1 min-w-0">
-                                    <div
-                                      className={`text-sm font-semibold mb-0.5 ${activeCategory === index
-                                        ? "text-gray-900"
-                                        : "text-gray-600"
-                                        }`}
-                                    >
-                                      {category.title}
-                                    </div>
-                                    <div className="text-xs text-gray-500 leading-snug">
-                                      {category.subtitle}
-                                    </div>
-                                  </div>
-                                </div>
-                              </button>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Right Content Area */}
-                        <div className="flex-1 p-5">
-                          <div className="flex gap-6">
-                            {/* Content Sections */}
-                            <div className="flex-1">
-                              <div className="space-y-5">
-                                {currentContent.sections?.map(
-                                  (section, sIdx) => (
-                                    <div key={sIdx}>
-                                      <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">
-                                        {section.title}
-                                      </h3>
-                                      <div className="space-y-1">
-                                        {section.items.map((item, iIdx) => (
-                                          <Link
-                                            key={iIdx}
-                                            to={item.link}
-                                            className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group"
-                                          >
-                                            <div className="text-gray-400 text-sm mt-0.5 group-hover:text-gray-900 transition-colors">
-                                              {item.icon}
-                                            </div>
-                                            <div className="flex-1 min-w-0">
-                                              <div className="text-sm font-medium text-gray-900 mb-0.5 group-hover:text-gray-700">
-                                                {item.title}
-                                              </div>
-                                              <div className="text-xs text-gray-500 leading-snug">
-                                                {item.description}
-                                              </div>
-                                            </div>
-                                          </Link>
-                                        ))}
-                                      </div>
-                                    </div>
-                                  ),
-                                )}
-                              </div>
-                            </div>
-
-                            {/* Featured Section */}
-                            {currentContent.featured && (
-                              <div className="w-56">
-                                <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">
-                                  FEATURED
-                                </div>
-                                <Link
-                                  to="#"
-                                  className="block rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 p-4 hover:shadow-lg transition-shadow group"
-                                >
-                                  <div className="aspect-[4/3] mb-3 flex items-center justify-center">
-                                    <div className="text-center">
-                                      <div className="text-gray-900 font-display font-semibold text-2xl mb-1">
-                                        State of
-                                        <br />
-                                        People
-                                      </div>
-                                      <div className="text-gray-800 font-semibold text-xl mb-1">
-                                        Strategy
-                                      </div>
-                                      <div className="text-gray-600 text-sm font-medium">
-                                        2026 Report
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div className="text-sm font-semibold text-gray-900 mb-1">
-                                    {currentContent.featured.title}
-                                  </div>
-                                  <div className="text-xs text-gray-600">
-                                    {currentContent.featured.description}
-                                  </div>
-                                </Link>
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+              Portfolio
+            </Link>
 
             <Link
               to="/careers"
@@ -868,6 +569,7 @@ const MegaMenuHeader = () => {
               {[
                 { name: "Home", path: "/" },
                 { name: "About", path: "/about" },
+                { name: "Portfolio", path: "/portfolio" },
                 { name: "Career", path: "/careers" },
                 { name: "Contact", path: "/contact" },
               ].map((item, index) => (
@@ -958,43 +660,7 @@ const MegaMenuHeader = () => {
               </div>
             </div>
 
-            {/* Resources Section */}
-            <div className="px-6 mb-6">
-              <div
-                className={`transition-all duration-500 ${isMobileMenuOpen
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-4 opacity-0"
-                  }`}
-                style={{ transitionDelay: "450ms" }}
-              >
-                <h3 className="text-xs uppercase tracking-widest text-[#C69563] font-bold mb-4 flex items-center gap-2">
-                  <span className="w-6 h-[1px] bg-[#C69563]" />
-                  Resources
-                </h3>
 
-                {/* Resource Cards */}
-                <div className="space-y-2">
-                  {resourcesMenu.categories.map((category, idx) => (
-                    <div
-                      key={idx}
-                      className="group flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-[#C69563]/30 transition-all duration-300 cursor-pointer"
-                    >
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#C69563]/30 to-transparent flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                        <span className="text-[#FBD9BF]">{category.icon}</span>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h4 className="text-white text-sm font-semibold">
-                          {category.title}
-                        </h4>
-                        <p className="text-white/40 text-xs truncate">
-                          {category.subtitle}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
 
             {/* CTA Section */}
             <div

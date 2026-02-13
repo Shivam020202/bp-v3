@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './StackScroll2.css';
@@ -19,7 +19,7 @@ const StackScroll2 = ({ images, mobileImages, projectTitle }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!isLargeScreen) return; // Don't apply stack scroll on small screens
 
     const cards = containerRef.current?.querySelectorAll('.card');

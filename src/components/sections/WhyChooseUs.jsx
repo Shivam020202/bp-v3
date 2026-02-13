@@ -7,14 +7,16 @@ const principles = [
     title: "SPEED IS A FEATURE",
     description:
       "We don't believe in month-long onboarding. We ship fast while maintaining world-class quality, because momentum is everything in the digital age.",
-    image: "/Swimming.png",
+    image:
+      "https://res.cloudinary.com/damfndmrm/image/upload/v1770891798/DIY_edb8k0.png",
   },
   {
     id: "craft",
     title: "OBSESSED WITH CRAFT",
     description:
       "Pixel-perfect isn't a goal; it's our baseline. We sweat the details that others ignore, creating experiences that feel premium and polished.",
-    image: "/Sculpture Studio.png",
+    image:
+      "https://res.cloudinary.com/damfndmrm/image/upload/v1770891798/Architecture_Project_jutb3k.png",
   },
   {
     id: "data",
@@ -64,18 +66,16 @@ const WhyChooseUs = () => {
                 <div className="flex items-center gap-3 md:gap-4">
                   {/* Status Indicator Line */}
                   <motion.div
-                    className={`w-6 md:w-8 h-[2px] transition-colors duration-300 ${
-                      activeId === item.id ? "bg-black" : "bg-gray-200"
-                    }`}
+                    className={`w-6 md:w-8 h-[2px] transition-colors duration-300 ${activeId === item.id ? "bg-black" : "bg-gray-200"
+                      }`}
                     layout
                   />
 
                   <h3
-                    className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-black tracking-tighter transition-colors duration-300 ${
-                      activeId === item.id
+                    className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-black tracking-tighter transition-colors duration-300 ${activeId === item.id
                         ? "text-black"
                         : "text-gray-200 group-hover:text-gray-400"
-                    }`}
+                      }`}
                   >
                     {item.title}
                   </h3>

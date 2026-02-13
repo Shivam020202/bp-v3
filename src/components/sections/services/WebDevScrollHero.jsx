@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useLayoutEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight } from "lucide-react";
@@ -12,7 +12,7 @@ const WebDevScrollHero = () => {
     const contentRef = useRef(null);
     const [isVideoReady, setIsVideoReady] = useState(false);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const video = videoRef.current;
         const canvas = canvasRef.current;
         if (!video || !canvas) return;

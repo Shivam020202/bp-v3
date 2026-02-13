@@ -115,92 +115,48 @@ const PortfolioPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white relative overflow-hidden">
+      {/* Hero Image Background */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2000"
+          alt="Team working together"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/80" /> {/* Dark Overlay */}
+      </div>
+
       {/* Hero Section */}
-      <section ref={heroRef} className="relative pt-32 pb-20 overflow-hidden">
-        {/* Video Background */}
-        <div className="absolute inset-0 overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+      <section ref={heroRef} className="relative h-[70vh] min-h-[500px] flex items-center justify-center z-10 overflow-hidden">
+        <div className="container mx-auto px-6 text-center text-white relative z-10">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="inline-block py-1 px-3 border border-white/30 rounded-full bg-white/10 backdrop-blur-md font-mono text-xs uppercase tracking-[0.2em] mb-6"
           >
-            <source src={portfolioVideo} type="video/mp4" />
-          </video>
-
-          {/* Dark Overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-        </div>
-
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            className="text-center max-w-4xl mx-auto"
+            Selected Works
+          </motion.span>
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
-            animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tighter leading-[0.9]"
           >
-            {/* Badge */}
-            <motion.div
-              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 text-white px-6 py-2 rounded-full text-xs font-medium mb-8 tracking-[0.2em] uppercase"
-              initial={{ scale: 0 }}
-              animate={isHeroInView ? { scale: 1 } : {}}
-              transition={{ delay: 0.2, type: "spring" }}
-            >
-              <span>Selected Works</span>
-            </motion.div>
-
-            {/* Main Heading */}
-            <motion.h1
-              className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[0.9] tracking-tighter drop-shadow-2xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.3 }}
-            >
-              DIGITAL <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">
-                IMPACT.
-              </span>
-            </motion.h1>
-
-            <motion.p
-              className="text-gray-200 text-lg md:text-2xl mb-10 font-light max-w-2xl mx-auto leading-relaxed"
-              initial={{ opacity: 0 }}
-              animate={isHeroInView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.5 }}
-            >
-              Transforming visions into visual masterpieces that captivate,
-              engage, and convert.
-            </motion.p>
-
-            {/* CTA Buttons */}
-            <motion.div
-              className="flex flex-wrap items-center justify-center gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.7 }}
-            >
-              <motion.button
-                className="group relative overflow-hidden flex items-center gap-3 px-10 py-3 bg-white text-black rounded-full font-medium text-sm tracking-[0.2em] uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] hover:-translate-y-1"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span>Explore Work</span>
-                <FaArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </motion.button>
-              <motion.button
-                className="group relative overflow-hidden flex items-center gap-3 px-10 py-3 bg-white/10 backdrop-blur-sm border border-white/50 text-white rounded-full font-medium text-sm tracking-[0.2em] uppercase transition-all duration-300 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span>Get in Touch</span>
-              </motion.button>
-            </motion.div>
-          </motion.div>
+            DIGITAL <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484] italic font-serif">
+              IMPACT.
+            </span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed font-light"
+          >
+            Transforming visions into visual masterpieces that captivate, engage, and convert.
+          </motion.p>
         </div>
-
-        {/* Scroll Indicator - Removed if redundant */}
       </section>
 
       {/* Stats Section */}

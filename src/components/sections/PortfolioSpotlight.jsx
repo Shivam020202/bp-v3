@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaArrowUp, FaExternalLinkAlt } from "react-icons/fa";
 
@@ -93,20 +94,18 @@ const PortfolioSpotlight = () => {
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(index)}
-                  className={`w-16 h-10 md:w-20 md:h-20 bg-white/10 rounded-lg flex items-center justify-center transition-all duration-300 border backdrop-blur-sm p-2 ${
-                    activeTab === index
-                      ? "border-white/40 bg-white/20 shadow-lg scale-110"
-                      : "border-white/5 hover:bg-white/15"
-                  }`}
+                  className={`w-16 h-10 md:w-20 md:h-20 bg-white/10 rounded-lg flex items-center justify-center transition-all duration-300 border backdrop-blur-sm p-2 ${activeTab === index
+                    ? "border-white/40 bg-white/20 shadow-lg scale-110"
+                    : "border-white/5 hover:bg-white/15"
+                    }`}
                 >
                   <img
                     src={item.logo}
                     alt={item.tab}
-                    className={`w-full h-full object-contain filter transition-all duration-300 ${
-                      activeTab === index
-                        ? "brightness-0 invert"
-                        : "brightness-0 invert"
-                    }`}
+                    className={`w-full h-full object-contain filter transition-all duration-300 ${activeTab === index
+                      ? "brightness-0 invert"
+                      : "brightness-0 invert"
+                      }`}
                   />
                 </button>
               ))}
@@ -161,33 +160,35 @@ const PortfolioSpotlight = () => {
 
                 {/* Action Link */}
                 <div className="flex justify-center md:justify-start">
-                  <button className="flex items-center gap-3 bg-cream-50 text-warm-900 px-6 md:px-8 py-3 md:py-3.5 rounded-full font-bold hover:bg-white transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] group text-xs md:text-sm tracking-wide">
-                    <span>View Case Study</span>
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      width={24}
-                      height={24}
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                      <g
-                        id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></g>
-                      <g id="SVGRepo_iconCarrier">
-                        {" "}
-                        <path
-                          d="M15 13.5V9M15 9H10.5M15 9L9.00019 14.9999M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
-                          stroke="#000000"
-                          stroke-width="2"
+                  <Link to="/contact">
+                    <button className="flex items-center gap-3 bg-cream-50 text-warm-900 px-6 md:px-8 py-3 md:py-3.5 rounded-full font-bold hover:bg-white transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] group text-xs md:text-sm tracking-wide">
+                      <span>View Case Study</span>
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        width={24}
+                        height={24}
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g
+                          id="SVGRepo_tracerCarrier"
                           stroke-linecap="round"
                           stroke-linejoin="round"
-                        ></path>{" "}
-                      </g>
-                    </svg>
-                  </button>
+                        ></g>
+                        <g id="SVGRepo_iconCarrier">
+                          {" "}
+                          <path
+                            d="M15 13.5V9M15 9H10.5M15 9L9.00019 14.9999M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                            stroke="#000000"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>{" "}
+                        </g>
+                      </svg>
+                    </button>
+                  </Link>
                 </div>
               </motion.div>
             </AnimatePresence>

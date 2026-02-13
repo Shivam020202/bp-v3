@@ -39,7 +39,7 @@ const ContactFormSection = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-black text-lg">Phone</h4>
-                  <p className="text-gray-600">+1 (555) 123-4567</p>
+                  <p className="text-gray-600">+91 9811780937</p>
                 </div>
               </div>
 
@@ -49,7 +49,7 @@ const ContactFormSection = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-black text-lg">Email</h4>
-                  <p className="text-gray-600">hello@brandingpioneers.com</p>
+                  <p className="text-gray-600">official@brandingpioneers.com</p>
                 </div>
               </div>
 
@@ -60,7 +60,7 @@ const ContactFormSection = () => {
                 <div>
                   <h4 className="font-bold text-black text-lg">Headquarters</h4>
                   <p className="text-gray-600">
-                    123 Creative Ave, Design District, NY 10012
+                    Ground Floor, SupremeWork Co-working Space, Plot No. 84, Institutional Area, Sector 32, Gurugram, Haryana 122001
                   </p>
                 </div>
               </div>
@@ -75,7 +75,12 @@ const ContactFormSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="bg-[#F9F9F9] p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-gray-100"
           >
-            <form className="space-y-6">
+            <form
+              acceptCharset="UTF-8"
+              action="https://app.formester.com/forms/bhMEoU7zL/submissions"
+              method="POST"
+              className="space-y-6"
+            >
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-gray-700 ml-1">
@@ -83,6 +88,7 @@ const ContactFormSection = () => {
                   </label>
                   <input
                     type="text"
+                    name="First Name"
                     placeholder="John"
                     className="w-full px-6 py-4 rounded-xl bg-white border border-gray-200 focus:outline-none focus:border-[#C4A484] focus:ring-1 focus:ring-[#C4A484] transition-all"
                   />
@@ -93,6 +99,7 @@ const ContactFormSection = () => {
                   </label>
                   <input
                     type="text"
+                    name="Last Name"
                     placeholder="Doe"
                     className="w-full px-6 py-4 rounded-xl bg-white border border-gray-200 focus:outline-none focus:border-[#C4A484] focus:ring-1 focus:ring-[#C4A484] transition-all"
                   />
@@ -105,6 +112,7 @@ const ContactFormSection = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="john@example.com"
                   className="w-full px-6 py-4 rounded-xl bg-white border border-gray-200 focus:outline-none focus:border-[#C4A484] focus:ring-1 focus:ring-[#C4A484] transition-all"
                 />
@@ -116,6 +124,7 @@ const ContactFormSection = () => {
                 </label>
                 <textarea
                   rows="4"
+                  name="Message"
                   placeholder="Tell us about your project..."
                   className="w-full px-6 py-4 rounded-xl bg-white border border-gray-200 focus:outline-none focus:border-[#C4A484] focus:ring-1 focus:ring-[#C4A484] transition-all resize-none"
                 />

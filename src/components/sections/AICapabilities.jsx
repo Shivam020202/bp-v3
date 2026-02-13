@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowUpRight,
@@ -103,11 +104,10 @@ const AICapabilities = () => {
                 layout
                 onClick={() => setActiveId(item.id)}
                 onMouseEnter={() => setActiveId(item.id)}
-                className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out ${
-                  isActive
+                className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out ${isActive
                     ? "flex-[3.5]"
                     : "flex-[1] bg-gray-50 hover:bg-gray-100 border border-gray-100"
-                }`}
+                  }`}
               >
                 {/* Active Content (Background Image + Details) */}
                 {isActive && (
@@ -162,9 +162,11 @@ const AICapabilities = () => {
                           </div>
                         </div>
 
-                        <button className="h-14 w-14 rounded-full bg-white text-black flex items-center justify-center hover:bg-black hover:text-white transition-all shadow-[0_0_20px_rgba(0,0,0,0.3)] shrink-0 self-end">
-                          <ArrowUpRight strokeWidth={2} />
-                        </button>
+                        <Link to="/contact">
+                          <button className="h-14 w-14 rounded-full bg-white text-black flex items-center justify-center hover:bg-black hover:text-white transition-all shadow-[0_0_20px_rgba(0,0,0,0.3)] shrink-0 self-end">
+                            <ArrowUpRight strokeWidth={2} />
+                          </button>
+                        </Link>
                       </div>
                     </motion.div>
                   </>
@@ -202,26 +204,23 @@ const AICapabilities = () => {
                 {/* Header - Always visible */}
                 <button
                   onClick={() => toggleMobileItem(item.id)}
-                  className={`w-full flex items-center justify-between p-4 transition-all duration-300 ${
-                    isActive
+                  className={`w-full flex items-center justify-between p-4 transition-all duration-300 ${isActive
                       ? "bg-gray-900 text-white"
                       : "bg-white text-black hover:bg-gray-50"
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center gap-3">
                     <span
-                      className={`${
-                        isActive ? "text-gray-400" : "text-gray-600"
-                      }`}
+                      className={`${isActive ? "text-gray-400" : "text-gray-600"
+                        }`}
                     >
                       {item.icon}
                     </span>
                     <div className="text-left">
                       <h3 className="font-bold text-base">{item.title}</h3>
                       <p
-                        className={`text-xs ${
-                          isActive ? "text-gray-300" : "text-gray-500"
-                        }`}
+                        className={`text-xs ${isActive ? "text-gray-300" : "text-gray-500"
+                          }`}
                       >
                         {item.subtitle}
                       </p>
@@ -287,12 +286,13 @@ const AICapabilities = () => {
                         </div>
                       </div>
 
-                      {/* CTA Button */}
                       <div className="p-4 bg-gray-50 border-t border-gray-100">
-                        <button className="w-full py-3 bg-black text-white rounded-lg font-bold text-sm flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors">
-                          Learn More
-                          <ArrowUpRight className="w-4 h-4" />
-                        </button>
+                        <Link to="/contact">
+                          <button className="w-full py-3 bg-black text-white rounded-lg font-bold text-sm flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors">
+                            Learn More
+                            <ArrowUpRight className="w-4 h-4" />
+                          </button>
+                        </Link>
                       </div>
                     </motion.div>
                   )}

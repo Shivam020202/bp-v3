@@ -134,13 +134,15 @@ const Footer = () => {
             </p>
           </div>
 
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="group relative flex items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-full bg-orange-50 text-black hover:bg-white transition-colors duration-300 shrink-0"
-          >
-            <ArrowUpRight className="w-10 h-10 md:w-14 md:h-14 group-hover:rotate-45 transition-transform duration-300 stroke-[1.5]" />
-          </motion.button>
+          <Link to="/contact">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative flex items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-full bg-orange-50 text-black hover:bg-white transition-colors duration-300 shrink-0"
+            >
+              <ArrowUpRight className="w-10 h-10 md:w-14 md:h-14 group-hover:rotate-45 transition-transform duration-300 stroke-[1.5]" />
+            </motion.button>
+          </Link>
         </div>
       </div>
 
@@ -249,26 +251,25 @@ const Footer = () => {
                     <span className="text-white block font-medium mb-1">
                       Headquarters
                     </span>
-                    Ground Floor, SupremeWork, Plot No. 84, Institutional Area,
-                    Sector 32, Gurugram, Haryana 122001
+                    Ground Floor, SupremeWork Co-working Space, Plot No. 84, Institutional Area, Sector 32, Gurugram, Haryana 122001
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-orange-200 shrink-0" />
                   <a
-                    href="tel:09811780937"
+                    href="tel:+919811780937"
                     className="hover:text-white transition-colors"
                   >
-                    098117 80937
+                    +91 9811780937
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-orange-200 shrink-0" />
                   <a
-                    href="mailto:hello@brandingpioneers.com"
+                    href="mailto:official@brandingpioneers.com"
                     className="hover:text-white transition-colors"
                   >
-                    hello@brandingpioneers.com
+                    official@brandingpioneers.com
                   </a>
                 </div>
                 {/* <div className="flex items-start gap-3 pt-2 border-t border-white/5">

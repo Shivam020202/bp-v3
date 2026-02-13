@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
@@ -66,7 +66,7 @@ const OurClients = () => {
   const marqueeRow1 = [...row1, ...row1, ...row1, ...row1];
   const marqueeRow2 = [...row2, ...row2, ...row2, ...row2];
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       // 1. Grid Fade Out
       gsap.to(".bg-grid-pattern", {

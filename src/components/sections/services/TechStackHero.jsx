@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -22,7 +22,7 @@ const TechStackHero = ({ videoUrl }) => {
         };
     }, []);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const video = videoRef.current;
         const section = sectionRef.current;
 

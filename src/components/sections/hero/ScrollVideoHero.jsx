@@ -1,4 +1,5 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useLayoutEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight } from "lucide-react";
@@ -12,7 +13,7 @@ const ScrollVideoHero = () => {
   const contentRef = useRef(null);
   const [isVideoReady, setIsVideoReady] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const video = videoRef.current;
     const canvas = canvasRef.current;
     if (!video || !canvas) return;
@@ -287,10 +288,12 @@ const ScrollVideoHero = () => {
             audience and drive meaningful engagement.
           </p>
           <div className="anim-child">
-            <button className="group relative overflow-hidden flex items-center gap-2 sm:gap-3 px-6 sm:px-10 py-2.5 sm:py-3 bg-white/10 backdrop-blur-sm border border-white/50 text-white rounded-full font-medium text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase transition-all duration-300 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] hover:border-white">
-              <span className="relative z-10">Start The Journey</span>
-              <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1 relative z-10" />
-            </button>
+            <Link to="/contact">
+              <button className="group relative overflow-hidden flex items-center gap-2 sm:gap-3 px-6 sm:px-10 py-2.5 sm:py-3 bg-white/10 backdrop-blur-sm border border-white/50 text-white rounded-full font-medium text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase transition-all duration-300 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] hover:border-white">
+                <span className="relative z-10">Start The Journey</span>
+                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1 relative z-10" />
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -312,10 +315,12 @@ const ScrollVideoHero = () => {
             actionable strategies for exponential growth.
           </p>
           <div className="anim-child flex gap-4">
-            <button className="group relative overflow-hidden flex items-center gap-2 sm:gap-3 px-6 sm:px-10 py-2.5 sm:py-3 bg-[#FFEAD3] text-[#574964] rounded-full font-medium text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,234,211,0.6)] hover:-translate-y-1">
-              <span className="relative z-10">View Case Studies</span>
-              <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
+            <Link to="/contact">
+              <button className="group relative overflow-hidden flex items-center gap-2 sm:gap-3 px-6 sm:px-10 py-2.5 sm:py-3 bg-[#FFEAD3] text-[#574964] rounded-full font-medium text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,234,211,0.6)] hover:-translate-y-1">
+                <span className="relative z-10">View Case Studies</span>
+                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -337,10 +342,12 @@ const ScrollVideoHero = () => {
             designed for tomorrow's market leaders.
           </p>
           <div className="anim-child">
-            <button className="group relative overflow-hidden flex items-center gap-2 sm:gap-3 px-6 sm:px-10 py-2.5 sm:py-3 bg-transparent border border-white/60 text-white rounded-full font-medium text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase transition-all duration-300 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]">
-              <span className="relative z-10">Book Consultation</span>
-              <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
+            <Link to="/contact">
+              <button className="group relative overflow-hidden flex items-center gap-2 sm:gap-3 px-6 sm:px-10 py-2.5 sm:py-3 bg-transparent border border-white/60 text-white rounded-full font-medium text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase transition-all duration-300 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+                <span className="relative z-10">Book Consultation</span>
+                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+            </Link>
           </div>
         </div>
       </div>

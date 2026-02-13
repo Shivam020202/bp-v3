@@ -14,7 +14,7 @@ const AboutPage = () => {
         {
             name: "Arush Thapar",
             role: "Managing Partner",
-            image: "https://brandingpioneers.com/assets/arush.webp",
+            image: "https://res.cloudinary.com/dprafk917/image/upload/v1770966192/arush_cggwsz.webp",
             bio: "Branding Pioneers was born out of a vision to redefine what it means to create impactful connections between brands and their audiences.",
             icon: (
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -25,7 +25,7 @@ const AboutPage = () => {
         {
             name: "Nishu Sharma",
             role: "Managing Partner",
-            image: "https://brandingpioneers.com/healthcare/assets/images/nishu-img.webp",
+            image: "https://res.cloudinary.com/dprafk917/image/upload/v1770967162/IMG_4892_vkzrdv.webp",
             bio: "Leading from the front—breaking barriers and setting benchmarks in the digital marketing space. Making brands unforgettable.",
             icon: (
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -491,7 +491,7 @@ const AboutPage = () => {
                                 >
                                     <div className="w-[240px] h-[320px] xl:w-[280px] xl:h-[360px]">
                                         <img
-                                            src="https://brandingpioneers.com/assets/arush.webp"
+                                            src="https://res.cloudinary.com/dprafk917/image/upload/v1770966192/arush_cggwsz.webp"
                                             alt="Arush Thapar"
                                             className="w-full h-full object-cover object-top rounded-t-full"
                                         />
@@ -538,7 +538,7 @@ const AboutPage = () => {
                                 >
                                     <div className="w-[240px] h-[320px] xl:w-[280px] xl:h-[360px]">
                                         <img
-                                            src="https://brandingpioneers.com/healthcare/assets/images/nishu-img.webp"
+                                            src="https://res.cloudinary.com/dprafk917/image/upload/v1770967162/IMG_4892_vkzrdv.webp"
                                             alt="Nishu Sharma"
                                             className="w-full h-full object-cover object-top rounded-t-full"
                                         />
@@ -580,7 +580,7 @@ const AboutPage = () => {
                                 >
                                     <div className="w-full h-[180px] overflow-hidden rounded-xl mb-3">
                                         <img
-                                            src="https://brandingpioneers.com/assets/arush.webp"
+                                            src="https://res.cloudinary.com/dprafk917/image/upload/v1770966192/arush_cggwsz.webp"
                                             alt="Arush Thapar"
                                             className="w-full h-full object-cover object-top"
                                         />
@@ -597,7 +597,7 @@ const AboutPage = () => {
                                 >
                                     <div className="w-full h-[180px] overflow-hidden rounded-xl mb-3">
                                         <img
-                                            src="https://brandingpioneers.com/healthcare/assets/images/nishu-img.webp"
+                                            src="https://res.cloudinary.com/dprafk917/image/upload/v1770967162/IMG_4892_vkzrdv.webp"
                                             alt="Nishu Sharma"
                                             className="w-full h-full object-cover object-top"
                                         />

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import {
   FaChevronDown,
   FaBullseye,
@@ -28,6 +29,7 @@ import {
   FaRocket,
   FaCrown,
   FaMagic,
+  FaTarget,
 } from "react-icons/fa";
 
 const Header = () => {
@@ -63,43 +65,6 @@ const Header = () => {
 
   const serviceCategories = [
     {
-      icon: <FaPalette />,
-      title: "Design & Branding",
-      description: "Create memorable visual identities",
-      services: [
-        {
-          icon: <FaBullseye />,
-          name: "Brand Strategy",
-          description: "Define your brand essence",
-        },
-        {
-          icon: <FaPalette />,
-          name: "Logo Design",
-          description: "Iconic visual identity",
-        },
-        {
-          icon: <FaPencilAlt />,
-          name: "UI/UX Design",
-          description: "User-centric experiences",
-        },
-        {
-          icon: <FaDesktop />,
-          name: "Web Design",
-          description: "Beautiful interfaces",
-        },
-        {
-          icon: <FaMobile />,
-          name: "Mobile App Design",
-          description: "Touch-optimized design",
-        },
-        {
-          icon: <FaCamera />,
-          name: "Photography",
-          description: "Professional imagery",
-        },
-      ],
-    },
-    {
       icon: <FaCode />,
       title: "Development",
       description: "Build powerful digital solutions",
@@ -108,31 +73,80 @@ const Header = () => {
           icon: <FaGlobe />,
           name: "Web Development",
           description: "Custom web solutions",
+          link: "/services/web-development",
         },
         {
           icon: <FaMobile />,
           name: "Mobile Apps",
           description: "iOS & Android apps",
+          link: "#",
         },
         {
           icon: <FaShoppingCart />,
           name: "E-commerce",
           description: "Online stores",
+          link: "#",
         },
         {
           icon: <FaDatabase />,
           name: "CMS Development",
           description: "Content management",
+          link: "#",
         },
         {
           icon: <FaCloud />,
           name: "Cloud Solutions",
           description: "Scalable infrastructure",
+          link: "#",
         },
         {
           icon: <FaCode />,
           name: "Custom Software",
           description: "Tailored applications",
+          link: "#",
+        },
+      ],
+    },
+    {
+      icon: <FaMicrochip />,
+      title: "AI & Automation",
+      description: "Intelligent business solutions",
+      services: [
+        {
+          icon: <FaMicrochip />,
+          name: "AI Solutions",
+          description: "Smart integrations",
+          link: "/services/ai-solutions",
+        },
+        {
+          icon: <FaBolt />,
+          name: "AI Automation",
+          description: "Workflow automation",
+          link: "/services/ai-automation",
+        },
+        {
+          icon: <FaChartBar />,
+          name: "Analytics & Insights",
+          description: "Data-driven decisions",
+          link: "#",
+        },
+        {
+          icon: <FaMagic />,
+          name: "Generative AI",
+          description: "Content generation",
+          link: "#",
+        },
+        {
+          icon: <FaRocket />,
+          name: "Process Optimization",
+          description: "Efficiency boosters",
+          link: "#",
+        },
+        {
+          icon: <FaUsers />,
+          name: "Chatbots & Assistants",
+          description: "24/7 Support",
+          link: "#",
         },
       ],
     },
@@ -145,68 +159,80 @@ const Header = () => {
           icon: <FaSearch />,
           name: "SEO Optimization",
           description: "Rank higher on Google",
+          link: "/services/seo-optimization",
         },
         {
           icon: <FaBullhorn />,
-          name: "Google Ads & PPC",
-          description: "Paid advertising",
+          name: "Paid Advertising",
+          description: "Google Ads & PPC",
+          link: "/services/paid-advertising",
         },
         {
           icon: <FaShare />,
-          name: "Social Media Marketing",
+          name: "Social Media",
           description: "Engage your audience",
+          link: "/services/social-media",
         },
         {
           icon: <FaEnvelope />,
           name: "Email Marketing",
           description: "Nurture campaigns",
+          link: "/services/email-marketing",
         },
         {
           icon: <FaChartBar />,
-          name: "Analytics & Insights",
-          description: "Data-driven decisions",
+          name: "Conversion Rate",
+          description: "Optimize funnels",
+          link: "#",
         },
         {
-          icon: <FaBolt />,
-          name: "Marketing Automation",
-          description: "Workflow optimization",
+          icon: <FaTarget />,
+          name: "Lead Generation",
+          description: "Quality prospects",
+          link: "#",
         },
       ],
     },
     {
       icon: <FaVideo />,
-      title: "Content & Media",
+      title: "Content & Creative",
       description: "Engage with compelling content",
       services: [
         {
           icon: <FaPencilAlt />,
-          name: "Content Writing",
-          description: "Compelling copy",
+          name: "Content Marketing",
+          description: "Strategic content",
+          link: "/services/content-marketing",
         },
         {
           icon: <FaVideo />,
-          name: "Video Production",
-          description: "Visual storytelling",
+          name: "Youtube Marketing",
+          description: "Video growth",
+          link: "/services/youtube-marketing",
+        },
+        {
+          icon: <FaPalette />,
+          name: "Brand Strategy",
+          description: "Define your essence",
+          link: "#",
+        },
+        {
+          icon: <FaPencilAlt />,
+          name: "UI/UX Design",
+          description: "User-centric design",
+          link: "#",
         },
         {
           icon: <FaCamera />,
           name: "Photography",
           description: "Professional shoots",
-        },
-        {
-          icon: <FaMicrochip />,
-          name: "Animation & Motion",
-          description: "Dynamic visuals",
+          link: "#",
         },
         {
           icon: <FaBullhorn />,
           name: "Podcast Production",
           description: "Audio content",
-        },
-        {
-          icon: <FaGlobe />,
-          name: "Blog Management",
-          description: "Content strategy",
+          link: "#",
         },
       ],
     },
@@ -452,8 +478,8 @@ const Header = () => {
 
                 {/* Center Navigation - Desktop Only */}
                 <nav className="hidden lg:flex items-center gap-1">
-                  <a
-                    href="#"
+                  <Link
+                    to="/"
                     className={`group px-5 py-2.5 rounded-full font-semibold transition-all duration-300 relative overflow-hidden`}
                     style={{
                       color: isScrolled ? "#8B6F47" : "#FFFFFF",
@@ -469,7 +495,7 @@ const Header = () => {
                     <span className="relative z-10 text-sm group-hover:text-white">
                       Home
                     </span>
-                  </a>
+                  </Link>
 
                   {/* Services Mega Menu */}
                   <div
@@ -580,9 +606,9 @@ const Header = () => {
                             <div className="grid grid-cols-3 gap-4 mb-6">
                               {serviceCategories[activeServiceTab].services.map(
                                 (service, idx) => (
-                                  <a
+                                  <Link
                                     key={idx}
-                                    href="#"
+                                    to={service.link || "#"}
                                     className="group/card p-4 rounded-2xl border-2 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative overflow-hidden bg-white"
                                     style={{
                                       borderColor: "#FBD9BF",
@@ -623,7 +649,7 @@ const Header = () => {
                                         {service.description}
                                       </p>
                                     </div>
-                                  </a>
+                                  </Link>
                                 )
                               )}
                             </div>
@@ -649,7 +675,8 @@ const Header = () => {
                                   Let's bring your vision to life
                                 </p>
                               </div>
-                              <button
+                              <Link
+                                to="/contact"
                                 className="px-6 py-3 rounded-full font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 text-white"
                                 style={{
                                   background:
@@ -657,7 +684,7 @@ const Header = () => {
                                 }}
                               >
                                 Contact Us
-                              </button>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -771,9 +798,9 @@ const Header = () => {
                             <div className="grid grid-cols-3 gap-4 mb-6">
                               {caseStudyCategories[activeCaseTab].cases.map(
                                 (caseStudy, idx) => (
-                                  <a
+                                  <Link
                                     key={idx}
-                                    href="#"
+                                    to="/portfolio"
                                     className="group/card p-4 rounded-2xl border-2 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative overflow-hidden bg-white"
                                     style={{
                                       borderColor: "#FBD9BF",
@@ -817,17 +844,8 @@ const Header = () => {
                                         <FaBriefcase className="text-xs" />
                                         <span>{caseStudy.client}</span>
                                       </div>
-                                      {/* <div 
-                                      className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold text-white"
-                                      style={{
-                                        background: 'linear-gradient(135deg, #C69563 0%, #B88552 100%)'
-                                      }}
-                                    >
-                                      <FaChartLine className="text-xs" />
-                                      {caseStudy.result}
-                                    </div> */}
                                     </div>
-                                  </a>
+                                  </Link>
                                 )
                               )}
                             </div>
@@ -869,8 +887,8 @@ const Header = () => {
                     )}
                   </div>
 
-                  <a
-                    href="#"
+                  <Link
+                    to="/about"
                     className={`group px-5 py-2.5 rounded-full font-semibold transition-all duration-300 relative overflow-hidden`}
                     style={{
                       color: isScrolled ? "#8B6F47" : "#FFFFFF",
@@ -886,7 +904,7 @@ const Header = () => {
                     <span className="relative z-10 text-sm group-hover:text-white">
                       About
                     </span>
-                  </a>
+                  </Link>
 
                   <a
                     href="#"
@@ -907,8 +925,8 @@ const Header = () => {
                     </span>
                   </a>
 
-                  <a
-                    href="#"
+                  <Link
+                    to="/contact"
                     className={`group px-5 py-2.5 rounded-full font-semibold transition-all duration-300 relative overflow-hidden`}
                     style={{
                       color: isScrolled ? "#8B6F47" : "#FFFFFF",
@@ -924,13 +942,14 @@ const Header = () => {
                     <span className="relative z-10 text-sm group-hover:text-white">
                       Contact
                     </span>
-                  </a>
+                  </Link>
                 </nav>
 
                 {/* CTA Button */}
                 <div className="hidden lg:block">
-                  <button
-                    className="relative group px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg hover:shadow-2xl transition-all duration-500 font-bold text-xs sm:text-sm hover:scale-110 overflow-hidden text-white"
+                  <Link
+                    to="/contact"
+                    className="relative group px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg hover:shadow-2xl transition-all duration-500 font-bold text-xs sm:text-sm hover:scale-110 overflow-hidden text-white flex items-center"
                     style={{
                       background:
                         "linear-gradient(135deg, #C69563 0%, #B88552 100%)",
@@ -951,7 +970,7 @@ const Header = () => {
                       Get Started
                       <FaMagic className="group-hover:rotate-180 transition-transform duration-500" />
                     </span>
-                  </button>
+                  </Link>
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -1025,20 +1044,27 @@ const Header = () => {
                 <div className="relative z-10 h-[calc(100%-80px)] overflow-y-auto pb-20 scrollbar-hide">
                   {/* Main Navigation */}
                   <div className="p-6 space-y-1">
-                    {['Home', 'About', 'Blog', 'Contact'].map((item, index) => (
-                      <div
-                        key={item}
+                    {[
+                      { name: 'Home', path: '/' },
+                      { name: 'About', path: '/about' },
+                      { name: 'Blog', path: '#' },
+                      { name: 'Contact', path: '/contact' }
+                    ].map((item, index) => (
+                      <Link
+                        key={item.name}
+                        to={item.path}
+                        onClick={() => setIsMobileMenuOpen(false)}
                         className={`group flex items-center justify-between py-4 border-b border-white/5 cursor-pointer transition-all duration-300 ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
                           }`}
                         style={{ transitionDelay: `${index * 80}ms` }}
                       >
                         <span className="text-2xl font-bold text-white group-hover:text-[#FBD9BF] transition-colors">
-                          {item}
+                          {item.name}
                         </span>
                         <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#C69563]/30 transition-colors">
                           <FaChevronDown className="text-xs text-white/50 -rotate-90 group-hover:text-[#FBD9BF]" />
                         </div>
-                      </div>
+                      </Link>
                     ))}
                   </div>
 
@@ -1074,8 +1100,10 @@ const Header = () => {
                       {/* Service Items Grid */}
                       <div className="grid grid-cols-2 gap-2">
                         {serviceCategories[activeServiceTab].services.map((service, idx) => (
-                          <div
+                          <Link
                             key={idx}
+                            to={service.link || "#"}
+                            onClick={() => setIsMobileMenuOpen(false)}
                             className="group p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-[#C69563]/30 transition-all duration-300 cursor-pointer"
                           >
                             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C69563]/20 to-transparent flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
@@ -1083,7 +1111,7 @@ const Header = () => {
                             </div>
                             <h4 className="text-white text-xs font-semibold mb-0.5">{service.name}</h4>
                             <p className="text-white/40 text-[10px] line-clamp-1">{service.description}</p>
-                          </div>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -1121,8 +1149,10 @@ const Header = () => {
                       {/* Case Study Cards - Vertical Stack */}
                       <div className="space-y-2">
                         {caseStudyCategories[activeCaseTab].cases.slice(0, 4).map((caseStudy, idx) => (
-                          <div
+                          <Link
                             key={idx}
+                            to="/portfolio"
+                            onClick={() => setIsMobileMenuOpen(false)}
                             className="group flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-[#C69563]/30 transition-all duration-300 cursor-pointer"
                           >
                             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#C69563]/30 to-transparent flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
@@ -1137,7 +1167,7 @@ const Header = () => {
                                 </span>
                               </div>
                             </div>
-                          </div>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -1157,11 +1187,15 @@ const Header = () => {
                       <div className="relative z-10">
                         <h4 className="text-white font-bold text-lg mb-1">Ready to Transform?</h4>
                         <p className="text-white/80 text-sm mb-4">Let's create something extraordinary together.</p>
-                        <button className="w-full py-3 bg-white text-[#8B6F47] rounded-full font-bold text-sm flex items-center justify-center gap-2 hover:bg-white/90 transition-colors shadow-lg">
+                        <Link
+                          to="/contact"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="w-full py-3 bg-white text-[#8B6F47] rounded-full font-bold text-sm flex items-center justify-center gap-2 hover:bg-white/90 transition-colors shadow-lg"
+                        >
                           <FaRocket />
                           Get Started Today
                           <FaMagic className="text-xs" />
-                        </button>
+                        </Link>
                       </div>
                     </div>
                   </div>

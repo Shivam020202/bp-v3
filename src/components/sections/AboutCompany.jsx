@@ -1,4 +1,5 @@
-import { useRef, useEffect } from "react";
+import { useRef, useLayoutEffect } from "react";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
@@ -11,7 +12,7 @@ const AboutCompany = () => {
   const imageRef = useRef(null);
   const contentRef = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const section = sectionRef.current;
 
     const ctx = gsap.context(() => {
@@ -173,12 +174,14 @@ const AboutCompany = () => {
             </div>
 
             <div>
-              <button className="group relative flex items-center gap-3 px-8 py-3 bg-[#C4A484] text-white  border border-[#C4A484] hover:bg-white hover:text-black rounded-full transition-all duration-300 shadow-lg hover:shadow-xl">
-                <span className="uppercase tracking-widest text-sm font-bold">
-                  Know more
-                </span>
-                <ArrowUpRight className="w-5 h-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
-              </button>
+              <Link to="/contact">
+                <button className="group relative flex items-center gap-3 px-8 py-3 bg-[#C4A484] text-white  border border-[#C4A484] hover:bg-white hover:text-black rounded-full transition-all duration-300 shadow-lg hover:shadow-xl">
+                  <span className="uppercase tracking-widest text-sm font-bold">
+                    Know more
+                  </span>
+                  <ArrowUpRight className="w-5 h-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+                </button>
+              </Link>
             </div>
           </div>
         </div>

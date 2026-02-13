@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import MegaMenuHeader from "./Header/MegaMenuHeader";
 import Footer from "./Footer";
 
@@ -6,13 +5,9 @@ const Layout = ({ children }) => {
   return (
     <div className="min-h-screen overflow-x-hidden">
       <MegaMenuHeader />
-      <motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
+      <main>
         {children}
-      </motion.main>
+      </main>
       <Footer />
     </div>
   );
