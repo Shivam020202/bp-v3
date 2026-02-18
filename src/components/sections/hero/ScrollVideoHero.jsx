@@ -294,13 +294,6 @@ const ScrollVideoHero = () => {
                 <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1 relative z-10" />
               </button>
             </Link>
-            <a
-              href="tel:09811780937"
-              className="group relative overflow-hidden flex items-center gap-2 sm:gap-3 px-6 sm:px-10 py-2.5 sm:py-3 bg-[#C4A484] border border-[#C4A484] text-black rounded-full font-medium text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase transition-all duration-300 hover:bg-white hover:border-white hover:text-black hover:shadow-[0_0_20px_rgba(196,164,132,0.6)]"
-            >
-              <Phone className="w-3 h-3 sm:w-4 sm:h-4 relative z-10" />
-              <span className="relative z-10">098117 80937</span>
-            </a>
           </div>
         </div>
 

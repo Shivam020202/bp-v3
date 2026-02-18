@@ -28,12 +28,13 @@ const AboutCompany = () => {
         },
       });
 
-      // 2. Parallax Image
+      // 2. Parallax Image (reduced on mobile to prevent overlap)
+      const isMobileView = window.innerWidth < 640;
       gsap.fromTo(
         imageRef.current,
-        { y: -50 },
+        { y: isMobileView ? -15 : -50 },
         {
-          y: 50,
+          y: isMobileView ? 15 : 50,
           ease: "none",
           scrollTrigger: {
             trigger: section,
@@ -82,18 +83,18 @@ const AboutCompany = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-16 lg:gap-24">
+        <div className="flex flex-col lg:flex-row items-center gap-6 md:gap-16 lg:gap-24">
           {/* Left: The Visual Anchor */}
-          <div className="w-full lg:w-1/2 relative">
+          <div className="w-full lg:w-1/2 relative mb-2 sm:mb-0">
             {/* The "Frame" */}
-            <div className="relative aspect-[3/4] sm:aspect-square w-full max-w-xs sm:max-w-md mx-auto">
+            <div className="relative aspect-[4/5] sm:aspect-square w-full max-w-xs sm:max-w-md mx-auto">
               {/* Back Element (Outline) */}
-              <div className="absolute inset-0 border border-black/10 rounded-full scale-105" />
+              <div className="absolute inset-0 border border-black/10 rounded-[2rem] sm:rounded-full scale-105" />
 
               {/* Main Image Container */}
               <div
                 ref={imageRef}
-                className="relative w-full h-full rounded-t-full rounded-b-[200px] overflow-hidden bg-gradient-to-b from-gray-100 to-gray-50"
+                className="relative w-full h-full rounded-[2rem] sm:rounded-t-full sm:rounded-b-[200px] overflow-hidden bg-gradient-to-b from-gray-100 to-gray-50"
               >
                 <img
                   src="/award.png"

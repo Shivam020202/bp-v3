@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect, useState, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
@@ -10,6 +10,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 const OurClients = () => {
   const sectionRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const row1 = [
     {
@@ -130,7 +138,7 @@ const OurClients = () => {
           <motion.div
             className="flex items-center gap-4 md:gap-6 min-w-full"
             animate={{ x: "-25%" }}
-            transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
+            transition={{ repeat: Infinity, ease: "linear", duration: isMobile ? 12 : 30 }}
           >
             {marqueeRow1.map((client, i) => {
               const isFeaturedLogo = ['Max Home', 'LCH Africa'].includes(client.name);
@@ -160,7 +168,7 @@ const OurClients = () => {
             className="flex items-center gap-4 md:gap-6 min-w-full"
             initial={{ x: "-25%" }}
             animate={{ x: "0%" }}
-            transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
+            transition={{ repeat: Infinity, ease: "linear", duration: isMobile ? 12 : 30 }}
           >
             {marqueeRow2.map((client, i) => {
               const isFeaturedLogo = ['DST'].includes(client.name);
