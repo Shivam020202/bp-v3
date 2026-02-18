@@ -39,7 +39,7 @@ const ContactFormSection = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-black text-lg">Phone</h4>
-                  <p className="text-gray-600">+91 9811780937</p>
+                  <p className="text-gray-600">098117 80937</p>
                 </div>
               </div>
 
@@ -60,7 +60,8 @@ const ContactFormSection = () => {
                 <div>
                   <h4 className="font-bold text-black text-lg">Headquarters</h4>
                   <p className="text-gray-600">
-                    Ground Floor, SupremeWork Co-working Space, Plot No. 84, Institutional Area, Sector 32, Gurugram, Haryana 122001
+                    Ground Floor, SupremeWork Co-working Space, Plot No. 84,
+                    Institutional Area, Sector 32, Gurugram, Haryana 122001
                   </p>
                 </div>
               </div>

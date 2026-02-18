@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useLayoutEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -61,7 +61,7 @@ const ScrollVideoHero = () => {
             drawX,
             drawY,
             drawW,
-            drawH
+            drawH,
           );
         }
       }
@@ -96,7 +96,7 @@ const ScrollVideoHero = () => {
               }
             },
           },
-          0
+          0,
         );
 
         // 2. Content Slides Animation
@@ -122,7 +122,7 @@ const ScrollVideoHero = () => {
                 duration: 0.1,
                 ease: "power2.in",
               },
-              0.25 // Exit starts around 25% of scroll
+              0.25, // Exit starts around 25% of scroll
             );
           } else {
             // Slides 2 & 3: Entrance + Exit
@@ -139,7 +139,7 @@ const ScrollVideoHero = () => {
                 duration: 0.05,
                 ease: "power1.inOut",
               },
-              startTime
+              startTime,
             );
 
             tl.fromTo(
@@ -152,7 +152,7 @@ const ScrollVideoHero = () => {
                 stagger: 0.03,
                 ease: "power3.out",
               },
-              startTime
+              startTime,
             );
 
             // Exit (Fade out and move up)
@@ -166,7 +166,7 @@ const ScrollVideoHero = () => {
                   duration: 0.1,
                   ease: "power2.in",
                 },
-                endTime
+                endTime,
               );
             } else {
               // Keep last slide visible
@@ -217,7 +217,7 @@ const ScrollVideoHero = () => {
             drawX,
             drawY,
             drawW,
-            drawH
+            drawH,
           );
         }
         animationFrameId = requestAnimationFrame(renderTick);
@@ -287,13 +287,20 @@ const ScrollVideoHero = () => {
             We craft immersive digital experiences that resonate with your
             audience and drive meaningful engagement.
           </p>
-          <div className="anim-child">
+          <div className="anim-child flex flex-wrap justify-center gap-4">
             <Link to="/contact">
               <button className="group relative overflow-hidden flex items-center gap-2 sm:gap-3 px-6 sm:px-10 py-2.5 sm:py-3 bg-white/10 backdrop-blur-sm border border-white/50 text-white rounded-full font-medium text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase transition-all duration-300 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] hover:border-white">
                 <span className="relative z-10">Start The Journey</span>
                 <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1 relative z-10" />
               </button>
             </Link>
+            <a
+              href="tel:09811780937"
+              className="group relative overflow-hidden flex items-center gap-2 sm:gap-3 px-6 sm:px-10 py-2.5 sm:py-3 bg-[#C4A484] border border-[#C4A484] text-black rounded-full font-medium text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase transition-all duration-300 hover:bg-white hover:border-white hover:text-black hover:shadow-[0_0_20px_rgba(196,164,132,0.6)]"
+            >
+              <Phone className="w-3 h-3 sm:w-4 sm:h-4 relative z-10" />
+              <span className="relative z-10">098117 80937</span>
+            </a>
           </div>
         </div>
 

@@ -11,6 +11,7 @@ import {
   FaCheckCircle,
   FaPlus,
   FaMinus,
+  FaPhone,
 } from "react-icons/fa";
 import StackScroll2 from "../components/StackScroll2";
 
@@ -33,7 +34,7 @@ const PortfolioDetail = () => {
   const [isMobileCarouselPaused, setIsMobileCarouselPaused] = useState(false);
 
   // Get project data from constants based on id
-  const project = projects.find(p => p.id === parseInt(id));
+  const project = projects.find((p) => p.id === parseInt(id));
 
   useEffect(() => {
     // Scroll to top on mount or id change
@@ -43,9 +44,11 @@ const PortfolioDetail = () => {
   if (!project) {
     return (
       <div className="min-h-screen bg-white flex flex-col items-center justify-center p-4">
-        <h1 className="text-4xl font-black text-black mb-4">Project Not Found</h1>
+        <h1 className="text-4xl font-black text-black mb-4">
+          Project Not Found
+        </h1>
         <button
-          onClick={() => navigate('/portfolio')}
+          onClick={() => navigate("/portfolio")}
           className="bg-black text-white px-8 py-4 rounded-full font-medium text-sm tracking-[0.1em] uppercase hover:bg-gray-900 transition-all shadow-lg"
         >
           Back to Portfolio
@@ -57,7 +60,10 @@ const PortfolioDetail = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative h-[70vh] md:h-[80vh] overflow-hidden mt-16 md:mt-14">
+      <section
+        ref={heroRef}
+        className="relative h-[70vh] md:h-[80vh] overflow-hidden mt-16 md:mt-14"
+      >
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
@@ -156,7 +162,10 @@ const PortfolioDetail = () => {
       </section>
 
       {/* Project Overview - Case Study Style */}
-      <section ref={contentRef} className="py-20 bg-white relative overflow-hidden">
+      <section
+        ref={contentRef}
+        className="py-20 bg-white relative overflow-hidden"
+      >
         {/* Decorative Elements */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#C4A484] via-[#d4b896] to-[#C4A484]" />
 
@@ -171,7 +180,10 @@ const PortfolioDetail = () => {
             >
               {/* Business Challenge */}
               <div>
-                <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] mb-4" style={{ color: '#C4A484' }}>
+                <h3
+                  className="font-mono text-xs font-bold uppercase tracking-[0.2em] mb-4"
+                  style={{ color: "#C4A484" }}
+                >
                   BUSINESS CHALLENGE
                 </h3>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-[0.9] tracking-tighter">
@@ -181,7 +193,10 @@ const PortfolioDetail = () => {
 
               {/* The Details */}
               <div>
-                <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] mb-6" style={{ color: '#C4A484' }}>
+                <h3
+                  className="font-mono text-xs font-bold uppercase tracking-[0.2em] mb-6"
+                  style={{ color: "#C4A484" }}
+                >
                   THE DETAILS
                 </h3>
                 <div className="space-y-6">
@@ -207,7 +222,10 @@ const PortfolioDetail = () => {
             >
               {/* Services */}
               <div>
-                <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] mb-6" style={{ color: '#C4A484' }}>
+                <h3
+                  className="font-mono text-xs font-bold uppercase tracking-[0.2em] mb-6"
+                  style={{ color: "#C4A484" }}
+                >
                   SERVICES
                 </h3>
                 <ul className="space-y-3">
@@ -219,7 +237,10 @@ const PortfolioDetail = () => {
                       animate={isContentInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ delay: 0.3 + index * 0.1 }}
                     >
-                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C4A484' }} />
+                      <span
+                        className="w-2 h-2 rounded-full"
+                        style={{ backgroundColor: "#C4A484" }}
+                      />
                       {tag}
                     </motion.li>
                   ))}
@@ -228,15 +249,20 @@ const PortfolioDetail = () => {
 
               {/* Why We're Proud to Partner */}
               <div>
-                <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] mb-6" style={{ color: '#C4A484' }}>
+                <h3
+                  className="font-mono text-xs font-bold uppercase tracking-[0.2em] mb-6"
+                  style={{ color: "#C4A484" }}
+                >
                   WHY WE'RE PROUD TO PARTNER
                 </h3>
                 <ul className="space-y-4">
-                  {(project.partnershipReasons || [
-                    `Innovative brand approach for ${project.client} with ${project.duration} of dedication`,
-                    "Adapts to evolving market needs with modern design principles",
-                    "Strategic solutions that deliver measurable results and lasting impact"
-                  ]).map((reason, index) => (
+                  {(
+                    project.partnershipReasons || [
+                      `Innovative brand approach for ${project.client} with ${project.duration} of dedication`,
+                      "Adapts to evolving market needs with modern design principles",
+                      "Strategic solutions that deliver measurable results and lasting impact",
+                    ]
+                  ).map((reason, index) => (
                     <motion.li
                       key={index}
                       className="text-gray-700 leading-relaxed"
@@ -262,9 +288,30 @@ const PortfolioDetail = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto gap-8">
               {project.results.slice(0, 3).map((result, index) => {
                 const cardStyles = [
-                  { bg: 'bg-[#1a1a1a]', textColor: 'text-white', subText: 'text-white/60', innerBg: 'bg-white/10', metricColor: '#C4A484', innerText: 'text-white/80' },
-                  { bg: 'bg-[#C4A484]', textColor: 'text-white', subText: 'text-white/70', innerBg: 'bg-white/20', metricColor: '#ffffff', innerText: 'text-white/90' },
-                  { bg: 'bg-gray-100', textColor: 'text-black', subText: 'text-gray-500', innerBg: 'bg-white', metricColor: '#1a1a1a', innerText: 'text-gray-600' },
+                  {
+                    bg: "bg-[#1a1a1a]",
+                    textColor: "text-white",
+                    subText: "text-white/60",
+                    innerBg: "bg-white/10",
+                    metricColor: "#C4A484",
+                    innerText: "text-white/80",
+                  },
+                  {
+                    bg: "bg-[#C4A484]",
+                    textColor: "text-white",
+                    subText: "text-white/70",
+                    innerBg: "bg-white/20",
+                    metricColor: "#ffffff",
+                    innerText: "text-white/90",
+                  },
+                  {
+                    bg: "bg-gray-100",
+                    textColor: "text-black",
+                    subText: "text-gray-500",
+                    innerBg: "bg-white",
+                    metricColor: "#1a1a1a",
+                    innerText: "text-gray-600",
+                  },
                 ];
                 const style = cardStyles[index % 3];
 
@@ -278,22 +325,39 @@ const PortfolioDetail = () => {
                     whileHover={{ y: -5, scale: 1.02 }}
                   >
                     <div className="flex items-center gap-2 mb-6">
-                      <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: index === 1 ? '#1a1a1a' : '#C4A484' }}>
+                      <div
+                        className="w-10 h-10 rounded-lg flex items-center justify-center"
+                        style={{
+                          backgroundColor: index === 1 ? "#1a1a1a" : "#C4A484",
+                        }}
+                      >
                         <FaCheckCircle className="text-white text-base" />
                       </div>
-                      <span className={`text-xs font-bold uppercase tracking-wider ${style.subText}`}>
+                      <span
+                        className={`text-xs font-bold uppercase tracking-wider ${style.subText}`}
+                      >
                         Key Result
                       </span>
                     </div>
-                    <div className={`${style.innerBg} rounded-xl p-6 flex-1 flex flex-col justify-center`}>
-                      <div className="text-4xl md:text-5xl font-black mb-3" style={{ color: style.metricColor }}>
+                    <div
+                      className={`${style.innerBg} rounded-xl p-6 flex-1 flex flex-col justify-center`}
+                    >
+                      <div
+                        className="text-4xl md:text-5xl font-black mb-3"
+                        style={{ color: style.metricColor }}
+                      >
                         {result.metric}
                       </div>
-                      <div className={`text-base font-semibold mb-2 ${style.textColor}`}>
+                      <div
+                        className={`text-base font-semibold mb-2 ${style.textColor}`}
+                      >
                         {result.label}
                       </div>
-                      <div className={`text-sm leading-relaxed ${style.innerText}`}>
-                        {result.description || 'Achieved through strategic implementation and data-driven optimization across all channels.'}
+                      <div
+                        className={`text-sm leading-relaxed ${style.innerText}`}
+                      >
+                        {result.description ||
+                          "Achieved through strategic implementation and data-driven optimization across all channels."}
                       </div>
                     </div>
                   </motion.div>
@@ -365,8 +429,10 @@ const PortfolioDetail = () => {
       </section> */}
 
       {/* Image Gallery - Stack Scroll Effect with Parallax */}
-      <section ref={galleryRef} className="py-12 md:py-16 bg-white relative overflow-hidden">
-
+      <section
+        ref={galleryRef}
+        className="py-12 md:py-16 bg-white relative overflow-hidden"
+      >
         <div className="container mx-auto px-6 relative z-10">
           {/* Section Header with Parallax */}
           <motion.div
@@ -415,11 +481,8 @@ const PortfolioDetail = () => {
         </div>
       </section>
 
-
-
       {/* Related Work Section */}
       <section className="py-12 md:py-16 bg-gray-50 relative overflow-hidden z-50 border-t border-black/5">
-
         <div className="container mx-auto px-6 relative z-10">
           {/* Section Title */}
           <motion.h2
@@ -461,18 +524,22 @@ const PortfolioDetail = () => {
               {[...Array(4)].map((_, loopIndex) => (
                 <Fragment key={loopIndex}>
                   {projects
-                    .filter(p => p.id !== project.id)
+                    .filter((p) => p.id !== project.id)
                     .slice(0, 6)
                     .map((relatedProject, index) => (
                       <motion.div
                         key={`${loopIndex}-${index}`}
                         className="group relative w-[320px] aspect-[3/4] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex-shrink-0"
                         initial={loopIndex === 0 ? { opacity: 0, y: 30 } : {}}
-                        whileInView={loopIndex === 0 ? { opacity: 1, y: 0 } : {}}
+                        whileInView={
+                          loopIndex === 0 ? { opacity: 1, y: 0 } : {}
+                        }
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.1 }}
                         whileHover={{ y: -10, scale: 1.02 }}
-                        onClick={() => navigate(`/portfolio/${relatedProject.id}`)}
+                        onClick={() =>
+                          navigate(`/portfolio/${relatedProject.id}`)
+                        }
                       >
                         {/* Image */}
                         <img
@@ -526,7 +593,10 @@ const PortfolioDetail = () => {
               className="lg:sticky lg:top-32"
             >
               <div className="mb-6">
-                <span className="font-mono text-xs font-bold uppercase tracking-[0.2em]" style={{ color: '#C4A484' }}>
+                <span
+                  className="font-mono text-xs font-bold uppercase tracking-[0.2em]"
+                  style={{ color: "#C4A484" }}
+                >
                   FAQs
                 </span>
               </div>
@@ -537,67 +607,95 @@ const PortfolioDetail = () => {
                 </span>
               </h2>
               <p className="text-gray-500 text-base mb-8 leading-relaxed">
-                Experience intelligent, efficient, and sustainable software designed to drive progress.
+                Experience intelligent, efficient, and sustainable software
+                designed to drive progress.
               </p>
-              <motion.button
-                className="group inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full font-medium text-sm tracking-[0.1em] uppercase hover:bg-gray-900 transition-all duration-300 shadow-lg"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span>Contact us</span>
-                <div className="w-6 h-6 rounded-full border-2 border-white flex items-center justify-center">
-                  <FaArrowRight className="text-xs" />
-                </div>
-              </motion.button>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <motion.button
+                  className="group inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full font-medium text-sm tracking-[0.1em] uppercase hover:bg-gray-900 transition-all duration-300 shadow-lg"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => navigate("/contact")}
+                >
+                  <span>Contact us</span>
+                  <div className="w-6 h-6 rounded-full border-2 border-white flex items-center justify-center">
+                    <FaArrowRight className="text-xs" />
+                  </div>
+                </motion.button>
+                <a
+                  href="tel:09811780937"
+                  className="group inline-flex items-center gap-3 bg-white border border-gray-200 text-black px-8 py-4 rounded-full font-medium text-sm tracking-[0.1em] uppercase hover:bg-gray-50 transition-all duration-300 shadow-lg"
+                >
+                  <span>Call 098117 80937</span>
+                  <div className="w-6 h-6 rounded-full border-2 border-black flex items-center justify-center">
+                    <FaPhone className="text-xs" />
+                  </div>
+                </a>
+              </div>
             </motion.div>
 
             {/* Right Side - FAQ Accordion */}
             <div className="space-y-4">
-              {(project.faqs || [
-                {
-                  number: "001",
-                  question: "What features does this software offer?",
-                  answer: "Our software provides comprehensive features including advanced analytics, automated workflows, seamless integrations, real-time collaboration tools, and customizable dashboards designed to streamline your business operations."
-                },
-                {
-                  number: "002",
-                  question: "How does this solution improve efficiency?",
-                  answer: "This solution boosts efficiency by automating tasks, streamlining workflows, and providing data insights that support faster, smarter decision-making."
-                },
-                {
-                  number: "003",
-                  question: "What kind of support is provided?",
-                  answer: "We offer 24/7 customer support through multiple channels including email, chat, and phone. Our dedicated team provides onboarding assistance, training resources, comprehensive documentation, and ongoing technical support to ensure your success."
-                },
-                {
-                  number: "004",
-                  question: "How secure is the data managed by this software?",
-                  answer: "We implement industry-leading security measures including end-to-end encryption, regular security audits, compliance with international standards (ISO 27001, GDPR), multi-factor authentication, and automated backup systems to protect your sensitive data."
-                },
-                {
-                  number: "005",
-                  question: "Can the software integrate with our existing systems?",
-                  answer: "Yes, our software seamlessly integrates with popular platforms and tools through our robust API and pre-built connectors. We support integrations with CRM systems, marketing tools, payment gateways, and custom applications to ensure smooth workflow continuity."
-                }
-              ]).map((faq, index) => (
+              {(
+                project.faqs || [
+                  {
+                    number: "001",
+                    question: "What features does this software offer?",
+                    answer:
+                      "Our software provides comprehensive features including advanced analytics, automated workflows, seamless integrations, real-time collaboration tools, and customizable dashboards designed to streamline your business operations.",
+                  },
+                  {
+                    number: "002",
+                    question: "How does this solution improve efficiency?",
+                    answer:
+                      "This solution boosts efficiency by automating tasks, streamlining workflows, and providing data insights that support faster, smarter decision-making.",
+                  },
+                  {
+                    number: "003",
+                    question: "What kind of support is provided?",
+                    answer:
+                      "We offer 24/7 customer support through multiple channels including email, chat, and phone. Our dedicated team provides onboarding assistance, training resources, comprehensive documentation, and ongoing technical support to ensure your success.",
+                  },
+                  {
+                    number: "004",
+                    question:
+                      "How secure is the data managed by this software?",
+                    answer:
+                      "We implement industry-leading security measures including end-to-end encryption, regular security audits, compliance with international standards (ISO 27001, GDPR), multi-factor authentication, and automated backup systems to protect your sensitive data.",
+                  },
+                  {
+                    number: "005",
+                    question:
+                      "Can the software integrate with our existing systems?",
+                    answer:
+                      "Yes, our software seamlessly integrates with popular platforms and tools through our robust API and pre-built connectors. We support integrations with CRM systems, marketing tools, payment gateways, and custom applications to ensure smooth workflow continuity.",
+                  },
+                ]
+              ).map((faq, index) => (
                 <motion.div
                   key={index}
-                  className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${openFaqIndex === index
-                    ? "bg-gray-50 border-gray-200 shadow-lg"
-                    : "bg-white border-transparent hover:border-gray-200"
-                    }`}
+                  className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${
+                    openFaqIndex === index
+                      ? "bg-gray-50 border-gray-200 shadow-lg"
+                      : "bg-white border-transparent hover:border-gray-200"
+                  }`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
                   <button
-                    onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                    onClick={() =>
+                      setOpenFaqIndex(openFaqIndex === index ? null : index)
+                    }
                     className="w-full text-left p-6 flex items-start justify-between gap-4 group"
                   >
                     <div className="flex-1">
                       <div className="flex items-baseline gap-4 mb-2">
-                        <span className="font-mono text-xs font-bold" style={{ color: '#C4A484' }}>
+                        <span
+                          className="font-mono text-xs font-bold"
+                          style={{ color: "#C4A484" }}
+                        >
                           {faq.number}
                         </span>
                         <h3 className="font-bold text-black text-lg md:text-xl hover:text-[#C4A484] transition-colors">
@@ -606,10 +704,11 @@ const PortfolioDetail = () => {
                       </div>
                     </div>
                     <motion.div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${openFaqIndex === index
-                        ? "bg-black text-white"
-                        : "bg-gray-100 text-black"
-                        }`}
+                      className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
+                        openFaqIndex === index
+                          ? "bg-black text-white"
+                          : "bg-gray-100 text-black"
+                      }`}
                       animate={{ rotate: openFaqIndex === index ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
                     >

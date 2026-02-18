@@ -251,16 +251,17 @@ const Footer = () => {
                     <span className="text-white block font-medium mb-1">
                       Headquarters
                     </span>
-                    Ground Floor, SupremeWork Co-working Space, Plot No. 84, Institutional Area, Sector 32, Gurugram, Haryana 122001
+                    Ground Floor, SupremeWork Co-working Space, Plot No. 84,
+                    Institutional Area, Sector 32, Gurugram, Haryana 122001
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-orange-200 shrink-0" />
                   <a
-                    href="tel:+919811780937"
+                    href="tel:09811780937"
                     className="hover:text-white transition-colors"
                   >
-                    +91 9811780937
+                    098117 80937
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
@@ -334,7 +335,7 @@ const Footer = () => {
                         >
                           Best digital marketing agency in {city}
                         </a>
-                      )
+                      ),
                     )}
                   </div>
                 </div>

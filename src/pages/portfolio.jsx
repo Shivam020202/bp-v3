@@ -10,6 +10,7 @@ import {
   FaTrophy,
   FaPlus,
   FaMinus,
+  FaPhone,
 } from "react-icons/fa";
 import portfolioVideo from "../assets/portfolio-demo/portfolio-video.mp4";
 import PortfolioSpotlight from "../components/sections/PortfolioSpotlight";
@@ -54,17 +55,50 @@ const PortfolioPage = () => {
 
   // All client logos in a flat array
   const allClientLogos = [
-    { name: "Max Home", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/max_home-logo_ya130a.png" },
-    { name: "SCOD", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/scod-favicon_b2d7cp.png" },
-    { name: "IGEHRC", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/IGEHRC-new-logo_ydf3ww.webp" },
-    { name: "LCH Africa", logo: "https://lchafrica.com/img/cropped-FINAL-LOGO-svg.png" },
-    { name: "Aureus", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/aureus-new-logo_lbyme0.webp" },
-    { name: "Astrovazar", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/astrovazar_wbf12h.webp" },
-    { name: "Ecovana", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ecovana-logo_a1r4ct.webp" },
-    { name: "DST", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/dst_k894jm.webp" },
-    { name: "Ivy", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ivy-new-logo_tnjcme.webp" },
-    { name: "Cloudnine", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/cloudnine-logo_mcocql.webp" },
-    { name: "AIIMS", logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580793/aiims_pleq0o.webp" },
+    {
+      name: "Max Home",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/max_home-logo_ya130a.png",
+    },
+    {
+      name: "SCOD",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580795/scod-favicon_b2d7cp.png",
+    },
+    {
+      name: "IGEHRC",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/IGEHRC-new-logo_ydf3ww.webp",
+    },
+    {
+      name: "LCH Africa",
+      logo: "https://lchafrica.com/img/cropped-FINAL-LOGO-svg.png",
+    },
+    {
+      name: "Aureus",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/aureus-new-logo_lbyme0.webp",
+    },
+    {
+      name: "Astrovazar",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/astrovazar_wbf12h.webp",
+    },
+    {
+      name: "Ecovana",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ecovana-logo_a1r4ct.webp",
+    },
+    {
+      name: "DST",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/dst_k894jm.webp",
+    },
+    {
+      name: "Ivy",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/ivy-new-logo_tnjcme.webp",
+    },
+    {
+      name: "Cloudnine",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580794/cloudnine-logo_mcocql.webp",
+    },
+    {
+      name: "AIIMS",
+      logo: "https://res.cloudinary.com/damfndmrm/image/upload/v1769580793/aiims_pleq0o.webp",
+    },
   ];
 
   // Number of card slots to display
@@ -96,7 +130,10 @@ const PortfolioPage = () => {
       let newIndex;
       do {
         newIndex = Math.floor(Math.random() * allClientLogos.length);
-      } while (newIndex === currentIndex || otherSlotIndices.includes(newIndex));
+      } while (
+        newIndex === currentIndex ||
+        otherSlotIndices.includes(newIndex)
+      );
 
       return { ...prev, [slotIndex]: newIndex };
     });
@@ -127,7 +164,10 @@ const PortfolioPage = () => {
       </div>
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative h-[70vh] min-h-[500px] flex items-center justify-center z-10 overflow-hidden">
+      <section
+        ref={heroRef}
+        className="relative h-[70vh] min-h-[500px] flex items-center justify-center z-10 overflow-hidden"
+      >
         <div className="container mx-auto px-6 text-center text-white relative z-10">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -154,7 +194,8 @@ const PortfolioPage = () => {
             transition={{ delay: 0.6 }}
             className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed font-light"
           >
-            Transforming visions into visual masterpieces that captivate, engage, and convert.
+            Transforming visions into visual masterpieces that captivate,
+            engage, and convert.
           </motion.p>
         </div>
       </section>
@@ -204,10 +245,11 @@ const PortfolioPage = () => {
               <motion.button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 ${activeFilter === filter.id
-                  ? "bg-black text-white shadow-lg scale-105"
-                  : "bg-gray-100 text-black hover:bg-gray-200 hover:shadow-md"
-                  }`}
+                className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 ${
+                  activeFilter === filter.id
+                    ? "bg-black text-white shadow-lg scale-105"
+                    : "bg-gray-100 text-black hover:bg-gray-200 hover:shadow-md"
+                }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 layout
@@ -598,16 +640,28 @@ const PortfolioPage = () => {
                 Experience intelligent, efficient, and sustainable software
                 designed to drive progress.
               </p>
-              <motion.button
-                className="group inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full font-medium text-sm tracking-[0.1em] uppercase hover:bg-gray-900 transition-all duration-300 shadow-lg"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span>Contact us</span>
-                <div className="w-6 h-6 rounded-full border-2 border-white flex items-center justify-center">
-                  <FaArrowRight className="text-xs" />
-                </div>
-              </motion.button>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <motion.button
+                  className="group inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full font-medium text-sm tracking-[0.1em] uppercase hover:bg-gray-900 transition-all duration-300 shadow-lg"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => navigate("/contact")}
+                >
+                  <span>Contact us</span>
+                  <div className="w-6 h-6 rounded-full border-2 border-white flex items-center justify-center">
+                    <FaArrowRight className="text-xs" />
+                  </div>
+                </motion.button>
+                <a
+                  href="tel:09811780937"
+                  className="group inline-flex items-center gap-3 bg-white border border-gray-200 text-black px-8 py-4 rounded-full font-medium text-sm tracking-[0.1em] uppercase hover:bg-gray-50 transition-all duration-300 shadow-lg"
+                >
+                  <span>Call 098117 80937</span>
+                  <div className="w-6 h-6 rounded-full border-2 border-black flex items-center justify-center">
+                    <FaPhone className="text-xs" />
+                  </div>
+                </a>
+              </div>
             </motion.div>
 
             {/* Right Side - FAQ Accordion */}
@@ -647,10 +701,11 @@ const PortfolioPage = () => {
               ].map((faq, index) => (
                 <motion.div
                   key={index}
-                  className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${openFaqIndex === index
-                    ? "bg-white border-gray-200 shadow-lg"
-                    : "bg-white border-transparent hover:border-gray-200"
-                    }`}
+                  className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${
+                    openFaqIndex === index
+                      ? "bg-white border-gray-200 shadow-lg"
+                      : "bg-white border-transparent hover:border-gray-200"
+                  }`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -676,10 +731,11 @@ const PortfolioPage = () => {
                       </div>
                     </div>
                     <motion.div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${openFaqIndex === index
-                        ? "bg-black text-white"
-                        : "bg-gray-100 text-black"
-                        }`}
+                      className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
+                        openFaqIndex === index
+                          ? "bg-black text-white"
+                          : "bg-gray-100 text-black"
+                      }`}
                       animate={{ rotate: openFaqIndex === index ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
                     >
