@@ -254,10 +254,11 @@ const MegaMenuHeader = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 container mx-auto ${isScrolled || isContactPage
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 container mx-auto ${
+        isScrolled || isContactPage
           ? "bg-white/70 backdrop-blur-sm border-b border-white/10 shadow-[inset_0_2px_10px_rgba(0,0,0,0.3)] rounded-b-3xl md:rounded-3xl md:mt-2"
           : "bg-white/90 rounded-b-3xl"
-        }`}
+      }`}
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
@@ -276,28 +277,31 @@ const MegaMenuHeader = () => {
           <nav className="hidden lg:flex items-center gap-1">
             <Link
               to="/"
-              className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${isScrolled || isContactPage
+              className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${
+                isScrolled || isContactPage
                   ? "text-black/70 hover:text-black/80 hover:bg-white/20 "
                   : "text-black/70 hover:text-black/80 hover:bg-white/20"
-                }`}
+              }`}
             >
               Home
             </Link>
             <Link
               to="/about"
-              className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${isScrolled || isContactPage
+              className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${
+                isScrolled || isContactPage
                   ? "text-black/70 hover:text-black/80 hover:bg-white/20 "
                   : "text-black/70 hover:text-black/80 hover:bg-white/20"
-                }`}
+              }`}
             >
               About
             </Link>
             <Link
               to="/services/ai-solutions"
-              className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${isScrolled || isContactPage
+              className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${
+                isScrolled || isContactPage
                   ? "text-black/70 hover:text-black/80 hover:bg-white/20 "
                   : "text-black/70 hover:text-black/80 hover:bg-white/20"
-                }`}
+              }`}
             >
               AI Solutions
             </Link>
@@ -309,15 +313,17 @@ const MegaMenuHeader = () => {
               onMouseLeave={handleMenuLeave}
             >
               <button
-                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${isScrolled || isContactPage
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${
+                  isScrolled || isContactPage
                     ? "text-black/70 hover:text-black/80 hover:bg-white/20 "
                     : "text-black/70 hover:text-black/80 hover:bg-white/20"
-                  }`}
+                }`}
               >
                 Services
                 <FaChevronDown
-                  className={`text-xs transition-transform duration-200 ${activeMenu === "services" ? "rotate-180" : ""
-                    }`}
+                  className={`text-xs transition-transform duration-200 ${
+                    activeMenu === "services" ? "rotate-180" : ""
+                  }`}
                 />
               </button>
 
@@ -344,26 +350,29 @@ const MegaMenuHeader = () => {
                                 onMouseEnter={() =>
                                   setActiveServicesCategory(index)
                                 }
-                                className={`w-full text-left px-3 py-3 rounded-lg transition-all ${activeServicesCategory === index
+                                className={`w-full text-left px-3 py-3 rounded-lg transition-all ${
+                                  activeServicesCategory === index
                                     ? "bg-white shadow-sm"
                                     : "hover:bg-white/50"
-                                  }`}
+                                }`}
                               >
                                 <div className="flex items-start gap-3">
                                   <div
-                                    className={`text-lg mt-0.5 ${activeServicesCategory === index
+                                    className={`text-lg mt-0.5 ${
+                                      activeServicesCategory === index
                                         ? "text-warm-600"
                                         : "text-warm-400"
-                                      }`}
+                                    }`}
                                   >
                                     {category.icon}
                                   </div>
                                   <div className="flex-1 min-w-0">
                                     <div
-                                      className={`text-sm font-semibold mb-0.5 ${activeServicesCategory === index
+                                      className={`text-sm font-semibold mb-0.5 ${
+                                        activeServicesCategory === index
                                           ? "text-warm-900"
                                           : "text-warm-700"
-                                        }`}
+                                      }`}
                                     >
                                       {category.title}
                                     </div>
@@ -459,20 +468,22 @@ const MegaMenuHeader = () => {
 
             <Link
               to="/portfolio"
-              className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${isScrolled || isContactPage
+              className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${
+                isScrolled || isContactPage
                   ? "text-black/70 hover:text-black/80 hover:bg-white/20 "
                   : "text-black/70 hover:text-black/80 hover:bg-white/20"
-                }`}
+              }`}
             >
               Portfolio
             </Link>
 
             <Link
               to="/careers"
-              className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${isScrolled || isContactPage
+              className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${
+                isScrolled || isContactPage
                   ? "text-black/70 hover:text-black/80 hover:bg-white/20 "
                   : "text-black/70 hover:text-black/80 hover:bg-white/20"
-                }`}
+              }`}
             >
               Career
             </Link>
@@ -480,11 +491,23 @@ const MegaMenuHeader = () => {
 
           {/* Right Side Actions */}
           <div className="flex items-center gap-3">
+            <a
+              href="tel:09811780937"
+              className={`hidden lg:flex items-center gap-2 text-sm font-bold transition-colors ${
+                isScrolled || isContactPage
+                  ? "text-black/70 hover:text-black"
+                  : "text-black/70 hover:text-black"
+              }`}
+            >
+              <FaPhone className="text-sm" />
+              <span>098117 80937</span>
+            </a>
             <button
-              className={`hidden lg:block px-4 py-2 rounded-full text-sm font-medium transition-colors ${isScrolled || isContactPage
+              className={`hidden lg:block px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                isScrolled || isContactPage
                   ? "bg-warm-500 text-white hover:bg-warm-800"
                   : "bg-white text-warm-700 hover:bg-white/90"
-                }`}
+              }`}
             >
               Request a demo
             </button>
@@ -492,8 +515,9 @@ const MegaMenuHeader = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`lg:hidden p-2 transition-colors ${isScrolled || isContactPage ? "text-warm-700" : "text-black"
-                }`}
+              className={`lg:hidden p-2 transition-colors ${
+                isScrolled || isContactPage ? "text-warm-700" : "text-black"
+              }`}
             >
               {isMobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
             </button>
@@ -503,22 +527,25 @@ const MegaMenuHeader = () => {
 
       {/* Full-Screen Mobile Menu - Animated & Eye-Catching */}
       <div
-        className={`lg:hidden fixed inset-0 z-[100000] transition-all duration-500 ${isMobileMenuOpen
+        className={`lg:hidden fixed inset-0 z-[100000] transition-all duration-500 ${
+          isMobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
-          }`}
+        }`}
       >
         {/* Animated Backdrop */}
         <div
-          className={`absolute inset-0 transition-all duration-500 ${isMobileMenuOpen ? "bg-black/80 backdrop-blur-md" : "bg-transparent"
-            }`}
+          className={`absolute inset-0 transition-all duration-500 ${
+            isMobileMenuOpen ? "bg-black/80 backdrop-blur-md" : "bg-transparent"
+          }`}
           onClick={() => setIsMobileMenuOpen(false)}
         />
 
         {/* Sliding Menu Panel */}
         <div
-          className={`absolute top-0 right-0 h-full w-full max-w-[420px] transition-transform duration-500 ease-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-            }`}
+          className={`absolute top-0 right-0 h-full w-full max-w-[420px] transition-transform duration-500 ease-out ${
+            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
           style={{
             background:
               "linear-gradient(135deg, #0f0f0f 0%, #1a1510 50%, #0f0f0f 100%)",
@@ -573,10 +600,11 @@ const MegaMenuHeader = () => {
                   key={item.name}
                   to={item.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`group flex items-center justify-between py-4 border-b border-white/5 cursor-pointer transition-all duration-300 ${isMobileMenuOpen
+                  className={`group flex items-center justify-between py-4 border-b border-white/5 cursor-pointer transition-all duration-300 ${
+                    isMobileMenuOpen
                       ? "translate-x-0 opacity-100"
                       : "translate-x-8 opacity-0"
-                    }`}
+                  }`}
                   style={{ transitionDelay: `${index * 80}ms` }}
                 >
                   <span className="text-2xl font-bold text-white group-hover:text-[#FBD9BF] transition-colors">
@@ -592,10 +620,11 @@ const MegaMenuHeader = () => {
             {/* Services Section with Tabs */}
             <div className="px-6 mb-6">
               <div
-                className={`transition-all duration-500 ${isMobileMenuOpen
+                className={`transition-all duration-500 ${
+                  isMobileMenuOpen
                     ? "translate-y-0 opacity-100"
                     : "translate-y-4 opacity-0"
-                  }`}
+                }`}
                 style={{ transitionDelay: "350ms" }}
               >
                 <h3 className="text-xs uppercase tracking-widest text-[#C69563] font-bold mb-4 flex items-center gap-2">
@@ -612,10 +641,11 @@ const MegaMenuHeader = () => {
                     <button
                       key={index}
                       onClick={() => setActiveServicesCategory(index)}
-                      className={`flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeServicesCategory === index
+                      className={`flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                        activeServicesCategory === index
                           ? "bg-gradient-to-r from-[#C69563] to-[#B88552] text-white shadow-lg shadow-[#C69563]/30"
                           : "bg-white/5 text-white/70 hover:bg-white/10"
-                        }`}
+                      }`}
                     >
                       <span className="text-base">{category.icon}</span>
                       <span className="whitespace-nowrap">
@@ -658,10 +688,11 @@ const MegaMenuHeader = () => {
 
             {/* CTA Section */}
             <div
-              className={`px-6 transition-all duration-500 ${isMobileMenuOpen
+              className={`px-6 transition-all duration-500 ${
+                isMobileMenuOpen
                   ? "translate-y-0 opacity-100"
                   : "translate-y-4 opacity-0"
-                }`}
+              }`}
               style={{ transitionDelay: "550ms" }}
             >
               <div className="relative p-5 rounded-2xl overflow-hidden">
@@ -696,10 +727,11 @@ const MegaMenuHeader = () => {
 
             {/* Bottom Social Links */}
             <div
-              className={`px-6 pt-8 pb-6 transition-all duration-500 ${isMobileMenuOpen
+              className={`px-6 pt-8 pb-6 transition-all duration-500 ${
+                isMobileMenuOpen
                   ? "translate-y-0 opacity-100"
                   : "translate-y-4 opacity-0"
-                }`}
+              }`}
               style={{ transitionDelay: "650ms" }}
             >
               <div className="flex items-center justify-center gap-4">
