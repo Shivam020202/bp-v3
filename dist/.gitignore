@@ -1,0 +1,10 @@
+# Ignore specific directories in dist
+screening/
+lp/
+inside/
+healthcare/
+enquire/
+chatbot-test/
+best-digital-marketing-services-in-gurgaon/
+arush.brandingpioneers.com/
+backup/
