@@ -491,14 +491,16 @@ const MegaMenuHeader = () => {
                 <FaPhone className="text-sm" />
                 <span>098117 80937</span>
               </a>
-              <button
-                className={`hidden lg:block px-4 py-2 rounded-full text-sm font-medium transition-colors ${isScrolled || isContactPage
-                  ? "bg-warm-500 text-white hover:bg-warm-800"
-                  : "bg-white text-warm-700 hover:bg-white/90"
-                  }`}
-              >
-                Request a demo
-              </button>
+              <Link to="/contact">
+                <button
+                  className={`hidden lg:block px-4 py-2 rounded-full text-sm font-medium transition-colors ${isScrolled || isContactPage
+                    ? "bg-warm-500 text-white hover:bg-warm-800"
+                    : "bg-white text-warm-700 hover:bg-white/90"
+                    }`}
+                >
+                  Request a demo
+                </button>
+              </Link>
 
               {/* Mobile Menu Button */}
               <button
