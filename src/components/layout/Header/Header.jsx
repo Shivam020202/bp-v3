@@ -990,242 +990,244 @@ const Header = () => {
               </div>
             </div>
 
-            {/* Full-Screen Mobile Menu - Animated & Eye-Catching */}
-            <div
-              className={`lg:hidden fixed inset-0 z-[99999] transition-all duration-500 ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-                }`}
-            >
-              {/* Animated Backdrop */}
-              <div
-                className={`absolute inset-0 transition-all duration-500 ${isMobileMenuOpen ? 'bg-black/80 backdrop-blur-md' : 'bg-transparent'
-                  }`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              />
 
-              {/* Sliding Menu Panel */}
-              <div
-                className={`absolute top-0 right-0 h-full w-full max-w-[420px] transition-transform duration-500 ease-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-                  }`}
-                style={{
-                  background: "linear-gradient(135deg, #0f0f0f 0%, #1a1510 50%, #0f0f0f 100%)",
-                }}
-              >
-                {/* Decorative Gradient Orbs */}
-                <div className="absolute top-20 -left-20 w-40 h-40 bg-gradient-to-r from-[#C69563]/30 to-transparent rounded-full blur-3xl animate-pulse" />
-                <div className="absolute bottom-40 right-0 w-32 h-32 bg-gradient-to-l from-[#FBD9BF]/20 to-transparent rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
-
-                {/* Header with Close */}
-                <div className="relative z-10 flex items-center justify-between p-6 border-b border-white/10">
-                  {/* Logo */}
-                  <div className="flex items-center gap-3">
-                    <div
-                      className="p-2 rounded-lg"
-                      style={{
-                        background: "linear-gradient(135deg, #D4A574 0%, #C69563 100%)",
-                      }}
-                    >
-                      <FaCrown className="text-lg text-white" />
-                    </div>
-                    <span className="text-white font-bold">Menu</span>
-                  </div>
-
-                  {/* Animated Close Button */}
-                  <button
-                    className="relative w-11 h-11 rounded-full flex items-center justify-center overflow-hidden group"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#C69563] to-[#FBD9BF] opacity-20 group-hover:opacity-40 transition-opacity" />
-                    <div className="absolute inset-0.5 bg-[#1a1a1a] rounded-full" />
-                    <FaTimes className="relative z-10 text-[#FBD9BF] group-hover:rotate-90 transition-transform duration-300" />
-                  </button>
-                </div>
-
-                {/* Scrollable Content */}
-                <div className="relative z-10 h-[calc(100%-80px)] overflow-y-auto pb-20 scrollbar-hide">
-                  {/* Main Navigation */}
-                  <div className="p-6 space-y-1">
-                    {[
-                      { name: 'Home', path: '/' },
-                      { name: 'About', path: '/about' },
-                      { name: 'Blog', path: '#' },
-                      { name: 'Contact', path: '/contact' }
-                    ].map((item, index) => (
-                      <Link
-                        key={item.name}
-                        to={item.path}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className={`group flex items-center justify-between py-4 border-b border-white/5 cursor-pointer transition-all duration-300 ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-                          }`}
-                        style={{ transitionDelay: `${index * 80}ms` }}
-                      >
-                        <span className="text-2xl font-bold text-white group-hover:text-[#FBD9BF] transition-colors">
-                          {item.name}
-                        </span>
-                        <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#C69563]/30 transition-colors">
-                          <FaChevronDown className="text-xs text-white/50 -rotate-90 group-hover:text-[#FBD9BF]" />
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-
-                  {/* Services Section with Tabs */}
-                  <div className="px-6 mb-6">
-                    <div
-                      className={`transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                        }`}
-                      style={{ transitionDelay: '350ms' }}
-                    >
-                      <h3 className="text-xs uppercase tracking-widest text-[#C69563] font-bold mb-4 flex items-center gap-2">
-                        <span className="w-6 h-[1px] bg-[#C69563]" />
-                        Services
-                      </h3>
-
-                      {/* Horizontal Scrollable Tabs */}
-                      <div className="flex gap-2 mb-4 overflow-x-auto pb-2 scrollbar-hide -mx-6 px-6">
-                        {serviceCategories.map((category, index) => (
-                          <button
-                            key={index}
-                            onClick={() => setActiveServiceTab(index)}
-                            className={`flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeServiceTab === index
-                              ? 'bg-gradient-to-r from-[#C69563] to-[#B88552] text-white shadow-lg shadow-[#C69563]/30'
-                              : 'bg-white/5 text-white/70 hover:bg-white/10'
-                              }`}
-                          >
-                            <span className="text-base">{category.icon}</span>
-                            <span className="whitespace-nowrap">{category.title.split(' ')[0]}</span>
-                          </button>
-                        ))}
-                      </div>
-
-                      {/* Service Items Grid */}
-                      <div className="grid grid-cols-2 gap-2">
-                        {serviceCategories[activeServiceTab].services.map((service, idx) => (
-                          <Link
-                            key={idx}
-                            to={service.link || "#"}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="group p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-[#C69563]/30 transition-all duration-300 cursor-pointer"
-                          >
-                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C69563]/20 to-transparent flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-                              <span className="text-[#FBD9BF] text-sm">{service.icon}</span>
-                            </div>
-                            <h4 className="text-white text-xs font-semibold mb-0.5">{service.name}</h4>
-                            <p className="text-white/40 text-[10px] line-clamp-1">{service.description}</p>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Case Studies Section */}
-                  <div className="px-6 mb-6">
-                    <div
-                      className={`transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                        }`}
-                      style={{ transitionDelay: '450ms' }}
-                    >
-                      <h3 className="text-xs uppercase tracking-widest text-[#C69563] font-bold mb-4 flex items-center gap-2">
-                        <span className="w-6 h-[1px] bg-[#C69563]" />
-                        Case Studies
-                      </h3>
-
-                      {/* Horizontal Scrollable Industry Tabs */}
-                      <div className="flex gap-2 mb-4 overflow-x-auto pb-2 scrollbar-hide -mx-6 px-6">
-                        {caseStudyCategories.map((category, index) => (
-                          <button
-                            key={index}
-                            onClick={() => setActiveCaseTab(index)}
-                            className={`flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeCaseTab === index
-                              ? 'bg-gradient-to-r from-[#C69563] to-[#B88552] text-white shadow-lg shadow-[#C69563]/30'
-                              : 'bg-white/5 text-white/70 hover:bg-white/10'
-                              }`}
-                          >
-                            <span className="text-base">{category.icon}</span>
-                            <span className="whitespace-nowrap">{category.title}</span>
-                          </button>
-                        ))}
-                      </div>
-
-                      {/* Case Study Cards - Vertical Stack */}
-                      <div className="space-y-2">
-                        {caseStudyCategories[activeCaseTab].cases.slice(0, 4).map((caseStudy, idx) => (
-                          <Link
-                            key={idx}
-                            to="/portfolio"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="group flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-[#C69563]/30 transition-all duration-300 cursor-pointer"
-                          >
-                            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#C69563]/30 to-transparent flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                              <FaBriefcase className="text-[#FBD9BF]" />
-                            </div>
-                            <div className="flex-1 min-w-0">
-                              <h4 className="text-white text-sm font-semibold truncate">{caseStudy.title}</h4>
-                              <div className="flex items-center gap-2 mt-0.5">
-                                <span className="text-white/40 text-xs">{caseStudy.client}</span>
-                                <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#C69563]/20 text-[#FBD9BF]">
-                                  {caseStudy.result}
-                                </span>
-                              </div>
-                            </div>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* CTA Section */}
-                  <div
-                    className={`px-6 transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                      }`}
-                    style={{ transitionDelay: '550ms' }}
-                  >
-                    <div className="relative p-5 rounded-2xl overflow-hidden">
-                      {/* Background Gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#C69563] to-[#8B6F47] opacity-90" />
-                      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIi8+PC9zdmc+')] opacity-50" />
-
-                      <div className="relative z-10">
-                        <h4 className="text-white font-bold text-lg mb-1">Ready to Transform?</h4>
-                        <p className="text-white/80 text-sm mb-4">Let's create something extraordinary together.</p>
-                        <Link
-                          to="/contact"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="w-full py-3 bg-white text-[#8B6F47] rounded-full font-bold text-sm flex items-center justify-center gap-2 hover:bg-white/90 transition-colors shadow-lg"
-                        >
-                          <FaRocket />
-                          Get Started Today
-                          <FaMagic className="text-xs" />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Bottom Social Links */}
-                  <div
-                    className={`px-6 pt-8 pb-6 transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                      }`}
-                    style={{ transitionDelay: '650ms' }}
-                  >
-                    <div className="flex items-center justify-center gap-4">
-                      {['Instagram', 'LinkedIn', 'Twitter'].map((social) => (
-                        <div
-                          key={social}
-                          className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#C69563]/30 transition-colors cursor-pointer group"
-                        >
-                          <span className="text-[10px] text-white/40 group-hover:text-[#FBD9BF] transition-colors">
-                            {social.charAt(0)}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                    <p className="text-center text-white/20 text-xs mt-4">© 2024 Branding Pioneers</p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </header>
+
+      {/* Full-Screen Mobile Menu - Rendered outside header to avoid stacking context issues */}
+      <div
+        className={`lg:hidden fixed inset-0 z-[99999] transition-all duration-500 ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
+      >
+        {/* Animated Backdrop */}
+        <div
+          className={`absolute inset-0 transition-all duration-500 ${isMobileMenuOpen ? 'bg-black/80 backdrop-blur-md' : 'bg-transparent'
+            }`}
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+
+        {/* Sliding Menu Panel */}
+        <div
+          className={`absolute top-0 right-0 h-full w-full max-w-[420px] transition-transform duration-500 ease-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+            }`}
+          style={{
+            background: "linear-gradient(135deg, #0f0f0f 0%, #1a1510 50%, #0f0f0f 100%)",
+          }}
+        >
+          {/* Decorative Gradient Orbs */}
+          <div className="absolute top-20 -left-20 w-40 h-40 bg-gradient-to-r from-[#C69563]/30 to-transparent rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-40 right-0 w-32 h-32 bg-gradient-to-l from-[#FBD9BF]/20 to-transparent rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
+
+          {/* Header with Close */}
+          <div className="relative z-10 flex items-center justify-between p-6 border-b border-white/10">
+            {/* Logo */}
+            <div className="flex items-center gap-3">
+              <div
+                className="p-2 rounded-lg"
+                style={{
+                  background: "linear-gradient(135deg, #D4A574 0%, #C69563 100%)",
+                }}
+              >
+                <FaCrown className="text-lg text-white" />
+              </div>
+              <span className="text-white font-bold">Menu</span>
+            </div>
+
+            {/* Animated Close Button */}
+            <button
+              className="relative w-11 h-11 rounded-full flex items-center justify-center overflow-hidden group"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-[#C69563] to-[#FBD9BF] opacity-20 group-hover:opacity-40 transition-opacity" />
+              <div className="absolute inset-0.5 bg-[#1a1a1a] rounded-full" />
+              <FaTimes className="relative z-10 text-[#FBD9BF] group-hover:rotate-90 transition-transform duration-300" />
+            </button>
+          </div>
+
+          {/* Scrollable Content */}
+          <div className="relative z-10 h-[calc(100%-80px)] overflow-y-auto pb-20 scrollbar-hide">
+            {/* Main Navigation */}
+            <div className="p-6 space-y-1">
+              {[
+                { name: 'Home', path: '/' },
+                { name: 'About', path: '/about' },
+                { name: 'Blog', path: '#' },
+                { name: 'Contact', path: '/contact' }
+              ].map((item, index) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`group flex items-center justify-between py-4 border-b border-white/5 cursor-pointer transition-all duration-300 ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+                    }`}
+                  style={{ transitionDelay: `${index * 80}ms` }}
+                >
+                  <span className="text-2xl font-bold text-white group-hover:text-[#FBD9BF] transition-colors">
+                    {item.name}
+                  </span>
+                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#C69563]/30 transition-colors">
+                    <FaChevronDown className="text-xs text-white/50 -rotate-90 group-hover:text-[#FBD9BF]" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            {/* Services Section with Tabs */}
+            <div className="px-6 mb-6">
+              <div
+                className={`transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                  }`}
+                style={{ transitionDelay: '350ms' }}
+              >
+                <h3 className="text-xs uppercase tracking-widest text-[#C69563] font-bold mb-4 flex items-center gap-2">
+                  <span className="w-6 h-[1px] bg-[#C69563]" />
+                  Services
+                </h3>
+
+                {/* Horizontal Scrollable Tabs */}
+                <div className="flex gap-2 mb-4 overflow-x-auto pb-2 scrollbar-hide -mx-6 px-6">
+                  {serviceCategories.map((category, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveServiceTab(index)}
+                      className={`flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeServiceTab === index
+                        ? 'bg-gradient-to-r from-[#C69563] to-[#B88552] text-white shadow-lg shadow-[#C69563]/30'
+                        : 'bg-white/5 text-white/70 hover:bg-white/10'
+                        }`}
+                    >
+                      <span className="text-base">{category.icon}</span>
+                      <span className="whitespace-nowrap">{category.title.split(' ')[0]}</span>
+                    </button>
+                  ))}
+                </div>
+
+                {/* Service Items Grid */}
+                <div className="grid grid-cols-2 gap-2">
+                  {serviceCategories[activeServiceTab].services.map((service, idx) => (
+                    <Link
+                      key={idx}
+                      to={service.link || "#"}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="group p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-[#C69563]/30 transition-all duration-300 cursor-pointer"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C69563]/20 to-transparent flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                        <span className="text-[#FBD9BF] text-sm">{service.icon}</span>
+                      </div>
+                      <h4 className="text-white text-xs font-semibold mb-0.5">{service.name}</h4>
+                      <p className="text-white/40 text-[10px] line-clamp-1">{service.description}</p>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Case Studies Section */}
+            <div className="px-6 mb-6">
+              <div
+                className={`transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                  }`}
+                style={{ transitionDelay: '450ms' }}
+              >
+                <h3 className="text-xs uppercase tracking-widest text-[#C69563] font-bold mb-4 flex items-center gap-2">
+                  <span className="w-6 h-[1px] bg-[#C69563]" />
+                  Case Studies
+                </h3>
+
+                {/* Horizontal Scrollable Industry Tabs */}
+                <div className="flex gap-2 mb-4 overflow-x-auto pb-2 scrollbar-hide -mx-6 px-6">
+                  {caseStudyCategories.map((category, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveCaseTab(index)}
+                      className={`flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeCaseTab === index
+                        ? 'bg-gradient-to-r from-[#C69563] to-[#B88552] text-white shadow-lg shadow-[#C69563]/30'
+                        : 'bg-white/5 text-white/70 hover:bg-white/10'
+                        }`}
+                    >
+                      <span className="text-base">{category.icon}</span>
+                      <span className="whitespace-nowrap">{category.title}</span>
+                    </button>
+                  ))}
+                </div>
+
+                {/* Case Study Cards - Vertical Stack */}
+                <div className="space-y-2">
+                  {caseStudyCategories[activeCaseTab].cases.slice(0, 4).map((caseStudy, idx) => (
+                    <Link
+                      key={idx}
+                      to="/portfolio"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="group flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-[#C69563]/30 transition-all duration-300 cursor-pointer"
+                    >
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#C69563]/30 to-transparent flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <FaBriefcase className="text-[#FBD9BF]" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-white text-sm font-semibold truncate">{caseStudy.title}</h4>
+                        <div className="flex items-center gap-2 mt-0.5">
+                          <span className="text-white/40 text-xs">{caseStudy.client}</span>
+                          <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#C69563]/20 text-[#FBD9BF]">
+                            {caseStudy.result}
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Section */}
+            <div
+              className={`px-6 transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                }`}
+              style={{ transitionDelay: '550ms' }}
+            >
+              <div className="relative p-5 rounded-2xl overflow-hidden">
+                {/* Background Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#C69563] to-[#8B6F47] opacity-90" />
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIi8+PC9zdmc+')] opacity-50" />
+
+                <div className="relative z-10">
+                  <h4 className="text-white font-bold text-lg mb-1">Ready to Transform?</h4>
+                  <p className="text-white/80 text-sm mb-4">Let's create something extraordinary together.</p>
+                  <Link
+                    to="/contact"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="w-full py-3 bg-white text-[#8B6F47] rounded-full font-bold text-sm flex items-center justify-center gap-2 hover:bg-white/90 transition-colors shadow-lg"
+                  >
+                    <FaRocket />
+                    Get Started Today
+                    <FaMagic className="text-xs" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Social Links */}
+            <div
+              className={`px-6 pt-8 pb-6 transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                }`}
+              style={{ transitionDelay: '650ms' }}
+            >
+              <div className="flex items-center justify-center gap-4">
+                {['Instagram', 'LinkedIn', 'Twitter'].map((social) => (
+                  <div
+                    key={social}
+                    className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#C69563]/30 transition-colors cursor-pointer group"
+                  >
+                    <span className="text-[10px] text-white/40 group-hover:text-[#FBD9BF] transition-colors">
+                      {social.charAt(0)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <p className="text-center text-white/20 text-xs mt-4">© 2024 Branding Pioneers</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <style jsx>{`
         @keyframes fadeIn {

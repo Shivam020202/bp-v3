@@ -253,299 +253,284 @@ const MegaMenuHeader = () => {
     servicesMenu.content["digital-marketing"];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 container mx-auto ${
-        isScrolled || isContactPage
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 container mx-auto ${isScrolled || isContactPage
           ? "bg-white/70 backdrop-blur-sm border-b border-white/10 shadow-[inset_0_2px_10px_rgba(0,0,0,0.3)] rounded-b-3xl md:rounded-3xl md:mt-2"
           : "bg-white/90 rounded-b-3xl"
-      }`}
-    >
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center gap-8">
-            <Link to="/" className="flex items-center gap-2">
-              <img
-                src="https://res.cloudinary.com/de4kw1t2i/image/upload/v1768545326/bp-logo_3_j7upkn.png"
-                alt="Branding Pioneers Logo"
-                className="h-10"
-              />
-            </Link>
-          </div>
+          }`}
+      >
+        <div className="container mx-auto px-6">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <div className="flex items-center gap-8">
+              <Link to="/" className="flex items-center gap-2">
+                <img
+                  src="https://res.cloudinary.com/de4kw1t2i/image/upload/v1768545326/bp-logo_3_j7upkn.png"
+                  alt="Branding Pioneers Logo"
+                  className="h-10"
+                />
+              </Link>
+            </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
-            <Link
-              to="/"
-              className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${
-                isScrolled || isContactPage
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-1">
+              <Link
+                to="/"
+                className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${isScrolled || isContactPage
                   ? "text-black/70 hover:text-black/80 hover:bg-white/20 "
                   : "text-black/70 hover:text-black/80 hover:bg-white/20"
-              }`}
-            >
-              Home
-            </Link>
-            <Link
-              to="/about"
-              className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${
-                isScrolled || isContactPage
+                  }`}
+              >
+                Home
+              </Link>
+              <Link
+                to="/about"
+                className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${isScrolled || isContactPage
                   ? "text-black/70 hover:text-black/80 hover:bg-white/20 "
                   : "text-black/70 hover:text-black/80 hover:bg-white/20"
-              }`}
-            >
-              About
-            </Link>
-            <Link
-              to="/services/ai-solutions"
-              className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${
-                isScrolled || isContactPage
+                  }`}
+              >
+                About
+              </Link>
+              <Link
+                to="/services/ai-solutions"
+                className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${isScrolled || isContactPage
                   ? "text-black/70 hover:text-black/80 hover:bg-white/20 "
                   : "text-black/70 hover:text-black/80 hover:bg-white/20"
-              }`}
-            >
-              AI Solutions
-            </Link>
+                  }`}
+              >
+                AI Solutions
+              </Link>
 
-            {/* Services Mega Menu */}
-            <div
-              className="relative"
-              onMouseEnter={() => handleMenuEnter("services")}
-              onMouseLeave={handleMenuLeave}
-            >
-              <button
-                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${
-                  isScrolled || isContactPage
+              {/* Services Mega Menu */}
+              <div
+                className="relative"
+                onMouseEnter={() => handleMenuEnter("services")}
+                onMouseLeave={handleMenuLeave}
+              >
+                <button
+                  className={`flex items-center gap-1 px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${isScrolled || isContactPage
                     ? "text-black/70 hover:text-black/80 hover:bg-white/20 "
                     : "text-black/70 hover:text-black/80 hover:bg-white/20"
-                }`}
-              >
-                Services
-                <FaChevronDown
-                  className={`text-xs transition-transform duration-200 ${
-                    activeMenu === "services" ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
+                    }`}
+                >
+                  Services
+                  <FaChevronDown
+                    className={`text-xs transition-transform duration-200 ${activeMenu === "services" ? "rotate-180" : ""
+                      }`}
+                  />
+                </button>
 
-              {/* Services Mega Menu Dropdown */}
-              <AnimatePresence>
-                {activeMenu === "services" && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.2 }}
-                    className="fixed inset-x-0 top-20 px-4 flex justify-center"
-                    onMouseEnter={() => handleMenuEnter("services")}
-                    onMouseLeave={handleMenuLeave}
-                  >
-                    <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden w-full max-w-6xl">
-                      <div className="flex">
-                        {/* Left Sidebar - Service Categories */}
-                        <div className="w-64 bg-warm-50 border-r border-warm-100 p-4">
-                          <div className="space-y-1">
-                            {servicesMenu.categories.map((category, index) => (
-                              <button
-                                key={category.id}
-                                onMouseEnter={() =>
-                                  setActiveServicesCategory(index)
-                                }
-                                className={`w-full text-left px-3 py-3 rounded-lg transition-all ${
-                                  activeServicesCategory === index
+                {/* Services Mega Menu Dropdown */}
+                <AnimatePresence>
+                  {activeMenu === "services" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.2 }}
+                      className="fixed inset-x-0 top-20 px-4 flex justify-center"
+                      onMouseEnter={() => handleMenuEnter("services")}
+                      onMouseLeave={handleMenuLeave}
+                    >
+                      <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden w-full max-w-6xl">
+                        <div className="flex">
+                          {/* Left Sidebar - Service Categories */}
+                          <div className="w-64 bg-warm-50 border-r border-warm-100 p-4">
+                            <div className="space-y-1">
+                              {servicesMenu.categories.map((category, index) => (
+                                <button
+                                  key={category.id}
+                                  onMouseEnter={() =>
+                                    setActiveServicesCategory(index)
+                                  }
+                                  className={`w-full text-left px-3 py-3 rounded-lg transition-all ${activeServicesCategory === index
                                     ? "bg-white shadow-sm"
                                     : "hover:bg-white/50"
-                                }`}
-                              >
-                                <div className="flex items-start gap-3">
-                                  <div
-                                    className={`text-lg mt-0.5 ${
-                                      activeServicesCategory === index
+                                    }`}
+                                >
+                                  <div className="flex items-start gap-3">
+                                    <div
+                                      className={`text-lg mt-0.5 ${activeServicesCategory === index
                                         ? "text-warm-600"
                                         : "text-warm-400"
-                                    }`}
-                                  >
-                                    {category.icon}
-                                  </div>
-                                  <div className="flex-1 min-w-0">
-                                    <div
-                                      className={`text-sm font-semibold mb-0.5 ${
-                                        activeServicesCategory === index
+                                        }`}
+                                    >
+                                      {category.icon}
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                      <div
+                                        className={`text-sm font-semibold mb-0.5 ${activeServicesCategory === index
                                           ? "text-warm-900"
                                           : "text-warm-700"
-                                      }`}
-                                    >
-                                      {category.title}
-                                    </div>
-                                    <div className="text-xs text-warm-600 leading-snug">
-                                      {category.subtitle}
-                                    </div>
-                                  </div>
-                                </div>
-                              </button>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Right Content Area */}
-                        <div className="flex-1 p-5">
-                          <div className="flex gap-6">
-                            {/* Service Sections */}
-                            <div className="flex-1">
-                              <div className="space-y-5">
-                                {currentServicesContent.sections?.map(
-                                  (section, sIdx) => (
-                                    <div key={sIdx}>
-                                      <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">
-                                        {section.title}
-                                      </h3>
-                                      <div className="space-y-1">
-                                        {section.items.map((item, iIdx) => (
-                                          <Link
-                                            key={iIdx}
-                                            to={item.link}
-                                            className="flex items-start gap-3 p-2 rounded-lg hover:bg-warm-50 transition-colors group"
-                                          >
-                                            <div className="text-warm-400 text-sm mt-0.5 group-hover:text-warm-600 transition-colors">
-                                              {item.icon}
-                                            </div>
-                                            <div className="flex-1 min-w-0">
-                                              <div className="text-sm font-medium text-gray-900 mb-0.5 group-hover:text-warm-700">
-                                                {item.title}
-                                              </div>
-                                              <div className="text-xs text-gray-500 leading-snug">
-                                                {item.description}
-                                              </div>
-                                            </div>
-                                          </Link>
-                                        ))}
+                                          }`}
+                                      >
+                                        {category.title}
+                                      </div>
+                                      <div className="text-xs text-warm-600 leading-snug">
+                                        {category.subtitle}
                                       </div>
                                     </div>
-                                  ),
-                                )}
-                              </div>
+                                  </div>
+                                </button>
+                              ))}
                             </div>
+                          </div>
 
-                            {/* Featured Section */}
-                            {currentServicesContent.featured && (
-                              <div className="w-56">
-                                <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">
-                                  FEATURED
-                                </div>
-                                <Link
-                                  to="#"
-                                  className="block rounded-xl overflow-hidden bg-gradient-to-br from-warm-400 to-warm-500 p-6 hover:shadow-lg transition-shadow group"
-                                >
-                                  <div className="aspect-[4/3] mb-3 flex items-center justify-center">
-                                    <div className="text-center">
-                                      <div className="text-white text-4xl mb-3">
-                                        🚀
+                          {/* Right Content Area */}
+                          <div className="flex-1 p-5">
+                            <div className="flex gap-6">
+                              {/* Service Sections */}
+                              <div className="flex-1">
+                                <div className="space-y-5">
+                                  {currentServicesContent.sections?.map(
+                                    (section, sIdx) => (
+                                      <div key={sIdx}>
+                                        <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">
+                                          {section.title}
+                                        </h3>
+                                        <div className="space-y-1">
+                                          {section.items.map((item, iIdx) => (
+                                            <Link
+                                              key={iIdx}
+                                              to={item.link}
+                                              className="flex items-start gap-3 p-2 rounded-lg hover:bg-warm-50 transition-colors group"
+                                            >
+                                              <div className="text-warm-400 text-sm mt-0.5 group-hover:text-warm-600 transition-colors">
+                                                {item.icon}
+                                              </div>
+                                              <div className="flex-1 min-w-0">
+                                                <div className="text-sm font-medium text-gray-900 mb-0.5 group-hover:text-warm-700">
+                                                  {item.title}
+                                                </div>
+                                                <div className="text-xs text-gray-500 leading-snug">
+                                                  {item.description}
+                                                </div>
+                                              </div>
+                                            </Link>
+                                          ))}
+                                        </div>
                                       </div>
-                                      <div className="text-white font-semibold text-xl mb-1">
-                                        Special Offer
+                                    ),
+                                  )}
+                                </div>
+                              </div>
+
+                              {/* Featured Section */}
+                              {currentServicesContent.featured && (
+                                <div className="w-56">
+                                  <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">
+                                    FEATURED
+                                  </div>
+                                  <Link
+                                    to="#"
+                                    className="block rounded-xl overflow-hidden bg-gradient-to-br from-warm-400 to-warm-500 p-6 hover:shadow-lg transition-shadow group"
+                                  >
+                                    <div className="aspect-[4/3] mb-3 flex items-center justify-center">
+                                      <div className="text-center">
+                                        <div className="text-white text-4xl mb-3">
+                                          🚀
+                                        </div>
+                                        <div className="text-white font-semibold text-xl mb-1">
+                                          Special Offer
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
-                                  <div className="text-sm font-semibold text-white mb-1">
-                                    {currentServicesContent.featured.title}
-                                  </div>
-                                  <div className="text-xs text-white/90">
-                                    {
-                                      currentServicesContent.featured
-                                        .description
-                                    }
-                                  </div>
-                                </Link>
-                              </div>
-                            )}
+                                    <div className="text-sm font-semibold text-white mb-1">
+                                      {currentServicesContent.featured.title}
+                                    </div>
+                                    <div className="text-xs text-white/90">
+                                      {
+                                        currentServicesContent.featured
+                                          .description
+                                      }
+                                    </div>
+                                  </Link>
+                                </div>
+                              )}
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
-            <Link
-              to="/portfolio"
-              className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${
-                isScrolled || isContactPage
+              <Link
+                to="/portfolio"
+                className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${isScrolled || isContactPage
                   ? "text-black/70 hover:text-black/80 hover:bg-white/20 "
                   : "text-black/70 hover:text-black/80 hover:bg-white/20"
-              }`}
-            >
-              Portfolio
-            </Link>
+                  }`}
+              >
+                Portfolio
+              </Link>
 
-            <Link
-              to="/careers"
-              className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${
-                isScrolled || isContactPage
+              <Link
+                to="/careers"
+                className={`px-3 py-2 text-sm font-medium border shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] border-white/20 bg-white/30 rounded-full transition-colors ${isScrolled || isContactPage
                   ? "text-black/70 hover:text-black/80 hover:bg-white/20 "
                   : "text-black/70 hover:text-black/80 hover:bg-white/20"
-              }`}
-            >
-              Career
-            </Link>
-          </nav>
+                  }`}
+              >
+                Career
+              </Link>
+            </nav>
 
-          {/* Right Side Actions */}
-          <div className="flex items-center gap-3">
-            <a
-              href="tel:09811780937"
-              className={`hidden lg:flex items-center gap-2 text-sm font-bold transition-colors ${
-                isScrolled || isContactPage
+            {/* Right Side Actions */}
+            <div className="flex items-center gap-3">
+              <a
+                href="tel:09811780937"
+                className={`hidden lg:flex items-center gap-2 text-sm font-bold transition-colors ${isScrolled || isContactPage
                   ? "text-black/70 hover:text-black"
                   : "text-black/70 hover:text-black"
-              }`}
-            >
-              <FaPhone className="text-sm" />
-              <span>098117 80937</span>
-            </a>
-            <button
-              className={`hidden lg:block px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                isScrolled || isContactPage
+                  }`}
+              >
+                <FaPhone className="text-sm" />
+                <span>098117 80937</span>
+              </a>
+              <button
+                className={`hidden lg:block px-4 py-2 rounded-full text-sm font-medium transition-colors ${isScrolled || isContactPage
                   ? "bg-warm-500 text-white hover:bg-warm-800"
                   : "bg-white text-warm-700 hover:bg-white/90"
-              }`}
-            >
-              Request a demo
-            </button>
+                  }`}
+              >
+                Request a demo
+              </button>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`lg:hidden p-2 transition-colors ${
-                isScrolled || isContactPage ? "text-warm-700" : "text-black"
-              }`}
-            >
-              {isMobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
-            </button>
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className={`lg:hidden p-2 transition-colors ${isScrolled || isContactPage ? "text-warm-700" : "text-black"
+                  }`}
+              >
+                {isMobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Full-Screen Mobile Menu - Animated & Eye-Catching */}
+      {/* Full-Screen Mobile Menu - Rendered outside header to avoid stacking context issues */}
       <div
-        className={`lg:hidden fixed inset-0 z-[100000] transition-all duration-500 ${
-          isMobileMenuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        }`}
+        className={`lg:hidden fixed inset-0 z-[100000] transition-all duration-500 ${isMobileMenuOpen
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
+          }`}
       >
         {/* Animated Backdrop */}
         <div
-          className={`absolute inset-0 transition-all duration-500 ${
-            isMobileMenuOpen ? "bg-black/80 backdrop-blur-md" : "bg-transparent"
-          }`}
+          className={`absolute inset-0 transition-all duration-500 ${isMobileMenuOpen ? "bg-black/80 backdrop-blur-md" : "bg-transparent"
+            }`}
           onClick={() => setIsMobileMenuOpen(false)}
         />
 
         {/* Sliding Menu Panel */}
         <div
-          className={`absolute top-0 right-0 h-full w-full max-w-[420px] transition-transform duration-500 ease-out ${
-            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`absolute top-0 right-0 h-full w-full max-w-[420px] transition-transform duration-500 ease-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
           style={{
             background:
               "linear-gradient(135deg, #0f0f0f 0%, #1a1510 50%, #0f0f0f 100%)",
@@ -562,16 +547,13 @@ const MegaMenuHeader = () => {
           <div className="relative z-10 flex items-center justify-between p-6 border-b border-white/10">
             {/* Logo */}
             <div className="flex items-center gap-3">
-              <div
-                className="p-2 rounded-lg"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #D4A574 0%, #C69563 100%)",
-                }}
-              >
-                <FaRocket className="text-lg text-white" />
-              </div>
-              <span className="text-white font-bold">Menu</span>
+              <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center">
+                <img
+                  src="/bp-logo.png"
+                  alt="Branding Pioneers Logo"
+                  className="h-10 w-auto object-contain"
+                />
+              </Link>
             </div>
 
             {/* Animated Close Button */}
@@ -600,11 +582,10 @@ const MegaMenuHeader = () => {
                   key={item.name}
                   to={item.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`group flex items-center justify-between py-4 border-b border-white/5 cursor-pointer transition-all duration-300 ${
-                    isMobileMenuOpen
-                      ? "translate-x-0 opacity-100"
-                      : "translate-x-8 opacity-0"
-                  }`}
+                  className={`group flex items-center justify-between py-4 border-b border-white/5 cursor-pointer transition-all duration-300 ${isMobileMenuOpen
+                    ? "translate-x-0 opacity-100"
+                    : "translate-x-8 opacity-0"
+                    }`}
                   style={{ transitionDelay: `${index * 80}ms` }}
                 >
                   <span className="text-2xl font-bold text-white group-hover:text-[#FBD9BF] transition-colors">
@@ -620,11 +601,10 @@ const MegaMenuHeader = () => {
             {/* Services Section with Tabs */}
             <div className="px-6 mb-6">
               <div
-                className={`transition-all duration-500 ${
-                  isMobileMenuOpen
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-4 opacity-0"
-                }`}
+                className={`transition-all duration-500 ${isMobileMenuOpen
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-4 opacity-0"
+                  }`}
                 style={{ transitionDelay: "350ms" }}
               >
                 <h3 className="text-xs uppercase tracking-widest text-[#C69563] font-bold mb-4 flex items-center gap-2">
@@ -641,11 +621,10 @@ const MegaMenuHeader = () => {
                     <button
                       key={index}
                       onClick={() => setActiveServicesCategory(index)}
-                      className={`flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                        activeServicesCategory === index
-                          ? "bg-gradient-to-r from-[#C69563] to-[#B88552] text-white shadow-lg shadow-[#C69563]/30"
-                          : "bg-white/5 text-white/70 hover:bg-white/10"
-                      }`}
+                      className={`flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeServicesCategory === index
+                        ? "bg-gradient-to-r from-[#C69563] to-[#B88552] text-white shadow-lg shadow-[#C69563]/30"
+                        : "bg-white/5 text-white/70 hover:bg-white/10"
+                        }`}
                     >
                       <span className="text-base">{category.icon}</span>
                       <span className="whitespace-nowrap">
@@ -688,11 +667,10 @@ const MegaMenuHeader = () => {
 
             {/* CTA Section */}
             <div
-              className={`px-6 transition-all duration-500 ${
-                isMobileMenuOpen
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-4 opacity-0"
-              }`}
+              className={`px-6 transition-all duration-500 ${isMobileMenuOpen
+                ? "translate-y-0 opacity-100"
+                : "translate-y-4 opacity-0"
+                }`}
               style={{ transitionDelay: "550ms" }}
             >
               <div className="relative p-5 rounded-2xl overflow-hidden">
@@ -727,11 +705,10 @@ const MegaMenuHeader = () => {
 
             {/* Bottom Social Links */}
             <div
-              className={`px-6 pt-8 pb-6 transition-all duration-500 ${
-                isMobileMenuOpen
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-4 opacity-0"
-              }`}
+              className={`px-6 pt-8 pb-6 transition-all duration-500 ${isMobileMenuOpen
+                ? "translate-y-0 opacity-100"
+                : "translate-y-4 opacity-0"
+                }`}
               style={{ transitionDelay: "650ms" }}
             >
               <div className="flex items-center justify-center gap-4">
@@ -753,7 +730,7 @@ const MegaMenuHeader = () => {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 };
 

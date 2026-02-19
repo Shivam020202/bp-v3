@@ -83,9 +83,9 @@ const AboutCompany = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-6 md:gap-16 lg:gap-24">
+        <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-16 lg:gap-24">
           {/* Left: The Visual Anchor */}
-          <div className="w-full lg:w-1/2 relative mb-2 sm:mb-0">
+          <div className="w-full lg:w-1/2 relative mb-4 sm:mb-0">
             {/* The "Frame" */}
             <div className="relative aspect-[4/5] sm:aspect-square w-full max-w-xs sm:max-w-md mx-auto">
               {/* Back Element (Outline) */}
